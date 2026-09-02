@@ -8,9 +8,21 @@
 # --- PODSTAWY (uzupełnij, gdy będziesz miał nazwę i domenę) ---
 title: "[NAZWA]"
 description: "Co tydzień przeglądam polskie biznesy internetowe na sprzedaż i opisuję te, które są warte uwagi. Ceny, mnożniki, moja ocena."
-url: "https://[DOMENA]"
-baseurl: ""
 lang: pl
+
+# --- ADRES STRONY ---------------------------------------------------
+# To są dwie najważniejsze linie w całym pliku. Jeśli są źle ustawione,
+# strona wczyta się bez wyglądu, jako sam czarny tekst na białym tle.
+#
+# baseurl to katalog, w którym stoi strona. Zasada jest prosta:
+#   repozytorium nazywa się emilwiktorski9.github.io  ->  baseurl: ""
+#   repozytorium nazywa się jakkolwiek inaczej        ->  baseurl: "/nazwa-repozytorium"
+#   masz podpiętą własną domenę                       ->  baseurl: ""
+#
+# url to adres bez ukośnika na końcu.
+# --------------------------------------------------------------------
+url: "https://emilwiktorski9.github.io"
+baseurl: ""
 
 autor: "Emil Wiktorski"
 email: "[EMAIL]"
