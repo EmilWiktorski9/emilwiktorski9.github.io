@@ -40,6 +40,24 @@ Od tej pory każda zmiana pliku na GitHubie i kliknięcie **Commit changes** aut
 
 ---
 
+## 2b. Gdy strona wygląda jak goły tekst
+
+Jeśli strona wczyta się jako czarny tekst na białym tle, bez kolorów i bez kroju pisma, to znaczy, że przeglądarka nie znalazła arkusza stylów. Przyczyna jest zawsze ta sama: linia `baseurl` w `_config.yml` nie zgadza się z tym, gdzie faktycznie stoi strona.
+
+Zasada:
+
+| Adres strony | `baseurl` ma być |
+|---|---|
+| `emilwiktorski9.github.io` | `""` |
+| `emilwiktorski9.github.io/strona/` | `"/strona"` |
+| własna domena | `""` |
+
+Najprościej uniknąć tego raz na zawsze: nazwij repozytorium dokładnie `emilwiktorski9.github.io`. Wtedy strona stoi w katalogu głównym, `baseurl` zostaje puste i po podpięciu domeny nic nie trzeba zmieniać.
+
+Zmiana nazwy istniejącego repozytorium: **Settings**, pierwsze pole na górze, **Rename**.
+
+---
+
 ## 3. Podpięcie własnej domeny
 
 Rób w tej kolejności, bo odwrotna kolejność jest niebezpieczna: gdybyś ustawił DNS przed dodaniem domeny na GitHubie, ktoś inny mógłby przejąć twój adres.
@@ -73,7 +91,7 @@ Jeśli rejestrator dodał własne domyślne rekordy A wskazujące gdzie indziej,
 
 Wpis to jeden plik. Nie ruszasz nawigacji, strony głównej ani list. Wszystko podepnie się samo.
 
-**Krok 1.** Otwórz plik `SZABLON-WPISU.txt` i skopiuj tekst spod linii.
+**Krok 1.** Otwórz `SZABLON-WYDANIA.txt` (wydanie newslettera) albo `SZABLON-WPISU-BLOG.txt` (zwykły wpis) i skopiuj tekst spod linii.
 
 **Krok 2.** W repozytorium wejdź do katalogu `_posts`. Kliknij **Add file → Create new file**.
 
@@ -96,11 +114,17 @@ Zasady nazwy: rok, myślnik, miesiąc dwucyfrowo, myślnik, dzień dwucyfrowo, m
 
 **Krok 6.** Na dole kliknij **Commit changes**. Po dwóch minutach wpis jest na stronie, w odpowiedniej liście, w mapie strony i w kanale RSS.
 
-### Blok pojedynczej oferty
+### Budowa wydania
 
-W wydaniach każdą ofertę opakowujesz w gotowy blok, który znajdziesz na końcu `SZABLON-WPISU.txt`. Zmieniasz w nim numer, tytuł, trzy liczby i trzy akapity. Reszta zrobi się sama.
+Wydanie ma cztery części: krótki wstęp, tabelę wszystkich ofert wartych pokazania, trzy oferty rozpisane pełnym schematem i sekcję "czego nie było".
 
-Uwaga na jeden szczegół: w linii `<div class="oferta" markdown="1">` fragment `markdown="1"` musi zostać. Bez niego pogrubienia i śródtytuły w środku bloku przestaną działać.
+Rozpisana oferta ma stałą kolejność: fakty z ogłoszenia (branża, platforma, co wchodzi w cenę, co pisze sprzedający), potem karta weryfikacji, na końcu opinia oznaczona jako opinia.
+
+Trzy szczegóły techniczne, na których najłatwiej się potknąć:
+
+1. Fragment `markdown="1"` w liniach zaczynających się od `<div` musi zostać. Bez niego pogrubienia i śródtytuły w środku przestaną działać.
+2. W tabeli każdy wiersz musi mieć tyle samo pionowych kresek.
+3. W karcie weryfikacji format jest taki: nazwa w jednej linii, w następnej dwukropek, spacja i wynik, potem pusta linia. Gdy czegoś nie dało się sprawdzić, otocz tekst gwiazdkami, na przykład `*brak danych*`. Wyświetli się szarą kursywą, więc od razu widać, że to brak, a nie wynik.
 
 ---
 
@@ -158,7 +182,8 @@ o-mnie.md                 strona o mnie
 polityka-prywatnosci.md   szkielet polityki, do uzupełnienia
 404.html                  strona pokazywana przy złym adresie
 robots.txt                instrukcja dla wyszukiwarek
-SZABLON-WPISU.txt         szablon do kopiowania przy nowym wpisie
+SZABLON-WYDANIA.txt       szablon wydania: tabela, oferty, weryfikacja
+SZABLON-WPISU-BLOG.txt    szablon zwykłego wpisu na bloga
 
 _posts/                   TU DODAJESZ WPISY, jeden plik to jeden wpis
 _layouts/                 układ stron, nie musisz tu zaglądać

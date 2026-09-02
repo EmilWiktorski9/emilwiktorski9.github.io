@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://[DOMENA]/sitemap.xml
+Sitemap: https://emilwiktorski9.github.io/sitemap.xml

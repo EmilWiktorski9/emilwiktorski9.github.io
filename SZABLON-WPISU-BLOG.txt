@@ -1,0 +1,27 @@
+SZABLON WPISU NA BLOGA
+======================
+
+Nazwa pliku: RRRR-MM-DD-tytul-po-myslnikach.md
+Katalog: _posts
+Bez polskich znaków i bez spacji w nazwie pliku.
+
+===================== KOPIUJ OD TEJ LINII ==========================
+
+---
+layout: wpis
+title: "Tytuł wpisu"
+date: 2026-09-20
+categories: blog
+lead: "Jedno albo dwa zdania streszczenia. Pokazuje się na liście i w Google."
+---
+
+Pierwszy akapit. Pusta linia oddziela akapity.
+
+## Śródtytuł
+
+**Tak pogrubiasz**, *tak pochylasz*, [tak wstawiasz link](https://adres.pl).
+
+- pozycja listy
+- druga pozycja
+
+===================== KONIEC =======================================

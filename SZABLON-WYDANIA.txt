@@ -1,0 +1,131 @@
+SZABLON WYDANIA NEWSLETTERA
+===========================
+
+Nazwa pliku: RRRR-MM-DD-wydanie-NN.md, na przykład 2026-09-15-wydanie-02.md
+Katalog: _posts
+Bez polskich znaków i bez spacji w nazwie pliku.
+
+Układ wydania: wstęp, tabela wszystkich ofert, trzy oferty rozpisane, czego nie było.
+
+===================== KOPIUJ OD TEJ LINII ==========================
+
+---
+layout: wpis
+title: "Wydanie 02: tytuł mówiący, co było w środku"
+date: 2026-09-15
+categories: wydania
+lead: "Jedno zdanie streszczenia. Pokazuje się na liście wydań i w wynikach Google."
+---
+
+W tym tygodniu przejrzałem NN ogłoszeń. NN nadawało się do pokazania. Poniżej wszystkie w tabeli, a pod nią trzy rozpisane szerzej.
+
+<div class="tabela-ofert" markdown="1">
+
+| Co to jest | Cena wywoławcza | Zysk deklarowany | Mnożnik | Co zwraca uwagę |
+|---|---|---|---|---|
+| Sklep rowerowy, Shoper | 180 000 zł | 71 000 zł/rok | 2,5× | jedno źródło ruchu |
+| Konto Allegro, elektronika | 95 000 zł | 48 000 zł/rok | 2,0× | brak danych o marży |
+| SaaS do faktur | 240 000 zł | 60 000 zł/rok | 4,0× | umowy roczne, sprawdzone |
+
+</div>
+
+<p class="legenda">Zysk deklarowany to liczba podana przez sprzedającego. Nie miałem dostępu do dokumentów księgowych.</p>
+
+## Trzy, którym przyjrzałem się bliżej
+
+<div class="oferta" markdown="1">
+<p class="oferta-numer">01</p>
+
+### Nazwa albo krótki opis oferty
+
+<p class="oferta-liczby">
+<span><b>cena wywoławcza</b><i>180 000 zł</i></span>
+<span><b>zysk deklarowany</b><i>71 000 zł/rok</i></span>
+<span><b>mnożnik</b><i>2,5×</i></span>
+</p>
+
+**Branża i kategoria.** Co to jest i co sprzedaje.
+
+**Platforma.** Shoper, WooCommerce, Allegro, własne.
+
+**Co wchodzi w cenę.** Zapasy, konto na marketplace, baza mailowa, profile, umowy z dostawcami. Jeśli sprzedający nie napisał, napisz, że nie napisał.
+
+**Co pisze sprzedający.** Streszczenie ogłoszenia, bez oceny.
+
+#### Weryfikacja
+
+<div class="weryfikacja" markdown="1">
+
+Strona www
+: działa, przyjmuje zamówienia
+
+Od kiedy istnieje
+: domena zarejestrowana w 2019, pierwszy ślad w archiwum internetu z 2019, zgadza się z deklaracją
+
+Marketplace
+: Allegro, 2 400 ocen, konto od 2019
+
+Opinie Google
+: 4,6 przy 88 opiniach, ostatnia sprzed miesiąca
+
+Opinie na marketplace
+: 99,2 procent pozytywnych
+
+Media społecznościowe
+: Facebook i Instagram, ostatni wpis sprzed trzech dni
+
+Widoczność w Google
+: wychodzi na kilkadziesiąt fraz produktowych, ruch nie jest wyłącznie płatny
+
+Wyniki finansowe
+: *brak, sprzedający prowadzi jednoosobową działalność, nie składa sprawozdań do KRS*
+
+Zadłużenie i postępowania
+: *nie dotyczy, brak spółki do sprawdzenia*
+
+</div>
+
+**Opinia.** Twoja ocena, wyraźnie oznaczona jako opinia. Nigdy nie pisz, że ktoś kłamie. Pisz, czego nie dało się sprawdzić.
+</div>
+
+<div class="oferta" markdown="1">
+<p class="oferta-numer">02</p>
+
+### Druga oferta
+
+<p class="oferta-liczby">
+<span><b>cena wywoławcza</b><i>95 000 zł</i></span>
+<span><b>zysk deklarowany</b><i>48 000 zł/rok</i></span>
+<span><b>mnożnik</b><i>2,0×</i></span>
+</p>
+
+Ten sam układ co wyżej.
+</div>
+
+## Czego nie było
+
+Jedno albo dwa zdania o tym, czego w tym tygodniu zabrakło. Ta sekcja buduje zaufanie mocniej niż wszystko inne, bo pokazuje, że nie zapełniasz wydania na siłę.
+
+===================== KONIEC =======================================
+
+
+UWAGI TECHNICZNE
+----------------
+
+1. Fragment markdown="1" w liniach <div ...> musi zostać. Bez niego pogrubienia
+   i śródtytuły w środku przestaną działać.
+
+2. W tabeli liczba pionowych kresek w każdym wierszu musi być taka sama.
+   To jedyne miejsce, w którym łatwo o błąd.
+
+3. W karcie weryfikacji format jest taki: nazwa w jednej linii, w następnej
+   dwukropek, spacja i wynik. Pusta linia między pozycjami.
+   Gdy czegoś nie dało się sprawdzić, otocz tekst gwiazdkami: *nie do sprawdzenia*.
+   Wyświetli się szarą kursywą, czyli będzie widać, że to brak, a nie wynik.
+
+4. Kolejność pozycji w weryfikacji zostawiaj zawsze taką samą. Wtedy brak
+   któregoś punktu sam w sobie niesie informację.
+
+5. Kafelek "wartość firmy" z bizraportu to szacunek algorytmu, a nie cena
+   rynkowa. Jeśli go podajesz, dopisz, czym jest, inaczej będzie się gryzł
+   z Twoim mnożnikiem.
