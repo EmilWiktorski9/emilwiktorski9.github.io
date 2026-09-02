@@ -1,0 +1,19 @@
+<a class="pomin" href="#tresc">Przejdź do treści</a>
+<header class="winieta">
+  <div class="kolumna">
+    <div class="winieta-gora">
+      <a class="winieta-nazwa" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav class="menu" aria-label="Nawigacja główna">
+        <a href="{{ '/wydania/' | relative_url }}">Wydania</a>
+        <a href="{{ '/blog/' | relative_url }}">Blog</a>
+        <a href="{{ '/o-mnie/' | relative_url }}">O mnie</a>
+      </nav>
+    </div>
+    <p class="licznik">
+      <span>wydanie <b>{{ site.licznik.wydanie }}</b></span>
+      <span>{{ site.licznik.data }}</span>
+      <span>przejrzanych ogłoszeń <b>{{ site.licznik.przejrzanych }}</b></span>
+      <span>opisanych <b>{{ site.licznik.opisanych }}</b></span>
+    </p>
+  </div>
+</header>

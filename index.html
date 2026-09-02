@@ -1,0 +1,34 @@
+---
+layout: default
+---
+<div class="kolumna proza otwarcie">
+  <h1>{{ site.naglowek_glowny }}</h1>
+  <p>Piszę o polskim rynku wtórnym biznesów internetowych: sklepach, kontach Allegro, SaaS-ach i serwisach treściowych. Co tydzień jedna wiadomość z ofertami, cenami, mnożnikami i tym, czego przy każdej ofercie nie dało się sprawdzić.</p>
+
+  <div class="dla-kogo">
+    <p><b>Dla kogo to jest.</b> Dla ludzi, którzy myślą o kupieniu działającego biznesu internetowego zamiast budowania od zera, i dla właścicieli, którzy zastanawiają się, ile ich firma jest dziś warta.</p>
+    <p><b>Czego się spodziewać.</b> Jednej wiadomości w tygodniu. Konkretnych ofert z ceną i mnożnikiem. Oddzielania faktów od tego, co sprzedający tylko deklaruje. Czasem wniosku, że w danym tygodniu nie było nic wartego uwagi.</p>
+    <p><b>Czego nie znajdziesz.</b> Poradników o pasywnym dochodzie, kursów, reklam ani ofert od moich znajomych.</p>
+  </div>
+</div>
+
+{% assign ostatnie = site.categories.wydania | first %}
+{% if ostatnie %}
+<div class="kolumna proza">
+  <h2>Co było w ostatnim wydaniu</h2>
+  <p class="data">{{ ostatnie.date | date: "%d.%m.%Y" }}</p>
+  <h3 style="margin-top:0"><a href="{{ ostatnie.url | relative_url }}">{{ ostatnie.title }}</a></h3>
+  <p>{{ ostatnie.lead | default: ostatnie.excerpt | strip_html | normalize_whitespace | truncate: 260 }}</p>
+  <p><a href="{{ '/wydania/' | relative_url }}">Wszystkie wydania</a></p>
+</div>
+{% endif %}
+
+<div class="kolumna">
+  {% include zapis.html %}
+</div>
+
+<div class="kolumna proza">
+  <h2>Kto za tym stoi</h2>
+  <p>Nazywam się {{ site.autor }}. Pracowałem w trzech firmach e-commerce, więc ten rynek znam od środka, a nie z konferencji. Nie sprzedałem jeszcze żadnego biznesu i nie jestem pośrednikiem. Jestem człowiekiem, który co tydzień czyta te ogłoszenia do końca i zapisuje, co z nich wynika.</p>
+  <p><a href="{{ '/o-mnie/' | relative_url }}">Więcej o mnie</a></p>
+</div>

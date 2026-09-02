@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article class="kolumna proza">
+  <p class="data"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d.%m.%Y" }}</time></p>
+  <h1>{{ page.title }}</h1>
+  {% if page.lead %}<p class="lead">{{ page.lead }}</p>{% endif %}
+  {{ content }}
+</article>
+<div class="kolumna">
+  {% include zapis.html %}
+</div>

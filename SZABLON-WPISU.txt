@@ -1,0 +1,48 @@
+SZABLON NOWEGO WPISU
+====================
+
+1. Skopiuj wszystko poniżej linii.
+2. Utwórz nowy plik w katalogu _posts.
+3. Nazwa pliku MUSI wyglądać tak: RRRR-MM-DD-tytul-po-myslnikach.md
+   Przykład: 2026-09-15-wydanie-02.md
+   Bez polskich znaków w nazwie pliku. Bez spacji. Na końcu .md
+4. Wklej i zmień treść.
+5. W linii "categories" wpisz jedno z dwóch:
+      wydania   jeśli to wydanie newslettera
+      blog      jeśli to wpis na bloga
+
+--------------------------------------------------------------------
+---
+layout: wpis
+title: "Tutaj tytuł, w cudzysłowie"
+date: 2026-09-15
+categories: wydania
+lead: "Jedno albo dwa zdania streszczenia. To pokazuje się na liście i w Google."
+---
+
+Tutaj piszesz normalnym tekstem. Pusta linia oddziela akapity.
+
+## Tak robisz śródtytuł
+
+**Tak pogrubiasz**, a *tak pochylasz*. [Tak wstawiasz link](https://adres.pl).
+
+- tak robisz listę
+- druga pozycja
+
+--------------------------------------------------------------------
+
+BLOK POJEDYNCZEJ OFERTY (do wydań, wklejasz tyle razy, ile masz ofert):
+
+<div class="oferta" markdown="1">
+<p class="oferta-numer">01</p>
+
+### Nazwa oferty
+
+<p class="oferta-liczby"><span>180 000 zł</span><span>zysk 71 000 zł/rok</span><span>mnożnik 2,5×</span></p>
+
+**Fakty.** Co napisał sprzedający.
+
+**Weryfikacja.** Co udało się potwierdzić i czym.
+
+**Opinia.** Twoja ocena, oznaczona jako opinia.
+</div>

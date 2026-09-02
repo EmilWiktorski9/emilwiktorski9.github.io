@@ -1,0 +1,28 @@
+---
+layout: default
+title: Wydania
+permalink: /wydania/
+opis: "Archiwum wszystkich wydań newslettera o rynku wtórnym biznesów internetowych w Polsce."
+---
+<div class="kolumna proza">
+  <h1>Wydania</h1>
+  <p>Wszystkie dotychczasowe wydania newslettera, od najnowszego.</p>
+
+  {% if site.categories.wydania.size > 0 %}
+  <ul class="lista">
+    {% for wpis in site.categories.wydania %}
+    <li>
+      <p class="data"><time datetime="{{ wpis.date | date_to_xmlschema }}">{{ wpis.date | date: "%d.%m.%Y" }}</time></p>
+      <h2><a href="{{ wpis.url | relative_url }}">{{ wpis.title }}</a></h2>
+      <p>{{ wpis.lead | default: wpis.excerpt | strip_html | normalize_whitespace | truncate: 200 }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>Pierwsze wydanie jeszcze nie wyszło. Zapisz się poniżej, to dostaniesz je jako pierwszy.</p>
+  {% endif %}
+</div>
+
+<div class="kolumna">
+  {% include zapis.html %}
+</div>

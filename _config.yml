@@ -1,0 +1,54 @@
+# =====================================================================
+#  USTAWIENIA STRONY
+#  To jedyny plik, w którym zmieniasz rzeczy dotyczące całej strony.
+#  Po każdej zmianie zapisz plik i zatwierdź zmiany (commit) na GitHubie.
+#  Uwaga: cudzysłowy muszą zostać. Zmieniaj tylko tekst w środku.
+# =====================================================================
+
+# --- PODSTAWY (uzupełnij, gdy będziesz miał nazwę i domenę) ---
+title: "[NAZWA]"
+description: "Co tydzień przeglądam polskie biznesy internetowe na sprzedaż i opisuję te, które są warte uwagi. Ceny, mnożniki, moja ocena."
+url: "https://[DOMENA]"
+baseurl: ""
+lang: pl
+
+autor: "Emil Wiktorski"
+email: "[EMAIL]"
+
+# --- PASEK LICZNIKÓW (aktualizuj przy każdym nowym wydaniu) ---
+licznik:
+  wydanie: "01"
+  data: "02.09.2026"
+  przejrzanych: "0"
+  opisanych: "0"
+
+# --- ZDANIE NA STRONIE GŁÓWNEJ (zmieniaj, kiedy chcesz) ---
+naglowek_glowny: "W zeszłym tygodniu przejrzałem 40 ogłoszeń. Osiem było wartych opisania."
+
+# --- FORMULARZ ZAPISU ---
+# Gdy dostaniesz kod z MailerLite, wklej go do pliku _includes/zapis.html
+# w miejsce oznaczone [FORMULARZ_MAILERLITE]. Tutaj nic nie zmieniasz.
+
+# =====================================================================
+#  PONIŻEJ NIC NIE ZMIENIAJ
+# =====================================================================
+permalink: /:categories/:title/
+timezone: Europe/Warsaw
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+feed:
+  path: /rss.xml
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "wpis"
+exclude:
+  - SZABLON-WPISU.txt
+  - INSTRUKCJA.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

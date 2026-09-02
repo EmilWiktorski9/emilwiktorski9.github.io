@@ -1,0 +1,24 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+opis: "Teksty o wycenie, kupowaniu i sprzedawaniu biznesów internetowych w Polsce."
+---
+<div class="kolumna proza">
+  <h1>Blog</h1>
+  <p>Dłuższe teksty o wycenie, o tym, co sprawdzać przed kupnem, i o tym, jak wygląda ten rynek w Polsce.</p>
+
+  {% if site.categories.blog.size > 0 %}
+  <ul class="lista">
+    {% for wpis in site.categories.blog %}
+    <li>
+      <p class="data"><time datetime="{{ wpis.date | date_to_xmlschema }}">{{ wpis.date | date: "%d.%m.%Y" }}</time></p>
+      <h2><a href="{{ wpis.url | relative_url }}">{{ wpis.title }}</a></h2>
+      <p>{{ wpis.lead | default: wpis.excerpt | strip_html | normalize_whitespace | truncate: 200 }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>Nie ma tu jeszcze żadnego wpisu.</p>
+  {% endif %}
+</div>
