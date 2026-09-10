@@ -2,48 +2,169 @@
 layout: strona
 title: Polityka prywatności
 permalink: /polityka-prywatnosci/
-opis: "Kto przetwarza dane osobowe zbierane na tej stronie, w jakim celu i jakie masz prawa."
+opis: "Kto przetwarza dane osobowe zbierane na tej stronie, w jakim celu, jak długo i jakie masz prawa."
 ---
 
-<!-- =====================================================================
-     UWAGA, EMIL. Ten dokument to szkielet, a nie gotowa polityka.
-     Miejsca oznaczone [ ] musisz uzupełnić albo skonsultować.
-     Nie jestem prawnikiem. Pytania do zadania prawnikowi znajdziesz
-     na końcu pliku INSTRUKCJA.md.
-     ===================================================================== -->
+Ten dokument mówi, co dzieje się z Twoimi danymi, kiedy odwiedzasz tę stronę
+albo zapisujesz się na newsletter. Starałem się napisać go tak, żeby dało się
+go przeczytać do końca.
 
-## Kto jest administratorem danych
+## 1. Kto przetwarza Twoje dane
 
-Administratorem Twoich danych osobowych jest Emil Wiktorski, [ADRES DO KORESPONDENCJI], kontakt: [EMAIL].
+Administratorem danych osobowych jest Emil Wiktorski, osoba fizyczna
+nieprowadząca zarejestrowanej działalności gospodarczej, zamieszkały
+w Łodzi, Polska.
 
-## Jakie dane zbieram i po co
+Kontakt: emil.wiktorski@onet.pl.
 
-**Adres e-mail podany w formularzu zapisu.** Przetwarzam go wyłącznie po to, żeby wysyłać Ci newsletter. Podstawa prawna: Twoja zgoda (art. 6 ust. 1 lit. a RODO) oraz zgoda na otrzymywanie informacji handlowej drogą elektroniczną.
+Nie wyznaczyłem inspektora ochrony danych, ponieważ nie mam takiego obowiązku.
+We wszystkich sprawach dotyczących danych piszesz bezpośrednio do mnie.
 
-Zapis jest dwuetapowy. Po wpisaniu adresu dostajesz wiadomość z linkiem potwierdzającym. Dopóki nie klikniesz w ten link, nie trafiasz na listę i nie dostajesz ode mnie nic więcej.
+## 2. Jakie dane przetwarzam i w jakim celu
 
-**Dane techniczne.** [UZUPEŁNIĆ: czy używasz jakiejkolwiek analityki. Jeśli nie używasz żadnej, napisz tutaj wprost, że strona nie zbiera statystyk odwiedzin i nie używa plików cookies. Jeśli kiedyś dodasz analitykę, ten akapit trzeba zmienić.]
+### Adres e-mail podany przy zapisie na newsletter
 
-## Komu powierzam dane
+**Co przetwarzam:** adres e-mail, a także datę i godzinę zapisu oraz
+potwierdzenia zapisu, adres IP z momentu zapisu i informacje o tym, czy
+otwierasz wysyłane wiadomości i czy klikasz w linki. Te ostatnie dane zbiera
+automatycznie system do wysyłki.
 
-Do wysyłki newslettera używam narzędzia [NAZWA NARZĘDZIA, np. MailerLite]. Dostawca przetwarza adresy na moje zlecenie, na podstawie umowy powierzenia. [UZUPEŁNIĆ: gdzie dostawca przechowuje dane i czy dochodzi do przekazania poza Europejski Obszar Gospodarczy.]
+**Po co:** żeby wysyłać Ci newsletter i żeby móc wykazać, że zgodziłeś się
+go otrzymywać.
 
-Strona jest hostowana na GitHub Pages.
+**Podstawa prawna:** Twoja zgoda, czyli art. 6 ust. 1 lit. a RODO, oraz
+odrębna zgoda na otrzymywanie informacji handlowej drogą elektroniczną,
+wymagana przez art. 398 ustawy Prawo komunikacji elektronicznej.
+Przechowywanie dowodu zgody opieram na moim prawnie uzasadnionym interesie,
+czyli art. 6 ust. 1 lit. f RODO, którym jest możliwość obrony przed zarzutem
+wysyłania wiadomości bez zgody.
 
-## Jak długo przechowuję dane
+**Jak wygląda zapis:** dwuetapowo. Po wpisaniu adresu dostajesz wiadomość
+z linkiem potwierdzającym. Dopóki w niego nie klikniesz, nie trafiasz na
+listę i nie dostajesz ode mnie żadnej innej wiadomości.
 
-Do momentu, w którym wypiszesz się z listy. Wypisanie się usuwa adres z bazy wysyłkowej.
+**Czy musisz podać dane:** nie. Podanie adresu jest całkowicie dobrowolne,
+ale bez niego nie mam jak wysłać Ci newslettera.
 
-## Twoje prawa
+### Dane, które zbiera hosting strony
 
-Masz prawo dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia, wniesienia sprzeciwu oraz wycofania zgody w dowolnym momencie. Wycofanie zgody nie wpływa na to, co działo się wcześniej.
+**Co przetwarzam:** adres IP, informacje o przeglądarce i systemie
+operacyjnym, data i godzina wejścia. Te dane zapisuje automatycznie serwer,
+na którym stoi strona. Nie przeglądam ich i nie mam do nich wygodnego dostępu,
+ale formalnie są przetwarzane, więc musisz o tym wiedzieć.
 
-Najprostszy sposób na wycofanie zgody to link do wypisania się, który jest w stopce każdej wysłanej przeze mnie wiadomości. Możesz też napisać na adres podany wyżej.
+**Po co:** żeby strona w ogóle się wyświetlała i żeby dostawca hostingu mógł
+zapewnić jej bezpieczeństwo.
 
-Masz też prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych.
+**Podstawa prawna:** mój prawnie uzasadniony interes, czyli art. 6 ust. 1
+lit. f RODO, polegający na udostępnianiu i zabezpieczeniu strony.
 
-## Zmiany
+### Korespondencja e-mail
 
-Jeśli zmienię sposób przetwarzania danych, zaktualizuję ten dokument i podam datę zmiany.
+**Co przetwarzam:** adres e-mail i wszystko, co sam napiszesz w wiadomości.
 
-Ostatnia aktualizacja: [DATA]
+**Po co:** żeby odpowiedzieć na Twoją wiadomość i prowadzić z Tobą rozmowę.
+
+**Podstawa prawna:** mój prawnie uzasadniony interes, art. 6 ust. 1 lit. f
+RODO, polegający na obsłudze kierowanej do mnie korespondencji.
+
+## 3. Czego nie robię
+
+Nie sprzedaję ani nie udostępniam Twoich danych nikomu w celach
+marketingowych.
+
+Nie stosuję plików cookies ani żadnych narzędzi analitycznych. Ta strona nie
+liczy odwiedzin, nie śledzi Cię i nie osadza skryptów reklamowych. Jedyne
+połączenie z zewnętrznym serwisem dotyczy kroju pisma pobieranego z Google
+Fonts, o czym niżej.
+
+Nie podejmuję wobec Ciebie decyzji w sposób zautomatyzowany i nie profiluję
+Cię.
+
+Nie wysyłam nikomu wiadomości bez uprzedniej zgody. Nie zbieram adresów
+e-mail ze stron internetowych, rejestrów publicznych ani z grup w mediach
+społecznościowych.
+
+## 4. Komu powierzam dane
+
+**Wysyłka newslettera: MailerLite.** Dostawca przetwarza adresy wyłącznie
+na moje zlecenie, na podstawie umowy powierzenia stanowiącej część regulaminu
+usługi. Serwerownia, z której korzysta MailerLite, znajduje się na terenie
+Unii Europejskiej i ma certyfikat ISO/IEC 27001. Podprzetwarzający wskazani
+przez MailerLite również działają na terenie Unii.
+
+**Hosting strony: GitHub, Inc. z siedzibą w Stanach Zjednoczonych.** Dostawca
+przetwarza adresy IP w logach serwera w celach technicznych
+i bezpieczeństwa.
+
+**Krój pisma: Google.** Strona pobiera kroje pisma z serwerów Google Fonts.
+W momencie wczytywania strony Twoja przeglądarka nawiązuje połączenie
+z serwerem Google, który może zarejestrować adres IP.
+
+## 5. Przekazywanie danych poza Europejski Obszar Gospodarczy
+
+Adresy e-mail z listy newslettera przechowywane są na serwerach na terenie
+Unii Europejskiej i nie są przekazywane poza Europejski Obszar Gospodarczy.
+
+Dane techniczne przetwarzane przez GitHub, Inc. oraz Google trafiają do
+Stanów Zjednoczonych. Oba podmioty deklarują udział w programie EU-U.S. Data
+Privacy Framework.
+
+Masz prawo poprosić mnie o dalsze informacje na temat zabezpieczeń
+stosowanych przy takim przekazywaniu.
+
+## 6. Jak długo przechowuję dane
+
+**Adres e-mail z newslettera:** do momentu, w którym wypiszesz się z listy
+albo poprosisz o usunięcie danych. Wypisanie się usuwa adres z bazy
+wysyłkowej.
+
+**Dowód wyrażenia zgody:** przez okres przedawnienia ewentualnych roszczeń,
+liczony od momentu wycofania zgody. Przechowuję wyłącznie informację o tym,
+że i kiedy zgoda została wyrażona, żeby móc to wykazać, gdyby ktoś zarzucił
+mi wysyłkę bez zgody.
+
+**Korespondencja e-mail:** przez czas potrzebny do załatwienia sprawy,
+a potem tak długo, jak długo może być potrzebna jako dowód.
+
+**Logi serwera:** zgodnie z polityką dostawcy hostingu. Nie mam wpływu na ten
+okres i sam ich nie archiwizuję.
+
+## 7. Twoje prawa
+
+Masz prawo do:
+
+- dostępu do swoich danych i otrzymania ich kopii,
+- sprostowania danych, które są nieprawidłowe,
+- usunięcia danych,
+- ograniczenia przetwarzania,
+- przenoszenia danych,
+- wniesienia sprzeciwu wobec przetwarzania opartego na moim prawnie
+  uzasadnionym interesie,
+- wycofania zgody w dowolnym momencie.
+
+Wycofanie zgody nie wpływa na zgodność z prawem tego, co działo się
+wcześniej.
+
+Najprostszy sposób na wycofanie zgody to link do wypisania się, który
+znajduje się w stopce każdej wiadomości, jaką ode mnie dostajesz. Możesz też
+po prostu napisać do mnie na adres z punktu 1.
+
+Przysługuje Ci również prawo wniesienia skargi do Prezesa Urzędu Ochrony
+Danych Osobowych, ul. Stawki 2, 00-193 Warszawa, jeśli uznasz, że
+przetwarzam Twoje dane niezgodnie z prawem.
+
+## 8. Kontakt
+
+We wszystkich sprawach dotyczących danych osobowych pisz na emil.wiktorski@onet.pl.
+Odpowiadam na takie wiadomości bez zbędnej zwłoki, najpóźniej w ciągu
+miesiąca.
+
+## 9. Zmiany
+
+Jeśli zmienię sposób przetwarzania danych, na przykład dodam narzędzie
+analityczne albo zmienię dostawcę wysyłki, zaktualizuję ten dokument
+i zmienię datę poniżej. Warto tu zajrzeć, jeśli korzystasz ze strony
+regularnie.
+
+Ostatnia aktualizacja: 10.09.2026

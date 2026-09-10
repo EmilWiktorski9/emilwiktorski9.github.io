@@ -6,7 +6,7 @@
 # =====================================================================
 
 # --- PODSTAWY (uzupełnij, gdy będziesz miał nazwę i domenę) ---
-title: "[NAZWA]"
+title: "Emil Wiktorski"
 description: "Co tydzień przeglądam polskie biznesy internetowe na sprzedaż i opisuję te, które są warte uwagi. Ceny, mnożniki, moja ocena."
 lang: pl
 
@@ -21,11 +21,11 @@ lang: pl
 #
 # url to adres bez ukośnika na końcu.
 # --------------------------------------------------------------------
-url: "https://emilwiktorski9.github.io"
+url: "https://emilwiktorski.pl"
 baseurl: ""
 
 autor: "Emil Wiktorski"
-email: "[EMAIL]"
+email: "emil.wiktorski@onet.pl"
 
 # --- PASEK LICZNIKÓW (aktualizuj przy każdym nowym wydaniu) ---
 licznik:

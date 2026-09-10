@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://emilwiktorski9.github.io/sitemap.xml
+Sitemap: https://emilwiktorski.pl/sitemap.xml
