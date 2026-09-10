@@ -73,10 +73,11 @@ RODO, polegający na obsłudze kierowanej do mnie korespondencji.
 Nie sprzedaję ani nie udostępniam Twoich danych nikomu w celach
 marketingowych.
 
-Nie stosuję plików cookies ani żadnych narzędzi analitycznych. Ta strona nie
-liczy odwiedzin, nie śledzi Cię i nie osadza skryptów reklamowych. Jedyne
-połączenie z zewnętrznym serwisem dotyczy kroju pisma pobieranego z Google
-Fonts, o czym niżej.
+Nie stosuję narzędzi analitycznych. Ta strona nie liczy odwiedzin, nie śledzi
+Cię i nie osadza skryptów reklamowych. Poza krojem pisma pobieranym z Google
+Fonts, o czym niżej, strona ładuje skrypt obsługujący formularz zapisu na
+newsletter, dostarczany przez MailerLite. Innych połączeń z zewnętrznymi
+serwisami nie osadzam.
 
 Nie podejmuję wobec Ciebie decyzji w sposób zautomatyzowany i nie profiluję
 Cię.

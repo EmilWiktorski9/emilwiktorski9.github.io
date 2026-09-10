@@ -292,6 +292,68 @@ a:hover{text-decoration-color:var(--akcent)}
   margin-bottom:0;
 }
 
+/* --- formularz newslettera (MailerLite), ostylowany pod stronę -------- */
+.formularz .ml-form-fieldRow{margin:0 0 0.9rem}
+.formularz input[type="email"]{
+  width:100%;
+  box-sizing:border-box;
+  font-family:var(--serif);
+  font-size:1rem;
+  color:var(--tekst);
+  background:var(--papier);
+  border:1px solid var(--linia);
+  padding:0.7rem 0.8rem;
+}
+.formularz input[type="email"]::placeholder{color:var(--tekst-3)}
+.formularz input[type="email"]:focus{outline:2px solid var(--akcent);outline-offset:1px;border-color:var(--akcent)}
+.formularz .custom-checkbox-radio-list{margin:0}
+.formularz .custom-control{position:relative;padding-left:1.7rem}
+.formularz .custom-control-input{position:absolute;left:0;top:0.2rem;width:1rem;height:1rem;margin:0;accent-color:var(--akcent)}
+.formularz .custom-control-label{
+  font-family:var(--grotesk);
+  font-size:0.8rem;
+  line-height:1.4;
+  color:var(--tekst-2);
+  cursor:pointer;
+}
+.formularz .ml-form-embedSubmit{margin:1rem 0 0}
+.formularz button.primary{
+  font-family:var(--grotesk);
+  font-weight:600;
+  font-size:0.9rem;
+  color:var(--papier);
+  background:var(--akcent);
+  border:1px solid var(--akcent);
+  padding:0.7rem 1.5rem;
+  cursor:pointer;
+}
+.formularz button.primary:hover{filter:brightness(0.92)}
+.formularz button.loading{
+  background:var(--akcent);
+  border:1px solid var(--akcent);
+  padding:0.7rem 1.5rem;
+  cursor:default;
+}
+.formularz .ml-form-embedSubmitLoad{display:inline-block;width:18px;height:18px}
+.formularz .ml-form-embedSubmitLoad:after{
+  content:" ";
+  display:block;
+  width:11px;
+  height:11px;
+  margin:1px;
+  border-radius:50%;
+  border:3px solid var(--papier);
+  border-color:var(--papier) var(--papier) var(--papier) transparent;
+  animation:ml-form-embedSubmitLoad 1.2s linear infinite;
+}
+@keyframes ml-form-embedSubmitLoad{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.formularz .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.formularz .ml-error input{border-color:#b00020!important}
+.formularz .ml-error .custom-control-label,
+.formularz .ml-error label{color:#b00020}
+.ml-form-successContent h4{font-family:var(--grotesk);font-size:1.05rem;margin:0 0 0.4rem;color:var(--tekst)}
+.ml-form-successContent p{margin:0;color:var(--tekst-2)}
+
 /* --- stopka ----------------------------------------------------------- */
 .stopka{
   margin-top:4rem;
