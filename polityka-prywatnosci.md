@@ -15,7 +15,7 @@ Administratorem danych osobowych jest Emil Wiktorski, osoba fizyczna
 nieprowadząca zarejestrowanej działalności gospodarczej, zamieszkały
 w Łodzi, Polska.
 
-Kontakt: emil.wiktorski@onet.pl.
+Kontakt: emil@emilwiktorski.pl.
 
 Nie wyznaczyłem inspektora ochrony danych, ponieważ nie mam takiego obowiązku.
 We wszystkich sprawach dotyczących danych piszesz bezpośrednio do mnie.
@@ -157,7 +157,7 @@ przetwarzam Twoje dane niezgodnie z prawem.
 
 ## 8. Kontakt
 
-We wszystkich sprawach dotyczących danych osobowych pisz na emil.wiktorski@onet.pl.
+We wszystkich sprawach dotyczących danych osobowych pisz na emil@emilwiktorski.pl.
 Odpowiadam na takie wiadomości bez zbędnej zwłoki, najpóźniej w ciągu
 miesiąca.
 
