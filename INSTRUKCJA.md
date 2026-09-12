@@ -109,6 +109,8 @@ Zasady nazwy: rok, myślnik, miesiąc dwucyfrowo, myślnik, dzień dwucyfrowo, m
 - `date` data w formacie 2026-09-15
 - `categories` wpisz `wydania` albo `blog`, to decyduje, na której liście wpis się pojawi
 - `lead` jedno zdanie streszczenia, pokazuje się na liście i w wynikach Google
+- `przejrzanych` (tylko wydania) liczba przejrzanych ogłoszeń, trafia na pasek liczników
+- `opisanych` (tylko wydania) liczba opisanych ofert, też trafia na pasek liczników
 
 **Krok 5.** Napisz tekst. Zwykłym pismem, pusta linia oddziela akapity. `## Tekst` robi śródtytuł, `**tekst**` pogrubia, `[słowo](adres)` robi link.
 
@@ -128,11 +130,13 @@ Trzy szczegóły techniczne, na których najłatwiej się potknąć:
 
 ---
 
-## 5. Aktualizacja paska liczników
+## 5. Pasek liczników
 
-Pasek pod nazwą strony pokazuje numer wydania, datę i twoje liczby. To jest wyróżnik tej strony, więc powinien być prawdziwy.
+Pasek pod nazwą strony pokazuje numer wydania, datę ostatniego wydania i twoje liczby. To jest wyróżnik tej strony, więc pokazuje wyłącznie prawdziwe dane.
 
-Zmieniasz go w `_config.yml`, w sekcji `licznik`. Cztery linie, raz w tygodniu, przy okazji publikacji wydania. Tam też jest linia `naglowek_glowny` ze zdaniem otwierającym stronę główną.
+Wypełnia się sam z opublikowanych wydań: numer to liczba wydań, data to data ostatniego z nich, a liczby "przejrzanych ogłoszeń" i "opisanych" bierze z pól `przejrzanych` i `opisanych` w nagłówku ostatniego wydania (patrz krok 4). Dopóki nie ma żadnego wydania, pasek się nie pokazuje, i wraca sam po opublikowaniu pierwszego. Nic tu nie ustawiasz ręcznie.
+
+Zdanie otwierające stronę główną to osobna rzecz, zmieniasz je w `_config.yml`, w linii `naglowek_glowny`.
 
 ---
 
@@ -174,7 +178,7 @@ Nie jestem prawnikiem i polityka prywatności w tym repozytorium to szkielet, a 
 ## 9. Struktura plików
 
 ```
-_config.yml               ustawienia całej strony, tu zmieniasz nazwę, domenę, liczniki
+_config.yml               ustawienia całej strony, tu zmieniasz nazwę i domenę
 index.html                strona główna
 blog.html                 lista wpisów bloga
 archiwum.html             lista wydań newslettera

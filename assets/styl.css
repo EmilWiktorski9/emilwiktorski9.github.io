@@ -286,9 +286,10 @@ a:hover{text-decoration-color:var(--akcent)}
 .zapis p{color:var(--tekst-2)}
 .formularz{margin:1.2rem 0}
 .klauzula{
-  font-size:0.78rem;
+  font-size:0.72rem;
   line-height:1.55;
   color:var(--tekst-3);
+  opacity:0.9;
   margin-bottom:0;
 }
 

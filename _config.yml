@@ -27,13 +27,6 @@ baseurl: ""
 autor: "Emil Wiktorski"
 email: "emil@emilwiktorski.pl"
 
-# --- PASEK LICZNIKÓW (aktualizuj przy każdym nowym wydaniu) ---
-licznik:
-  wydanie: "01"
-  data: "02.09.2026"
-  przejrzanych: "0"
-  opisanych: "0"
-
 # --- ZDANIE NA STRONIE GŁÓWNEJ (zmieniaj, kiedy chcesz) ---
 naglowek_glowny: "W zeszłym tygodniu przejrzałem 40 ogłoszeń. Osiem było wartych opisania."
 

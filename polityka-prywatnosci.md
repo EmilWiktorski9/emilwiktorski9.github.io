@@ -73,11 +73,12 @@ RODO, polegający na obsłudze kierowanej do mnie korespondencji.
 Nie sprzedaję ani nie udostępniam Twoich danych nikomu w celach
 marketingowych.
 
-Nie stosuję narzędzi analitycznych. Ta strona nie liczy odwiedzin, nie śledzi
-Cię i nie osadza skryptów reklamowych. Poza krojem pisma pobieranym z Google
-Fonts, o czym niżej, strona ładuje skrypt obsługujący formularz zapisu na
-newsletter, dostarczany przez MailerLite. Innych połączeń z zewnętrznymi
-serwisami nie osadzam.
+Nie stosuję narzędzi analitycznych i nie zapisuję plików cookies. Ta strona nie
+liczy odwiedzin, nie śledzi Cię i nie osadza skryptów reklamowych. Jeden wyjątek:
+skrypt formularza zapisu na newsletter, dostarczany przez MailerLite, przy każdym
+wczytaniu strony wysyła do MailerLite informację, że formularz został wyświetlony.
+Poza tym i poza krojem pisma z Google Fonts, o czym niżej, strona nie łączy się
+z żadnym zewnętrznym serwisem.
 
 Nie podejmuję wobec Ciebie decyzji w sposób zautomatyzowany i nie profiluję
 Cię.
@@ -168,4 +169,4 @@ analityczne albo zmienię dostawcę wysyłki, zaktualizuję ten dokument
 i zmienię datę poniżej. Warto tu zajrzeć, jeśli korzystasz ze strony
 regularnie.
 
-Ostatnia aktualizacja: 10.09.2026
+Ostatnia aktualizacja: 11.09.2026

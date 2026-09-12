@@ -15,6 +15,8 @@ title: "Wydanie 02: tytuł mówiący, co było w środku"
 date: 2026-09-15
 categories: wydania
 lead: "Jedno zdanie streszczenia. Pokazuje się na liście wydań i w wynikach Google."
+przejrzanych: "NN"
+opisanych: "NN"
 ---
 
 W tym tygodniu przejrzałem NN ogłoszeń. NN nadawało się do pokazania. Poniżej wszystkie w tabeli, a pod nią trzy rozpisane szerzej.
