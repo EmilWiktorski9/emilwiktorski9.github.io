@@ -8,6 +8,10 @@ opis: "Archiwum wszystkich wydań newslettera o rynku wtórnym biznesów interne
   <h1>Wydania</h1>
   <p>Wszystkie dotychczasowe wydania newslettera, od najnowszego.</p>
 
+  {% if site.categories.wydania.size == 0 %}
+  <p>Pierwsze wydanie wychodzi w czwartek 17 września 2026.</p>
+  {% endif %}
+
   {% if site.categories.wydania.size > 0 %}
   <ul class="lista">
     {% for wpis in site.categories.wydania %}
@@ -18,8 +22,6 @@ opis: "Archiwum wszystkich wydań newslettera o rynku wtórnym biznesów interne
     </li>
     {% endfor %}
   </ul>
-  {% else %}
-  <p>Pierwsze wydanie jeszcze nie wyszło. Zapisz się poniżej, to dostaniesz je jako pierwszy.</p>
   {% endif %}
 </div>
 

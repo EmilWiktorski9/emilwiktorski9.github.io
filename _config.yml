@@ -28,7 +28,7 @@ autor: "Emil Wiktorski"
 email: "emil@emilwiktorski.pl"
 
 # --- ZDANIE NA STRONIE GŁÓWNEJ (zmieniaj, kiedy chcesz) ---
-naglowek_glowny: "W zeszłym tygodniu przejrzałem 40 ogłoszeń. Osiem było wartych opisania."
+naglowek_glowny: "Co czwartek jedna wiadomość o polskim rynku wtórnym biznesów internetowych: sklepach, kontach Allegro, SaaS-ach i serwisach treściowych."
 
 # --- FORMULARZ ZAPISU ---
 # Gdy dostaniesz kod z MailerLite, wklej go do pliku _includes/zapis.html
