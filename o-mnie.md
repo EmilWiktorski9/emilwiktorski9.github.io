@@ -24,5 +24,3 @@ Sprzedajesz biznes internetowy? Napisz, spojrzę na niego.
 Szukasz czegoś konkretnego do kupienia? Też napisz, powiem, jak się pojawi.
 
 A jeśli chcesz po prostu widzieć, co słychać na rynku, zapisz się na newsletter niżej.
-
-{% include zapis.html %}

@@ -1,4 +1,9 @@
 <footer class="stopka">
+  {% unless page.url == '/' or page.layout == 'wpis' %}
+  <div class="kolumna">
+    {% include zapis.html %}
+  </div>
+  {% endunless %}
   <div class="kolumna">
     <p class="stopka-autor">{{ site.autor }}</p>
     <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
