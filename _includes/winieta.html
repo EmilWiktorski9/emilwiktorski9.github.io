@@ -4,20 +4,9 @@
     <div class="winieta-gora">
       <a class="winieta-nazwa" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <nav class="menu" aria-label="Nawigacja główna">
-        <a href="{{ '/wydania/' | relative_url }}">Wydania</a>
         <a href="{{ '/blog/' | relative_url }}">Blog</a>
         <a href="{{ '/o-mnie/' | relative_url }}">O mnie</a>
-        <a href="{{ '/kontakt/' | relative_url }}">Kontakt</a>
       </nav>
     </div>
-    {% if site.categories.wydania.size > 0 %}
-    {% assign ostatnie_wydanie = site.categories.wydania.first %}
-    <p class="licznik">
-      <span>wydanie <b>{% assign n = site.categories.wydania.size %}{% if n < 10 %}0{% endif %}{{ n }}</b></span>
-      <span>{{ ostatnie_wydanie.date | date: "%d.%m.%Y" }}</span>
-      {% if ostatnie_wydanie.przejrzanych %}<span>przejrzanych ogłoszeń <b>{{ ostatnie_wydanie.przejrzanych }}</b></span>{% endif %}
-      {% if ostatnie_wydanie.opisanych %}<span>opisanych <b>{{ ostatnie_wydanie.opisanych }}</b></span>{% endif %}
-    </p>
-    {% endif %}
   </div>
 </header>
