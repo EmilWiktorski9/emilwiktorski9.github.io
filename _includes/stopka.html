@@ -5,10 +5,8 @@
   </div>
   {% endunless %}
   <div class="kolumna">
-    <p class="stopka-autor">{{ site.autor }}</p>
-    <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-    <p class="stopka-nota">Zapis na newsletter oznacza zgodę na otrzymywanie wiadomości drogą elektroniczną. Zgodę można wycofać w każdej chwili linkiem w stopce każdej wiadomości.</p>
     <p class="stopka-linki">
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
       <a href="{{ '/polityka-prywatnosci/' | relative_url }}">Polityka prywatności</a>
     </p>
   </div>

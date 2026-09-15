@@ -369,8 +369,8 @@ a:hover{text-decoration-color:var(--akcent)}
 .zapis p{color:var(--tekst-2)}
 .formularz{margin:1.2rem 0}
 .klauzula{
-  font-size:0.72rem;
-  line-height:1.55;
+  font-size:0.6rem;
+  line-height:1.5;
   color:var(--tekst-3);
   opacity:0.9;
   margin-bottom:0;
@@ -395,7 +395,7 @@ a:hover{text-decoration-color:var(--akcent)}
 .formularz .custom-control-input{position:absolute;left:0;top:0.2rem;width:1rem;height:1rem;margin:0;accent-color:var(--akcent)}
 .formularz .custom-control-label{
   font-family:var(--grotesk);
-  font-size:0.8rem;
+  font-size:0.62rem;
   line-height:1.4;
   color:var(--tekst-2);
   cursor:pointer;
@@ -450,7 +450,7 @@ a:hover{text-decoration-color:var(--akcent)}
 .stopka p{margin:0 0 0.4em}
 .stopka-autor{color:var(--tekst);font-weight:500}
 .stopka-nota{margin-top:1rem;line-height:1.55;max-width:34rem}
-.stopka-linki{margin-top:1rem;display:flex;gap:1.2rem}
+.stopka-linki{margin-top:0;display:flex;justify-content:space-between;gap:1.2rem;flex-wrap:wrap}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
