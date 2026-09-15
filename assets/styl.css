@@ -142,6 +142,89 @@ a:hover{text-decoration-color:var(--akcent)}
 }
 .dla-kogo p:last-child{margin-bottom:0}
 
+/* --- strona główna: układ dwukolumnowy ------------------------------- */
+/* Szersza niż wspólna kolumna tekstu, bo mieści dwie kolumny.
+   Na telefonie kolumny układają się jedna pod drugą, lewa na górze. */
+.glowna{
+  max-width:60rem;
+  margin-left:auto;
+  margin-right:auto;
+  padding:2.5rem 1.25rem;
+  display:grid;
+  gap:2.5rem;
+  grid-template-columns:1fr;
+}
+@media (min-width:48rem){
+  .glowna{
+    grid-template-columns:18rem 1fr;
+    gap:3rem;
+    align-items:start;
+  }
+}
+.avatar{
+  width:7rem;
+  height:7rem;
+  border-radius:50%;
+  background:var(--papier-blok);
+  border:1px solid var(--linia);
+  margin-bottom:1.2rem;
+}
+.glowna-nazwa{margin:0 0 0.4rem}
+.glowna-bio{color:var(--tekst-2);margin:0 0 1.1rem}
+.glowna-linki{margin:0 0 0.3rem}
+.glowna-linki .linkedin{
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  font-family:var(--grotesk);
+  font-size:0.9rem;
+  text-decoration:none;
+}
+.glowna-linki .linkedin:hover{color:var(--akcent)}
+.glowna-mail{margin:0 0 1.5rem;font-family:var(--grotesk);font-size:0.9rem}
+/* w wąskiej lewej kolumnie zapis nie potrzebuje dużego odstępu u góry */
+.glowna-lewa .zapis{margin-top:1.5rem}
+
+/* --- siatka kart projektów ------------------------------------------- */
+.projekty{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:1rem;
+  grid-template-columns:1fr;
+}
+@media (min-width:48rem){
+  .projekty{grid-template-columns:repeat(2,1fr)}
+}
+.projekt{margin:0}
+.projekt-link{
+  display:block;
+  height:100%;
+  padding:1.2rem;
+  border:1px solid var(--linia);
+  background:var(--papier);
+  text-decoration:none;
+  color:var(--tekst);
+}
+.projekt-link:hover{border-color:var(--akcent)}
+.projekt-nazwa{
+  display:block;
+  font-family:var(--grotesk);
+  font-weight:600;
+  font-size:1.05rem;
+  margin-bottom:0.3rem;
+}
+.projekt-opis{display:block;color:var(--tekst-2);font-size:0.95rem;line-height:1.5}
+/* miejsce na przyszły przychód, pojawia się dopiero gdy podasz pole przychod */
+.projekt-przychod{
+  display:block;
+  margin-top:0.7rem;
+  font-family:var(--mono);
+  font-size:0.85rem;
+  color:var(--akcent);
+}
+
 /* --- lista wpisów i wydań -------------------------------------------- */
 .lista{list-style:none;margin:2rem 0 0;padding:0}
 .lista li{padding:1.4rem 0;border-top:1px solid var(--linia)}

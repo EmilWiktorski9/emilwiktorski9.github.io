@@ -1,28 +1,44 @@
 ---
 layout: default
 ---
-<div class="kolumna proza otwarcie">
-  <h1>{{ site.naglowek_glowny }}</h1>
-  <p>Przeglądam ogłoszenia z całego tygodnia i opisuję te warte uwagi.</p>
-  <p>Pierwsze wydanie: czwartek 17 września 2026.</p>
+<div class="glowna">
 
-  <div class="dla-kogo">
-    <p><b>Dla kogo to jest.</b> Dla ludzi, którzy myślą o kupieniu działającego biznesu internetowego zamiast budowania od zera, i dla właścicieli, którzy zastanawiają się, ile ich firma jest dziś warta.</p>
-    <p><b>Czego się spodziewać.</b> Jednej wiadomości w tygodniu. Konkretnych ofert z ceną i mnożnikiem. Oddzielania faktów od tego, co sprzedający tylko deklaruje. Czasem wniosku, że w danym tygodniu nie było nic wartego uwagi.</p>
+  <div class="glowna-lewa">
+    <!-- Zdjęcie profilowe: podmień ten placeholder na <img class="avatar" src="/assets/..." alt="Emil Wiktorski"> gdy będzie gotowe -->
+    <div class="avatar" aria-hidden="true"></div>
+
+    <h1 class="glowna-nazwa">{{ site.autor }}</h1>
+
+    <!-- Miejsce na przychód miesięczny pod nazwiskiem. Odkomentuj i uzupełnij, gdy będziesz gotów:
+    <p class="glowna-przychod">[PRZYCHÓD MIESIĘCZNY]</p>
+    -->
+
+    <p class="glowna-bio">[JEDNO ZDANIE O MNIE]</p>
+
+    <p class="glowna-linki">
+      <a class="linkedin" href="https://www.linkedin.com/in/emil-wiktorski-6273171a4/" aria-label="LinkedIn" rel="me">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+    </p>
+
+    <p class="glowna-mail"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+
+    {% include zapis.html %}
   </div>
-</div>
 
-{% assign ostatnie = site.categories.wydania | first %}
-{% if ostatnie %}
-<div class="kolumna proza">
-  <h2>Co było w ostatnim wydaniu</h2>
-  <p class="data">{{ ostatnie.date | date: "%d.%m.%Y" }}</p>
-  <h3 style="margin-top:0"><a href="{{ ostatnie.url | relative_url }}">{{ ostatnie.title }}</a></h3>
-  <p>{{ ostatnie.lead | default: ostatnie.excerpt | strip_html | normalize_whitespace | truncate: 260 }}</p>
-  <p><a href="{{ '/wydania/' | relative_url }}">Wszystkie wydania</a></p>
-</div>
-{% endif %}
+  <div class="glowna-prawa">
+    <ul class="projekty">
+      {% for projekt in site.data.projekty %}
+      <li class="projekt">
+        <a class="projekt-link" href="{{ projekt.url }}">
+          <span class="projekt-nazwa">{{ projekt.nazwa }}</span>
+          <span class="projekt-opis">{{ projekt.opis }}</span>
+          {% if projekt.przychod %}<span class="projekt-przychod">{{ projekt.przychod }}</span>{% endif %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 
-<div class="kolumna">
-  {% include zapis.html %}
 </div>

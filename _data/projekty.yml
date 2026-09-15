@@ -1,0 +1,16 @@
+# =====================================================================
+#  PROJEKTY POKAZYWANE NA STRONIE GŁÓWNEJ
+#  Dodajesz projekt, dopisując kolejny blok zaczynający się od "-".
+#  Zachowaj wcięcia i cudzysłowy.
+#
+#  nazwa    nazwa projektu
+#  opis     jedno zdanie, co robi
+#  url      adres strony projektu (może być zewnętrzny albo własny)
+#  przychod (opcjonalne) miejsce na przyszły przychód, na razie pomiń.
+#           Gdy odkomentujesz linię przychod, pokaże się na karcie.
+# =====================================================================
+
+- nazwa: "[NAZWA PROJEKTU]"
+  opis: "[Jedno zdanie o tym, co robi ten projekt.]"
+  url: "#"
+  # przychod: "0 zł/mies"
