@@ -7,6 +7,8 @@ opis: "Teksty o wycenie, kupowaniu i sprzedawaniu biznesów internetowych w Pols
 <div class="kolumna proza">
   <h1>Blog</h1>
 
+  {% include zapis.html %}
+
   {% if site.categories.blog.size > 0 %}
   <ul class="lista">
     {% for wpis in site.categories.blog %}

@@ -6,3 +6,5 @@ opis: "[OPIS STRONY O MNIE]"
 ---
 
 [TREŚĆ STRONY O MNIE]
+
+{% include zapis.html %}

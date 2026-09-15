@@ -182,8 +182,19 @@ a:hover{text-decoration-color:var(--akcent)}
 }
 .glowna-linki .linkedin:hover{color:var(--akcent)}
 .glowna-mail{margin:0 0 1.5rem;font-family:var(--grotesk);font-size:0.9rem}
-/* w wąskiej lewej kolumnie zapis nie potrzebuje dużego odstępu u góry */
-.glowna-lewa .zapis{margin-top:1.5rem}
+.glowna-newsletter{margin:0}
+.przycisk{
+  display:inline-block;
+  font-family:var(--grotesk);
+  font-weight:600;
+  font-size:0.9rem;
+  color:var(--papier);
+  background:var(--akcent);
+  border:1px solid var(--akcent);
+  padding:0.7rem 1.4rem;
+  text-decoration:none;
+}
+.przycisk:hover{filter:brightness(0.92)}
 
 /* --- siatka kart projektów ------------------------------------------- */
 .projekty{
