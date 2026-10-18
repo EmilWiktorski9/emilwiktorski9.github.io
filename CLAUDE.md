@@ -1,41 +1,13 @@
-# Kontekst projektu
+# Zasady projektu
 
-Ten plik czytasz automatycznie przy każdym uruchomieniu. Traktuj go jak stałe
-instrukcje, nie jak dokumentację.
+Ten plik czytasz automatycznie przy każdym uruchomieniu. Zawiera wyłącznie
+zasady dotyczące strony. Repozytorium jest publiczne i ten plik może
+przeczytać każdy, dlatego nie dopisuj tu informacji o właścicielu, notatek
+roboczych ani ustaleń z rozmów. Na samej stronie plik jest wyłączony
+w `_config.yml`.
 
-## Kim jest właściciel repozytorium
-
-Emil Wiktorski. Pracował w trzech firmach e-commerce. Buduje newsletter o rynku
-wtórnym biznesów internetowych w Polsce: sklepy, konta Allegro, SaaS-y, serwisy
-treściowe. Kolejność rozwoju: newsletter, potem brokerka, ewentualnie marketplace.
-
-Nie jest programistą. Koduje z pomocą AI. Na ten projekt ma około 8 godzin
-tygodniowo i to jest jego trzeci priorytet, nie pierwszy.
-
-Pozycjonuje się jako analityk rynku, nie pośrednik z dorobkiem. Nie sprzedał
-jeszcze żadnego biznesu i tego nie ukrywa.
-
-## Jak z nim pracujesz
-
-**Sprawdzaj, zanim polecisz.** Największą wartość mają momenty, w których
-wyszukiwanie zabiło pomysł. Pomysł niesprawdzony jest wart mniej niż brak
-pomysłu. Jeśli czegoś nie zweryfikowałeś, powiedz to wprost.
-
-**Mów, gdy coś jest słabe.** Nie chce zachęty, chce oceny. Jeśli plan ma dziurę,
-wskaż ją, zanim zacznie budować.
-
-**Nie generuj list pomysłów, o które nie prosił.** Ma tendencję do skakania
-między koncepcjami zamiast dowożenia. Jeśli widzisz, że ucieka od egzekucji
-w nowe pomysły, powiedz mu to.
-
-**Redakcja tak, autorstwo nie.** Możesz poprawiać składnię i czytelność. Nie
-pisz za niego werdyktów o ofertach. Cała wartość newslettera to jego osąd.
-Przy redakcji: jedno przejście, zachowaj jego sformułowania i ostrość, nie
-dodawaj zastrzeżeń, nie łagodź krytyki.
-
-**Nie jesteś prawnikiem ani doradcą podatkowym.** Przy strukturze transakcji,
-VAT, PCC i przenoszeniu praw wskaż, że to pytanie do specjalisty, i pomóż mu
-je dobrze sformułować.
+Strona emilwiktorski.pl: profil, projekty SaaS, blog z procesem budowy
+i newsletter.
 
 ## Zasady treści, twarde
 
@@ -46,103 +18,92 @@ je dobrze sformułować.
    "nie tylko... ale także", "odkryj", "zanurz się", "wykorzystaj potencjał",
    "rozwiązanie szyte na miarę", "przenieś na wyższy poziom",
    "w świecie, gdzie", "to więcej niż".
-3. **Ton:** rzeczowy analityk. Liczby przed przymiotnikami. Bez entuzjazmu
-   sprzedażowego i bez obietnic. Zamiast "najlepsze wyselekcjonowane oferty"
-   piszemy "przejrzałem 40 ogłoszeń, osiem było wartych opisania".
-4. Ślad osobowości i lekkiej szorstkości jest pożądany.
-
-## Zasady werdyktów o ofertach
-
-Zawsze rozdzielone i zawsze w tej kolejności:
-
-1. **Fakty** z ogłoszenia: co to jest, branża, platforma, co wchodzi w cenę,
-   cena wywoławcza, zysk deklarowany, mnożnik, co pisze sprzedający.
-2. **Weryfikacja**: co udało się potwierdzić i czym.
-3. **Opinia**: oznaczona jako opinia.
-
-Nigdy nie twierdzimy, że ktoś kłamie. Piszemy, czego nie dało się sprawdzić.
-Zrzut ekranu to deklaracja, nie dowód. Liczba z ogłoszenia to zawsze
-"zysk deklarowany", nigdy "zysk". Cena to zawsze "cena wywoławcza".
-
-Karta weryfikacji ma stałą kolejność dziewięciu pozycji i tej kolejności
-nie zmieniamy przez pierwsze dwanaście wydań, bo stałość sprawia, że brak
-pozycji sam w sobie niesie informację:
-
-strona www, od kiedy istnieje, marketplace, opinie Google, opinie na
-marketplace, media społecznościowe, widoczność w Google, wyniki finansowe,
-zadłużenie i postępowania.
-
-Uwaga o bizraporcie: obejmuje wyłącznie spółki składające sprawozdania do KRS,
-dane są zwykle o rok albo dwa starsze niż deklaracje sprzedającego, a kafelek
-"wartość firmy" to szacunek algorytmu, nie cena rynkowa. Nigdy nie zestawiaj
-go z naszym mnożnikiem bez wyjaśnienia, czym jest.
+3. **Ton:** rzeczowo i szczerze. Liczby przed przymiotnikami: koszty, czas,
+   przychód. Bez entuzjazmu sprzedażowego i bez obietnic. Zamiast ogólnika
+   podaj konkret.
+4. Ślad osobowości i lekkiej szorstkości jest pożądany. Wpadki i nietrafione
+   narzędzia opisujemy wprost.
 
 ## Czym jest to repozytorium
 
-Statyczna strona na Jekyllu, budowana automatycznie przez GitHub Pages.
+Statyczna strona na Jekyllu, budowana automatycznie przez GitHub Pages
+z gałęzi `main`. Domena emilwiktorski.pl (plik `CNAME`, nie usuwać).
 Bez frameworków, bez npm, bez buildu po stronie użytkownika.
 
 ```
-_config.yml               ustawienia całej strony, liczniki, nazwa, domena
-index.html                strona główna
-blog.html                 lista wpisów bloga        (adres /blog/)
-archiwum.html             lista wydań newslettera   (adres /wydania/)
-o-mnie.md
-polityka-prywatnosci.md   szkielet, luki oznaczone nawiasami kwadratowymi
-_posts/                   wpisy, jeden plik to jeden wpis
-_layouts/ _includes/      szablony i powtarzalne kawałki
-assets/styl.css           cały wygląd, zmienne kolorów na górze pliku
-SZABLON-WYDANIA.txt       układ wydania
-SZABLON-WPISU-BLOG.txt    układ wpisu blogowego
-INSTRUKCJA.md             instrukcja dla właściciela, aktualizuj przy zmianach
+_config.yml               ustawienia: opis, bio, LinkedIn, zdjęcie, cel aplikacji
+_data/projekty.yml        lista projektów na stronie głównej, jedno miejsce
+index.html                strona główna: dwie kolumny, profil i projekty
+blog.html                 lista wpisów (adres /blog/), formularz zapisu na górze
+o-mnie.md                 strona o mnie
+polityka-prywatnosci.md   polityka prywatności
+archiwum.html             przekierowanie starego adresu /wydania/ na główną
+kontakt.html              przekierowanie starego adresu /kontakt/ na główną
+_posts/                   wpisy bloga, jeden plik to jeden wpis
+_layouts/ _includes/      szablony i powtarzalne kawałki (zapis.html = newsletter)
+assets/styl.css           cały wygląd, zmienne kolorów i krojów na górze pliku
+assets/projekty/          logo i zrzuty ekranu projektów
+SZABLON-WPISU-BLOG.txt    układ wpisu na bloga
+INSTRUKCJA.md             instrukcja obsługi strony, aktualizuj przy zmianach
 ```
 
-Kategorie wpisów: `wydania` albo `blog`, ustawiane w nagłówku pliku.
-Nazwa pliku wpisu: `RRRR-MM-DD-tytul.md`, bez polskich znaków i spacji.
+Wpisy: kategoria `blog`, nazwa pliku `RRRR-MM-DD-tytul.md`, bez polskich znaków
+i spacji. Trzy ostatnie wpisy pokazują się na głównej w sekcji "Proces budowy".
 
 ## Decyzje wizualne, nie zmieniaj bez pytania
 
-- Kolor akcentu: ochra `#8A6A0F`. Papier `#F7F6F3`. Tekst `#17171A`.
-- Nagłówki: Archivo 600, mocno ściągnięte światło. Tekst: Newsreader.
-  Liczby: IBM Plex Mono.
-- Jedna wspólna szerokość kolumny dla wszystkiego. Nic nie może kończyć się
-  w innym miejscu niż reszta.
-- Element sygnaturowy: pasek liczników pod winietą. Jeden akcent, nie pięć.
-- Układ asymetryczny, redakcyjny. Bez równych kafelków z ikonkami,
-  bez emotek, bez stockowej dekoracji, bez centrowania wszystkiego.
-- Format newslettera pozostaje niezmienny przez rok. Nie rozbudowuj go,
-  kiedy zacznie iść dobrze.
+Styl "indie maker" (wzór: indiepage.co).
+
+- Tło `#F7F7F4`, karty białe, tekst `#15161A`, akcent pomarańczowy `#FF5A1F`.
+- Kroje: nagłówki Bricolage Grotesque, tekst Inter.
+- Zaokrąglone karty z delikatnym cieniem, linki kontaktowe jako pigułki.
+- Strona główna w dwóch kolumnach. Lewa: kółko z inicjałami albo zdjęcie,
+  imię i nazwisko, bio, pasek celu, LinkedIn, e-mail, przycisk newslettera;
+  na komputerze zostaje na miejscu przy przewijaniu. Prawa: karty projektów
+  i skrót wpisów. Na telefonie jedna pod drugą, lewa na górze.
+- Teksty (blog, wpisy, o mnie, polityka) w wąskiej kolumnie 40rem. Nagłówek,
+  stopka i strona główna w szerokim kontenerze 66rem.
+- Karta projektu: okładka (zrzut ekranu albo logo na kolorze projektu), logo,
+  nazwa, adres, status (Live, Beta, W budowie), opis, narzędzia. Jeden projekt
+  zajmuje całą szerokość, od dwóch układają się po dwa. Karta otwiera stronę
+  projektu w nowej karcie. Bez wykresów przychodu; pole `przychod` czeka na
+  później.
+- Pasek celu "X / 10" sam liczy projekty ze statusem "Live".
+- Na głównej nagłówek strony nie powtarza nazwiska, bo jest w lewej kolumnie.
+- Bez emotek i bez stockowej dekoracji.
+
+## Newsletter i formularz zapisu
+
+- Maile idą wyłącznie do MailerLite. Nie buduj własnego systemu zbierania maili.
+- Kod formularza MailerLite w `_includes/zapis.html`: nie zmieniaj ani nie
+  wymyślaj atrybutów name, id ani ukrytych pól, bo muszą zgadzać się z kontem
+  MailerLite. Wygląd zmieniasz wyłącznie w CSS.
+- Formularz ma stały id, więc na jednej stronie może być najwyżej jeden.
+  Obecne miejsca: góra /blog, dół /o-mnie, koniec każdego wpisu. Strona główna
+  ma przycisk prowadzący na /blog. Stopka jest bez formularza.
+- Nagłówek i zdanie nad formularzem ustawiasz parametrami include
+  `tytul` i `opis` w pliku strony, nie w `zapis.html`.
+- Klauzula RODO pod formularzem zostaje. Jej usunięcie to decyzja prawna,
+  nie wizualna.
+- Polityka prywatności mówi, że strona nie ma analityki ani cookies, z wyjątkiem
+  pingu MailerLite o wyświetleniu formularza. Każde nowe narzędzie zewnętrzne
+  (analityka, piksel, czat) wymaga aktualizacji polityki i jej daty.
 
 ## Pułapki techniczne
 
 **baseurl.** Jeśli strona wczytuje się jako goły tekst bez stylów, to prawie
 zawsze rozjazd między `baseurl` w `_config.yml` a faktycznym adresem.
-Repozytorium `nazwa.github.io` albo własna domena to `baseurl: ""`.
-Repozytorium o innej nazwie to `baseurl: "/nazwa-repozytorium"`.
-
-**markdown="1"** w znacznikach `<div>` musi zostać, inaczej markdown w środku
-przestaje działać.
+Własna domena albo repozytorium `nazwa.github.io` to `baseurl: ""`.
 
 **Google Fonts.** API css2 samo serwuje rozszerzoną łacinkę przez unicode-range.
 Po każdej zmianie krojów sprawdź polskie znaki, zwłaszcza ł, ą, ę, ż.
 
 **Nie dodawaj bibliotek JavaScript.** Strona ma się ładować szybko i działać
-bez buildu. Jeśli coś wymaga npm albo frameworka, to znak, że robimy to źle.
+bez buildu. Jedynym skryptem zewnętrznym jest skrypt formularza MailerLite.
 
-**Nie buduj własnego systemu do zbierania maili.** Maile idą do MailerLite,
-zawsze. Airtable służy do ofert i transakcji, nie jest listą mailingową.
+**Pliki robocze.** Pliki bez front matter (np. `.md`, `.txt`) Jekyll publikuje
+na stronie jako zwykłe pliki. Każdy nowy plik roboczy w katalogu głównym
+dopisz do `exclude` w `_config.yml`.
 
-## Czego nie proponować
-
-Odrzucone i zamknięte: marketplace przed 19. miesiącem, monetyzacja w fazie 1,
-pobieranie opłat od kupujących, podcast, wideo, oferty spoza aktywów cyfrowych
-przenoszalnych zdalnie.
-
-## Domyślny tryb pracy
-
-Przy zmianach w wyglądzie albo strukturze: najpierw powiedz, co zamierzasz
-zmienić i dlaczego, poczekaj na zgodę, dopiero potem edytuj pliki.
-Przy dodawaniu wpisu: działaj od razu, to rutyna.
-
-Po każdej zmianie w plikach zaproponuj commit z sensownym opisem po polsku.
-Nie wypychaj na GitHub bez wyraźnej zgody.
+**markdown="1"** w znacznikach `<div>` we wpisach musi zostać, inaczej markdown
+w środku przestaje działać.

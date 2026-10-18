@@ -1,198 +1,179 @@
 # Instrukcja obsługi strony
 
-Napisane dla kogoś, kto nie programuje. Nic tu nie trzeba instalować na własnym komputerze.
+Napisane dla kogoś, kto nie programuje. Nic nie trzeba instalować na komputerze.
+
+Każdą zmianę robisz na github.com w repozytorium strony: otwierasz plik, klikasz ikonę ołówka (**Edit**), zmieniasz tekst i na dole klikasz zielony **Commit changes**. Po jednej, dwóch minutach zmiana jest na emilwiktorski.pl. Zamiast tego możesz też poprosić Claude Code, żeby zrobił to za ciebie.
 
 ---
 
-## 1. Co uzupełnić, zanim pokażesz stronę komukolwiek
-
-W kilku miejscach zostawiłem nawiasy kwadratowe. To są dziury do zalepienia. Znajdziesz je tak: na GitHubie wciśnij klawisz `t`, wpisz nazwę pliku, otwórz go i szukaj nawiasu `[`.
+## 1. Co gdzie zmieniasz
 
 | Co | Gdzie |
 |---|---|
-| `[NAZWA]` nazwa projektu | `_config.yml`, linia `title` |
-| `[DOMENA]` twoja domena | `_config.yml` linia `url` oraz `robots.txt` |
-| `[EMAIL]` adres kontaktowy | `_config.yml`, linia `email` |
-| `[FORMULARZ_MAILERLITE]` | `_includes/zapis.html` |
-| `[ADRES DO KORESPONDENCJI]`, `[DATA]` i pozostałe | `polityka-prywatnosci.md` |
+| Zdanie o tobie na stronie głównej | `_config.yml`, linia `bio` |
+| Link do LinkedIna | `_config.yml`, linia `linkedin` |
+| Zdjęcie profilowe | `_config.yml`, linia `zdjecie` (rozdział 3) |
+| Cel na pasku postępu (10 aplikacji) | `_config.yml`, linia `cel_aplikacji` |
+| Adres e-mail | `_config.yml`, linia `email` |
+| Opis strony w Google i przy udostępnianiu | `_config.yml`, linia `description` |
+| Projekty | `_data/projekty.yml` (rozdział 2) |
+| Strona O mnie | `o-mnie.md` |
+| Wpisy na blogu | katalog `_posts` (rozdział 4) |
+| Kolory i kroje | `assets/styl.css`, zmienne na samej górze pliku |
 
-Strona zadziała także z niewypełnionymi nawiasami. Po prostu będzie w nich pisało `[NAZWA]`.
-
----
-
-## 2. Postawienie strony na GitHub Pages
-
-**Krok 1.** Wejdź na github.com i utwórz nowe repozytorium (przycisk **New**). Nazwa może być dowolna, na przykład `strona`. Wybierz **Public**. Publiczne jest konieczne, jeśli masz darmowe konto.
-
-**Krok 2.** Wgraj pliki. Na stronie pustego repozytorium kliknij **uploading an existing file**. Rozpakuj u siebie archiwum, zaznacz **całą zawartość** rozpakowanego katalogu (nie sam katalog, tylko to, co jest w środku) i przeciągnij do przeglądarki.
-
-Ważne: musi się wgrać też katalog `_posts` i pozostałe zaczynające się od podkreślnika. Jeśli przeciąganie ich pomija, wgraj je osobno.
-
-Na dole strony kliknij zielony **Commit changes**.
-
-**Krok 3.** W repozytorium wejdź w **Settings**, potem w menu po lewej w **Pages**.
-
-W sekcji **Build and deployment**, pole **Source**, wybierz **Deploy from a branch**. Poniżej wybierz gałąź `main` i katalog `/ (root)`. Kliknij **Save**.
-
-**Krok 4.** Poczekaj dwie, trzy minuty. Zakładka **Actions** w repozytorium pokaże, czy budowanie się udało. Zielony znaczek znaczy, że tak. Wróć do **Settings → Pages**, będzie tam adres w rodzaju `https://twojanazwa.github.io/strona/`. To jest twoja działająca strona.
-
-Od tej pory każda zmiana pliku na GitHubie i kliknięcie **Commit changes** automatycznie przebudowuje stronę. Nie ma nic więcej do robienia.
+W `_config.yml` cudzysłowy muszą zostać. Zmieniasz tylko tekst w środku.
 
 ---
 
-## 2b. Gdy strona wygląda jak goły tekst
+## 2. Jak dodać projekt
 
-Jeśli strona wczyta się jako czarny tekst na białym tle, bez kolorów i bez kroju pisma, to znaczy, że przeglądarka nie znalazła arkusza stylów. Przyczyna jest zawsze ta sama: linia `baseurl` w `_config.yml` nie zgadza się z tym, gdzie faktycznie stoi strona.
+**Krok 1. Logo i zrzut ekranu.** Wejdź do katalogu `assets/projekty`, kliknij **Add file → Upload files**, przeciągnij pliki i kliknij **Commit changes**. Nazwy plików bez polskich znaków i bez spacji, na przykład `moja-aplikacja.png` i `moja-aplikacja-zrzut.png`. Logo najlepiej kwadratowe.
 
-Zasada:
+**Krok 2. Wpis w pliku projektów.** Otwórz `_data/projekty.yml` i kliknij ołówek. Skopiuj cały blok Korektora Lektorskiego, od linii `- nazwa:` do ostatniej linii bloku, wklej go pod spodem i zmień wartości:
 
-| Adres strony | `baseurl` ma być |
+| Pole | Co wpisać |
 |---|---|
-| `emilwiktorski9.github.io` | `""` |
-| `emilwiktorski9.github.io/strona/` | `"/strona"` |
-| własna domena | `""` |
+| `nazwa` | nazwa projektu |
+| `opis` | jedno zdanie, co robi |
+| `url` | pełny adres strony projektu, z `https://` |
+| `status` | dokładnie `Live`, `Beta` albo `W budowie` |
+| `logo` | ścieżka do logo, np. `/assets/projekty/moja-aplikacja.png` |
+| `zrzut` | ścieżka do zrzutu ekranu aplikacji (opcjonalnie) |
+| `tlo` | kolor okładki karty, gdy nie ma zrzutu, np. `#080b16` |
+| `narzedzia` | lista w nawiasach kwadratowych, np. `["Claude", "Supabase"]` |
+| `przychod` | przychód, np. `"1200 zł/mies."` (opcjonalnie) |
 
-Najprościej uniknąć tego raz na zawsze: nazwij repozytorium dokładnie `emilwiktorski9.github.io`. Wtedy strona stoi w katalogu głównym, `baseurl` zostaje puste i po podpięciu domeny nic nie trzeba zmieniać.
+**Krok 3.** Kliknij **Commit changes**.
 
-Zmiana nazwy istniejącego repozytorium: **Settings**, pierwsze pole na górze, **Rename**.
+Co dzieje się samo:
 
----
+- Jeden projekt zajmuje całą szerokość, od dwóch karty układają się po dwie w rzędzie.
+- Pasek celu na stronie głównej liczy projekty ze statusem `Live`.
+- Kliknięcie karty otwiera stronę projektu w nowej karcie przeglądarki.
 
-## 3. Podpięcie własnej domeny
+**Linie zaczynające się od `#`** są wyłączone (to komentarze). Żeby włączyć na przykład zrzut ekranu albo przychód, usuń `# ` z początku linii. Żeby wyłączyć, dopisz `# ` z powrotem.
 
-Rób w tej kolejności, bo odwrotna kolejność jest niebezpieczna: gdybyś ustawił DNS przed dodaniem domeny na GitHubie, ktoś inny mógłby przejąć twój adres.
-
-**Krok 1. Najpierw GitHub.** Settings → Pages → pole **Custom domain**. Wpisz domenę bez `https://` i bez `www`, czyli na przykład `twojadomena.pl`. Kliknij **Save**.
-
-GitHub sam utworzy w repozytorium plik o nazwie `CNAME` z twoją domeną w środku. Nie twórz go ręcznie i nie kasuj. Jeśli kiedyś zmienisz domenę, zmień ją w tym samym polu w ustawieniach, a nie w pliku.
-
-**Krok 2. Potem DNS u rejestratora domeny.** Wejdź w panel firmy, w której kupiłeś domenę, i znajdź zarządzanie DNS. Dodaj pięć wpisów:
-
-Cztery rekordy typu **A**, nazwa `@` (czasem pole nazwy zostawia się puste), wartości kolejno:
-
-```
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
-
-Jeden rekord typu **CNAME**, nazwa `www`, wartość `twojanazwauzytkownika.github.io` (twoja nazwa użytkownika na GitHubie, z kropką na końcu, jeśli panel jej wymaga).
-
-Jeśli rejestrator dodał własne domyślne rekordy A wskazujące gdzie indziej, usuń je.
-
-**Krok 3.** Poczekaj. Zwykle kilkanaście minut, czasem do doby. Potem wróć do **Settings → Pages** i zaznacz **Enforce HTTPS**. Ta opcja bywa niedostępna przez pierwszą godzinę, bo GitHub musi najpierw wystawić certyfikat. To normalne.
-
-**Krok 4.** Wpisz nową domenę w `_config.yml` w linii `url` oraz w pliku `robots.txt`. Bez tego adresy w mapie strony i w danych dla Google będą wskazywać na `[DOMENA]`.
+**Jak zrobić zrzut aplikacji:** zaloguj się do aplikacji, ustaw ekran, który najlepiej pokazuje, co robi, wciśnij **Win + Shift + S**, zaznacz obszar i zapisz obraz jako PNG. Najlepiej wygląda zrzut w proporcjach szerokiego ekranu.
 
 ---
 
-## 4. Jak dodać nowy wpis
+## 3. Zdjęcie profilowe
 
-Wpis to jeden plik. Nie ruszasz nawigacji, strony głównej ani list. Wszystko podepnie się samo.
-
-**Krok 1.** Otwórz `SZABLON-WYDANIA.txt` (wydanie newslettera) albo `SZABLON-WPISU-BLOG.txt` (zwykły wpis) i skopiuj tekst spod linii.
-
-**Krok 2.** W repozytorium wejdź do katalogu `_posts`. Kliknij **Add file → Create new file**.
-
-**Krok 3.** W polu nazwy wpisz nazwę pliku w tym formacie:
+Wgraj zdjęcie do katalogu `assets`, na przykład jako `zdjecie.jpg`. Najlepiej kwadratowe, co najmniej 300 na 300 pikseli. Potem w `_config.yml` wpisz:
 
 ```
-2026-09-15-wydanie-02.md
+zdjecie: "/assets/zdjecie.jpg"
 ```
 
-Zasady nazwy: rok, myślnik, miesiąc dwucyfrowo, myślnik, dzień dwucyfrowo, myślnik, tytuł małymi literami bez polskich znaków i bez spacji, na końcu `.md`. Data w nazwie musi się zgadzać z datą w środku pliku.
+Dopóki linia jest pusta (`zdjecie: ""`), na stronie głównej pokazuje się kółko z inicjałami EW.
 
-**Krok 4.** Wklej szablon i zmień treść. W górnej części, między liniami `---`, ustaw:
+W pliku `index.html` jest też wyłączony fragment na przychód miesięczny pod nazwiskiem. To edycja kodu, więc gdy będziesz chciał go włączyć, poproś o to Claude Code.
+
+---
+
+## 4. Jak dodać wpis na blog
+
+Wpis to jeden plik. Nie ruszasz nawigacji, strony głównej ani listy wpisów. Wszystko podepnie się samo.
+
+**Krok 1.** Otwórz `SZABLON-WPISU-BLOG.txt` i skopiuj tekst spod linii "KOPIUJ OD TEJ LINII".
+
+**Krok 2.** Kliknij **Add file → Create new file**. W polu nazwy wpisz nazwę razem z katalogiem, na przykład:
+
+```
+_posts/2026-10-20-jak-zbudowalem-korektor.md
+```
+
+Ukośnik po `_posts` sam utworzy katalog, jeśli go jeszcze nie ma. Zasady nazwy: data w formacie rok, miesiąc, dzień, potem tytuł małymi literami bez polskich znaków i bez spacji, słowa połączone znakiem `-`, na końcu `.md`. Data w nazwie musi się zgadzać z datą w środku pliku.
+
+**Krok 3.** Wklej szablon i zmień treść. W górnej części, między liniami `---`, ustaw:
 
 - `title` tytuł w cudzysłowie
-- `date` data w formacie 2026-09-15
-- `categories` wpisz `wydania` albo `blog`, to decyduje, na której liście wpis się pojawi
-- `lead` jedno zdanie streszczenia, pokazuje się na liście i w wynikach Google
-- `przejrzanych` (tylko wydania) liczba przejrzanych ogłoszeń, trafia na pasek liczników
-- `opisanych` (tylko wydania) liczba opisanych ofert, też trafia na pasek liczników
+- `date` data w formacie 2026-10-20
+- `categories` zostaw `blog`
+- `lead` jedno albo dwa zdania streszczenia, pokazują się na liście i w wynikach Google
 
-**Krok 5.** Napisz tekst. Zwykłym pismem, pusta linia oddziela akapity. `## Tekst` robi śródtytuł, `**tekst**` pogrubia, `[słowo](adres)` robi link.
+**Krok 4.** Napisz tekst. Pusta linia oddziela akapity. `## Tekst` robi śródtytuł, `**tekst**` pogrubia, `[słowo](adres)` robi link. Obrazek: wgraj go do `assets/wpisy` i wstaw `![opis obrazka](/assets/wpisy/nazwa-pliku.png)`.
 
-**Krok 6.** Na dole kliknij **Commit changes**. Po dwóch minutach wpis jest na stronie, w odpowiedniej liście, w mapie strony i w kanale RSS.
+**Krok 5.** Kliknij **Commit changes**.
 
-### Budowa wydania
-
-Wydanie ma cztery części: krótki wstęp, tabelę wszystkich ofert wartych pokazania, trzy oferty rozpisane pełnym schematem i sekcję "czego nie było".
-
-Rozpisana oferta ma stałą kolejność: fakty z ogłoszenia (branża, platforma, co wchodzi w cenę, co pisze sprzedający), potem karta weryfikacji, na końcu opinia oznaczona jako opinia.
-
-Trzy szczegóły techniczne, na których najłatwiej się potknąć:
-
-1. Fragment `markdown="1"` w liniach zaczynających się od `<div` musi zostać. Bez niego pogrubienia i śródtytuły w środku przestaną działać.
-2. W tabeli każdy wiersz musi mieć tyle samo pionowych kresek.
-3. W karcie weryfikacji format jest taki: nazwa w jednej linii, w następnej dwukropek, spacja i wynik, potem pusta linia. Gdy czegoś nie dało się sprawdzić, otocz tekst gwiazdkami, na przykład `*brak danych*`. Wyświetli się szarą kursywą, więc od razu widać, że to brak, a nie wynik.
+Po chwili wpis jest na liście na `/blog`, w sekcji "Proces budowy" na stronie głównej (trzy ostatnie wpisy), w mapie strony i w kanale RSS. Na końcu wpisu automatycznie pojawia się formularz zapisu na newsletter. Nagłówek nad formularzem na `/blog` sam zmieni się z "Pierwszy wpis już wkrótce" na "Nie przegap kolejnych wpisów".
 
 ---
 
-## 5. Pasek liczników
+## 5. Newsletter
 
-Pasek pod nazwą strony pokazuje numer wydania, datę ostatniego wydania i twoje liczby. To jest wyróżnik tej strony, więc pokazuje wyłącznie prawdziwe dane.
+Formularz zapisu jest w trzech miejscach: na górze `/blog`, na dole `/o-mnie` i na końcu każdego wpisu. Na stronie głównej jest przycisk, który prowadzi na `/blog`.
 
-Wypełnia się sam z opublikowanych wydań: numer to liczba wydań, data to data ostatniego z nich, a liczby "przejrzanych ogłoszeń" i "opisanych" bierze z pól `przejrzanych` i `opisanych` w nagłówku ostatniego wydania (patrz krok 4). Dopóki nie ma żadnego wydania, pasek się nie pokazuje, i wraca sam po opublikowaniu pierwszego. Nic tu nie ustawiasz ręcznie.
+**Nie zmieniaj kodu formularza** w `_includes/zapis.html`. To kod z MailerLite i każda zmiana nazw pól może po cichu zepsuć zapisy.
 
-Zdanie otwierające stronę główną to osobna rzecz, zmieniasz je w `_config.yml`, w linii `naglowek_glowny`.
-
----
-
-## 6. Wklejenie formularza z MailerLite
-
-W MailerLite utwórz formularz osadzany (embedded form) i skopiuj kod HTML. Otwórz `_includes/zapis.html` i zastąp linię `[FORMULARZ_MAILERLITE]` wklejonym kodem.
+Nagłówek i zdanie nad formularzem zmieniasz w pliku konkretnej strony, w miejscach `tytul="..."` i `opis="..."`: dla bloga w `blog.html`, dla O mnie w `o-mnie.md`.
 
 Dwie rzeczy do ustawienia po stronie MailerLite, nie tutaj:
 
-1. **Double opt in włączony.** Bez tego nie masz dowodu zgody.
-2. **Zgoda marketingowa jako pole w formularzu, domyślnie niezaznaczone.** MailerLite ma to jako gotową opcję.
+1. **Double opt-in włączony.** Bez tego nie masz dowodu zgody.
+2. **Zgoda marketingowa jako pole w formularzu, domyślnie niezaznaczone.**
 
-Pod formularzem zostawiłem krótką klauzulę informacyjną. Jeśli MailerLite doda własny checkbox ze zgodą, nie dokładaj drugiego, bo dwie zgody obok siebie wyglądają na błąd i zniechęcają do zapisu.
+Klauzula informacyjna pod formularzem zostaje. Jej usunięcie to decyzja prawna, nie kwestia wyglądu.
+
+Jeśli kiedyś dodasz analitykę, piksel reklamowy albo czat, trzeba zaktualizować politykę prywatności i jej datę. Teraz polityka mówi, że strona nie ma analityki ani plików cookies.
 
 ---
 
-## 7. Kiedy coś się popsuje
+## 6. Kiedy coś się popsuje
 
-Jeśli po zatwierdzeniu zmian strona się nie zaktualizowała, wejdź w zakładkę **Actions** w repozytorium. Czerwony znaczek znaczy, że budowanie się nie powiodło. Kliknij w nie, znajdź czerwoną linię z komunikatem błędu i przyślij mi ten komunikat.
+Jeśli po zatwierdzeniu zmian strona się nie zaktualizowała, wejdź w zakładkę **Actions** w repozytorium. Czerwony znaczek znaczy, że budowanie się nie powiodło. Kliknij w nie, znajdź czerwoną linię z komunikatem błędu i przyślij ten komunikat Claude Code.
 
-Najczęstsza przyczyna: literówka w górnej części pliku wpisu, między liniami `---`. Zwykle brakujący cudzysłów w tytule albo zła data.
+Najczęstsze przyczyny:
 
-Poprzednia wersja strony zostaje online, dopóki nowa się nie zbuduje, więc zepsuty wpis nie wyłączy ci strony.
+- w `_data/projekty.yml`: przesunięte wcięcie, brakujący cudzysłów albo dwukropek,
+- w górnej części wpisu, między liniami `---`: brakujący cudzysłów w tytule albo zła data.
+
+Poprzednia wersja strony zostaje online, dopóki nowa się nie zbuduje, więc błąd nie wyłączy ci strony.
+
+Jeśli strona wczyta się jako goły tekst bez kolorów i krojów, sprawdź linię `baseurl` w `_config.yml`. Przy własnej domenie musi być pusta: `baseurl: ""`.
+
+---
+
+## 7. Domena i stare adresy
+
+Domena emilwiktorski.pl jest podpięta. Plik `CNAME` w repozytorium utworzył GitHub: nie usuwaj go i nie edytuj. Domenę zmienia się w **Settings → Pages**, w polu **Custom domain**.
+
+Stare adresy `/wydania/` i `/kontakt/` przekierowują na stronę główną.
 
 ---
 
 ## 8. Pytania do zadania prawnikowi
 
-Nie jestem prawnikiem i polityka prywatności w tym repozytorium to szkielet, a nie gotowy dokument. Zanim uruchomisz zapis na newsletter, warto zadać te pytania:
+Nie jestem prawnikiem. Te pytania warto zadać, zanim newsletter zacznie rosnąć:
 
 1. Czy przy działalności nierejestrowanej muszę podać w klauzuli informacyjnej adres do korespondencji, czy wystarczy imię, nazwisko i e-mail?
 2. Czy zapis przez formularz z podwójnym potwierdzeniem spełnia wymóg zgody z art. 398 Prawa komunikacji elektronicznej, czy potrzebna jest osobna, odrębnie zaznaczana zgoda marketingowa?
 3. Czy przy korzystaniu z MailerLite muszę informować o przekazywaniu danych poza Europejski Obszar Gospodarczy i czy wystarczy do tego umowa powierzenia oferowana przez dostawcę?
-4. Od którego momentu opisywanie cudzych ofert w newsletterze wymaga rejestracji działalności, jeśli nie pobieram za to żadnych opłat?
-5. Czy publikowanie moich ocen konkretnych, publicznie wystawionych ofert rodzi ryzyko po stronie prawa prasowego albo ochrony dóbr osobistych sprzedających, i jak to ryzyko ograniczyć.
 
 ---
 
 ## 9. Struktura plików
 
 ```
-_config.yml               ustawienia całej strony, tu zmieniasz nazwę i domenę
+_config.yml               ustawienia: opis, bio, LinkedIn, zdjęcie, cel aplikacji
+_data/projekty.yml        TU DODAJESZ PROJEKTY
+_posts/                   TU DODAJESZ WPISY, jeden plik to jeden wpis
 index.html                strona główna
 blog.html                 lista wpisów bloga
-archiwum.html             lista wydań newslettera
 o-mnie.md                 strona o mnie
-polityka-prywatnosci.md   szkielet polityki, do uzupełnienia
+polityka-prywatnosci.md   polityka prywatności
 404.html                  strona pokazywana przy złym adresie
+archiwum.html             przekierowanie starego adresu /wydania/
+kontakt.html              przekierowanie starego adresu /kontakt/
 robots.txt                instrukcja dla wyszukiwarek
-SZABLON-WYDANIA.txt       szablon wydania: tabela, oferty, weryfikacja
-SZABLON-WPISU-BLOG.txt    szablon zwykłego wpisu na bloga
+SZABLON-WPISU-BLOG.txt    szablon wpisu na bloga
+CLAUDE.md                 stałe instrukcje dla Claude Code
+INSTRUKCJA.md             ten plik
 
-_posts/                   TU DODAJESZ WPISY, jeden plik to jeden wpis
 _layouts/                 układ stron, nie musisz tu zaglądać
-_includes/                powtarzalne kawałki: nagłówek, stopka, blok zapisu
-assets/styl.css           wygląd, kolory zebrane na samej górze pliku
+_includes/                powtarzalne kawałki: nagłówek, stopka, formularz zapisu
+assets/styl.css           wygląd, kolory i kroje zebrane na samej górze pliku
+assets/projekty/          logo i zrzuty ekranu projektów
 ```
 
-Mapa strony `sitemap.xml` i kanał `rss.xml` powstają automatycznie. Nie ma ich w repozytorium i nie trzeba ich tworzyć.
+Mapa strony `sitemap.xml` i kanał `rss.xml` powstają automatycznie. Pliki `CLAUDE.md`, `INSTRUKCJA.md` i szablon nie są publikowane na stronie.

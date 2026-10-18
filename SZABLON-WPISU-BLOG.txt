@@ -1,18 +1,21 @@
 SZABLON WPISU NA BLOGA
 ======================
 
-Nazwa pliku: RRRR-MM-DD-tytul-po-myslnikach.md
+Nazwa pliku: RRRR-MM-DD-tytul-malymi-literami.md, na przykład 2026-10-20-jak-zbudowalem-korektor.md
 Katalog: _posts
-Bez polskich znaków i bez spacji w nazwie pliku.
+Bez polskich znaków i bez spacji w nazwie pliku. Data w nazwie taka sama jak w polu date.
+
+Wpis pojawi się sam na /blog i w sekcji "Proces budowy" na stronie głównej.
+Formularz zapisu na newsletter dołącza się na końcu wpisu automatycznie.
 
 ===================== KOPIUJ OD TEJ LINII ==========================
 
 ---
 layout: wpis
 title: "Tytuł wpisu"
-date: 2026-09-20
+date: 2026-10-20
 categories: blog
-lead: "Jedno albo dwa zdania streszczenia. Pokazuje się na liście i w Google."
+lead: "Jedno albo dwa zdania streszczenia. Pokazuje się na liście wpisów i w Google."
 ---
 
 Pierwszy akapit. Pusta linia oddziela akapity.
@@ -23,5 +26,9 @@ Pierwszy akapit. Pusta linia oddziela akapity.
 
 - pozycja listy
 - druga pozycja
+
+Obrazek: wgraj plik do assets/wpisy i wstaw go tak:
+
+![Opis tego, co widać na obrazku](/assets/wpisy/nazwa-pliku.png)
 
 ===================== KONIEC =======================================

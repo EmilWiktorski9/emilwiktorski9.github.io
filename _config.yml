@@ -64,8 +64,9 @@ defaults:
     values:
       layout: "wpis"
 exclude:
-  - SZABLON-WPISU.txt
+  - CLAUDE.md
   - INSTRUKCJA.md
+  - SZABLON-WPISU-BLOG.txt
   - Gemfile
   - Gemfile.lock
   - vendor
