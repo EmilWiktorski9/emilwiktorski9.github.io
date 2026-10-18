@@ -1,434 +1,372 @@
 /* =====================================================================
-   Arkusz stylów. Kolory zebrane na górze, żeby dało się je zmienić
-   w jednym miejscu bez szukania po całym pliku.
+   Arkusz stylów emilwiktorski.pl
+   Kolory, kroje i zaokrąglenia zebrane na górze, żeby dało się je
+   zmienić w jednym miejscu bez szukania po całym pliku.
    ===================================================================== */
 
 :root{
-  --papier:#F7F6F3;
-  --papier-blok:#EFEDE7;
-  --tekst:#17171A;
-  --tekst-2:#4A4842;
-  --tekst-3:#8A8880;
-  --linia:#DEDCD6;
-  --akcent:#8A6A0F;
-  --akcent-tlo:#F2ECDB;
+  --tlo:#F7F7F4;
+  --karta:#FFFFFF;
+  --tekst:#15161A;
+  --tekst-2:#4A4D57;
+  --tekst-3:#8A8D97;
+  --linia:#E5E5E8;
+  --akcent:#FF5A1F;
+  --akcent-mocny:#E5480F;
+  --akcent-tlo:#FFEFE7;
 
-  --serif:"Newsreader",Georgia,"Times New Roman",serif;
-  --grotesk:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  /* kolory statusów projektu */
+  --live:#157F3B;   --live-tlo:#DCF7E5;
+  --beta:#A15C07;   --beta-tlo:#FDF0CF;
+  --budowa:#2F56C9; --budowa-tlo:#E0E8FD;
 
-  --kolumna:38rem;
+  --naglowki:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --tekstowy:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+
+  --promien:18px;
+  --promien-maly:12px;
+  --cien:0 1px 2px rgba(21,22,26,.04),0 6px 20px rgba(21,22,26,.06);
+  --cien-mocny:0 2px 4px rgba(21,22,26,.05),0 14px 34px rgba(21,22,26,.11);
+
+  --szeroka:66rem;   /* nagłówek, stopka, strona główna */
+  --kolumna:40rem;   /* teksty: blog, wpisy, o mnie, polityka */
 }
 
 *,*::before,*::after{box-sizing:border-box}
-
 html{-webkit-text-size-adjust:100%}
-
 body{
   margin:0;
-  background:var(--papier);
+  background:var(--tlo);
   color:var(--tekst);
-  font-family:var(--serif);
-  font-size:17px;
-  line-height:1.62;
+  font-family:var(--tekstowy);
+  font-size:16px;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-
 @media (min-width:40rem){
-  body{font-size:18px}
+  body{font-size:17px}
 }
+img{max-width:100%;height:auto;display:block}
 
-/* --- jedna wspólna kolumna dla całej strony --------------------------
-   Wszystko, co ma tekst, siedzi w .kolumna. Dzięki temu każda linia
-   zaczyna się i kończy w tym samym miejscu, na telefonie i na komputerze.
-   -------------------------------------------------------------------- */
-.kolumna{
-  max-width:var(--kolumna);
-  margin-left:auto;
-  margin-right:auto;
-  padding-left:1.25rem;
-  padding-right:1.25rem;
-}
+/* --- kontenery -------------------------------------------------------- */
+.szeroka{max-width:var(--szeroka);margin-left:auto;margin-right:auto;padding-left:1.25rem;padding-right:1.25rem}
+.kolumna{max-width:var(--kolumna);margin-left:auto;margin-right:auto;padding-left:1.25rem;padding-right:1.25rem}
 
-/* --- nagłówki -------------------------------------------------------- */
-h1,h2,h3{
-  font-family:var(--grotesk);
-  font-weight:600;
-  letter-spacing:-0.04em;
-  line-height:1.05;
+/* --- nagłówki i linki ------------------------------------------------- */
+h1,h2,h3,h4{
+  font-family:var(--naglowki);
+  font-weight:700;
+  line-height:1.15;
+  letter-spacing:-0.02em;
   color:var(--tekst);
-  margin:0 0 0.6em;
-  text-wrap:balance;
+  margin:0 0 .5em;
 }
-h1{font-size:clamp(1.95rem,7.5vw,2.9rem)}
-h2{font-size:clamp(1.3rem,4.5vw,1.6rem);letter-spacing:-0.03em;margin-top:2.2em}
-h3{font-size:1.12rem;letter-spacing:-0.02em;margin-top:1.8em}
+h1{font-size:2.2rem}
+h2{font-size:1.45rem}
+h3{font-size:1.15rem}
 
-p{margin:0 0 1.1em}
-
-a{color:var(--tekst);text-decoration:underline;text-decoration-color:var(--linia);text-underline-offset:3px}
+a{color:var(--tekst);text-decoration:underline;text-decoration-color:var(--linia);text-decoration-thickness:1.5px;text-underline-offset:3px}
 a:hover{text-decoration-color:var(--akcent)}
-
-:focus-visible{outline:2px solid var(--akcent);outline-offset:3px}
+:focus-visible{outline:2px solid var(--akcent);outline-offset:3px;border-radius:4px}
 
 .pomin{position:absolute;left:-9999px}
-.pomin:focus{position:static;display:block;padding:0.5rem 1.25rem;background:var(--akcent-tlo)}
+.pomin:focus{position:static;display:block;padding:.6rem 1.25rem;background:var(--akcent-tlo)}
 
-/* --- winieta i pasek liczników --------------------------------------- */
-.winieta{padding-top:1.5rem;margin-bottom:2.5rem}
-
-.winieta-gora{
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.5rem 1.25rem;
-  align-items:baseline;
-  justify-content:space-between;
-}
-
-.winieta-nazwa{
-  font-family:var(--grotesk);
-  font-weight:600;
-  font-size:1.05rem;
-  letter-spacing:-0.03em;
-  text-decoration:none;
-}
-
-.menu{display:flex;gap:1.1rem;font-family:var(--grotesk);font-size:0.86rem}
-.menu a{text-decoration:none;color:var(--tekst-2)}
-.menu a:hover{color:var(--akcent)}
-
-.licznik{
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.35rem 1.4rem;
-  margin:0.9rem 0 0;
-  padding:0.65rem 0;
-  border-top:1px solid var(--linia);
-  border-bottom:1px solid var(--linia);
-  font-family:var(--mono);
-  font-size:0.72rem;
-  color:var(--tekst-3);
-}
-.licznik b{font-weight:500;color:var(--akcent)}
-
-/* --- treść ----------------------------------------------------------- */
-.proza{padding-bottom:1rem}
-.proza li{margin-bottom:0.4em}
-.proza ul,.proza ol{padding-left:1.15rem}
-.proza blockquote{
-  margin:1.6em 0;
-  padding-left:1rem;
-  border-left:2px solid var(--akcent);
+/* --- górny pasek ------------------------------------------------------ */
+.winieta{padding:1.1rem 0}
+.winieta-gora{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.winieta-nazwa{font-family:var(--naglowki);font-weight:700;font-size:1.08rem;letter-spacing:-0.01em;text-decoration:none}
+.menu{display:flex;gap:.3rem}
+.menu a{
+  font-size:.92rem;
+  font-weight:500;
   color:var(--tekst-2);
-  font-style:italic;
+  text-decoration:none;
+  padding:.42rem .85rem;
+  border-radius:999px;
 }
-.proza hr{border:0;border-top:1px solid var(--linia);margin:2.5em 0}
-.proza img{max-width:100%;height:auto;display:block}
-.proza code{font-family:var(--mono);font-size:0.85em;background:var(--papier-blok);padding:0.1em 0.3em}
+.menu a:hover{background:var(--karta);color:var(--tekst)}
+.menu a[aria-current="page"]{background:var(--karta);color:var(--tekst);box-shadow:var(--cien)}
 
-.data{font-family:var(--mono);font-size:0.75rem;color:var(--tekst-3);margin-bottom:0.9rem}
-
-.lead{font-size:1.1em;color:var(--tekst-2);margin-bottom:1.6em}
-
-/* --- strona główna: nagłówek otwierający ------------------------------ */
-.otwarcie h1{margin-bottom:0.5em}
-.otwarcie p{color:var(--tekst-2)}
-
-.dla-kogo{
-  margin:2.5rem 0;
-  padding:1.4rem 0;
-  border-top:1px solid var(--linia);
-  border-bottom:1px solid var(--linia);
+/* --- przycisk --------------------------------------------------------- */
+.przycisk{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.4rem;
+  font-family:var(--tekstowy);
+  font-weight:600;
+  font-size:.95rem;
+  color:#fff;
+  background:var(--akcent);
+  border:0;
+  border-radius:var(--promien-maly);
+  padding:.82rem 1.3rem;
+  text-decoration:none;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(255,90,31,.25);
+  transition:transform .15s ease,background .15s ease;
 }
-.dla-kogo p:last-child{margin-bottom:0}
+.przycisk:hover{background:var(--akcent-mocny);transform:translateY(-1px)}
+.przycisk-pelny{width:100%}
 
-/* --- strona główna: układ dwukolumnowy ------------------------------- */
-/* Szersza niż wspólna kolumna tekstu, bo mieści dwie kolumny.
-   Na telefonie kolumny układają się jedna pod drugą, lewa na górze. */
+/* --- strona główna: dwie kolumny -------------------------------------- */
+/* Na telefonie jedna pod drugą, lewa na górze. Na komputerze lewa
+   kolumna zostaje na miejscu podczas przewijania. */
 .glowna{
-  max-width:60rem;
+  max-width:var(--szeroka);
   margin-left:auto;
   margin-right:auto;
-  padding:2.5rem 1.25rem;
+  padding:1rem 1.25rem 3rem;
   display:grid;
   gap:2.5rem;
   grid-template-columns:1fr;
 }
-@media (min-width:48rem){
-  .glowna{
-    grid-template-columns:18rem 1fr;
-    gap:3rem;
-    align-items:start;
-  }
+@media (min-width:56rem){
+  .glowna{grid-template-columns:19rem 1fr;gap:3.5rem;align-items:start}
+  .glowna-lewa{position:sticky;top:1.5rem}
 }
-.avatar{
-  width:7rem;
-  height:7rem;
+
+/* profil */
+.awatar{
+  width:6.5rem;
+  height:6.5rem;
   border-radius:50%;
-  background:var(--papier-blok);
-  border:1px solid var(--linia);
-  margin-bottom:1.2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--akcent);
+  color:#fff;
+  font-family:var(--naglowki);
+  font-weight:700;
+  font-size:2.2rem;
+  letter-spacing:-0.02em;
+  object-fit:cover;
+  box-shadow:var(--cien);
+  margin-bottom:1.25rem;
 }
-.glowna-nazwa{margin:0 0 0.4rem}
-.glowna-bio{color:var(--tekst-2);margin:0 0 1.1rem}
-.glowna-linki{margin:0 0 0.3rem}
-.glowna-linki .linkedin{
+.glowna-nazwa{font-size:2.3rem;margin:0 0 .6rem}
+.glowna-przychod{font-family:var(--naglowki);font-weight:700;color:var(--live);margin:-.3rem 0 .8rem}
+.glowna-bio{font-size:1.02rem;color:var(--tekst-2);margin:0 0 1.4rem}
+
+/* pasek postępu celu */
+.cel{
+  background:var(--karta);
+  border:1px solid var(--linia);
+  border-radius:var(--promien-maly);
+  padding:.9rem 1rem 1rem;
+  margin:0 0 1.4rem;
+}
+.cel-opis{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;font-size:.85rem;color:var(--tekst-2);margin:0 0 .6rem}
+.cel-opis b{font-family:var(--naglowki);font-size:1.1rem;color:var(--tekst)}
+.cel-pasek{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
+.cel-pasek li{height:8px;border-radius:999px;background:var(--linia)}
+.cel-pasek li.zrobione{background:var(--akcent)}
+
+/* linki kontaktowe */
+.glowna-linki{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem}
+.ikona-link{
   display:inline-flex;
   align-items:center;
-  gap:0.4rem;
-  font-family:var(--grotesk);
-  font-size:0.9rem;
+  gap:.45rem;
+  padding:.5rem .85rem;
+  border-radius:999px;
+  background:var(--karta);
+  border:1px solid var(--linia);
+  font-size:.86rem;
+  font-weight:500;
+  color:var(--tekst);
   text-decoration:none;
 }
-.glowna-linki .linkedin:hover{color:var(--akcent)}
-.glowna-mail{margin:0 0 1.5rem;font-family:var(--grotesk);font-size:0.9rem}
-.glowna-newsletter{margin:0}
-.przycisk{
-  display:inline-block;
-  font-family:var(--grotesk);
-  font-weight:600;
-  font-size:0.9rem;
-  color:var(--papier);
-  background:var(--akcent);
-  border:1px solid var(--akcent);
-  padding:0.7rem 1.4rem;
-  text-decoration:none;
-}
-.przycisk:hover{filter:brightness(0.92)}
+.ikona-link:hover{border-color:var(--tekst-3)}
+.ikona-link svg{width:16px;height:16px;flex:none}
+.glowna-pomysl{font-size:.92rem;color:var(--tekst-2);margin:0 0 1.4rem}
 
-/* --- siatka kart projektów ------------------------------------------- */
-.projekty{
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:grid;
-  gap:1rem;
-  grid-template-columns:1fr;
-}
-@media (min-width:48rem){
+/* sekcje w prawej kolumnie */
+.sekcja{margin:0 0 2.75rem}
+.sekcja-tytul{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:0 0 1rem}
+.sekcja-tytul h2{font-size:1.3rem;margin:0}
+.sekcja-tytul a{font-size:.88rem;color:var(--tekst-2)}
+
+/* --- karty projektów -------------------------------------------------- */
+/* Jeden projekt zajmuje całą szerokość, od dwóch układają się po dwa. */
+.projekty{list-style:none;margin:0;padding:0;display:grid;gap:1.1rem;grid-template-columns:1fr}
+@media (min-width:40rem){
   .projekty{grid-template-columns:repeat(2,1fr)}
 }
 .projekt{margin:0}
+.projekt:only-child{grid-column:1/-1}
 .projekt-link{
-  display:block;
+  display:flex;
+  flex-direction:column;
   height:100%;
-  padding:1.2rem;
+  background:var(--karta);
   border:1px solid var(--linia);
-  background:var(--papier);
-  text-decoration:none;
+  border-radius:var(--promien);
+  overflow:hidden;
   color:var(--tekst);
+  text-decoration:none;
+  box-shadow:var(--cien);
+  transition:transform .2s ease,box-shadow .2s ease;
 }
-.projekt-link:hover{border-color:var(--akcent)}
-.projekt-nazwa{
-  display:block;
-  font-family:var(--grotesk);
-  font-weight:600;
-  font-size:1.05rem;
-  margin-bottom:0.3rem;
+.projekt-link:hover{transform:translateY(-3px);box-shadow:var(--cien-mocny)}
+
+/* okładka: zrzut ekranu albo logo na kolorze projektu */
+.projekt-okladka{
+  aspect-ratio:16/9;
+  background:var(--tlo-projektu,#15161A);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
 }
-.projekt-opis{display:block;color:var(--tekst-2);font-size:0.95rem;line-height:1.5}
+.projekt:only-child .projekt-okladka{aspect-ratio:21/9}
+.projekt-okladka .zrzut{width:100%;height:100%;object-fit:cover;object-position:top}
+.projekt-okladka .okladka-logo{width:36%;max-width:220px}
+
+.projekt-tresc{display:flex;flex-direction:column;gap:.65rem;flex:1;padding:1.1rem 1.2rem 1.25rem}
+.projekt-glowa{display:flex;align-items:center;gap:.75rem}
+.projekt-logo,.projekt-litera{width:42px;height:42px;border-radius:11px;flex:none}
+.projekt-logo{object-fit:cover}
+.projekt-litera{display:flex;align-items:center;justify-content:center;background:var(--akcent);color:#fff;font-family:var(--naglowki);font-weight:700}
+.projekt-nazwa{display:block;font-family:var(--naglowki);font-weight:700;font-size:1.15rem;line-height:1.2;letter-spacing:-0.01em}
+.projekt-adres{display:block;font-size:.8rem;color:var(--tekst-3)}
+.projekt-opis{margin:0;color:var(--tekst-2);font-size:.95rem;line-height:1.5}
 /* miejsce na przyszły przychód, pojawia się dopiero gdy podasz pole przychod */
-.projekt-przychod{
-  display:block;
-  margin-top:0.7rem;
-  font-family:var(--mono);
-  font-size:0.85rem;
-  color:var(--akcent);
-}
+.projekt-przychod{margin:0;font-family:var(--naglowki);font-weight:700;color:var(--live)}
 
-/* --- lista wpisów i wydań -------------------------------------------- */
-.lista{list-style:none;margin:2rem 0 0;padding:0}
-.lista li{padding:1.4rem 0;border-top:1px solid var(--linia)}
-.lista li:last-child{border-bottom:1px solid var(--linia)}
-.lista h2{
-  font-size:1.18rem;
-  margin:0.35rem 0 0.4rem;
-  letter-spacing:-0.03em;
-  line-height:1.2;
-}
-.lista h2 a{text-decoration:none}
-.lista h2 a:hover{color:var(--akcent)}
-.lista p{margin:0;color:var(--tekst-2);font-size:0.95em}
-.lista .data{margin:0}
-
-/* --- pozycja oferty wewnątrz wydania ---------------------------------- */
-.oferta{
-  margin:2.6rem 0;
-  padding-top:1.3rem;
-  border-top:1px solid var(--linia);
-}
-.oferta-numer{
-  font-family:var(--mono);
-  font-size:0.75rem;
-  color:var(--akcent);
-  margin:0 0 0.35rem;
-}
-.oferta h3{margin:0 0 0.9rem;font-size:1.15rem}
-
-/* liczby z etykietami: etykieta nad wartością, żeby było wiadomo,
-   co znaczy każda liczba */
-.oferta-liczby{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));
-  gap:0.9rem 1.6rem;
-  margin:0 0 1.3rem;
-  padding:0.9rem 0;
-  border-top:1px solid var(--linia);
-  border-bottom:1px solid var(--linia);
-}
-.oferta-liczby span{display:block}
-.oferta-liczby b{
-  display:block;
-  font-family:var(--grotesk);
-  font-weight:400;
-  font-size:0.72rem;
-  line-height:1.3;
-  color:var(--tekst-3);
-  margin-bottom:0.15rem;
-}
-.oferta-liczby i{
-  font-style:normal;
-  font-family:var(--mono);
-  font-size:0.95rem;
-  color:var(--akcent);
-}
-
-/* --- karta weryfikacji ------------------------------------------------ */
-.weryfikacja{margin:1.4rem 0}
-.weryfikacja dl{margin:0}
-.weryfikacja dt{
-  font-family:var(--grotesk);
-  font-size:0.78rem;
-  color:var(--tekst-3);
-  padding-top:0.7rem;
-  border-top:1px solid var(--linia);
-}
-.weryfikacja dd{
-  margin:0.1rem 0 0.7rem;
-  font-size:0.95em;
-  color:var(--tekst-2);
-}
-.weryfikacja dd em{color:var(--tekst-3)}
-
-@media (min-width:34rem){
-  .weryfikacja dl{
-    display:grid;
-    grid-template-columns:11rem 1fr;
-    column-gap:1.5rem;
-  }
-  .weryfikacja dt{grid-column:1;padding-bottom:0.7rem}
-  .weryfikacja dd{
-    grid-column:2;
-    margin:0;
-    padding:0.7rem 0;
-    border-top:1px solid var(--linia);
-  }
-}
-
-/* --- tabela wszystkich ofert ------------------------------------------ */
-.tabela-ofert{
-  margin:2rem -1.25rem;
-  padding:0 1.25rem;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-}
-.tabela-ofert table{
-  border-collapse:collapse;
-  width:100%;
-  min-width:34rem;
-  font-size:0.85rem;
-}
-.tabela-ofert th,
-.tabela-ofert td{
-  text-align:left;
-  padding:0.6rem 0.9rem 0.6rem 0;
-  border-bottom:1px solid var(--linia);
-  vertical-align:top;
+.status{
+  margin-left:auto;
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  font-size:.75rem;
+  font-weight:600;
+  padding:.28rem .65rem;
+  border-radius:999px;
   white-space:nowrap;
 }
-.tabela-ofert th{
-  font-family:var(--grotesk);
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.status-live{color:var(--live);background:var(--live-tlo)}
+.status-live::before{animation:puls 2s ease-out infinite}
+.status-beta{color:var(--beta);background:var(--beta-tlo)}
+.status-budowa{color:var(--budowa);background:var(--budowa-tlo)}
+@keyframes puls{
+  0%{box-shadow:0 0 0 0 rgba(21,127,59,.45)}
+  70%{box-shadow:0 0 0 6px rgba(21,127,59,0)}
+  100%{box-shadow:0 0 0 0 rgba(21,127,59,0)}
+}
+
+.narzedzia{list-style:none;margin:auto 0 0;padding:.2rem 0 0;display:flex;flex-wrap:wrap;gap:.35rem}
+.narzedzia li{
+  font-size:.74rem;
   font-weight:500;
-  font-size:0.74rem;
-  color:var(--tekst-3);
-  border-bottom:1px solid var(--tekst-3);
-}
-.tabela-ofert td:nth-child(2),
-.tabela-ofert td:nth-child(3),
-.tabela-ofert td:nth-child(4){
-  font-family:var(--mono);
-  font-size:0.8rem;
-  color:var(--akcent);
-}
-.tabela-ofert td:last-child,
-.tabela-ofert th:last-child{white-space:normal;min-width:11rem;padding-right:0}
-.tabela-ofert td:first-child{font-weight:500}
-
-.legenda{
-  font-size:0.78rem;
-  color:var(--tekst-3);
-  margin-top:-1rem;
+  color:var(--tekst-2);
+  background:var(--tlo);
+  border:1px solid var(--linia);
+  padding:.2rem .6rem;
+  border-radius:999px;
 }
 
-/* --- blok zapisu ------------------------------------------------------ */
+/* --- skrót wpisów na stronie głównej ---------------------------------- */
+.wpisy-skrot{
+  list-style:none;
+  margin:0;
+  padding:0;
+  background:var(--karta);
+  border:1px solid var(--linia);
+  border-radius:var(--promien);
+  box-shadow:var(--cien);
+  overflow:hidden;
+}
+.wpisy-skrot li+li{border-top:1px solid var(--linia)}
+.wpisy-skrot a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.95rem 1.15rem;text-decoration:none}
+.wpisy-skrot a:hover{background:var(--tlo)}
+.wpisy-skrot .tytul{font-weight:600}
+.wpisy-skrot time{font-size:.82rem;color:var(--tekst-3);white-space:nowrap}
+.pusto{
+  margin:0;
+  padding:1.1rem 1.2rem;
+  background:var(--karta);
+  border:1px dashed var(--linia);
+  border-radius:var(--promien);
+  color:var(--tekst-2);
+  font-size:.95rem;
+}
+
+/* --- strony z tekstem: blog, wpisy, o mnie, polityka ------------------- */
+.proza{padding-top:1.5rem;padding-bottom:3rem;line-height:1.7}
+.proza h1{font-size:2.3rem;margin-bottom:.6em}
+.proza h2{margin-top:1.8em}
+.proza h3{margin-top:1.5em}
+.proza p,.proza ul,.proza ol{margin:0 0 1.1em}
+.proza ul,.proza ol{padding-left:1.3em}
+.proza li{margin-bottom:.35em}
+.proza blockquote{margin:1.5em 0;padding:.2em 0 .2em 1.1em;border-left:3px solid var(--akcent);color:var(--tekst-2)}
+.proza hr{border:0;border-top:1px solid var(--linia);margin:2.5em 0}
+.proza code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;background:var(--karta);border:1px solid var(--linia);padding:.1em .35em;border-radius:6px}
+.proza pre{background:var(--karta);border:1px solid var(--linia);border-radius:var(--promien-maly);padding:1rem;overflow-x:auto}
+.proza pre code{border:0;padding:0}
+.proza img{border-radius:var(--promien-maly);margin:1.5em 0}
+.data{font-size:.85rem;color:var(--tekst-3);margin:0 0 .6rem}
+.lead{font-size:1.15em;color:var(--tekst-2);margin-bottom:1.6em}
+
+/* lista wpisów na /blog */
+.lista{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:.9rem}
+.lista li{background:var(--karta);border:1px solid var(--linia);border-radius:var(--promien);padding:1.2rem 1.3rem;box-shadow:var(--cien)}
+.lista h2{font-size:1.2rem;margin:.3rem 0 .4rem}
+.lista h2 a{text-decoration:none}
+.lista h2 a:hover{color:var(--akcent)}
+.lista p{margin:0;color:var(--tekst-2);font-size:.95rem}
+.lista .data{margin:0}
+
+/* --- blok zapisu na newsletter ----------------------------------------- */
 .zapis{
-  margin:3rem 0 2rem;
-  padding:1.6rem 1.4rem 1.4rem;
-  background:var(--akcent-tlo);
-}
-.zapis h2{margin-top:0;font-size:1.25rem}
-.zapis p{color:var(--tekst-2)}
-.formularz{margin:1.2rem 0}
-.klauzula{
-  font-size:0.6rem;
+  margin:1.5rem 0 2rem;
+  padding:1.4rem 1.4rem 1.2rem;
+  background:var(--karta);
+  border:1px solid var(--linia);
+  border-radius:var(--promien);
+  box-shadow:var(--cien);
   line-height:1.5;
-  color:var(--tekst-3);
-  opacity:0.9;
-  margin-bottom:0;
 }
+.formularz{margin:0 0 1rem}
+.klauzula{font-size:.6rem;line-height:1.5;color:var(--tekst-3);margin:0}
 
-/* --- formularz newslettera (MailerLite), ostylowany pod stronę -------- */
-.formularz .ml-form-fieldRow{margin:0 0 0.9rem}
+/* formularz MailerLite: wygląd zmieniamy wyłącznie tutaj, przez CSS */
+.formularz .ml-form-fieldRow{margin:0 0 .8rem}
 .formularz input[type="email"]{
   width:100%;
-  box-sizing:border-box;
-  font-family:var(--serif);
+  font-family:var(--tekstowy);
   font-size:1rem;
   color:var(--tekst);
-  background:var(--papier);
+  background:var(--tlo);
   border:1px solid var(--linia);
-  padding:0.7rem 0.8rem;
+  border-radius:var(--promien-maly);
+  padding:.8rem .95rem;
 }
 .formularz input[type="email"]::placeholder{color:var(--tekst-3)}
-.formularz input[type="email"]:focus{outline:2px solid var(--akcent);outline-offset:1px;border-color:var(--akcent)}
+.formularz input[type="email"]:focus{outline:2px solid var(--akcent);outline-offset:1px;border-color:var(--akcent);background:var(--karta)}
 .formularz .custom-checkbox-radio-list{margin:0}
-.formularz .custom-control{position:relative;padding-left:1.7rem}
-.formularz .custom-control-input{position:absolute;left:0;top:0.2rem;width:1rem;height:1rem;margin:0;accent-color:var(--akcent)}
-.formularz .custom-control-label{
-  font-family:var(--grotesk);
-  font-size:0.62rem;
-  line-height:1.4;
-  color:var(--tekst-2);
-  cursor:pointer;
-}
+.formularz .custom-control{position:relative;padding-left:1.6rem}
+.formularz .custom-control-input{position:absolute;left:0;top:.1rem;width:1rem;height:1rem;margin:0;accent-color:var(--akcent)}
+.formularz .custom-control-label{font-size:.62rem;line-height:1.45;color:var(--tekst-2);cursor:pointer}
 .formularz .ml-form-embedSubmit{margin:1rem 0 0}
-.formularz button.primary{
-  font-family:var(--grotesk);
-  font-weight:600;
-  font-size:0.9rem;
-  color:var(--papier);
-  background:var(--akcent);
-  border:1px solid var(--akcent);
-  padding:0.7rem 1.5rem;
-  cursor:pointer;
-}
-.formularz button.primary:hover{filter:brightness(0.92)}
+.formularz button.primary,
 .formularz button.loading{
+  font-family:var(--tekstowy);
+  font-weight:600;
+  font-size:.95rem;
+  color:#fff;
   background:var(--akcent);
-  border:1px solid var(--akcent);
-  padding:0.7rem 1.5rem;
-  cursor:default;
+  border:0;
+  border-radius:var(--promien-maly);
+  padding:.82rem 1.4rem;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(255,90,31,.25);
 }
+.formularz button.primary:hover{background:var(--akcent-mocny)}
+.formularz button.loading{cursor:default}
 .formularz .ml-form-embedSubmitLoad{display:inline-block;width:18px;height:18px}
 .formularz .ml-form-embedSubmitLoad:after{
   content:" ";
@@ -437,31 +375,28 @@ a:hover{text-decoration-color:var(--akcent)}
   height:11px;
   margin:1px;
   border-radius:50%;
-  border:3px solid var(--papier);
-  border-color:var(--papier) var(--papier) var(--papier) transparent;
+  border:3px solid #fff;
+  border-color:#fff #fff #fff transparent;
   animation:ml-form-embedSubmitLoad 1.2s linear infinite;
 }
 @keyframes ml-form-embedSubmitLoad{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 .formularz .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-.formularz .ml-error input{border-color:#b00020!important}
+.formularz .ml-error input{border-color:#C81E1E!important}
 .formularz .ml-error .custom-control-label,
-.formularz .ml-error label{color:#b00020}
-.ml-form-successContent h4{font-family:var(--grotesk);font-size:1.05rem;margin:0 0 0.4rem;color:var(--tekst)}
+.formularz .ml-error label{color:#C81E1E}
+.ml-form-successContent h4{font-family:var(--naglowki);font-size:1.1rem;margin:0 0 .35rem;color:var(--tekst)}
 .ml-form-successContent p{margin:0;color:var(--tekst-2)}
 
-/* --- stopka ----------------------------------------------------------- */
+/* --- stopka ------------------------------------------------------------ */
 .stopka{
-  margin-top:4rem;
-  padding:1.6rem 0 3rem;
+  margin-top:2rem;
+  padding:1.5rem 0 2.5rem;
   border-top:1px solid var(--linia);
-  font-family:var(--grotesk);
-  font-size:0.83rem;
+  font-size:.88rem;
   color:var(--tekst-3);
 }
-.stopka p{margin:0 0 0.4em}
-.stopka-autor{color:var(--tekst);font-weight:500}
-.stopka-nota{margin-top:1rem;line-height:1.55;max-width:34rem}
-.stopka-linki{margin-top:0;display:flex;justify-content:space-between;gap:1.2rem;flex-wrap:wrap}
+.stopka-linki{margin:0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.stopka a{color:var(--tekst-2)}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}

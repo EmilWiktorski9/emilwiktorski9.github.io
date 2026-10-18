@@ -1,16 +1,27 @@
 # =====================================================================
 #  PROJEKTY POKAZYWANE NA STRONIE GŁÓWNEJ
-#  Dodajesz projekt, dopisując kolejny blok zaczynający się od "-".
-#  Zachowaj wcięcia i cudzysłowy.
+#  Dodajesz projekt, kopiując cały blok zaczynający się od "-"
+#  i wklejając go pod spodem. Zachowaj wcięcia i cudzysłowy.
 #
-#  nazwa    nazwa projektu
-#  opis     jedno zdanie, co robi
-#  url      adres strony projektu (może być zewnętrzny albo własny)
-#  przychod (opcjonalne) miejsce na przyszły przychód, na razie pomiń.
-#           Gdy odkomentujesz linię przychod, pokaże się na karcie.
+#  nazwa      nazwa projektu
+#  opis       jedno zdanie, co robi
+#  url        adres strony projektu
+#  status     "Live", "Beta" albo "W budowie"
+#             (pasek celu na stronie głównej liczy projekty ze statusem "Live")
+#  logo       ścieżka do logo w assets/projekty/ (bez logo pokaże się litera)
+#  zrzut      ścieżka do zrzutu ekranu aplikacji (bez zrzutu pokaże się
+#             logo na kolorze projektu)
+#  tlo        kolor okładki karty, gdy nie ma zrzutu
+#  narzedzia  lista narzędzi, którymi projekt jest zbudowany
+#  przychod   (opcjonalne) przychód, pokaże się na karcie po odkomentowaniu
 # =====================================================================
 
-- nazwa: "[NAZWA PROJEKTU]"
-  opis: "[Jedno zdanie o tym, co robi ten projekt.]"
-  url: "#"
-  # przychod: "0 zł/mies"
+- nazwa: "Korektor Lektorski"
+  opis: "Automatyczna korekta nagrań lektorskich i audiobooków"
+  url: "https://korektorlektorski.pl/"
+  status: "Live"
+  logo: "/assets/projekty/korektor-lektorski.webp"
+  # zrzut: "/assets/projekty/korektor-lektorski-zrzut.png"
+  tlo: "#080b16"
+  narzedzia: ["Claude", "Python", "Supabase", "Stripe", "Render", "ElevenLabs"]
+  # przychod: "0 zł/mies."

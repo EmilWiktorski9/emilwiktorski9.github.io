@@ -7,7 +7,7 @@
 
 # --- PODSTAWY (uzupełnij, gdy będziesz miał nazwę i domenę) ---
 title: "Emil Wiktorski"
-description: "Co tydzień przeglądam polskie biznesy internetowe na sprzedaż i opisuję te, które są warte uwagi. Ceny, mnożniki, moja ocena."
+description: "Nie umiem programować, a mimo to buduję i wypuszczam własne aplikacje SaaS z pomocą AI. Pokazuję cały proces: co buduję, ile to kosztuje i co się sypie."
 lang: pl
 
 # --- ADRES STRONY ---------------------------------------------------
@@ -27,12 +27,24 @@ baseurl: ""
 autor: "Emil Wiktorski"
 email: "emil@emilwiktorski.pl"
 
-# --- ZDANIE NA STRONIE GŁÓWNEJ (zmieniaj, kiedy chcesz) ---
-naglowek_glowny: "Co czwartek jedna wiadomość o polskich biznesach internetowych: sklepy, konta marketplace, SaaSy i serwisy treściowe."
+# --- LEWA KOLUMNA STRONY GŁÓWNEJ ---
+bio: "Nie umiem programować. A mimo to buduję i wypuszczam własne aplikacje SaaS, w całości z pomocą AI."
+linkedin: "https://www.linkedin.com/in/emil-wiktorski-6273171a4/"
+
+# Zdjęcie profilowe: wrzuć plik do folderu assets i wpisz ścieżkę,
+# na przykład "/assets/zdjecie.jpg". Puste = kółko z inicjałami.
+zdjecie: ""
+
+# Cel na pasku postępu. Licznik sam liczy projekty ze statusem "Live"
+# w pliku _data/projekty.yml.
+cel_aplikacji: 10
+
+# --- PROJEKTY ---
+# Projekty dodajesz w pliku _data/projekty.yml, nie tutaj.
 
 # --- FORMULARZ ZAPISU ---
-# Gdy dostaniesz kod z MailerLite, wklej go do pliku _includes/zapis.html
-# w miejsce oznaczone [FORMULARZ_MAILERLITE]. Tutaj nic nie zmieniasz.
+# Kod formularza MailerLite jest w pliku _includes/zapis.html.
+# Tutaj nic nie zmieniasz.
 
 # =====================================================================
 #  PONIŻEJ NIC NIE ZMIENIAJ

@@ -16,7 +16,7 @@
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/rss.xml' | absolute_url }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="{{ '/assets/styl.css' | relative_url }}">
 {%- if page.layout == 'wpis' %}
 <script type="application/ld+json">
@@ -46,7 +46,8 @@
     "@type": "Person",
     "name": {{ site.autor | jsonify }},
     "email": {{ site.email | jsonify }},
-    "jobTitle": "Analityk rynku wtórnego biznesów internetowych"
+    "jobTitle": "Twórca aplikacji SaaS budowanych z pomocą AI",
+    "sameAs": [{{ site.linkedin | jsonify }}]
   }
 }
 </script>

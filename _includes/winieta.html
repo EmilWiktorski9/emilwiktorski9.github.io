@@ -1,12 +1,10 @@
 <a class="pomin" href="#tresc">Przejdź do treści</a>
 <header class="winieta">
-  <div class="kolumna">
-    <div class="winieta-gora">
-      <a class="winieta-nazwa" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <nav class="menu" aria-label="Nawigacja główna">
-        <a href="{{ '/blog/' | relative_url }}">Blog</a>
-        <a href="{{ '/o-mnie/' | relative_url }}">O mnie</a>
-      </nav>
-    </div>
+  <div class="szeroka winieta-gora">
+    {% if page.url == '/' %}<span></span>{% else %}<a class="winieta-nazwa" href="{{ '/' | relative_url }}">{{ site.title }}</a>{% endif %}
+    <nav class="menu" aria-label="Nawigacja główna">
+      <a href="{{ '/blog/' | relative_url }}"{% if page.url contains '/blog/' %} aria-current="page"{% endif %}>Blog</a>
+      <a href="{{ '/o-mnie/' | relative_url }}"{% if page.url == '/o-mnie/' %} aria-current="page"{% endif %}>O mnie</a>
+    </nav>
   </div>
 </header>

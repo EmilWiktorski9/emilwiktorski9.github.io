@@ -1,11 +1,15 @@
 ---
 layout: default
 ---
+{%- assign gotowe = site.data.projekty | where: "status", "Live" | size -%}
 <div class="glowna">
 
-  <div class="glowna-lewa">
-    <!-- Zdjęcie profilowe: podmień ten placeholder na <img class="avatar" src="/assets/..." alt="Emil Wiktorski"> gdy będzie gotowe -->
-    <div class="avatar" aria-hidden="true"></div>
+  <aside class="glowna-lewa" aria-label="O mnie i kontakt">
+    {% if site.zdjecie and site.zdjecie != "" %}
+    <img class="awatar" src="{{ site.zdjecie | relative_url }}" alt="{{ site.autor }}" width="104" height="104">
+    {% else %}
+    <div class="awatar" aria-hidden="true">EW</div>
+    {% endif %}
 
     <h1 class="glowna-nazwa">{{ site.autor }}</h1>
 
@@ -13,32 +17,90 @@ layout: default
     <p class="glowna-przychod">[PRZYCHÓD MIESIĘCZNY]</p>
     -->
 
-    <p class="glowna-bio">[JEDNO ZDANIE O MNIE]</p>
+    <p class="glowna-bio">{{ site.bio }}</p>
+
+    <div class="cel">
+      <p class="cel-opis"><span>Cel: {{ site.cel_aplikacji }} działających aplikacji</span><b>{{ gotowe }} / {{ site.cel_aplikacji }}</b></p>
+      <ol class="cel-pasek" aria-label="Działające aplikacje: {{ gotowe }} z {{ site.cel_aplikacji }}">
+        {%- for i in (1..site.cel_aplikacji) -%}
+        <li{% if i <= gotowe %} class="zrobione"{% endif %}></li>
+        {%- endfor -%}
+      </ol>
+    </div>
 
     <p class="glowna-linki">
-      <a class="linkedin" href="https://www.linkedin.com/in/emil-wiktorski-6273171a4/" aria-label="LinkedIn" rel="me">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-        <span>LinkedIn</span>
+      <a class="ikona-link" href="{{ site.linkedin }}" target="_blank" rel="me noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn
+      </a>
+      <a class="ikona-link" href="mailto:{{ site.email }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg>
+        {{ site.email }}
       </a>
     </p>
 
-    <p class="glowna-mail"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    <p class="glowna-pomysl">Masz pomysł na aplikację dla swojej firmy? <a href="mailto:{{ site.email }}">Napisz.</a></p>
 
-    <p class="glowna-newsletter"><a class="przycisk" href="{{ '/blog/' | relative_url }}">Zapisz się na newsletter →</a></p>
-  </div>
+    <a class="przycisk przycisk-pelny" href="{{ '/blog/' | relative_url }}">Zapisz się na newsletter →</a>
+  </aside>
 
   <div class="glowna-prawa">
-    <ul class="projekty">
-      {% for projekt in site.data.projekty %}
-      <li class="projekt">
-        <a class="projekt-link" href="{{ projekt.url }}">
-          <span class="projekt-nazwa">{{ projekt.nazwa }}</span>
-          <span class="projekt-opis">{{ projekt.opis }}</span>
-          {% if projekt.przychod %}<span class="projekt-przychod">{{ projekt.przychod }}</span>{% endif %}
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
 
+    <section class="sekcja" aria-labelledby="projekty-tytul">
+      <div class="sekcja-tytul"><h2 id="projekty-tytul">Projekty</h2></div>
+      <ul class="projekty">
+        {% for projekt in site.data.projekty %}
+        <li class="projekt">
+          <a class="projekt-link" href="{{ projekt.url }}" target="_blank" rel="noopener">
+            <div class="projekt-okladka" style="--tlo-projektu:{{ projekt.tlo | default: '#15161A' }}">
+              {% if projekt.zrzut %}
+              <img class="zrzut" src="{{ projekt.zrzut | relative_url }}" alt="Zrzut ekranu: {{ projekt.nazwa }}" loading="lazy">
+              {% elsif projekt.logo %}
+              <img class="okladka-logo" src="{{ projekt.logo | relative_url }}" alt="" loading="lazy">
+              {% endif %}
+            </div>
+            <div class="projekt-tresc">
+              <div class="projekt-glowa">
+                {% if projekt.logo %}
+                <img class="projekt-logo" src="{{ projekt.logo | relative_url }}" alt="" width="42" height="42">
+                {% else %}
+                <span class="projekt-litera" aria-hidden="true">{{ projekt.nazwa | slice: 0 }}</span>
+                {% endif %}
+                <div>
+                  <span class="projekt-nazwa">{{ projekt.nazwa }}</span>
+                  <span class="projekt-adres">{{ projekt.url | remove: "https://" | remove: "http://" | remove: "www." | split: "/" | first }} <span aria-hidden="true">↗</span></span>
+                </div>
+                {% if projekt.status %}<span class="status {% case projekt.status %}{% when 'Live' %}status-live{% when 'Beta' %}status-beta{% else %}status-budowa{% endcase %}">{{ projekt.status }}</span>{% endif %}
+              </div>
+              <p class="projekt-opis">{{ projekt.opis }}</p>
+              {% if projekt.przychod %}<p class="projekt-przychod">{{ projekt.przychod }}</p>{% endif %}
+              {% if projekt.narzedzia %}
+              <ul class="narzedzia" aria-label="Narzędzia">
+                {% for narzedzie in projekt.narzedzia %}<li>{{ narzedzie }}</li>{% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="sekcja" aria-labelledby="proces-tytul">
+      <div class="sekcja-tytul">
+        <h2 id="proces-tytul">Proces budowy</h2>
+        {% if site.categories.blog.size > 0 %}<a href="{{ '/blog/' | relative_url }}">Wszystkie wpisy</a>{% endif %}
+      </div>
+      {% if site.categories.blog.size > 0 %}
+      <ul class="wpisy-skrot">
+        {% for wpis in site.categories.blog limit:3 %}
+        <li><a href="{{ wpis.url | relative_url }}"><span class="tytul">{{ wpis.title }}</span><time datetime="{{ wpis.date | date_to_xmlschema }}">{{ wpis.date | date: "%d.%m.%Y" }}</time></a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="pusto">Pierwszy wpis już wkrótce. <a href="{{ '/blog/' | relative_url }}">Zapisz się na newsletter</a>, żeby go nie przegapić.</p>
+      {% endif %}
+    </section>
+
+  </div>
 </div>
