@@ -330,28 +330,49 @@ a:hover{text-decoration-color:var(--akcent)}
   box-shadow:var(--cien);
   line-height:1.5;
 }
-.formularz{margin:0 0 1rem}
-.klauzula{font-size:.6rem;line-height:1.5;color:var(--tekst-3);margin:0}
+.zapis .zapis-tytul{font-size:1.35rem;margin:0 0 .35rem}
+.zapis .zapis-opis{margin:0 0 1.1rem;color:var(--tekst-2)}
+.formularz{margin:0}
+.zapis .klauzula{
+  font-size:.6rem;
+  line-height:1.55;
+  color:var(--tekst-3);
+  margin:1.1rem 0 0;
+  padding-top:.9rem;
+  border-top:1px solid var(--linia);
+}
 
-/* formularz MailerLite: wygląd zmieniamy wyłącznie tutaj, przez CSS */
-.formularz .ml-form-fieldRow{margin:0 0 .8rem}
+/* formularz MailerLite: wygląd zmieniamy wyłącznie tutaj, przez CSS.
+   Na telefonie: e-mail, zgoda, przycisk jedno pod drugim.
+   Szerzej: e-mail i przycisk w jednym rzędzie, zgoda pod spodem. */
+.formularz .ml-block-form{display:grid;grid-template-columns:1fr;gap:.7rem}
+.formularz .ml-form-formContent{display:contents}
+.formularz .ml-form-fieldRow{margin:0}
+.formularz .ml-form-embedSubmit{margin:0}
+@media (min-width:34rem){
+  .formularz .ml-block-form{grid-template-columns:1fr auto;gap:.6rem}
+  .formularz .ml-form-fieldRow:not(.ml-last-item){grid-column:1;grid-row:1}
+  .formularz .ml-form-embedSubmit{grid-column:2;grid-row:1}
+  .formularz .ml-form-fieldRow.ml-last-item{grid-column:1 / -1;grid-row:2}
+  .formularz .ml-form-embedSubmit button{height:100%}
+}
 .formularz input[type="email"]{
   width:100%;
   font-family:var(--tekstowy);
-  font-size:1rem;
+  font-size:.98rem;
   color:var(--tekst);
   background:var(--tlo);
   border:1px solid var(--linia);
   border-radius:var(--promien-maly);
-  padding:.8rem .95rem;
+  padding:.75rem .95rem;
 }
 .formularz input[type="email"]::placeholder{color:var(--tekst-3)}
 .formularz input[type="email"]:focus{outline:2px solid var(--akcent);outline-offset:1px;border-color:var(--akcent);background:var(--karta)}
 .formularz .custom-checkbox-radio-list{margin:0}
-.formularz .custom-control{position:relative;padding-left:1.6rem}
-.formularz .custom-control-input{position:absolute;left:0;top:.1rem;width:1rem;height:1rem;margin:0;accent-color:var(--akcent)}
-.formularz .custom-control-label{font-size:.62rem;line-height:1.45;color:var(--tekst-2);cursor:pointer}
-.formularz .ml-form-embedSubmit{margin:1rem 0 0}
+.formularz .custom-control{position:relative;padding-left:1.45rem}
+.formularz .custom-control-input{position:absolute;left:0;top:.05rem;width:.9rem;height:.9rem;margin:0;accent-color:var(--akcent)}
+/* display:block, żeby drobny tekst zgody nie dziedziczył wysokiej linii po otoczeniu */
+.formularz .custom-control-label{display:block;font-size:.62rem;line-height:1.5;color:var(--tekst-2);cursor:pointer}
 .formularz button.primary,
 .formularz button.loading{
   font-family:var(--tekstowy);
@@ -361,11 +382,15 @@ a:hover{text-decoration-color:var(--akcent)}
   background:var(--akcent);
   border:0;
   border-radius:var(--promien-maly);
-  padding:.82rem 1.4rem;
+  padding:.75rem 1.4rem;
+  white-space:nowrap;
   cursor:pointer;
   box-shadow:0 6px 16px rgba(255,90,31,.25);
 }
 .formularz button.primary:hover{background:var(--akcent-mocny)}
+@media (max-width:33.99rem){
+  .formularz button.primary,.formularz button.loading{width:100%}
+}
 .formularz button.loading{cursor:default}
 .formularz .ml-form-embedSubmitLoad{display:inline-block;width:18px;height:18px}
 .formularz .ml-form-embedSubmitLoad:after{

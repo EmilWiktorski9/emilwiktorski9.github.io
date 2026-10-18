@@ -2,14 +2,14 @@
 layout: default
 title: Blog
 permalink: /blog/
-opis: "Teksty o wycenie, kupowaniu i sprzedawaniu biznesów internetowych w Polsce."
+opis: "Proces budowania aplikacji SaaS z pomocą AI bez umiejętności programowania: co buduję, ile to kosztuje i co się sypie."
 ---
 <div class="kolumna proza">
   <h1>Blog</h1>
-
-  {% include zapis.html %}
+  <p class="lead">Tu pokazuję cały proces budowania aplikacji z AI: co buduję, ile to kosztuje, co się sypie i co mówią o tym ludzie.</p>
 
   {% if site.categories.blog.size > 0 %}
+  {% include zapis.html tytul="Nie przegap kolejnych wpisów" opis="Zapisz się, a dam ci znać, gdy pojawi się nowy wpis." %}
   <ul class="lista">
     {% for wpis in site.categories.blog %}
     <li>
@@ -20,6 +20,6 @@ opis: "Teksty o wycenie, kupowaniu i sprzedawaniu biznesów internetowych w Pols
     {% endfor %}
   </ul>
   {% else %}
-  <p>Nie ma tu jeszcze żadnego wpisu.</p>
+  {% include zapis.html tytul="Pierwszy wpis już wkrótce" opis="Nie chcesz go przegapić? Zapisz się, a dam ci znać, gdy się pojawi." %}
   {% endif %}
 </div>
