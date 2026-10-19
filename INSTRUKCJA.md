@@ -14,6 +14,7 @@ Każdą zmianę robisz na github.com w repozytorium strony: otwierasz plik, klik
 | Link do LinkedIna | `_config.yml`, linia `linkedin` |
 | Zdjęcie profilowe | `_config.yml`, linia `zdjecie` (rozdział 3) |
 | Cel na pasku postępu (10 aplikacji) | `_config.yml`, linia `cel_aplikacji` |
+| Czy aplikacja zarabia (pasek celu) | `_data/projekty.yml`, pole `zarabia` |
 | Adres e-mail | `_config.yml`, linia `email` |
 | Opis strony w Google i przy udostępnianiu | `_config.yml`, linia `description` |
 | Projekty | `_data/projekty.yml` (rozdział 2) |
@@ -37,6 +38,7 @@ W `_config.yml` cudzysłowy muszą zostać. Zmieniasz tylko tekst w środku.
 | `opis` | jedno zdanie, co robi |
 | `url` | pełny adres strony projektu, z `https://` |
 | `status` | dokładnie `Live`, `Beta` albo `W budowie` |
+| `zarabia` | `true`, gdy ktoś zapłacił za aplikację, inaczej `false` |
 | `logo` | ścieżka do logo, np. `/assets/projekty/moja-aplikacja.png` |
 | `zrzut` | ścieżka do zrzutu ekranu aplikacji (opcjonalnie) |
 | `tlo` | kolor okładki karty, gdy nie ma zrzutu, np. `#080b16` |
@@ -48,7 +50,7 @@ W `_config.yml` cudzysłowy muszą zostać. Zmieniasz tylko tekst w środku.
 Co dzieje się samo:
 
 - Jeden projekt zajmuje całą szerokość, od dwóch karty układają się po dwie w rzędzie.
-- Pasek celu na stronie głównej liczy projekty ze statusem `Live`.
+- Pasek celu na stronie głównej pokazuje dwie liczby. Główna to aplikacje, za które ktoś zapłacił (`zarabia: true`). Druga, "Wypuszczone aplikacje", to projekty ze statusem `Live`. Gdy pierwszy klient zapłaci, zmień w projekcie `zarabia: false` na `zarabia: true`.
 - Kliknięcie karty otwiera stronę projektu w nowej karcie przeglądarki.
 
 **Linie zaczynające się od `#`** są wyłączone (to komentarze). Żeby włączyć na przykład zrzut ekranu albo przychód, usuń `# ` z początku linii. Żeby wyłączyć, dopisz `# ` z powrotem.

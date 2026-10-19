@@ -68,7 +68,9 @@ Styl "indie maker" (wzór: indiepage.co).
   zajmuje całą szerokość, od dwóch układają się po dwa. Karta otwiera stronę
   projektu w nowej karcie. Bez wykresów przychodu; pole `przychod` czeka na
   później.
-- Pasek celu "X / 10" sam liczy projekty ze statusem "Live".
+- Pasek celu: główna liczba "X / 10" to aplikacje, za które ktoś zapłacił
+  (pole `zarabia: true`), druga linia "Wypuszczone aplikacje" liczy projekty
+  ze statusem "Live". Na pasku pełny pomarańcz = zarabia, jasny = wypuszczona.
 - Na głównej nagłówek strony nie powtarza nazwiska, bo jest w lewej kolumnie.
 - Bez emotek i bez stockowej dekoracji.
 

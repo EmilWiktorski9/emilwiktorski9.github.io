@@ -35,8 +35,9 @@ linkedin: "https://www.linkedin.com/in/emil-wiktorski-6273171a4/"
 # na przykład "/assets/zdjecie.jpg". Puste = kółko z inicjałami.
 zdjecie: ""
 
-# Cel na pasku postępu. Licznik sam liczy projekty ze statusem "Live"
-# w pliku _data/projekty.yml.
+# Cel na pasku postępu. Główna liczba to projekty z "zarabia: true",
+# druga (wypuszczone) to projekty ze statusem "Live". Obie liczy sam
+# z pliku _data/projekty.yml.
 cel_aplikacji: 10
 
 # --- PROJEKTY ---

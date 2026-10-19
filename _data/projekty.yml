@@ -7,7 +7,9 @@
 #  opis       jedno zdanie, co robi
 #  url        adres strony projektu
 #  status     "Live", "Beta" albo "W budowie"
-#             (pasek celu na stronie głównej liczy projekty ze statusem "Live")
+#             (projekty "Live" liczą się na pasku jako wypuszczone)
+#  zarabia    true, gdy ktoś zapłacił za aplikację, w przeciwnym razie false
+#             (tylko takie projekty liczą się do głównego celu na pasku)
 #  logo       ścieżka do logo w assets/projekty/ (bez logo pokaże się litera)
 #  zrzut      ścieżka do zrzutu ekranu aplikacji (bez zrzutu pokaże się
 #             logo na kolorze projektu)
@@ -20,6 +22,7 @@
   opis: "Automatyczna korekta nagrań lektorskich i audiobooków"
   url: "https://korektorlektorski.pl/"
   status: "Live"
+  zarabia: false
   logo: "/assets/projekty/korektor-lektorski.webp"
   # zrzut: "/assets/projekty/korektor-lektorski-zrzut.png"
   tlo: "#080b16"

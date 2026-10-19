@@ -14,6 +14,7 @@
   --akcent:#FF5A1F;
   --akcent-mocny:#E5480F;
   --akcent-tlo:#FFEFE7;
+  --akcent-jasny:#FFBFA6;   /* pasek celu: wypuszczona, jeszcze bez klienta */
 
   /* kolory statusów projektu */
   --live:#157F3B;   --live-tlo:#DCF7E5;
@@ -158,10 +159,14 @@ a:hover{text-decoration-color:var(--akcent)}
   margin:0 0 1.4rem;
 }
 .cel-opis{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;font-size:.85rem;color:var(--tekst-2);margin:0 0 .6rem}
-.cel-opis b{font-family:var(--naglowki);font-size:1.1rem;color:var(--tekst)}
+.cel-opis b{font-family:var(--naglowki);font-size:1.1rem;color:var(--tekst);white-space:nowrap}
 .cel-pasek{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
 .cel-pasek li{height:8px;border-radius:999px;background:var(--linia)}
-.cel-pasek li.zrobione{background:var(--akcent)}
+.cel-pasek li.zarabia{background:var(--akcent)}
+.cel-pasek li.wypuszczona{background:var(--akcent-jasny)}
+.cel-drugi{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;font-size:.8rem;color:var(--tekst-2);margin:.65rem 0 0}
+.cel-drugi b{font-family:var(--naglowki);font-size:.95rem;color:var(--tekst);white-space:nowrap}
+.cel-drugi i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--akcent-jasny);margin-right:.45rem;vertical-align:middle}
 
 /* linki kontaktowe */
 .glowna-linki{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem}

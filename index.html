@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-{%- assign gotowe = site.data.projekty | where: "status", "Live" | size -%}
+{%- assign wypuszczone = site.data.projekty | where: "status", "Live" | size -%}
+{%- assign zarabiaja = site.data.projekty | where_exp: "p", "p.zarabia == true" | size -%}
 <div class="glowna">
 
   <aside class="glowna-lewa" aria-label="O mnie i kontakt">
@@ -20,12 +21,13 @@ layout: default
     <p class="glowna-bio">{{ site.bio }}</p>
 
     <div class="cel">
-      <p class="cel-opis"><span>Cel: {{ site.cel_aplikacji }} działających aplikacji</span><b>{{ gotowe }} / {{ site.cel_aplikacji }}</b></p>
-      <ol class="cel-pasek" aria-label="Działające aplikacje: {{ gotowe }} z {{ site.cel_aplikacji }}">
+      <p class="cel-opis"><span>Cel: {{ site.cel_aplikacji }} aplikacji, za które ktoś zapłacił</span><b>{{ zarabiaja }} / {{ site.cel_aplikacji }}</b></p>
+      <ol class="cel-pasek" aria-hidden="true">
         {%- for i in (1..site.cel_aplikacji) -%}
-        <li{% if i <= gotowe %} class="zrobione"{% endif %}></li>
+        <li{% if i <= zarabiaja %} class="zarabia"{% elsif i <= wypuszczone %} class="wypuszczona"{% endif %}></li>
         {%- endfor -%}
       </ol>
+      <p class="cel-drugi"><span><i aria-hidden="true"></i>Wypuszczone aplikacje</span><b>{{ wypuszczone }} / {{ site.cel_aplikacji }}</b></p>
     </div>
 
     <p class="glowna-linki">
