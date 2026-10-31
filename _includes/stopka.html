@@ -1,8 +1,6 @@
 <footer class="stopka">
-  <div class="szeroka">
-    <p class="stopka-linki">
-      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-      <a href="{{ '/polityka-prywatnosci/' | relative_url }}">Polityka prywatności</a>
-    </p>
+  <div class="szeroka stopka-linki">
+    <span>© {{ site.time | date: "%Y" }} {{ site.autor }}</span>
+    <a href="{{ '/polityka-prywatnosci/' | relative_url }}">Polityka prywatności</a>
   </div>
 </footer>

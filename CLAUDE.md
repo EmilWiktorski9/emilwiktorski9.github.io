@@ -6,8 +6,8 @@ przeczytać każdy, dlatego nie dopisuj tu informacji o właścicielu, notatek
 roboczych ani ustaleń z rozmów. Na samej stronie plik jest wyłączony
 w `_config.yml`.
 
-Strona emilwiktorski.pl: profil, projekty SaaS, blog z procesem budowy
-i newsletter.
+Strona emilwiktorski.pl: jednostronicowa wizytówka. Kto to jest, co zrobił
+(projekty), co może zrobić dla firm (oferta) i kontakt.
 
 ## Zasady treści, twarde
 
@@ -31,48 +31,53 @@ z gałęzi `main`. Domena emilwiktorski.pl (plik `CNAME`, nie usuwać).
 Bez frameworków, bez npm, bez buildu po stronie użytkownika.
 
 ```
-_config.yml               ustawienia: opis, bio, LinkedIn, zdjęcie, cel aplikacji
-_data/projekty.yml        lista projektów na stronie głównej, jedno miejsce
-index.html                strona główna: dwie kolumny, profil i projekty
-blog.html                 lista wpisów (adres /blog/), formularz zapisu na górze
-o-mnie.md                 strona o mnie
-polityka-prywatnosci.md   polityka prywatności
+_config.yml               ustawienia: opis, teksty góry strony, kontakt, Formspree
+_data/projekty.yml        sekcja "Co zrobiłem", jedno miejsce na projekty
+_data/oferta.yml          kafle sekcji "Co mogę dla Ciebie zrobić"
+index.html                strona główna: start, projekty, oferta, kontakt
+polityka-prywatnosci.md   polityka prywatności (sekcja o formularzu włącza się sama)
+blog.html, o-mnie.html    przekierowania starych adresów /blog/ i /o-mnie/ na główną
 archiwum.html             przekierowanie starego adresu /wydania/ na główną
 kontakt.html              przekierowanie starego adresu /kontakt/ na główną
-_posts/                   wpisy bloga, jeden plik to jeden wpis
-_layouts/ _includes/      szablony i powtarzalne kawałki (zapis.html = newsletter)
+_layouts/ _includes/      szablony i powtarzalne kawałki (zapis.html = newsletter, nieużywany)
 assets/styl.css           cały wygląd, zmienne kolorów i krojów na górze pliku
 assets/projekty/          logo i zrzuty ekranu projektów
-SZABLON-WPISU-BLOG.txt    układ wpisu na bloga
+SZABLON-WPISU-BLOG.txt    układ wpisu na bloga, na przyszłość
 INSTRUKCJA.md             instrukcja obsługi strony, aktualizuj przy zmianach
 ```
 
-Wpisy: kategoria `blog`, nazwa pliku `RRRR-MM-DD-tytul.md`, bez polskich znaków
-i spacji. Trzy ostatnie wpisy pokazują się na głównej w sekcji "Proces budowy".
+Blog i newsletter są na razie wyłączone. Układ `wpis` i `_includes/zapis.html`
+zostają w repozytorium, żeby dało się je włączyć bez budowania od zera.
 
 ## Decyzje wizualne, nie zmieniaj bez pytania
 
-Styl "indie maker" (wzór: indiepage.co).
+Prosta wizytówka: im mniej, tym lepiej.
 
-- Tło `#F7F7F4`, karty białe, tekst `#15161A`, akcent pomarańczowy `#FF5A1F`.
+- Tło `#F7F7F4`, karty białe z cienką ramką, tekst `#12141A`, akcent niebieski `#2448D8`.
 - Kroje: nagłówki Bricolage Grotesque, tekst Inter.
-- Zaokrąglone karty z delikatnym cieniem, linki kontaktowe jako pigułki.
-- Strona główna w dwóch kolumnach. Lewa: kółko z inicjałami albo zdjęcie,
-  imię i nazwisko, bio, pasek celu, LinkedIn, e-mail, przycisk newslettera;
-  na komputerze zostaje na miejscu przy przewijaniu. Prawa: karty projektów
-  i skrót wpisów. Na telefonie jedna pod drugą, lewa na górze.
-- Teksty (blog, wpisy, o mnie, polityka) w wąskiej kolumnie 40rem. Nagłówek,
-  stopka i strona główna w szerokim kontenerze 66rem.
-- Karta projektu: okładka (zrzut ekranu albo logo na kolorze projektu), logo,
-  nazwa, adres, status (Live, Beta, W budowie), opis, narzędzia. Jeden projekt
-  zajmuje całą szerokość, od dwóch układają się po dwa. Karta otwiera stronę
-  projektu w nowej karcie. Bez wykresów przychodu; pole `przychod` czeka na
-  później.
-- Pasek celu: główna liczba "X / 10" to aplikacje, za które ktoś zapłacił
-  (pole `zarabia: true`), druga linia "Wypuszczone aplikacje" liczy projekty
-  ze statusem "Live". Na pasku pełny pomarańcz = zarabia, jasny = wypuszczona.
-- Na głównej nagłówek strony nie powtarza nazwiska, bo jest w lewej kolumnie.
-- Bez emotek i bez stockowej dekoracji.
+- Jedna strona, kolejno: start (nagłówek, wstęp, dwa przyciski tej samej szerokości
+  obok siebie), "Co zrobiłem", "Co mogę dla Ciebie zrobić", kontakt, stopka.
+- Nagłówek: nazwa po lewej, zakładki "Co zrobiłem" i "Co mogę zrobić", przycisk
+  Kontakt. Na telefonie zakładki znikają, zostaje nazwa i Kontakt w jednej linii.
+- Karta projektu: logo, nazwa, status ("Live" wyświetla się jako "Działa"), opis,
+  fakty (start, dla kogo, opcjonalnie przychód), link. Jeden projekt na całą
+  szerokość, od dwóch po dwa w rzędzie.
+- Oferta: kafle dwa na dwa, na telefonie jeden pod drugim.
+- Kontakt: tekst i ikony (mail, LinkedIn, Facebook) po lewej, formularz po prawej,
+  na telefonie formularz pod spodem. Ikona Facebooka pokazuje się tylko, gdy
+  w `_config.yml` jest link.
+- Bez emotek, bez stockowej dekoracji, bez placeholderów typu "wkrótce".
+
+## Formularz kontaktowy
+
+- Formspree, identyfikator w `_config.yml` (`formspree`). Puste pole = zamiast
+  formularza przycisk z adresem e-mail.
+- Wysyłka przez krótki skrypt w `index.html` (fetch), bez bibliotek. Bez JS
+  formularz działa zwykłym wysłaniem.
+- Pole `_gotcha` to pułapka na spam, zostaje ukryte.
+- Klauzula RODO pod formularzem zostaje.
+- Polityka prywatności sama dopisuje sekcje o Formspree, gdy pole `formspree`
+  jest uzupełnione. Przy włączeniu zmień datę w `polityka_aktualizacja`.
 
 ## Newsletter i formularz zapisu
 
@@ -81,15 +86,14 @@ Styl "indie maker" (wzór: indiepage.co).
   wymyślaj atrybutów name, id ani ukrytych pól, bo muszą zgadzać się z kontem
   MailerLite. Wygląd zmieniasz wyłącznie w CSS.
 - Formularz ma stały id, więc na jednej stronie może być najwyżej jeden.
-  Obecne miejsca: góra /blog, dół /o-mnie, koniec każdego wpisu. Strona główna
-  ma przycisk prowadzący na /blog. Stopka jest bez formularza.
+  Obecnie nie jest osadzony nigdzie poza końcem wpisów (blog wyłączony).
 - Nagłówek i zdanie nad formularzem ustawiasz parametrami include
   `tytul` i `opis` w pliku strony, nie w `zapis.html`.
 - Klauzula RODO pod formularzem zostaje. Jej usunięcie to decyzja prawna,
   nie wizualna.
-- Polityka prywatności mówi, że strona nie ma analityki ani cookies, z wyjątkiem
-  pingu MailerLite o wyświetleniu formularza. Każde nowe narzędzie zewnętrzne
-  (analityka, piksel, czat) wymaga aktualizacji polityki i jej daty.
+- Polityka prywatności mówi, że strona nie ma analityki ani cookies. Każde nowe
+  narzędzie zewnętrzne (analityka, piksel, czat, nowy formularz) wymaga
+  aktualizacji polityki i jej daty.
 
 ## Pułapki techniczne
 
@@ -101,7 +105,8 @@ Własna domena albo repozytorium `nazwa.github.io` to `baseurl: ""`.
 Po każdej zmianie krojów sprawdź polskie znaki, zwłaszcza ł, ą, ę, ż.
 
 **Nie dodawaj bibliotek JavaScript.** Strona ma się ładować szybko i działać
-bez buildu. Jedynym skryptem zewnętrznym jest skrypt formularza MailerLite.
+bez buildu. Na stronie głównej nie ma skryptów zewnętrznych, jest tylko krótki
+skrypt wysyłki formularza kontaktowego.
 
 **Pliki robocze.** Pliki bez front matter (np. `.md`, `.txt`) Jekyll publikuje
 na stronie jako zwykłe pliki. Każdy nowy plik roboczy w katalogu głównym

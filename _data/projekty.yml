@@ -15,16 +15,20 @@
 #             logo na kolorze projektu)
 #  tlo        kolor okładki karty, gdy nie ma zrzutu
 #  narzedzia  lista narzędzi, którymi projekt jest zbudowany
+#  start      kiedy projekt powstał, np. "kwiecień 2026"
+#  dla_kogo   krótko, dla kogo jest projekt
 #  przychod   (opcjonalne) przychód, pokaże się na karcie po odkomentowaniu
 # =====================================================================
 
 - nazwa: "Korektor Lektorski"
-  opis: "Automatyczna korekta nagrań lektorskich i audiobooków"
+  opis: "Aplikacja dla studiów nagrań i wydawnictw audiobooków. Porównuje nagranie lektora z tekstem książki i zaznacza w PDF miejsca, gdzie lektor przeczytał coś inaczej. Korekta trwa o około 70% krócej."
   url: "https://korektorlektorski.pl/"
   status: "Live"
   zarabia: false
   logo: "/assets/projekty/korektor-lektorski.webp"
   # zrzut: "/assets/projekty/korektor-lektorski-zrzut.png"
   tlo: "#080b16"
+  start: "kwiecień 2026"
+  dla_kogo: "studia i wydawnictwa"
   narzedzia: ["Claude", "Python", "Supabase", "Stripe", "Render", "ElevenLabs"]
   # przychod: "0 zł/mies."

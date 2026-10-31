@@ -5,9 +5,10 @@
 #  Uwaga: cudzysłowy muszą zostać. Zmieniaj tylko tekst w środku.
 # =====================================================================
 
-# --- PODSTAWY (uzupełnij, gdy będziesz miał nazwę i domenę) ---
+# --- PODSTAWY ---
 title: "Emil Wiktorski"
-description: "Nie umiem programować, a mimo to buduję i wypuszczam własne aplikacje SaaS z pomocą AI. Pokazuję cały proces: co buduję, ile to kosztuje i co się sypie."
+# Opis w Google i w podglądzie linku na Facebooku i LinkedInie.
+description: "Buduję aplikacje dopasowane do Ciebie i Twojej firmy: aplikacje na zamówienie, systemy CRM, SaaS-y i strony www. Twórca Korektora Lektorskiego."
 lang: pl
 
 # --- ADRES STRONY ---------------------------------------------------
@@ -27,25 +28,28 @@ baseurl: ""
 autor: "Emil Wiktorski"
 email: "emil@emilwiktorski.pl"
 
-# --- LEWA KOLUMNA STRONY GŁÓWNEJ ---
-bio: "Nie umiem programować. A mimo to buduję i wypuszczam własne aplikacje SaaS, w całości z pomocą AI."
+# --- GÓRA STRONY GŁÓWNEJ ---
+naglowek: "Buduję aplikacje dopasowane do Ciebie i Twojej firmy."
+wstep: "Cześć, jestem Emil. Wiosną 2026 dałem ogłoszenie, że zajmuję się automatyzacją, i tak powstała moja pierwsza aplikacja: Korektor Lektorski dla branży audiobooków. Dziś tworzę własne produkty, a to samo robię też na zamówienie dla firm: aplikacje, CRM-y i strony www."
+
+# --- KONTAKT ---
+kontakt_tytul: "Porozmawiajmy"
+kontakt_opis: "Zastanawiasz się, jak coś zrobić? Szukasz rozwiązania dopasowanego do siebie i swojej firmy? A może po prostu chcesz pogadać? Napisz!"
 linkedin: "https://www.linkedin.com/in/emil-wiktorski-6273171a4/"
+# Wklej pełny adres swojego profilu. Puste = ikona Facebooka się nie pokaże.
+facebook: ""
 
-# Zdjęcie profilowe: wrzuć plik do folderu assets i wpisz ścieżkę,
-# na przykład "/assets/zdjecie.jpg". Puste = kółko z inicjałami.
-zdjecie: ""
+# Formularz kontaktowy (Formspree). Wklej sam identyfikator formularza,
+# czyli końcówkę adresu https://formspree.io/f/XXXXXXXX, np. "xyzabcde".
+# Puste = zamiast formularza pokaże się przycisk "Napisz maila".
+# Po włączeniu formularza polityka prywatności sama dopisze sekcję o nim.
+# Wtedy zmień też datę w linii polityka_aktualizacja na dzień włączenia.
+formspree: ""
+polityka_aktualizacja: "30.10.2026"
 
-# Cel na pasku postępu. Główna liczba to projekty z "zarabia: true",
-# druga (wypuszczone) to projekty ze statusem "Live". Obie liczy sam
-# z pliku _data/projekty.yml.
-cel_aplikacji: 10
-
-# --- PROJEKTY ---
-# Projekty dodajesz w pliku _data/projekty.yml, nie tutaj.
-
-# --- FORMULARZ ZAPISU ---
-# Kod formularza MailerLite jest w pliku _includes/zapis.html.
-# Tutaj nic nie zmieniasz.
+# --- PROJEKTY I OFERTA ---
+# Projekty dodajesz w pliku _data/projekty.yml.
+# Kafle "Co mogę dla Ciebie zrobić" zmieniasz w pliku _data/oferta.yml.
 
 # =====================================================================
 #  PONIŻEJ NIC NIE ZMIENIAJ

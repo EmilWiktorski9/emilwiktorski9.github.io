@@ -5,8 +5,8 @@ permalink: /polityka-prywatnosci/
 opis: "Kto przetwarza dane osobowe zbierane na tej stronie, w jakim celu, jak długo i jakie masz prawa."
 ---
 
-Ten dokument mówi, co dzieje się z Twoimi danymi, kiedy odwiedzasz tę stronę
-albo zapisujesz się na newsletter. Starałem się napisać go tak, żeby dało się
+Ten dokument mówi, co dzieje się z Twoimi danymi, kiedy odwiedzasz tę stronę,
+piszesz do mnie albo zapisujesz się na newsletter. Starałem się napisać go tak, żeby dało się
 go przeczytać do końca.
 
 ## 1. Kto przetwarza Twoje dane
@@ -59,7 +59,21 @@ zapewnić jej bezpieczeństwo.
 **Podstawa prawna:** mój prawnie uzasadniony interes, czyli art. 6 ust. 1
 lit. f RODO, polegający na udostępnianiu i zabezpieczeniu strony.
 
-### Korespondencja e-mail
+{% if site.formspree and site.formspree != "" %}
+### Wiadomości z formularza kontaktowego
+
+**Co przetwarzam:** imię, adres e-mail i treść wiadomości, którą wpiszesz
+w formularz na stronie głównej.
+
+**Po co:** żeby odpowiedzieć na Twoją wiadomość i prowadzić z Tobą rozmowę.
+
+**Podstawa prawna:** mój prawnie uzasadniony interes, art. 6 ust. 1 lit. f
+RODO, polegający na obsłudze kierowanej do mnie korespondencji.
+
+**Czy musisz podać dane:** nie, ale bez imienia, adresu i treści nie mam jak
+odpowiedzieć. Zamiast formularza możesz też po prostu napisać maila.
+
+{% endif %}### Korespondencja e-mail
 
 **Co przetwarzam:** adres e-mail i wszystko, co sam napiszesz w wiadomości.
 
@@ -74,10 +88,8 @@ Nie sprzedaję ani nie udostępniam Twoich danych nikomu w celach
 marketingowych.
 
 Nie stosuję narzędzi analitycznych i nie zapisuję plików cookies. Ta strona nie
-liczy odwiedzin, nie śledzi Cię i nie osadza skryptów reklamowych. Jeden wyjątek:
-skrypt formularza zapisu na newsletter, dostarczany przez MailerLite, przy każdym
-wczytaniu strony wysyła do MailerLite informację, że formularz został wyświetlony.
-Poza tym i poza krojem pisma z Google Fonts, o czym niżej, strona nie łączy się
+liczy odwiedzin, nie śledzi Cię i nie osadza skryptów reklamowych. Poza krojem pisma
+z Google Fonts{% if site.formspree and site.formspree != "" %} i wysłaniem formularza kontaktowego do Formspree{% endif %}, o czym niżej, strona nie łączy się
 z żadnym zewnętrznym serwisem.
 
 Nie podejmuję wobec Ciebie decyzji w sposób zautomatyzowany i nie profiluję
@@ -95,7 +107,11 @@ usługi. Serwerownia, z której korzysta MailerLite, znajduje się na terenie
 Unii Europejskiej i ma certyfikat ISO/IEC 27001. Podprzetwarzający wskazani
 przez MailerLite również działają na terenie Unii.
 
-**Hosting strony: GitHub, Inc. z siedzibą w Stanach Zjednoczonych.** Dostawca
+{% if site.formspree and site.formspree != "" %}**Formularz kontaktowy: Formspree, Inc. z siedzibą w Stanach Zjednoczonych.**
+Dostawca przyjmuje wiadomości wysłane przez formularz i przekazuje je na mój
+adres e-mail. Przetwarza je wyłącznie na moje zlecenie.
+
+{% endif %}**Hosting strony: GitHub, Inc. z siedzibą w Stanach Zjednoczonych.** Dostawca
 przetwarza adresy IP w logach serwera w celach technicznych
 i bezpieczeństwa.
 
@@ -108,8 +124,8 @@ z serwerem Google, który może zarejestrować adres IP.
 Adresy e-mail z listy newslettera przechowywane są na serwerach na terenie
 Unii Europejskiej i nie są przekazywane poza Europejski Obszar Gospodarczy.
 
-Dane techniczne przetwarzane przez GitHub, Inc. oraz Google trafiają do
-Stanów Zjednoczonych. Oba podmioty deklarują udział w programie EU-U.S. Data
+Dane techniczne przetwarzane przez GitHub, Inc. oraz Google{% if site.formspree and site.formspree != "" %}, a także wiadomości z formularza kontaktowego przetwarzane przez Formspree, Inc.,{% endif %} trafiają do
+Stanów Zjednoczonych. GitHub i Google deklarują udział w programie EU-U.S. Data
 Privacy Framework.
 
 Masz prawo poprosić mnie o dalsze informacje na temat zabezpieczeń
@@ -126,7 +142,7 @@ liczony od momentu wycofania zgody. Przechowuję wyłącznie informację o tym,
 że i kiedy zgoda została wyrażona, żeby móc to wykazać, gdyby ktoś zarzucił
 mi wysyłkę bez zgody.
 
-**Korespondencja e-mail:** przez czas potrzebny do załatwienia sprawy,
+**Korespondencja e-mail{% if site.formspree and site.formspree != "" %} i wiadomości z formularza{% endif %}:** przez czas potrzebny do załatwienia sprawy,
 a potem tak długo, jak długo może być potrzebna jako dowód.
 
 **Logi serwera:** zgodnie z polityką dostawcy hostingu. Nie mam wpływu na ten
@@ -169,4 +185,4 @@ analityczne albo zmienię dostawcę wysyłki, zaktualizuję ten dokument
 i zmienię datę poniżej. Warto tu zajrzeć, jeśli korzystasz ze strony
 regularnie.
 
-Ostatnia aktualizacja: 11.09.2026
+Ostatnia aktualizacja: {{ site.polityka_aktualizacja }}

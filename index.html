@@ -1,108 +1,131 @@
 ---
 layout: default
 ---
-{%- assign wypuszczone = site.data.projekty | where: "status", "Live" | size -%}
-{%- assign zarabiaja = site.data.projekty | where_exp: "p", "p.zarabia == true" | size -%}
-<div class="glowna">
+<section id="start" class="szeroka start">
+  <h1 class="start-tytul">{{ site.naglowek }}</h1>
+  <p class="start-wstep">{{ site.wstep }}</p>
+  <div class="para-przyciskow">
+    <a class="przycisk" href="#kontakt">Napisz do mnie</a>
+    <a class="przycisk przycisk-jasny" href="#zrobione">Co zrobiłem</a>
+  </div>
+</section>
 
-  <aside class="glowna-lewa" aria-label="O mnie i kontakt">
-    {% if site.zdjecie and site.zdjecie != "" %}
-    <img class="awatar" src="{{ site.zdjecie | relative_url }}" alt="{{ site.autor }}" width="104" height="104">
-    {% else %}
-    <div class="awatar" aria-hidden="true">EW</div>
-    {% endif %}
+<section id="zrobione" class="szeroka sekcja" aria-labelledby="zrobione-tytul">
+  <h2 id="zrobione-tytul" class="sekcja-naglowek">Co zrobiłem</h2>
+  <ul class="projekty">
+    {% for projekt in site.data.projekty %}
+    <li class="projekt">
+      <a class="projekt-karta" href="{{ projekt.url }}" target="_blank" rel="noopener">
+        <div class="projekt-glowa">
+          <div class="projekt-nazwa-z-logo">
+            {% if projekt.logo %}
+            <img class="projekt-logo" src="{{ projekt.logo | relative_url }}" alt="" width="52" height="52" style="background:{{ projekt.tlo | default: '#15161A' }}">
+            {% else %}
+            <span class="projekt-litera" aria-hidden="true">{{ projekt.nazwa | slice: 0 }}</span>
+            {% endif %}
+            <h3 class="projekt-nazwa">{{ projekt.nazwa }}</h3>
+          </div>
+          {% if projekt.status %}<span class="status {% case projekt.status %}{% when 'Live' %}status-live{% when 'Beta' %}status-beta{% else %}status-budowa{% endcase %}">{% if projekt.status == 'Live' %}Działa{% else %}{{ projekt.status }}{% endif %}</span>{% endif %}
+        </div>
+        <p class="projekt-opis">{{ projekt.opis }}</p>
+        {% if projekt.start or projekt.dla_kogo or projekt.przychod %}
+        <dl class="projekt-fakty">
+          {% if projekt.start %}<div><dt>Start</dt><dd>{{ projekt.start }}</dd></div>{% endif %}
+          {% if projekt.dla_kogo %}<div><dt>Dla kogo</dt><dd>{{ projekt.dla_kogo }}</dd></div>{% endif %}
+          {% if projekt.przychod %}<div><dt>Przychód</dt><dd>{{ projekt.przychod }}</dd></div>{% endif %}
+        </dl>
+        {% endif %}
+        <span class="projekt-wiecej">Zobacz stronę projektu →</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
 
-    <h1 class="glowna-nazwa">{{ site.autor }}</h1>
+<section id="oferta" class="szeroka sekcja" aria-labelledby="oferta-tytul">
+  <h2 id="oferta-tytul" class="sekcja-naglowek">Co mogę dla Ciebie zrobić</h2>
+  <ul class="oferta">
+    {% for kafel in site.data.oferta %}
+    <li class="kafel">
+      <h3>{{ kafel.nazwa }}</h3>
+      <p>{{ kafel.opis }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
 
-    <!-- Miejsce na przychód miesięczny pod nazwiskiem. Odkomentuj i uzupełnij, gdy będziesz gotów:
-    <p class="glowna-przychod">[PRZYCHÓD MIESIĘCZNY]</p>
-    -->
-
-    <p class="glowna-bio">{{ site.bio }}</p>
-
-    <div class="cel">
-      <p class="cel-opis"><span>Cel: {{ site.cel_aplikacji }} aplikacji, za które ktoś zapłacił</span><b>{{ zarabiaja }} / {{ site.cel_aplikacji }}</b></p>
-      <ol class="cel-pasek" aria-hidden="true">
-        {%- for i in (1..site.cel_aplikacji) -%}
-        <li{% if i <= zarabiaja %} class="zarabia"{% elsif i <= wypuszczone %} class="wypuszczona"{% endif %}></li>
-        {%- endfor -%}
-      </ol>
-      <p class="cel-drugi"><span><i aria-hidden="true"></i>Wypuszczone aplikacje</span><b>{{ wypuszczone }} / {{ site.cel_aplikacji }}</b></p>
+<section id="kontakt" class="szeroka sekcja sekcja-ostatnia" aria-labelledby="kontakt-tytul">
+  <div class="kontakt">
+    <div>
+      <h2 id="kontakt-tytul" class="sekcja-naglowek">{{ site.kontakt_tytul }}</h2>
+      <p class="kontakt-opis">{{ site.kontakt_opis }}</p>
+      <div class="ikony">
+        <a class="ikona" href="mailto:{{ site.email }}" aria-label="Email: {{ site.email }}" title="{{ site.email }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </a>
+        {% if site.linkedin and site.linkedin != "" %}
+        <a class="ikona" href="{{ site.linkedin }}" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        {% endif %}
+        {% if site.facebook and site.facebook != "" %}
+        <a class="ikona" href="{{ site.facebook }}" target="_blank" rel="me noopener" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v7h4v-7h3l.5-4h-3.5V8.8c0-.5.3-.8.8-.8z"/></svg>
+        </a>
+        {% endif %}
+      </div>
     </div>
 
-    <p class="glowna-linki">
-      <a class="ikona-link" href="{{ site.linkedin }}" target="_blank" rel="me noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-        LinkedIn
-      </a>
-      <a class="ikona-link" href="mailto:{{ site.email }}">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg>
-        {{ site.email }}
-      </a>
-    </p>
-
-    <p class="glowna-pomysl">Masz pomysł na aplikację dla swojej firmy? <a href="mailto:{{ site.email }}">Napisz.</a></p>
-
-    <a class="przycisk przycisk-pelny" href="{{ '/blog/' | relative_url }}">Zapisz się na newsletter →</a>
-  </aside>
-
-  <div class="glowna-prawa">
-
-    <section class="sekcja" aria-labelledby="projekty-tytul">
-      <div class="sekcja-tytul"><h2 id="projekty-tytul">Projekty</h2></div>
-      <ul class="projekty">
-        {% for projekt in site.data.projekty %}
-        <li class="projekt">
-          <a class="projekt-link" href="{{ projekt.url }}" target="_blank" rel="noopener">
-            <div class="projekt-okladka" style="--tlo-projektu:{{ projekt.tlo | default: '#15161A' }}">
-              {% if projekt.zrzut %}
-              <img class="zrzut" src="{{ projekt.zrzut | relative_url }}" alt="Zrzut ekranu: {{ projekt.nazwa }}" loading="lazy">
-              {% elsif projekt.logo %}
-              <img class="okladka-logo" src="{{ projekt.logo | relative_url }}" alt="" loading="lazy">
-              {% endif %}
-            </div>
-            <div class="projekt-tresc">
-              <div class="projekt-glowa">
-                {% if projekt.logo %}
-                <img class="projekt-logo" src="{{ projekt.logo | relative_url }}" alt="" width="42" height="42">
-                {% else %}
-                <span class="projekt-litera" aria-hidden="true">{{ projekt.nazwa | slice: 0 }}</span>
-                {% endif %}
-                <div>
-                  <span class="projekt-nazwa">{{ projekt.nazwa }}</span>
-                  <span class="projekt-adres">{{ projekt.url | remove: "https://" | remove: "http://" | remove: "www." | split: "/" | first }} <span aria-hidden="true">↗</span></span>
-                </div>
-                {% if projekt.status %}<span class="status {% case projekt.status %}{% when 'Live' %}status-live{% when 'Beta' %}status-beta{% else %}status-budowa{% endcase %}">{{ projekt.status }}</span>{% endif %}
-              </div>
-              <p class="projekt-opis">{{ projekt.opis }}</p>
-              {% if projekt.przychod %}<p class="projekt-przychod">{{ projekt.przychod }}</p>{% endif %}
-              {% if projekt.narzedzia %}
-              <ul class="narzedzia" aria-label="Narzędzia">
-                {% for narzedzie in projekt.narzedzia %}<li>{{ narzedzie }}</li>{% endfor %}
-              </ul>
-              {% endif %}
-            </div>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </section>
-
-    <section class="sekcja" aria-labelledby="proces-tytul">
-      <div class="sekcja-tytul">
-        <h2 id="proces-tytul">Proces budowy</h2>
-        {% if site.categories.blog.size > 0 %}<a href="{{ '/blog/' | relative_url }}">Wszystkie wpisy</a>{% endif %}
+    <div>
+      {% if site.formspree and site.formspree != "" %}
+      <form class="formularz-kontakt" id="formularz-kontakt" action="https://formspree.io/f/{{ site.formspree }}" method="POST">
+        <div class="pole">
+          <label for="k-imie">Imię</label>
+          <input id="k-imie" name="imie" type="text" autocomplete="given-name" required>
+        </div>
+        <div class="pole">
+          <label for="k-email">Email</label>
+          <input id="k-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="pole">
+          <label for="k-opis">Co Ci chodzi po głowie?</label>
+          <textarea id="k-opis" name="wiadomosc" rows="5" required></textarea>
+        </div>
+        <input type="text" name="_gotcha" class="ukryte" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="_subject" value="Wiadomość ze strony emilwiktorski.pl">
+        <button type="submit" class="przycisk">Wyślij</button>
+        <p class="formularz-blad" role="alert" hidden>Coś poszło nie tak. Napisz bezpośrednio na <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+        <p class="klauzula-kontakt">Administratorem danych jest {{ site.autor }}. Dane z formularza wykorzystam tylko do odpowiedzi na wiadomość. Szczegóły w <a href="{{ '/polityka-prywatnosci/' | relative_url }}">polityce prywatności</a>.</p>
+      </form>
+      <div class="formularz-dzieki" id="formularz-dzieki" role="status" hidden>
+        <p class="formularz-dzieki-tytul">Dzięki, odezwę się.</p>
       </div>
-      {% if site.categories.blog.size > 0 %}
-      <ul class="wpisy-skrot">
-        {% for wpis in site.categories.blog limit:3 %}
-        <li><a href="{{ wpis.url | relative_url }}"><span class="tytul">{{ wpis.title }}</span><time datetime="{{ wpis.date | date_to_xmlschema }}">{{ wpis.date | date: "%d.%m.%Y" }}</time></a></li>
-        {% endfor %}
-      </ul>
+      <script>
+        (function () {
+          var f = document.getElementById('formularz-kontakt');
+          if (!f || !window.fetch) return;
+          f.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var b = f.querySelector('button[type="submit"]');
+            var blad = f.querySelector('.formularz-blad');
+            b.disabled = true;
+            blad.hidden = true;
+            fetch(f.action, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
+              .then(function (r) {
+                if (!r.ok) throw new Error();
+                f.hidden = true;
+                document.getElementById('formularz-dzieki').hidden = false;
+              })
+              .catch(function () { blad.hidden = false; b.disabled = false; });
+          });
+        })();
+      </script>
       {% else %}
-      <p class="pusto">Pierwszy wpis już wkrótce. <a href="{{ '/blog/' | relative_url }}">Zapisz się na newsletter</a>, żeby go nie przegapić.</p>
+      <div class="kontakt-mail">
+        <p>Najszybciej złapiesz mnie mailem.</p>
+        <a class="przycisk" href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </div>
       {% endif %}
-    </section>
-
+    </div>
   </div>
-</div>
+</section>

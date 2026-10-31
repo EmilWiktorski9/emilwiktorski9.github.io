@@ -1,0 +1,17 @@
+# =====================================================================
+#  KAFLE "CO MOGĘ DLA CIEBIE ZROBIĆ" NA STRONIE GŁÓWNEJ
+#  Każdy kafel to blok zaczynający się od "-". Zachowaj wcięcia
+#  i cudzysłowy. Najlepiej wyglądają cztery kafle (dwa na dwa).
+# =====================================================================
+
+- nazwa: "Aplikacja"
+  opis: "Masz w firmie coś, co robicie ręcznie albo w trzech programach naraz? Zbuduję jedną aplikację, która ogarnie to za Was."
+
+- nazwa: "CRM"
+  opis: "Gotowe CRM-y mają mnóstwo funkcji, z których nie korzystasz, a i tak brakuje im tej jednej, której potrzebujesz. Zbuduję CRM, który ma dokładnie to, czego potrzebujesz."
+
+- nazwa: "SaaS"
+  opis: "Masz pomysł na aplikację, za którą inni zapłacą? Przejdziemy razem drogę od pierwszej działającej wersji do gotowego produktu z płatnościami."
+
+- nazwa: "Strona www"
+  opis: "Potrzebujesz nowej strony? Dzięki pracy z AI zrobię ją szybciej i taniej niż agencja, a klient od razu zobaczy, czym się zajmujesz."

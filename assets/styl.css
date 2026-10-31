@@ -7,17 +7,17 @@
 :root{
   --tlo:#F7F7F4;
   --karta:#FFFFFF;
-  --tekst:#15161A;
-  --tekst-2:#4A4D57;
-  --tekst-3:#8A8D97;
-  --linia:#E5E5E8;
-  --akcent:#FF5A1F;
-  --akcent-mocny:#E5480F;
-  --akcent-tlo:#FFEFE7;
-  --akcent-jasny:#FFBFA6;   /* pasek celu: wypuszczona, jeszcze bez klienta */
+  --tekst:#12141A;
+  --tekst-2:#3E4452;
+  --tekst-3:#6B7080;
+  --linia:#E3E3DD;
+  --szary:#F1EFE8;          /* tło ikon kontaktu */
+  --akcent:#2448D8;         /* przyciski i wyróżnienia */
+  --akcent-mocny:#1A37B0;
+  --akcent-tlo:#E6ECFC;
 
   /* kolory statusów projektu */
-  --live:#157F3B;   --live-tlo:#DCF7E5;
+  --live:#14532D;   --live-tlo:#E7F5EC;   --live-kropka:#16A34A;
   --beta:#A15C07;   --beta-tlo:#FDF0CF;
   --budowa:#2F56C9; --budowa-tlo:#E0E8FD;
 
@@ -25,16 +25,14 @@
   --tekstowy:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 
   --promien:18px;
-  --promien-maly:12px;
-  --cien:0 1px 2px rgba(21,22,26,.04),0 6px 20px rgba(21,22,26,.06);
-  --cien-mocny:0 2px 4px rgba(21,22,26,.05),0 14px 34px rgba(21,22,26,.11);
+  --promien-maly:10px;
 
-  --szeroka:66rem;   /* nagłówek, stopka, strona główna */
-  --kolumna:40rem;   /* teksty: blog, wpisy, o mnie, polityka */
+  --szeroka:60rem;   /* nagłówek, stopka, strona główna */
+  --kolumna:40rem;   /* teksty: polityka prywatności */
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{
   margin:0;
   background:var(--tlo);
@@ -48,10 +46,11 @@ body{
   body{font-size:17px}
 }
 img{max-width:100%;height:auto;display:block}
+[hidden]{display:none !important}
 
 /* --- kontenery -------------------------------------------------------- */
-.szeroka{max-width:var(--szeroka);margin-left:auto;margin-right:auto;padding-left:1.25rem;padding-right:1.25rem}
-.kolumna{max-width:var(--kolumna);margin-left:auto;margin-right:auto;padding-left:1.25rem;padding-right:1.25rem}
+.szeroka{max-width:var(--szeroka);margin-left:auto;margin-right:auto;padding-left:1.5rem;padding-right:1.5rem}
+.kolumna{max-width:var(--kolumna);margin-left:auto;margin-right:auto;padding-left:1.5rem;padding-right:1.5rem}
 
 /* --- nagłówki i linki ------------------------------------------------- */
 h1,h2,h3,h4{
@@ -66,238 +65,178 @@ h1{font-size:2.2rem}
 h2{font-size:1.45rem}
 h3{font-size:1.15rem}
 
-a{color:var(--tekst);text-decoration:underline;text-decoration-color:var(--linia);text-decoration-thickness:1.5px;text-underline-offset:3px}
-a:hover{text-decoration-color:var(--akcent)}
+a{color:var(--akcent);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:hover{color:var(--akcent-mocny)}
 :focus-visible{outline:2px solid var(--akcent);outline-offset:3px;border-radius:4px}
 
 .pomin{position:absolute;left:-9999px}
-.pomin:focus{position:static;display:block;padding:.6rem 1.25rem;background:var(--akcent-tlo)}
+.pomin:focus{position:static;display:block;padding:.6rem 1.5rem;background:var(--akcent-tlo)}
 
 /* --- górny pasek ------------------------------------------------------ */
-.winieta{padding:1.1rem 0}
-.winieta-gora{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.winieta-nazwa{font-family:var(--naglowki);font-weight:700;font-size:1.08rem;letter-spacing:-0.01em;text-decoration:none}
-.menu{display:flex;gap:.3rem}
-.menu a{
-  font-size:.92rem;
-  font-weight:500;
-  color:var(--tekst-2);
-  text-decoration:none;
-  padding:.42rem .85rem;
-  border-radius:999px;
-}
-.menu a:hover{background:var(--karta);color:var(--tekst)}
-.menu a[aria-current="page"]{background:var(--karta);color:var(--tekst);box-shadow:var(--cien)}
-
-/* --- przycisk --------------------------------------------------------- */
-.przycisk{
+/* Na telefonie zostaje tylko nazwa i przycisk Kontakt. */
+.winieta{border-bottom:1px solid var(--linia)}
+.winieta-gora{display:flex;align-items:center;gap:.75rem 2rem;padding-top:.9rem;padding-bottom:.9rem}
+.winieta-nazwa{
+  margin-right:auto;
   display:inline-flex;
   align-items:center;
-  justify-content:center;
-  gap:.4rem;
-  font-family:var(--tekstowy);
-  font-weight:600;
-  font-size:.95rem;
-  color:#fff;
-  background:var(--akcent);
-  border:0;
-  border-radius:var(--promien-maly);
-  padding:.82rem 1.3rem;
-  text-decoration:none;
-  cursor:pointer;
-  box-shadow:0 6px 16px rgba(255,90,31,.25);
-  transition:transform .15s ease,background .15s ease;
-}
-.przycisk:hover{background:var(--akcent-mocny);transform:translateY(-1px)}
-.przycisk-pelny{width:100%}
-
-/* --- strona główna: dwie kolumny -------------------------------------- */
-/* Na telefonie jedna pod drugą, lewa na górze. Na komputerze lewa
-   kolumna zostaje na miejscu podczas przewijania. */
-.glowna{
-  max-width:var(--szeroka);
-  margin-left:auto;
-  margin-right:auto;
-  padding:1rem 1.25rem 3rem;
-  display:grid;
-  gap:2.5rem;
-  grid-template-columns:1fr;
-}
-@media (min-width:56rem){
-  .glowna{grid-template-columns:19rem 1fr;gap:3.5rem;align-items:start}
-  .glowna-lewa{position:sticky;top:1.5rem}
-}
-
-/* profil */
-.awatar{
-  width:6.5rem;
-  height:6.5rem;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--akcent);
-  color:#fff;
+  min-height:44px;
   font-family:var(--naglowki);
   font-weight:700;
-  font-size:2.2rem;
-  letter-spacing:-0.02em;
-  object-fit:cover;
-  box-shadow:var(--cien);
-  margin-bottom:1.25rem;
+  font-size:1.35rem;
+  line-height:1.2;
+  letter-spacing:-0.01em;
+  color:var(--tekst);
+  text-decoration:none;
 }
-.glowna-nazwa{font-size:2.3rem;margin:0 0 .6rem}
-.glowna-przychod{font-family:var(--naglowki);font-weight:700;color:var(--live);margin:-.3rem 0 .8rem}
-.glowna-bio{font-size:1.02rem;color:var(--tekst-2);margin:0 0 1.4rem}
-
-/* pasek postępu celu */
-.cel{
-  background:var(--karta);
-  border:1px solid var(--linia);
-  border-radius:var(--promien-maly);
-  padding:.9rem 1rem 1rem;
-  margin:0 0 1.4rem;
+.winieta-nazwa:hover{color:var(--tekst)}
+.menu{display:flex;align-items:center;gap:1.75rem}
+.menu a{font-size:1rem;font-weight:500;color:var(--tekst);text-decoration:none}
+.menu a:hover{color:var(--akcent)}
+@media (max-width:40rem){
+  .menu{display:none}
 }
-.cel-opis{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;font-size:.85rem;color:var(--tekst-2);margin:0 0 .6rem}
-.cel-opis b{font-family:var(--naglowki);font-size:1.1rem;color:var(--tekst);white-space:nowrap}
-.cel-pasek{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
-.cel-pasek li{height:8px;border-radius:999px;background:var(--linia)}
-.cel-pasek li.zarabia{background:var(--akcent)}
-.cel-pasek li.wypuszczona{background:var(--akcent-jasny)}
-.cel-drugi{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;font-size:.8rem;color:var(--tekst-2);margin:.65rem 0 0}
-.cel-drugi b{font-family:var(--naglowki);font-size:.95rem;color:var(--tekst);white-space:nowrap}
-.cel-drugi i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--akcent-jasny);margin-right:.45rem;vertical-align:middle}
 
-/* linki kontaktowe */
-.glowna-linki{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem}
-.ikona-link{
+/* --- przyciski -------------------------------------------------------- */
+.przycisk,.przycisk-obrys{
   display:inline-flex;
-  align-items:center;
-  gap:.45rem;
-  padding:.5rem .85rem;
-  border-radius:999px;
-  background:var(--karta);
-  border:1px solid var(--linia);
-  font-size:.86rem;
-  font-weight:500;
-  color:var(--tekst);
-  text-decoration:none;
-}
-.ikona-link:hover{border-color:var(--tekst-3)}
-.ikona-link svg{width:16px;height:16px;flex:none}
-.glowna-pomysl{font-size:.92rem;color:var(--tekst-2);margin:0 0 1.4rem}
-
-/* sekcje w prawej kolumnie */
-.sekcja{margin:0 0 2.75rem}
-.sekcja-tytul{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:0 0 1rem}
-.sekcja-tytul h2{font-size:1.3rem;margin:0}
-.sekcja-tytul a{font-size:.88rem;color:var(--tekst-2)}
-
-/* --- karty projektów -------------------------------------------------- */
-/* Jeden projekt zajmuje całą szerokość, od dwóch układają się po dwa. */
-.projekty{list-style:none;margin:0;padding:0;display:grid;gap:1.1rem;grid-template-columns:1fr}
-@media (min-width:40rem){
-  .projekty{grid-template-columns:repeat(2,1fr)}
-}
-.projekt{margin:0}
-.projekt:only-child{grid-column:1/-1}
-.projekt-link{
-  display:flex;
-  flex-direction:column;
-  height:100%;
-  background:var(--karta);
-  border:1px solid var(--linia);
-  border-radius:var(--promien);
-  overflow:hidden;
-  color:var(--tekst);
-  text-decoration:none;
-  box-shadow:var(--cien);
-  transition:transform .2s ease,box-shadow .2s ease;
-}
-.projekt-link:hover{transform:translateY(-3px);box-shadow:var(--cien-mocny)}
-
-/* okładka: zrzut ekranu albo logo na kolorze projektu */
-.projekt-okladka{
-  aspect-ratio:16/9;
-  background:var(--tlo-projektu,#15161A);
-  display:flex;
   align-items:center;
   justify-content:center;
-  overflow:hidden;
+  text-align:center;
+  font-family:var(--tekstowy);
+  font-weight:600;
+  font-size:1rem;
+  line-height:1.2;
+  border-radius:var(--promien-maly);
+  text-decoration:none;
+  cursor:pointer;
+  transition:background .15s ease,border-color .15s ease;
 }
-.projekt:only-child .projekt-okladka{aspect-ratio:21/9}
-.projekt-okladka .zrzut{width:100%;height:100%;object-fit:cover;object-position:top}
-.projekt-okladka .okladka-logo{width:36%;max-width:220px}
+.przycisk{min-height:52px;padding:0 1.5rem;color:#fff;background:var(--akcent);border:1.5px solid var(--akcent)}
+.przycisk:hover{color:#fff;background:var(--akcent-mocny);border-color:var(--akcent-mocny)}
+.przycisk:disabled{opacity:.6;cursor:default}
+.przycisk-jasny{color:var(--tekst);background:var(--karta);border-color:#D4D4CC}
+.przycisk-jasny:hover{color:var(--tekst);background:var(--karta);border-color:var(--tekst-3)}
+.przycisk-obrys{min-height:44px;padding:0 1.1rem;color:var(--tekst);border:1.5px solid var(--tekst);background:transparent}
+.przycisk-obrys:hover{color:var(--tekst);background:var(--karta)}
 
-.projekt-tresc{display:flex;flex-direction:column;gap:.65rem;flex:1;padding:1.1rem 1.2rem 1.25rem}
-.projekt-glowa{display:flex;align-items:center;gap:.75rem}
-.projekt-logo,.projekt-litera{width:42px;height:42px;border-radius:11px;flex:none}
-.projekt-logo{object-fit:cover}
-.projekt-litera{display:flex;align-items:center;justify-content:center;background:var(--akcent);color:#fff;font-family:var(--naglowki);font-weight:700}
-.projekt-nazwa{display:block;font-family:var(--naglowki);font-weight:700;font-size:1.15rem;line-height:1.2;letter-spacing:-0.01em}
-.projekt-adres{display:block;font-size:.8rem;color:var(--tekst-3)}
-.projekt-opis{margin:0;color:var(--tekst-2);font-size:.95rem;line-height:1.5}
-/* miejsce na przyszły przychód, pojawia się dopiero gdy podasz pole przychod */
-.projekt-przychod{margin:0;font-family:var(--naglowki);font-weight:700;color:var(--live)}
+/* --- strona główna ---------------------------------------------------- */
+.start{padding-top:5.5rem;padding-bottom:4.5rem}
+.start-tytul{max-width:44rem;font-size:clamp(2.35rem,5vw,4rem);line-height:1.05;margin:0}
+.start-wstep{max-width:38rem;font-size:1.12rem;color:var(--tekst-2);margin:1.5rem 0 0}
+.para-przyciskow{margin-top:2rem;display:flex;gap:.75rem;max-width:28rem}
+.para-przyciskow .przycisk{flex:1 1 0;min-width:0;padding:0 .75rem}
+@media (max-width:40rem){
+  .start{padding-top:3.5rem;padding-bottom:3.5rem}
+}
+
+.sekcja{padding-bottom:5rem}
+.sekcja-ostatnia{padding-bottom:6rem}
+.sekcja-naglowek{font-size:2rem;letter-spacing:-0.01em;margin:0 0 1.5rem}
+
+/* karty projektów: jeden zajmuje całą szerokość, od dwóch po dwa w rzędzie */
+.projekty{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:1fr}
+@media (min-width:48rem){
+  .projekty{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .projekt:only-child{grid-column:1/-1}
+}
+.projekt{margin:0}
+.projekt-karta{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  padding:1.75rem;
+  border-radius:var(--promien);
+  background:var(--karta);
+  border:1px solid var(--linia);
+  color:var(--tekst);
+  text-decoration:none;
+  transition:border-color .15s ease;
+}
+.projekt-karta:hover{color:var(--tekst);border-color:#CFCFC6}
+.projekt-glowa{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.projekt-nazwa-z-logo{display:flex;align-items:center;gap:.9rem;min-width:0}
+.projekt-logo,.projekt-litera{flex:none;width:52px;height:52px;border-radius:13px}
+.projekt-logo{object-fit:contain}
+.projekt-litera{display:flex;align-items:center;justify-content:center;background:var(--akcent);color:#fff;font-family:var(--naglowki);font-weight:700;font-size:1.3rem}
+.projekt-nazwa{margin:0;font-size:1.5rem;line-height:1.2;overflow-wrap:anywhere}
+.projekt-opis{margin:0;max-width:44rem;color:var(--tekst-2)}
+.projekt-fakty{margin:0;padding-top:1rem;border-top:1px solid var(--linia);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.projekt-fakty dt{font-size:.85rem;color:var(--tekst-3)}
+.projekt-fakty dd{margin:.1rem 0 0;font-weight:600}
+.projekt-wiecej{font-weight:600;color:var(--akcent)}
 
 .status{
-  margin-left:auto;
+  flex:none;
   display:inline-flex;
   align-items:center;
-  gap:.4rem;
-  font-size:.75rem;
+  gap:.5rem;
+  font-size:.85rem;
   font-weight:600;
-  padding:.28rem .65rem;
+  padding:.35rem .75rem;
   border-radius:999px;
   white-space:nowrap;
 }
-.status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
 .status-live{color:var(--live);background:var(--live-tlo)}
-.status-live::before{animation:puls 2s ease-out infinite}
+.status-live::before{background:var(--live-kropka)}
 .status-beta{color:var(--beta);background:var(--beta-tlo)}
 .status-budowa{color:var(--budowa);background:var(--budowa-tlo)}
-@keyframes puls{
-  0%{box-shadow:0 0 0 0 rgba(21,127,59,.45)}
-  70%{box-shadow:0 0 0 6px rgba(21,127,59,0)}
-  100%{box-shadow:0 0 0 0 rgba(21,127,59,0)}
-}
 
-.narzedzia{list-style:none;margin:auto 0 0;padding:.2rem 0 0;display:flex;flex-wrap:wrap;gap:.35rem}
-.narzedzia li{
-  font-size:.74rem;
-  font-weight:500;
-  color:var(--tekst-2);
+/* kafle oferty: dwa na dwa, na telefonie jeden pod drugim */
+.oferta{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:40rem){
+  .oferta{grid-template-columns:minmax(0,1fr)}
+}
+.kafel{padding:1.5rem;border-radius:16px;background:var(--karta);border:1px solid var(--linia)}
+.kafel h3{font-family:var(--tekstowy);font-size:1.15rem;font-weight:600;letter-spacing:0;margin:0}
+.kafel p{margin:.4rem 0 0;font-size:1rem;color:var(--tekst-2)}
+
+/* kontakt: tekst i ikony po lewej, formularz po prawej */
+.kontakt{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);
+  gap:2.5rem;
+  padding:2.5rem clamp(1.5rem,4vw,3rem);
+  border-radius:20px;
+  background:var(--karta);
+  border:1px solid var(--linia);
+}
+@media (max-width:48rem){
+  .kontakt{grid-template-columns:minmax(0,1fr)}
+}
+.kontakt .sekcja-naglowek{margin-bottom:.75rem}
+.kontakt-opis{margin:0;color:var(--tekst-2)}
+.ikony{margin-top:1.5rem;display:flex;gap:.75rem}
+.ikona{width:52px;height:52px;border-radius:14px;background:var(--szary);color:var(--tekst);display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.ikona:hover{color:var(--tekst);background:#E6E4DC}
+.ikona svg{width:22px;height:22px}
+.kontakt-mail p{margin:0 0 1rem;color:var(--tekst-2)}
+.kontakt-mail .przycisk{overflow-wrap:anywhere}
+
+.formularz-kontakt{display:flex;flex-direction:column;gap:1rem}
+.pole{display:flex;flex-direction:column;gap:.35rem}
+.pole label{font-size:.95rem;font-weight:500}
+.pole input,.pole textarea{
+  width:100%;
+  font-family:var(--tekstowy);
+  font-size:1rem;
+  color:var(--tekst);
   background:var(--tlo);
-  border:1px solid var(--linia);
-  padding:.2rem .6rem;
-  border-radius:999px;
+  border:1px solid #CFCFC6;
+  border-radius:var(--promien-maly);
+  padding:.75rem .9rem;
+  min-height:48px;
 }
-
-/* --- skrót wpisów na stronie głównej ---------------------------------- */
-.wpisy-skrot{
-  list-style:none;
-  margin:0;
-  padding:0;
-  background:var(--karta);
-  border:1px solid var(--linia);
-  border-radius:var(--promien);
-  box-shadow:var(--cien);
-  overflow:hidden;
-}
-.wpisy-skrot li+li{border-top:1px solid var(--linia)}
-.wpisy-skrot a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.95rem 1.15rem;text-decoration:none}
-.wpisy-skrot a:hover{background:var(--tlo)}
-.wpisy-skrot .tytul{font-weight:600}
-.wpisy-skrot time{font-size:.82rem;color:var(--tekst-3);white-space:nowrap}
-.pusto{
-  margin:0;
-  padding:1.1rem 1.2rem;
-  background:var(--karta);
-  border:1px dashed var(--linia);
-  border-radius:var(--promien);
-  color:var(--tekst-2);
-  font-size:.95rem;
-}
+.pole textarea{resize:vertical}
+.pole input:focus,.pole textarea:focus{outline:2px solid var(--akcent);outline-offset:1px;border-color:var(--akcent);background:var(--karta)}
+.formularz-kontakt .przycisk{align-self:flex-start}
+.ukryte{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.formularz-blad{margin:0;color:#B42318;font-size:.95rem}
+.klauzula-kontakt{margin:0;font-size:.8rem;line-height:1.5;color:var(--tekst-3)}
+.formularz-dzieki{padding:1.75rem;border-radius:16px;background:var(--tlo);border:1px solid var(--linia)}
+.formularz-dzieki-tytul{margin:0;font-family:var(--naglowki);font-weight:700;font-size:1.5rem}
 
 /* --- strony z tekstem: blog, wpisy, o mnie, polityka ------------------- */
 .proza{padding-top:1.5rem;padding-bottom:3rem;line-height:1.7}
@@ -390,7 +329,7 @@ a:hover{text-decoration-color:var(--akcent)}
   padding:.75rem 1.4rem;
   white-space:nowrap;
   cursor:pointer;
-  box-shadow:0 6px 16px rgba(255,90,31,.25);
+  
 }
 .formularz button.primary:hover{background:var(--akcent-mocny)}
 @media (max-width:33.99rem){
@@ -419,15 +358,16 @@ a:hover{text-decoration-color:var(--akcent)}
 
 /* --- stopka ------------------------------------------------------------ */
 .stopka{
-  margin-top:2rem;
+  margin-top:0;
   padding:1.5rem 0 2.5rem;
   border-top:1px solid var(--linia);
   font-size:.88rem;
   color:var(--tekst-3);
 }
-.stopka-linki{margin:0;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.stopka-linki{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .stopka a{color:var(--tekst-2)}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
+  html{scroll-behavior:auto}
 }

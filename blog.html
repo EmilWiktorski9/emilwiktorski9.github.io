@@ -1,25 +1,17 @@
 ---
-layout: default
-title: Blog
 permalink: /blog/
-opis: "Proces budowania aplikacji SaaS z pomocą AI bez umiejętności programowania: co buduję, ile to kosztuje i co się sypie."
+sitemap: false
 ---
-<div class="kolumna proza">
-  <h1>Blog</h1>
-  <p class="lead">Tu pokazuję cały proces budowania aplikacji z AI: co buduję, ile to kosztuje, co się sypie i co mówią o tym ludzie.</p>
-
-  {% if site.categories.blog.size > 0 %}
-  {% include zapis.html tytul="Nie przegap kolejnych wpisów" opis="Zapisz się, a dam ci znać, gdy pojawi się nowy wpis." %}
-  <ul class="lista">
-    {% for wpis in site.categories.blog %}
-    <li>
-      <p class="data"><time datetime="{{ wpis.date | date_to_xmlschema }}">{{ wpis.date | date: "%d.%m.%Y" }}</time></p>
-      <h2><a href="{{ wpis.url | relative_url }}">{{ wpis.title }}</a></h2>
-      <p>{{ wpis.lead | default: wpis.excerpt | strip_html | normalize_whitespace | truncate: 200 }}</p>
-    </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  {% include zapis.html tytul="Pierwszy wpis już wkrótce" opis="Nie chcesz go przegapić? Zapisz się, a dam ci znać, gdy się pojawi." %}
-  {% endif %}
-</div>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url={{ '/' | absolute_url }}">
+<link rel="canonical" href="{{ '/' | absolute_url }}">
+<meta name="robots" content="noindex">
+<title>Przeniesiono</title>
+</head>
+<body>
+<p>Ta strona została przeniesiona. <a href="{{ '/' | relative_url }}">Przejdź na stronę główną</a>.</p>
+</body>
+</html>
