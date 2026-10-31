@@ -111,6 +111,9 @@ przez MailerLite również działają na terenie Unii.
 Dostawca przyjmuje wiadomości wysłane przez formularz i przekazuje je na mój
 adres e-mail. Przetwarza je wyłącznie na moje zlecenie.
 
+**Skrzynka pocztowa: Google.** Wiadomości z formularza trafiają do mojej
+skrzynki w usłudze Gmail, prowadzonej przez Google.
+
 {% endif %}**Hosting strony: GitHub, Inc. z siedzibą w Stanach Zjednoczonych.** Dostawca
 przetwarza adresy IP w logach serwera w celach technicznych
 i bezpieczeństwa.

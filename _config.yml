@@ -37,15 +37,15 @@ kontakt_tytul: "Porozmawiajmy"
 kontakt_opis: "Zastanawiasz się, jak coś zrobić? Szukasz rozwiązania dopasowanego do siebie i swojej firmy? A może po prostu chcesz pogadać? Napisz!"
 linkedin: "https://www.linkedin.com/in/emil-wiktorski-6273171a4/"
 # Wklej pełny adres swojego profilu. Puste = ikona Facebooka się nie pokaże.
-facebook: ""
+facebook: "https://www.facebook.com/emil.wiktorski"
 
 # Formularz kontaktowy (Formspree). Wklej sam identyfikator formularza,
 # czyli końcówkę adresu https://formspree.io/f/XXXXXXXX, np. "xyzabcde".
 # Puste = zamiast formularza pokaże się przycisk "Napisz maila".
 # Po włączeniu formularza polityka prywatności sama dopisze sekcję o nim.
 # Wtedy zmień też datę w linii polityka_aktualizacja na dzień włączenia.
-formspree: ""
-polityka_aktualizacja: "30.10.2026"
+formspree: "xjyyakgq"
+polityka_aktualizacja: "31.10.2026"
 
 # --- PROJEKTY I OFERTA ---
 # Projekty dodajesz w pliku _data/projekty.yml.
