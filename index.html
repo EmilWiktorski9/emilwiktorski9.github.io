@@ -4,7 +4,6 @@ layout: default
 {%- assign strona = site.data.strony | first -%}
 
 <section id="start" class="szeroka start">
-  <p class="oczko pojaw">Strony, aplikacje i automatyzacje · {{ site.miasto | default: "Łódź" }}</p>
   <h1 class="start-tytul">
     <span class="linia"><span>{{ site.naglowek_przed }}</span></span>
     <span class="linia"><span><em class="wyroznik">{{ site.naglowek_wyroznienie }}<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 17 C 60 7, 140 5, 297 13"/></svg></em>{{ site.naglowek_po }}</span></span>
@@ -39,7 +38,6 @@ layout: default
 <section id="oferta" class="sekcja">
   <div class="szeroka">
     <header class="sekcja-glowa odslon">
-      <p class="oczko"><span class="nr">01</span> Co robię</p>
       <h2>Co mogę <em>dla Ciebie</em> zrobić.</h2>
     </header>
     <div class="oferta">
@@ -96,7 +94,6 @@ layout: default
 <section id="proces" class="sekcja">
   <div class="szeroka">
     <header class="sekcja-glowa odslon">
-      <p class="oczko"><span class="nr">{% if strona %}03{% else %}02{% endif %}</span> Jak pracuję</p>
       <h2>Najpierw <em>widzisz</em>, potem decydujesz.</h2>
     </header>
     <ol class="kroki odslon">
@@ -110,7 +107,6 @@ layout: default
 <section id="kontakt" class="sekcja sekcja-kontakt">
   <div class="szeroka kontakt odslon">
     <div>
-      <p class="oczko">Porozmawiajmy</p>
       <h2 class="kontakt-tytul">{{ site.kontakt_tytul }}</h2>
       <p class="kontakt-opis">{{ site.kontakt_opis }}</p>
       <a class="mail" href="mailto:{{ site.email }}">{{ site.email }}</a>
