@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {%- assign opis = page.opis | default: site.description -%}
 {%- assign adres = page.url | absolute_url -%}
-<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}: aplikacje, CRM-y i strony www dla firm{% endif %}</title>
+<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}: strony, aplikacje i automatyzacje dla firm, Łódź{% endif %}</title>
 <meta name="description" content="{{ opis | strip_html | normalize_whitespace | truncate: 160 }}">
 <link rel="canonical" href="{{ adres }}">
 <meta property="og:type" content="{% if page.layout == 'wpis' %}article{% else %}website{% endif %}">
@@ -12,11 +12,12 @@
 <meta property="og:url" content="{{ adres }}">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:locale" content="pl_PL">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="{{ '/assets/og.jpg' | absolute_url }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/rss.xml' | absolute_url }}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="preload" href="{{ '/assets/fonty/instrument-serif-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonty/schibsted-grotesk-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#F4F1EA">
 <link rel="stylesheet" href="{{ '/assets/styl.css' | relative_url }}">
 {%- if page.layout == 'wpis' %}
 <script type="application/ld+json">
@@ -46,7 +47,7 @@
     "@type": "Person",
     "name": {{ site.autor | jsonify }},
     "email": {{ site.email | jsonify }},
-    "jobTitle": "Twórca aplikacji, systemów CRM i stron www",
+    "jobTitle": "Strony, aplikacje i automatyzacje dla firm",
     "sameAs": [{{ site.linkedin | jsonify }}]
   }
 }

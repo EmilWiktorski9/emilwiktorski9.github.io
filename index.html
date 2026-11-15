@@ -1,68 +1,116 @@
 ---
 layout: default
 ---
+{%- assign strona = site.data.strony | first -%}
+
 <section id="start" class="szeroka start">
-  <h1 class="start-tytul">{{ site.naglowek }}</h1>
-  <p class="start-wstep">{{ site.wstep }}</p>
-  <div class="para-przyciskow">
-    <a class="przycisk" href="#kontakt">Napisz do mnie</a>
-    <a class="przycisk przycisk-jasny" href="#zrobione">Co zrobiłem</a>
+  <h1 class="start-tytul">
+    <span class="linia"><span>{{ site.naglowek_przed }}</span></span>
+    <span class="linia"><span><em class="wyroznik">{{ site.naglowek_wyroznienie }}<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 17 C 60 7, 140 5, 297 13"/></svg></em>{{ site.naglowek_po }}</span></span>
+  </h1>
+  <div class="start-dol">
+    <p class="start-wstep pojaw" style="--o:.55s">{{ site.wstep }}</p>
+    <div class="guziki pojaw" style="--o:.7s">
+      <a class="guzik" href="#kontakt">Napisz do mnie <span class="strzalka" aria-hidden="true">→</span></a>
+      <a class="guzik guzik-obrys" href="#oferta">Co robię</a>
+    </div>
   </div>
 </section>
 
-<section id="zrobione" class="szeroka sekcja" aria-labelledby="zrobione-tytul">
-  <h2 id="zrobione-tytul" class="sekcja-naglowek">Co zrobiłem</h2>
-  <ul class="projekty">
-    {% for projekt in site.data.projekty %}
-    <li class="projekt">
-      <a class="projekt-karta" href="{{ projekt.url }}" target="_blank" rel="noopener">
-        <div class="projekt-glowa">
-          <div class="projekt-nazwa-z-logo">
-            {% if projekt.logo %}
-            <img class="projekt-logo" src="{{ projekt.logo | relative_url }}" alt="" width="52" height="52" style="background:{{ projekt.tlo | default: '#15161A' }}">
-            {% else %}
-            <span class="projekt-litera" aria-hidden="true">{{ projekt.nazwa | slice: 0 }}</span>
-            {% endif %}
-            <h3 class="projekt-nazwa">{{ projekt.nazwa }}</h3>
-          </div>
-          {% if projekt.status %}<span class="status {% case projekt.status %}{% when 'Live' %}status-live{% when 'Beta' %}status-beta{% else %}status-budowa{% endcase %}">{% if projekt.status == 'Live' %}Działa{% else %}{{ projekt.status }}{% endif %}</span>{% endif %}
+{%- if strona %}
+<div class="kolaz-tlo">
+  <div class="szeroka kolaz odslon" aria-hidden="true">
+    <div class="okno kolaz-strona">
+      <div class="okno-pasek"><i></i><i></i><i></i><span>{{ strona.adres }}</span></div>
+      <img src="{{ strona.obraz | relative_url }}" alt="" width="1600" height="1000" loading="eager" decoding="async">
+    </div>
+    <div class="okno kolaz-raport">
+      <div class="okno-pasek"><i></i><i></i><i></i><span>raport_rozdzial_03.pdf</span></div>
+      <p class="raport-tekst">Marta zatrzymała się przy furtce i <mark>przez chwilę</mark> słuchała, jak wiatr porusza <mark>okiennicami</mark>.</p>
+    </div>
+    <div class="telefon kolaz-telefon">
+      <img src="{{ strona.obraz_tel | relative_url }}" alt="" width="600" height="1298" loading="eager" decoding="async">
+    </div>
+  </div>
+</div>
+{%- endif %}
+
+<section id="oferta" class="sekcja">
+  <div class="szeroka">
+    <header class="sekcja-glowa odslon">
+      <h2>Co mogę <em>dla Ciebie</em> zrobić.</h2>
+    </header>
+    <div class="oferta">
+      {%- for o in site.data.oferta %}
+      <div class="oferta-wiersz odslon">
+        <span class="oferta-nr">0{{ forloop.index }}</span>
+        <h3>{{ o.nazwa }}</h3>
+        <div class="oferta-tresc">
+          <p>{{ o.opis }}</p>
+          {% if o.przyklady %}<p class="oferta-przyklady">{{ o.przyklady }}</p>{% endif %}
+          {%- if o.linki %}
+          <p class="oferta-linki">{{ o.linki_tytul }} {% for l in o.linki %}<a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.nazwa }}<span aria-hidden="true"> ↗</span></a>{% unless forloop.last %}<span class="przecinek">,</span> {% endunless %}{% endfor %}</p>
+          {%- endif %}
         </div>
-        <p class="projekt-opis">{{ projekt.opis }}</p>
-        {% if projekt.start or projekt.dla_kogo or projekt.przychod %}
-        <dl class="projekt-fakty">
-          {% if projekt.start %}<div><dt>Start</dt><dd>{{ projekt.start }}</dd></div>{% endif %}
-          {% if projekt.dla_kogo %}<div><dt>Dla kogo</dt><dd>{{ projekt.dla_kogo }}</dd></div>{% endif %}
-          {% if projekt.przychod %}<div><dt>Przychód</dt><dd>{{ projekt.przychod }}</dd></div>{% endif %}
-        </dl>
-        {% endif %}
-        <span class="projekt-wiecej">Zobacz stronę projektu →</span>
+        <a class="oferta-strzalka" href="#kontakt" aria-label="Napisz w sprawie: {{ o.nazwa }}"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{%- if strona %}
+<section id="strony" class="sekcja">
+  <div class="szeroka">
+    <header class="sekcja-glowa odslon">
+      <p class="oczko"><span class="nr">02</span> Realizacje</p>
+      <h2>Strona, po której od razu widać, <em>czym</em> się zajmujesz.</h2>
+    </header>
+    {%- for s in site.data.strony %}
+    <article class="strona-case odslon">
+      <a class="okno przewijane" href="{{ s.url | relative_url }}" target="_blank" rel="noopener" aria-label="Otwórz stronę {{ s.nazwa }}">
+        <div class="okno-pasek"><i></i><i></i><i></i><span>{{ s.adres }}</span></div>
+        <div class="przewijane-ekran"><img src="{{ s.obraz_cala | relative_url }}" alt="Cała strona {{ s.nazwa }}" width="960" height="6272" loading="lazy" decoding="async"></div>
+        <span class="przewijane-podpowiedz">Najedź, żeby przewinąć</span>
       </a>
-    </li>
-    {% endfor %}
-  </ul>
+      <div class="strona-opis">
+        <p class="oczko">{{ s.etykieta }}</p>
+        <h3>{{ s.nazwa }}</h3>
+        <p class="strona-branza">{{ s.branza }}</p>
+        <p class="przypadek-lead">{{ s.opis }}</p>
+        {%- if s.cechy %}
+        <ul class="punkty">
+          {%- for c in s.cechy %}<li>{{ c }}</li>{% endfor %}
+        </ul>
+        {%- endif %}
+        <div class="guziki"><a class="guzik guzik-obrys" href="{{ s.url | relative_url }}" target="_blank" rel="noopener">Zobacz stronę <span class="strzalka" aria-hidden="true">↗</span></a></div>
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}
+
+<section id="proces" class="sekcja">
+  <div class="szeroka">
+    <header class="sekcja-glowa odslon">
+      <h2>Najpierw <em>widzisz</em>, potem decydujesz.</h2>
+    </header>
+    <ol class="kroki odslon">
+      {%- for k in site.data.kroki %}
+      <li style="--i:{{ forloop.index0 }}"><span class="krok-nr">0{{ forloop.index }}</span><h3>{{ k.nazwa }}</h3><p>{{ k.opis }}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
 </section>
 
-<section id="oferta" class="szeroka sekcja" aria-labelledby="oferta-tytul">
-  <h2 id="oferta-tytul" class="sekcja-naglowek">Co mogę dla Ciebie zrobić</h2>
-  <ul class="oferta">
-    {% for kafel in site.data.oferta %}
-    <li class="kafel">
-      <h3>{{ kafel.nazwa }}</h3>
-      <p>{{ kafel.opis }}</p>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
-
-<section id="kontakt" class="szeroka sekcja sekcja-ostatnia" aria-labelledby="kontakt-tytul">
-  <div class="kontakt">
+<section id="kontakt" class="sekcja sekcja-kontakt">
+  <div class="szeroka kontakt odslon">
     <div>
-      <h2 id="kontakt-tytul" class="sekcja-naglowek">{{ site.kontakt_tytul }}</h2>
+      <h2 class="kontakt-tytul">{{ site.kontakt_tytul }}</h2>
       <p class="kontakt-opis">{{ site.kontakt_opis }}</p>
+      <a class="mail" href="mailto:{{ site.email }}">{{ site.email }}</a>
       <div class="ikony">
-        <a class="ikona" href="mailto:{{ site.email }}" aria-label="Email: {{ site.email }}" title="{{ site.email }}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-        </a>
         {% if site.linkedin and site.linkedin != "" %}
         <a class="ikona" href="{{ site.linkedin }}" target="_blank" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
@@ -93,39 +141,64 @@ layout: default
         </div>
         <input type="text" name="_gotcha" class="ukryte" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="hidden" name="_subject" value="Wiadomość ze strony emilwiktorski.pl">
-        <button type="submit" class="przycisk">Wyślij</button>
+        <button type="submit" class="guzik">Wyślij <span class="strzalka" aria-hidden="true">→</span></button>
         <p class="formularz-blad" role="alert" hidden>Coś poszło nie tak. Napisz bezpośrednio na <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
         <p class="klauzula-kontakt">Administratorem danych jest {{ site.autor }}. Dane z formularza wykorzystam tylko do odpowiedzi na wiadomość. Szczegóły w <a href="{{ '/polityka-prywatnosci/' | relative_url }}">polityce prywatności</a>.</p>
       </form>
       <div class="formularz-dzieki" id="formularz-dzieki" role="status" hidden>
-        <p class="formularz-dzieki-tytul">Dzięki, odezwę się.</p>
+        <p class="formularz-dzieki-tytul">Dzięki, <em>odezwę się</em>.</p>
       </div>
-      <script>
-        (function () {
-          var f = document.getElementById('formularz-kontakt');
-          if (!f || !window.fetch) return;
-          f.addEventListener('submit', function (e) {
-            e.preventDefault();
-            var b = f.querySelector('button[type="submit"]');
-            var blad = f.querySelector('.formularz-blad');
-            b.disabled = true;
-            blad.hidden = true;
-            fetch(f.action, { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
-              .then(function (r) {
-                if (!r.ok) throw new Error();
-                f.hidden = true;
-                document.getElementById('formularz-dzieki').hidden = false;
-              })
-              .catch(function () { blad.hidden = false; b.disabled = false; });
-          });
-        })();
-      </script>
       {% else %}
       <div class="kontakt-mail">
-        <p>Najszybciej złapiesz mnie mailem.</p>
-        <a class="przycisk" href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <a class="guzik" href="mailto:{{ site.email }}">Napisz maila <span class="strzalka" aria-hidden="true">→</span></a>
       </div>
       {% endif %}
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  var d = document.documentElement;
+  d.classList.add('js');
+
+  /* sekcje pojawiają się przy przewijaniu */
+  var el = document.querySelectorAll('.odslon');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (wpisy) {
+      wpisy.forEach(function (w) {
+        if (w.isIntersecting) { w.target.classList.add('widac'); io.unobserve(w.target); }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    el.forEach(function (e) { io.observe(e); });
+  } else {
+    el.forEach(function (e) { e.classList.add('widac'); });
+  }
+
+  /* cień pod górnym paskiem po zjechaniu w dół */
+  var w = document.getElementById('winieta');
+  if (w) {
+    var f = function () { w.classList.toggle('przewiniete', window.scrollY > 8); };
+    f(); window.addEventListener('scroll', f, { passive: true });
+  }
+
+  /* formularz kontaktowy bez przeładowania strony */
+  var form = document.getElementById('formularz-kontakt');
+  if (form && window.fetch) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var b = form.querySelector('button[type="submit"]');
+      var blad = form.querySelector('.formularz-blad');
+      b.disabled = true;
+      blad.hidden = true;
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error();
+          form.hidden = true;
+          document.getElementById('formularz-dzieki').hidden = false;
+        })
+        .catch(function () { blad.hidden = false; b.disabled = false; });
+    });
+  }
+})();
+</script>

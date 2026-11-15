@@ -1,34 +1,41 @@
 # =====================================================================
-#  PROJEKTY POKAZYWANE NA STRONIE GŁÓWNEJ
-#  Dodajesz projekt, kopiując cały blok zaczynający się od "-"
+#  APLIKACJE POKAZYWANE NA STRONIE GŁÓWNEJ (sekcja "Aplikacje")
+#  Dodajesz aplikację, kopiując cały blok zaczynający się od "-"
 #  i wklejając go pod spodem. Zachowaj wcięcia i cudzysłowy.
 #
 #  nazwa      nazwa projektu
-#  opis       jedno zdanie, co robi
+#  dla_kogo   krótko, dla kogo jest (pokazuje się nad nazwą)
+#  start      kiedy ruszył, np. "kwiecień 2026"
+#  opis       jedno, dwa zdania: co robi
+#  cechy      2-4 krótkie punkty (opcjonalne)
+#  efekt      jedna liczba albo efekt (opcjonalne)
 #  url        adres strony projektu
-#  status     "Live", "Beta" albo "W budowie"
-#             (projekty "Live" liczą się na pasku jako wypuszczone)
-#  zarabia    true, gdy ktoś zapłacił za aplikację, w przeciwnym razie false
-#             (tylko takie projekty liczą się do głównego celu na pasku)
-#  logo       ścieżka do logo w assets/projekty/ (bez logo pokaże się litera)
-#  zrzut      ścieżka do zrzutu ekranu aplikacji (bez zrzutu pokaże się
-#             logo na kolorze projektu)
-#  tlo        kolor okładki karty, gdy nie ma zrzutu
-#  narzedzia  lista narzędzi, którymi projekt jest zbudowany
-#  start      kiedy projekt powstał, np. "kwiecień 2026"
-#  dla_kogo   krótko, dla kogo jest projekt
-#  przychod   (opcjonalne) przychód, pokaże się na karcie po odkomentowaniu
+#  film       link do filmu na YouTube (puste = przycisk się nie pokaże)
+#  widok      "korektor" pokazuje okno raportu z zaznaczeniami,
+#             "zrzut" pokazuje obraz z pola zrzut (ekran telefonu),
+#             puste = sam tekst, bez obrazka
+#  zrzut      ścieżka do zrzutu ekranu w assets/projekty/
+#             (pionowy, z telefonu, np. 1170 x 2532)
 # =====================================================================
 
 - nazwa: "Korektor Lektorski"
-  opis: "Aplikacja dla studiów nagrań i wydawnictw audiobooków. Porównuje nagranie lektora z tekstem książki i zaznacza w PDF miejsca, gdzie lektor przeczytał coś inaczej. Korekta trwa o około 70% krócej."
-  url: "https://korektorlektorski.pl/"
-  status: "Live"
-  zarabia: false
-  logo: "/assets/projekty/korektor-lektorski.webp"
-  # zrzut: "/assets/projekty/korektor-lektorski-zrzut.png"
-  tlo: "#080b16"
+  dla_kogo: "Dla studiów nagrań i wydawnictw audiobooków"
   start: "kwiecień 2026"
-  dla_kogo: "studia i wydawnictwa"
-  narzedzia: ["Claude", "Python", "Supabase", "Stripe", "Render", "ElevenLabs"]
-  # przychod: "0 zł/mies."
+  opis: "Porównuje nagranie lektora z tekstem książki i zaznacza w PDF miejsca, w których lektor przeczytał coś inaczej."
+  efekt: "korekta o ok. 70% krótsza"
+  url: "https://korektorlektorski.pl/"
+  film: ""
+  widok: "korektor"
+
+- nazwa: "Wystarczy Zaprosić"
+  dla_kogo: "Zaproszenia na komunię, chrzest i bierzmowanie"
+  start: "listopad 2026"
+  opis: "Zaproszenia online, które goście otwierają bez instalowania aplikacji i zakładania konta."
+  cechy:
+    - "Imienne zaproszenie dla każdej rodziny, imiona odmieniają się same."
+    - "Potwierdzenie obecności jednym kliknięciem."
+    - "Lista dla restauracji tworzy się sama: dorośli, dzieci, diety."
+  url: "https://wystarczyzaprosic.pl/"
+  widok: ""
+  # Gdy wgrasz zrzut, zmień widok na "zrzut" i wpisz ścieżkę:
+  # zrzut: "/assets/projekty/wystarczyzaprosic-tel.webp"

@@ -1,0 +1,19 @@
+# =====================================================================
+#  STRONY POKAZYWANE NA STRONIE GŁÓWNEJ
+#  Na razie pusto: sekcja "Strony" i kolaż pod nagłówkiem się nie pokazują.
+#  Żeby dodać stronę, wklej blok jak niżej (bez znaków # na początku):
+#
+# - etykieta: "Dla klienta"
+#   nazwa: "Nazwa firmy"
+#   branza: "Czym się zajmuje · Miasto"
+#   opis: "Dwa zdania: co klient widzi na stronie."
+#   cechy:
+#     - "Pierwsza rzecz"
+#     - "Druga rzecz"
+#   url: "https://adres-strony.pl"
+#   adres: "adres-strony.pl"
+#   obraz: "/assets/projekty/nazwa-strona.webp"
+#   obraz_cala: "/assets/projekty/nazwa-cala.webp"
+#   obraz_tel: "/assets/projekty/nazwa-tel.webp"
+# =====================================================================
+[]
