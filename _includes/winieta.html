@@ -1,11 +1,12 @@
 <a class="pomin" href="#tresc">Przejdź do treści</a>
-<header class="winieta">
+<header class="winieta" id="winieta">
   <div class="szeroka winieta-gora">
-    <a class="winieta-nazwa" href="{{ '/' | relative_url }}#start">{{ site.title }}</a>
+    <a class="znak" href="{{ '/' | relative_url }}#start">Emil <em>Wiktorski</em></a>
     <nav class="menu" aria-label="Nawigacja główna">
-      <a href="{{ '/' | relative_url }}#zrobione">Co zrobiłem</a>
-      <a href="{{ '/' | relative_url }}#oferta">Co mogę zrobić</a>
+      <a href="{{ '/' | relative_url }}#aplikacje">Aplikacje</a>
+      {% if site.data.strony and site.data.strony.size > 0 %}<a href="{{ '/' | relative_url }}#strony">Strony</a>{% endif %}
+      <a href="{{ '/' | relative_url }}#proces">Jak pracuję</a>
     </nav>
-    <a class="przycisk-obrys" href="{{ '/' | relative_url }}#kontakt">Kontakt</a>
+    <a class="guzik guzik-maly" href="{{ '/' | relative_url }}#kontakt">Napisz do mnie</a>
   </div>
 </header>

@@ -4,7 +4,7 @@ Napisane dla kogoś, kto nie programuje. Nic nie trzeba instalować na komputerz
 
 Każdą zmianę robisz na github.com w repozytorium strony: otwierasz plik, klikasz ikonę ołówka (**Edit**), zmieniasz tekst i na dole klikasz zielony **Commit changes**. Po jednej, dwóch minutach zmiana jest na emilwiktorski.pl.
 
-Strona to jedna podstrona, wizytówka: start, "Co zrobiłem", "Co mogę dla Ciebie zrobić" i kontakt.
+Strona to jedna podstrona: start, kolaż, Aplikacje, Strony, Oferta, Jak pracuję, O mnie i kontakt. Kroje pisma są w `assets/fonty`, strona nie korzysta z Google Fonts.
 
 ---
 
@@ -12,48 +12,34 @@ Strona to jedna podstrona, wizytówka: start, "Co zrobiłem", "Co mogę dla Cieb
 
 | Co | Gdzie |
 |---|---|
-| Duży nagłówek na górze | `_config.yml`, linia `naglowek` |
-| Tekst o tobie pod nagłówkiem | `_config.yml`, linia `wstep` |
+| Duży nagłówek na górze | `_config.yml`, linie `naglowek_przed`, `naglowek_wyroznienie` (słowo kursywą z kreską), `naglowek_po` |
+| Tekst pod nagłówkiem | `_config.yml`, linia `wstep` |
 | Opis strony w Google i przy udostępnianiu linku | `_config.yml`, linia `description` |
+| Obrazek przy udostępnianiu linku | `assets/og.jpg` (1200 x 630) |
 | Nagłówek i tekst w sekcji kontaktu | `_config.yml`, linie `kontakt_tytul` i `kontakt_opis` |
-| Adres e-mail | `_config.yml`, linia `email` |
-| LinkedIn i Facebook | `_config.yml`, linie `linkedin` i `facebook` |
+| Adres e-mail, LinkedIn, Facebook | `_config.yml`, linie `email`, `linkedin`, `facebook` |
 | Formularz kontaktowy | `_config.yml`, linia `formspree` (rozdział 3) |
-| Projekty w "Co zrobiłem" | `_data/projekty.yml` (rozdział 2) |
-| Kafle w "Co mogę dla Ciebie zrobić" | `_data/oferta.yml` |
-| Kolory i kroje | `assets/styl.css`, zmienne na samej górze pliku |
+| Aplikacje (sekcja 01) | `_data/projekty.yml` (rozdział 2) |
+| Strony (sekcja 02 i duży kolaż pod nagłówkiem) | `_data/strony.yml` |
+| Oferta | `_data/oferta.yml` |
+| Jak pracuję | `_data/kroki.yml` |
+| Kolory | `assets/styl.css`, zmienne na górze pliku (`--akcent` to niebieska kursywa) |
 
 W plikach `.yml` cudzysłowy muszą zostać. Zmieniasz tylko tekst w środku.
 
-**Facebook:** wklej pełny adres profilu w linii `facebook`, np. `facebook: "https://www.facebook.com/twoj.profil"`. Dopóki linia jest pusta, ikona Facebooka się nie pokazuje.
+**Film o Korektorze:** w `_data/projekty.yml` wklej link do YouTube w linii `film`. Pojawi się przycisk „Obejrzyj film”.
+
+**Zrzut Wystarczy Zaprosić:** wgraj pionowy zrzut z telefonu do `assets/projekty` (np. `wystarczyzaprosic-tel.webp`), a w `_data/projekty.yml` przy tej aplikacji wpisz `widok: "zrzut"` i odkomentuj linię `zrzut`.
+
+**Strony:** gdy sekcja `_data/strony.yml` jest pusta, znika sekcja „Strony” i kolaż pod nagłówkiem. Pierwsza strona z listy trafia na kolaż.
 
 ---
 
-## 2. Jak dodać projekt
+## 2. Jak dodać aplikację
 
-**Krok 1. Logo.** Wejdź do katalogu `assets/projekty`, kliknij **Add file → Upload files**, przeciągnij plik i kliknij **Commit changes**. Nazwa pliku bez polskich znaków i spacji, np. `moja-aplikacja.png`. Logo najlepiej kwadratowe.
+Otwórz `_data/projekty.yml`, skopiuj cały blok Wystarczy Zaprosić (od `- nazwa:` do ostatniej linii bloku), wklej pod spodem i zmień wartości. Opis każdego pola jest na górze pliku. Aplikacje układają się na zmianę: obrazek raz z prawej, raz z lewej.
 
-**Krok 2. Wpis w pliku projektów.** Otwórz `_data/projekty.yml` i kliknij ołówek. Skopiuj cały blok Korektora Lektorskiego, od linii `- nazwa:` do ostatniej linii bloku, wklej pod spodem i zmień wartości:
-
-| Pole | Co wpisać |
-|---|---|
-| `nazwa` | nazwa projektu |
-| `opis` | dwa, trzy zdania: dla kogo i co robi |
-| `url` | pełny adres strony projektu, z `https://` |
-| `status` | dokładnie `Live`, `Beta` albo `W budowie` (`Live` wyświetla się jako "Działa") |
-| `logo` | ścieżka do logo, np. `/assets/projekty/moja-aplikacja.png` |
-| `tlo` | kolor tła pod logo, np. `#080b16` |
-| `start` | kiedy projekt powstał, np. `"kwiecień 2026"` |
-| `dla_kogo` | krótko, dla kogo jest, np. `"studia i wydawnictwa"` |
-| `przychod` | przychód, np. `"1200 zł/mies."` (opcjonalnie) |
-
-Pola `zarabia`, `zrzut` i `narzedzia` mogą zostać, na obecnej stronie się nie wyświetlają.
-
-**Krok 3.** Kliknij **Commit changes**.
-
-Jeden projekt zajmuje całą szerokość, od dwóch karty układają się po dwie w rzędzie.
-
-**Linie zaczynające się od `#`** są wyłączone (to komentarze). Żeby włączyć np. przychód, usuń `# ` z początku linii.
+**Linie zaczynające się od `#`** są wyłączone (to komentarze).
 
 ---
 

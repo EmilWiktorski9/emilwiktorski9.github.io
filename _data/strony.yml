@@ -1,0 +1,30 @@
+# =====================================================================
+#  STRONY POKAZYWANE NA STRONIE GŁÓWNEJ (sekcja "Strony")
+#  Pierwsza strona z listy jest też na dużym kolażu pod nagłówkiem.
+#  Usuń cały blok, a sekcja i kolaż znikną.
+#
+#  etykieta   np. "Projekt pokazowy" albo "Dla klienta"
+#  nazwa      nazwa firmy
+#  branza     czym się zajmuje firma, miasto
+#  opis       dwa zdania: co klient widzi na stronie
+#  cechy      2-4 krótkie punkty
+#  url        adres strony
+#  adres      napis na pasku okna przeglądarki
+#  obraz      zrzut góry strony na komputerze (16:10)
+#  obraz_cala zrzut całej strony, przewija się po najechaniu myszką
+#  obraz_tel  zrzut z telefonu
+# =====================================================================
+
+- etykieta: "Projekt pokazowy"
+  nazwa: "Married Kate"
+  branza: "Dekoracje sal na wesela, komunie i chrzciny · Toruń"
+  opis: "Para od razu widzi realizacje i porównuje salę przed i po dekoracji. Na końcu sama sprawdza wolny termin i orientacyjną cenę, zanim zadzwoni."
+  cechy:
+    - "Realizacje z galerią zdjęć"
+    - "Suwak przed i po"
+    - "Wycena z kalendarzem wolnych terminów"
+  url: "/demo/marriedkate/"
+  adres: "emilwiktorski.pl/demo/marriedkate"
+  obraz: "/assets/projekty/marriedkate-strona.webp"
+  obraz_cala: "/assets/projekty/marriedkate-cala.webp"
+  obraz_tel: "/assets/projekty/marriedkate-tel.webp"

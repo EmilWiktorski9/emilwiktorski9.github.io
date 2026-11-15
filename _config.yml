@@ -8,7 +8,7 @@
 # --- PODSTAWY ---
 title: "Emil Wiktorski"
 # Opis w Google i w podglądzie linku na Facebooku i LinkedInie.
-description: "Buduję aplikacje dopasowane do Ciebie i Twojej firmy: aplikacje na zamówienie, systemy CRM, SaaS-y i strony www. Twórca Korektora Lektorskiego."
+description: "Buduję aplikacje i strony dopasowane do Twojej firmy. Twórca Korektora Lektorskiego i Wystarczy Zaprosić. Łódź."
 lang: pl
 
 # --- ADRES STRONY ---------------------------------------------------
@@ -29,12 +29,17 @@ autor: "Emil Wiktorski"
 email: "emil@emilwiktorski.pl"
 
 # --- GÓRA STRONY GŁÓWNEJ ---
-naglowek: "Buduję aplikacje dopasowane do Ciebie i Twojej firmy."
-wstep: "Cześć, jestem Emil. Wiosną 2026 dałem ogłoszenie, że zajmuję się automatyzacją, i tak powstała moja pierwsza aplikacja: Korektor Lektorski dla branży audiobooków. Dziś tworzę własne produkty, a to samo robię też na zamówienie dla firm: aplikacje, CRM-y i strony www."
+# Nagłówek jest w trzech kawałkach: środkowe słowo pisze się kursywą
+# i podkreśla kreską. Spacje na końcu i na początku kawałków zostają.
+naglowek_przed: "Buduję aplikacje i strony "
+naglowek_wyroznienie: "dopasowane"
+naglowek_po: " do Twojej firmy."
+wstep: "Aplikacje, które zastępują arkusze i ręczne przepisywanie danych. Strony, które nie wyglądają jak z szablonu. Wszystko robię sam, od pierwszej rozmowy do wdrożenia."
+miasto: "Łódź"
 
 # --- KONTAKT ---
-kontakt_tytul: "Porozmawiajmy"
-kontakt_opis: "Zastanawiasz się, jak coś zrobić? Szukasz rozwiązania dopasowanego do siebie i swojej firmy? A może po prostu chcesz pogadać? Napisz!"
+kontakt_tytul: "Opowiedz, co chcesz usprawnić."
+kontakt_opis: "Napisz, czym się zajmujesz i co Cię męczy. Odpiszę i dopytam o szczegóły."
 linkedin: "https://www.linkedin.com/in/emil-wiktorski-6273171a4/"
 # Wklej pełny adres swojego profilu. Puste = ikona Facebooka się nie pokaże.
 facebook: "https://www.facebook.com/emil.wiktorski"
@@ -48,8 +53,10 @@ formspree: "xjyyakgq"
 polityka_aktualizacja: "31.10.2026"
 
 # --- PROJEKTY I OFERTA ---
-# Projekty dodajesz w pliku _data/projekty.yml.
-# Kafle "Co mogę dla Ciebie zrobić" zmieniasz w pliku _data/oferta.yml.
+# Aplikacje dodajesz w pliku _data/projekty.yml.
+# Strony (np. projekty pokazowe) w pliku _data/strony.yml.
+# Wiersze "Co mogę dla Ciebie zrobić" zmieniasz w pliku _data/oferta.yml.
+# Kroki "Jak pracuję" w pliku _data/kroki.yml.
 
 # =====================================================================
 #  PONIŻEJ NIC NIE ZMIENIAJ
