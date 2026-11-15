@@ -1,15 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /demo/
-
-# Podgląd linków w Messengerze, WhatsAppie i na Facebooku musi widzieć dema.
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Facebot
-Allow: /
-
-User-agent: WhatsApp
-Allow: /
 
 Sitemap: https://emilwiktorski.pl/sitemap.xml
