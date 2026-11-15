@@ -68,6 +68,11 @@ defaults:
       type: "posts"
     values:
       layout: "wpis"
+  # Dema dla klientów (folder demo/) nie trafiają do mapy strony dla Google.
+  - scope:
+      path: "demo"
+    values:
+      sitemap: false
 exclude:
   - CLAUDE.md
   - INSTRUKCJA.md
