@@ -4,7 +4,7 @@ layout: default
 {%- assign strona = site.data.strony | first -%}
 
 <section id="start" class="szeroka start">
-  <p class="oczko pojaw">Aplikacje i strony dla firm · {{ site.miasto | default: "Łódź" }}</p>
+  <p class="oczko pojaw">Strony, aplikacje i automatyzacje · {{ site.miasto | default: "Łódź" }}</p>
   <h1 class="start-tytul">
     <span class="linia"><span>{{ site.naglowek_przed }}</span></span>
     <span class="linia"><span><em class="wyroznik">{{ site.naglowek_wyroznienie }}<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 17 C 60 7, 140 5, 297 13"/></svg></em>{{ site.naglowek_po }}</span></span>
@@ -13,14 +13,9 @@ layout: default
     <p class="start-wstep pojaw" style="--o:.55s">{{ site.wstep }}</p>
     <div class="guziki pojaw" style="--o:.7s">
       <a class="guzik" href="#kontakt">Napisz do mnie <span class="strzalka" aria-hidden="true">→</span></a>
-      <a class="guzik guzik-obrys" href="#aplikacje">Zobacz, co zrobiłem</a>
+      <a class="guzik guzik-obrys" href="#oferta">Co robię</a>
     </div>
   </div>
-  <dl class="liczby pojaw" style="--o:.85s">
-    <div><dt>2</dt><dd>własne aplikacje, które działają w sieci</dd></div>
-    <div><dt>2026</dt><dd>od kwietnia buduję dla siebie i dla firm</dd></div>
-    <div><dt>1</dt><dd>osoba: rozmawiasz z tym, kto to zbuduje</dd></div>
-  </dl>
 </section>
 
 {%- if strona %}
@@ -41,49 +36,28 @@ layout: default
 </div>
 {%- endif %}
 
-<section id="aplikacje" class="sekcja">
+<section id="oferta" class="sekcja">
   <div class="szeroka">
     <header class="sekcja-glowa odslon">
-      <p class="oczko"><span class="nr">01</span> Aplikacje</p>
-      <h2>Dwie własne aplikacje. <em>Obie</em> działają.</h2>
+      <p class="oczko"><span class="nr">01</span> Co robię</p>
+      <h2>Co mogę <em>dla Ciebie</em> zrobić.</h2>
     </header>
-
-    {%- for p in site.data.projekty %}
-    <article class="przypadek{% if p.widok == nil or p.widok == '' %} przypadek-tekst{% endif %}{% cycle '', ' odwrot' %} odslon">
-      <div class="przypadek-opis">
-        <p class="oczko">{{ p.dla_kogo }}</p>
-        <h3>{{ p.nazwa }}</h3>
-        <p class="przypadek-lead">{{ p.opis }}</p>
-        {%- if p.cechy %}
-        <ul class="punkty">
-          {%- for c in p.cechy %}<li>{{ c }}</li>{% endfor %}
-        </ul>
-        {%- endif %}
-        <dl class="fakty">
-          {% if p.start %}<div><dt>Start</dt><dd>{{ p.start }}</dd></div>{% endif %}
-          {% if p.efekt %}<div><dt>Efekt</dt><dd>{{ p.efekt }}</dd></div>{% endif %}
-        </dl>
-        <div class="guziki">
-          {% if p.film and p.film != "" %}<a class="guzik" href="{{ p.film }}" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span>Obejrzyj film</a>{% endif %}
-          <a class="guzik{% if p.film and p.film != '' %} guzik-obrys{% endif %}" href="{{ p.url }}" target="_blank" rel="noopener">{{ p.url | remove: "https://" | remove: "/" }} <span class="strzalka" aria-hidden="true">↗</span></a>
+    <div class="oferta">
+      {%- for o in site.data.oferta %}
+      <div class="oferta-wiersz odslon">
+        <span class="oferta-nr">0{{ forloop.index }}</span>
+        <h3>{{ o.nazwa }}</h3>
+        <div class="oferta-tresc">
+          <p>{{ o.opis }}</p>
+          {% if o.przyklady %}<p class="oferta-przyklady">{{ o.przyklady }}</p>{% endif %}
+          {%- if o.linki %}
+          <p class="oferta-linki">{{ o.linki_tytul }} {% for l in o.linki %}<a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.nazwa }}<span aria-hidden="true"> ↗</span></a>{% unless forloop.last %}<span class="przecinek">,</span> {% endunless %}{% endfor %}</p>
+          {%- endif %}
         </div>
+        <a class="oferta-strzalka" href="#kontakt" aria-label="Napisz w sprawie: {{ o.nazwa }}"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
       </div>
-      {%- if p.widok == "korektor" %}
-      <div class="przypadek-obraz">
-        <div class="okno raport">
-          <div class="okno-pasek"><i></i><i></i><i></i><span>raport_rozdzial_03.pdf</span></div>
-          <p class="raport-tekst">Stary dom stał na końcu ulicy, tam gdzie <mark>kończyły się</mark> latarnie. Marta zatrzymała się przy furtce i <mark>przez chwilę</mark> słuchała, jak wiatr porusza <mark>okiennicami</mark>, zanim weszła do środka.</p>
-          <div class="raport-stopka"><span>3 rozbieżności z tekstem</span><span>strona 14</span></div>
-        </div>
-        <p class="podpis">Przykład zaznaczeń w raporcie. Na żółto miejsca, w których nagranie różni się od tekstu.</p>
-      </div>
-      {%- elsif p.widok == "zrzut" and p.zrzut %}
-      <div class="przypadek-obraz przypadek-telefon">
-        <div class="telefon"><img src="{{ p.zrzut | relative_url }}" alt="Ekran aplikacji {{ p.nazwa }}" loading="lazy" decoding="async"></div>
-      </div>
-      {%- endif %}
-    </article>
-    {%- endfor %}
+      {%- endfor %}
+    </div>
   </div>
 </section>
 
@@ -91,7 +65,7 @@ layout: default
 <section id="strony" class="sekcja">
   <div class="szeroka">
     <header class="sekcja-glowa odslon">
-      <p class="oczko"><span class="nr">02</span> Strony</p>
+      <p class="oczko"><span class="nr">02</span> Realizacje</p>
       <h2>Strona, po której od razu widać, <em>czym</em> się zajmujesz.</h2>
     </header>
     {%- for s in site.data.strony %}
@@ -119,29 +93,10 @@ layout: default
 </section>
 {%- endif %}
 
-<section id="oferta" class="sekcja">
-  <div class="szeroka">
-    <header class="sekcja-glowa odslon">
-      <p class="oczko"><span class="nr">{% if strona %}03{% else %}02{% endif %}</span> Oferta</p>
-      <h2>Co mogę <em>dla Ciebie</em> zrobić.</h2>
-    </header>
-    <div class="oferta">
-      {%- for o in site.data.oferta %}
-      <a class="oferta-wiersz odslon" href="#kontakt">
-        <span class="oferta-nr">0{{ forloop.index }}</span>
-        <h3>{{ o.nazwa }}</h3>
-        <p>{{ o.opis }}{% if o.przyklady %}<span>{{ o.przyklady }}</span>{% endif %}</p>
-        <span class="oferta-strzalka" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span>
-      </a>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-
 <section id="proces" class="sekcja">
   <div class="szeroka">
     <header class="sekcja-glowa odslon">
-      <p class="oczko"><span class="nr">{% if strona %}04{% else %}03{% endif %}</span> Jak pracuję</p>
+      <p class="oczko"><span class="nr">{% if strona %}03{% else %}02{% endif %}</span> Jak pracuję</p>
       <h2>Najpierw <em>widzisz</em>, potem decydujesz.</h2>
     </header>
     <ol class="kroki odslon">
@@ -149,19 +104,6 @@ layout: default
       <li style="--i:{{ forloop.index0 }}"><span class="krok-nr">0{{ forloop.index }}</span><h3>{{ k.nazwa }}</h3><p>{{ k.opis }}</p></li>
       {%- endfor %}
     </ol>
-  </div>
-</section>
-
-<section id="o-mnie" class="sekcja">
-  <div class="szeroka o-mnie odslon">
-    <div>
-      <p class="oczko"><span class="nr">{% if strona %}05{% else %}04{% endif %}</span> O mnie</p>
-      <h2>Rozmawiasz ze mną, <em>nie</em>&nbsp;z&nbsp;działem sprzedaży.</h2>
-    </div>
-    <div class="o-mnie-tekst">
-      <p>Jestem Emil, mieszkam w Łodzi. Wiosną 2026 ogłosiłem, że zajmuję się automatyzacją, a moją pierwszą aplikacją był Korektor Lektorski dla branży audiobooków.</p>
-      <p>Dziś rozwijam własne produkty i buduję aplikacje oraz strony dla firm. Pracuję z AI, dlatego robię szybciej i taniej niż agencja.</p>
-    </div>
   </div>
 </section>
 

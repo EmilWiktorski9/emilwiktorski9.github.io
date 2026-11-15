@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {%- assign opis = page.opis | default: site.description -%}
 {%- assign adres = page.url | absolute_url -%}
-<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}: aplikacje i strony dla firm, Łódź{% endif %}</title>
+<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}: strony, aplikacje i automatyzacje dla firm, Łódź{% endif %}</title>
 <meta name="description" content="{{ opis | strip_html | normalize_whitespace | truncate: 160 }}">
 <link rel="canonical" href="{{ adres }}">
 <meta property="og:type" content="{% if page.layout == 'wpis' %}article{% else %}website{% endif %}">
@@ -47,7 +47,7 @@
     "@type": "Person",
     "name": {{ site.autor | jsonify }},
     "email": {{ site.email | jsonify }},
-    "jobTitle": "Twórca aplikacji i stron dla firm",
+    "jobTitle": "Strony, aplikacje i automatyzacje dla firm",
     "sameAs": [{{ site.linkedin | jsonify }}]
   }
 }

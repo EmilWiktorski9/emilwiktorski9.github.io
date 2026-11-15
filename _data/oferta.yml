@@ -1,13 +1,23 @@
 # =====================================================================
-#  "CO MOGĘ DLA CIEBIE ZROBIĆ" NA STRONIE GŁÓWNEJ
+#  "CO ROBIĘ" NA STRONIE GŁÓWNEJ
 #  Każdy wiersz to blok zaczynający się od "-". Zachowaj wcięcia
-#  i cudzysłowy.
+#  i cudzysłowy. Pole "linki" jest opcjonalne.
 # =====================================================================
-
-- nazwa: "Aplikacje"
-  opis: "Masz w firmie coś, co robicie ręcznie albo w trzech programach naraz? Zbuduję jedną aplikację, która ogarnie to za Was."
-  przyklady: "Na przykład: zlecenia i ekipy w terenie, wyceny, panel dla stałych klientów."
 
 - nazwa: "Strony premium"
   opis: "Strona, która nie wygląda jak z szablonu. Twoje zdjęcia i Twój język, a klient od razu wie, czym się zajmujesz i jak się z Tobą skontaktować."
   przyklady: "Na przykład: strona firmy usługowej, strona produktu, strona z wyceną i rezerwacją terminu."
+
+- nazwa: "Aplikacje"
+  opis: "Masz w firmie coś, co robicie ręcznie albo w trzech programach naraz? Zbuduję jedną aplikację, która ogarnie to za Was."
+  przyklady: "Na przykład: zlecenia i ekipy w terenie, wyceny, panel dla stałych klientów."
+  linki_tytul: "Moje aplikacje:"
+  linki:
+    - nazwa: "Korektor Lektorski"
+      url: "https://korektorlektorski.pl/"
+    - nazwa: "Wystarczy Zaprosić"
+      url: "https://wystarczyzaprosic.pl/"
+
+- nazwa: "Automatyzacje"
+  opis: "Rzeczy, które ktoś w firmie robi codziennie ręcznie: przepisywanie danych, raporty, przypomnienia. Ustawiam je tak, żeby działy się same."
+  przyklady: "Na przykład: zgłoszenia z formularza prosto do arkusza, raport na maila co poniedziałek, przypomnienia dla klientów."

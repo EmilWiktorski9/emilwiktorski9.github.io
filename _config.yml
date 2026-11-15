@@ -8,7 +8,7 @@
 # --- PODSTAWY ---
 title: "Emil Wiktorski"
 # Opis w Google i w podglądzie linku na Facebooku i LinkedInie.
-description: "Buduję aplikacje i strony dopasowane do Twojej firmy. Twórca Korektora Lektorskiego i Wystarczy Zaprosić. Łódź."
+description: "Strony premium, aplikacje i automatyzacje dla firm. Buduję je sam, od pierwszej rozmowy do wdrożenia. Łódź."
 lang: pl
 
 # --- ADRES STRONY ---------------------------------------------------
@@ -31,10 +31,10 @@ email: "emil@emilwiktorski.pl"
 # --- GÓRA STRONY GŁÓWNEJ ---
 # Nagłówek jest w trzech kawałkach: środkowe słowo pisze się kursywą
 # i podkreśla kreską. Spacje na końcu i na początku kawałków zostają.
-naglowek_przed: "Buduję aplikacje i strony "
+naglowek_przed: "Buduję strony i aplikacje "
 naglowek_wyroznienie: "dopasowane"
 naglowek_po: " do Twojej firmy."
-wstep: "Aplikacje, które zastępują arkusze i ręczne przepisywanie danych. Strony, które nie wyglądają jak z szablonu. Wszystko robię sam, od pierwszej rozmowy do wdrożenia."
+wstep: "Strony, które nie wyglądają jak z szablonu. Aplikacje i automatyzacje, które zdejmują z Ciebie ręczną robotę. Wszystko robię sam, od pierwszej rozmowy do wdrożenia."
 miasto: "Łódź"
 
 # --- KONTAKT ---
