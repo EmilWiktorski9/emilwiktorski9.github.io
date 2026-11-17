@@ -11,7 +11,7 @@
 <meta property="og:site_name" content="Gravity ŁDZ">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:title" content="Gravity ŁDZ · Łódź nie ma gór. Ma Radary.">
-<meta property="og:description" content="Skocznie, flow i dropy w lesie na Wzgórzu Radary. Zobacz najbliższy Jam.">
+<meta property="og:description" content="Skocznie, flow i dropy w lesie na Wzgórzu Radary. Radary Jam, trasy i ekipa.">
 <meta property="og:url" content="https://emilwiktorski.pl/demo/gravity/">
 <meta property="og:image" content="https://emilwiktorski.pl/demo/gravity/img/og.jpg">
 <meta property="og:image:secure_url" content="https://emilwiktorski.pl/demo/gravity/img/og.jpg">
@@ -115,11 +115,16 @@ body.ready #hero .lead,body.ready #hero .cta,body.ready #hero .kick{opacity:1;tr
 #jam h2{font-size:clamp(80px,15vw,250px);margin:14px 0 6px}
 #jam .when{font-size:clamp(17px,1.6vw,22px);font-weight:600}
 #jam .when span{color:var(--fog);font-weight:400}
-.count{display:flex;justify-content:center;gap:clamp(14px,3vw,48px);margin:52px 0 52px}
-.count div{min-width:clamp(70px,10vw,150px)}
-.count b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(56px,8vw,128px);line-height:1;font-variant-numeric:tabular-nums}
-.count span{font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--fog)}
-.count .sep{min-width:0;font-family:Anton,sans-serif;font-size:clamp(46px,6vw,100px);color:var(--acc);line-height:1}
+.comps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,20px);max-width:1200px;margin:56px auto 40px;counter-reset:c;text-align:left}
+.comps li{border-top:2px solid var(--paper);padding:20px 4px 0}
+.comps li::before{counter-increment:c;content:"0" counter(c);display:block;font-family:Anton,sans-serif;color:var(--acc);font-size:18px;margin-bottom:12px}
+.comps b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(28px,2.8vw,44px);text-transform:uppercase;line-height:1}
+.comps span{font-size:15px;color:var(--fog)}
+#jam .next{font-size:clamp(17px,1.5vw,21px);margin-bottom:26px}
+.partners{margin-top:clamp(60px,9vh,100px)}
+.partners p{font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--fog);margin-bottom:18px}
+.partners ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 34px;font-family:Anton,sans-serif;font-size:clamp(20px,2vw,28px);text-transform:uppercase;color:rgba(236,235,229,.55)}
+.partners a{text-decoration:none}
 #jam .cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 
 /* 5. klipy */
@@ -153,7 +158,10 @@ body.ready #hero .lead,body.ready #hero .cta,body.ready #hero .kick{opacity:1;tr
 .steps h3{font-family:Anton,sans-serif;font-weight:400;font-size:30px;text-transform:uppercase;line-height:1.05;margin-bottom:10px}
 .steps p{color:var(--fog);font-size:16px}
 .final{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;margin-top:clamp(70px,12vh,120px);padding:clamp(30px,4vw,56px);border-radius:4px;background:var(--acc);color:#140a03}
-.final p{font-family:Anton,sans-serif;font-size:clamp(34px,4.6vw,72px);text-transform:uppercase;line-height:.95}
+.final p{font-family:Anton,sans-serif;font-size:clamp(34px,4.6vw,72px);text-transform:uppercase;line-height:1;margin-bottom:12px}
+.final span{display:block;max-width:34em;font-weight:600;font-size:16px}
+.final .fb{display:flex;gap:10px;flex-wrap:wrap}
+.final .btn.line{background:transparent;color:#140a03;box-shadow:inset 0 0 0 1.5px #140a03}
 .final .btn{background:#140a03;color:var(--paper)}
 .final .btn:hover{background:#000}
 footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:40px clamp(20px,6vw,96px) 46px;font-size:13px;color:rgba(236,235,229,.45)}
@@ -179,7 +187,7 @@ footer nav{display:flex;gap:22px}
  .map{order:2}
  .yts{grid-template-columns:1fr}
  .steps{grid-template-columns:1fr}
- .count .sep{display:none}
+ .comps{grid-template-columns:1fr 1fr}
 }
 @media (prefers-reduced-motion:reduce){.grain{animation:none}}
 </style>
@@ -189,7 +197,7 @@ footer nav{display:flex;gap:22px}
 
 <header class="nav" id="nav">
  <a class="logo" href="#hero" aria-label="Gravity ŁDZ, na początek"><img src="img/logo.png" alt="">GRAVITY ŁDZ</a>
- <a class="go" href="#jam">Najbliższy Jam</a>
+ <a class="go" href="#wesprzyj">Wesprzyj</a>
 </header>
 
 <main>
@@ -198,12 +206,12 @@ footer nav{display:flex;gap:22px}
  <div class="shade"></div>
  <canvas id="mist" aria-hidden="true"></canvas>
  <div class="txt">
-  <p class="kick">Kolarstwo grawitacyjne · Łódź</p>
+  <p class="kick">Stowarzyszenie Gravity Łódź · kolarstwo grawitacyjne</p>
   <h1 class="big"><span><i>Łódź nie ma gór.</i></span><span><i>Ma Radary.</i></span></h1>
   <div class="row">
    <p class="lead">Skocznie, flow i dropy w lesie na Wzgórzu Radary. Budujemy trasy, jeździmy razem i zapraszamy każdego, kto ma rower i kask.</p>
    <div class="cta">
-    <a class="btn" href="#jam">Najbliższy Jam <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+    <a class="btn" href="#jam">Radary Jam <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
     <a class="btn ghost" href="#trasy">Zobacz trasy</a>
    </div>
   </div>
@@ -254,18 +262,23 @@ footer nav{display:flex;gap:22px}
 
 <section id="jam">
  <div class="bgv" aria-hidden="true"><video src="vid/e.mp4" muted loop playsinline autoplay preload="none"></video></div>
- <p class="kick rv">Najbliższy</p>
+ <p class="kick rv">Co roku na Radarach</p>
  <h2 class="big rv">Radary Jam</h2>
- <p class="when rv">Sobota, 17 kwietnia 2027 · 12:00 <span>· Wzgórze Radary, Łódź</span></p>
- <div class="count rv" id="count" data-date="2027-04-17T12:00:00+02:00">
-  <div><b id="cd">00</b><span>dni</span></div><div class="sep">:</div>
-  <div><b id="ch">00</b><span>godz.</span></div><div class="sep">:</div>
-  <div><b id="cm">00</b><span>min</span></div><div class="sep">:</div>
-  <div><b id="cs">00</b><span>sek</span></div>
- </div>
+ <p class="when rv">Vol. 2 · 5 września 2026 <span>· riderzy z całej Polski</span></p>
+ <ol class="comps">
+  <li class="rv"><b>Best line</b><span>duża linia dirtowa</span></li>
+  <li class="rv"><b>Best trick</b><span>step up</span></li>
+  <li class="rv"><b>Jam</b><span>„Karasiówka”</span></li>
+  <li class="rv"><b>Rider of the day</b><span>wybór dnia</span></li>
+ </ol>
+ <p class="next rv">Vol. 3 ogłosimy na Instagramie. Obserwuj, żeby nie przegapić.</p>
  <div class="cta rv">
-  <a class="btn" href="https://www.facebook.com/profile.php?id=61587136266092" target="_blank" rel="noopener">Będę na Jamie</a>
+  <a class="btn" href="https://www.instagram.com/ldz.gravity/" target="_blank" rel="noopener">Obserwuj @ldz.gravity</a>
   <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Wzg%C3%B3rze%20Radary%20%C5%81%C3%B3d%C5%BA" target="_blank" rel="noopener">Dojazd</a>
+ </div>
+ <div class="partners rv">
+  <p>Wsparli vol. 2</p>
+  <ul><li>Freestyleheroes</li><li>Prox</li><li>Monster Energy</li><li>Gravity Zone</li><li><a href="http://dirtowy.pl/" target="_blank" rel="noopener">Dirtowy.pl</a></li><li>Three Chimneys</li><li>Platinum CBD Łódź</li><li>Puppyyoga</li></ul>
  </div>
 </section>
 
@@ -288,16 +301,16 @@ footer nav{display:flex;gap:22px}
   <div class="rv"><h3>Zacznij od flow</h3><p>Przejedź linię kilka razy bez skakania. Poczuj bandy, potem dodawaj prędkość.</p></div>
   <div class="rv"><h3>Napisz do nas</h3><p>Powiemy, kiedy jeździmy i gdzie się spotkać. Nikt tu nie zaczynał od backflipa.</p></div>
  </div>
- <div class="final rv">
-  <p>Do zobaczenia<br>na górze.</p>
-  <a class="btn" href="https://www.instagram.com/ldz.gravity/" target="_blank" rel="noopener">Instagram @ldz.gravity</a>
+ <div class="final rv" id="wesprzyj">
+  <div><p>Trasy budujemy sami.</p><span>Radary to praca naszych rąk i łopat. Jeśli tu jeździsz albo chcesz, żeby było więcej linii, wrzuć coś na zrzutkę.</span></div>
+  <div class="fb"><a class="btn" href="https://zrzutka.pl/akcuer" target="_blank" rel="noopener">Wesprzyj na zrzutce</a><a class="btn line" href="https://www.instagram.com/ldz.gravity/" target="_blank" rel="noopener">Instagram</a></div>
  </div>
 </section>
 </main>
 
 <footer>
- <span>© 2026 Gravity ŁDZ · Wzgórze Radary, Łódź</span>
- <nav><a href="https://www.instagram.com/ldz.gravity/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61587136266092" target="_blank" rel="noopener">Facebook</a></nav>
+ <span>© 2026 Stowarzyszenie Gravity Łódź · Wzgórze Radary, Łódź</span>
+ <nav><a href="https://zrzutka.pl/akcuer" target="_blank" rel="noopener">Zrzutka</a><a href="https://www.instagram.com/ldz.gravity/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/profile.php?id=61587136266092" target="_blank" rel="noopener">Facebook</a></nav>
 </footer>
 
 <script>
@@ -333,12 +346,6 @@ routes.forEach(function(r){var L=r.getTotalLength();r.style.strokeDasharray=L;r.
 var lines=[].slice.call(document.querySelectorAll('#lines li'));
 function hi(i){routes.forEach(function(r,k){r.classList.toggle('dim',i>=0&&k!==i);r.classList.toggle('hi',k===i)});lines.forEach(function(l,k){l.classList.toggle('dim',i>=0&&k!==i)})}
 lines.forEach(function(l,i){l.addEventListener('mouseenter',function(){hi(i)});l.addEventListener('mouseleave',function(){hi(-1)});l.addEventListener('click',function(){hi(i)})});
-
-/* odliczanie */
-var target=new Date(document.getElementById('count').getAttribute('data-date')).getTime();
-function pad(n){return(n<10?'0':'')+n}
-function count(){var d=Math.max(0,target-Date.now()),s=Math.floor(d/1000);document.getElementById('cd').textContent=pad(Math.floor(s/86400));document.getElementById('ch').textContent=pad(Math.floor(s%86400/3600));document.getElementById('cm').textContent=pad(Math.floor(s%3600/60));document.getElementById('cs').textContent=pad(s%60)}
-count();setInterval(count,1000);
 
 /* pojawianie się i klipy */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
