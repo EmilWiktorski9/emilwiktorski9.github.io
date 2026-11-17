@@ -57,11 +57,10 @@ img,video{display:block}
 
 /* 1. wejście */
 #hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:#000}
-.tri{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;z-index:0}
-.tri video{width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.6s,transform 2.4s cubic-bezier(.2,.7,.2,1)}
-body.ready .tri video{opacity:1;transform:none}
-body.ready .tri video:nth-child(2){transition-delay:.25s}body.ready .tri video:nth-child(3){transition-delay:.5s}
-#hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(13,14,12,.96) 0%,rgba(13,14,12,.62) 34%,rgba(13,14,12,.08) 62%,rgba(13,14,12,.35) 100%)}
+.photo{position:absolute;inset:-3%;z-index:0;will-change:transform}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:47% 38%;transform:scale(1.18);filter:brightness(.25) saturate(.7);transition:transform 9s cubic-bezier(.2,.6,.2,1),filter 2.6s ease .2s}
+body.ready .photo img{transform:scale(1.04);filter:brightness(1) saturate(1)}
+#hero .shade{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(13,14,12,.95) 0%,rgba(13,14,12,.5) 30%,rgba(13,14,12,0) 55%,rgba(13,14,12,.3) 100%)}
 #mist{position:absolute;inset:0;z-index:2;width:100%;height:100%;pointer-events:none}
 #hero .txt{position:absolute;z-index:3;left:clamp(20px,6vw,96px);right:clamp(20px,6vw,96px);bottom:clamp(30px,7vh,70px)}
 #hero h1{font-size:clamp(58px,9.4vw,168px);margin:16px 0 22px;line-height:1.1}
@@ -137,6 +136,14 @@ body.ready #hero .lead,body.ready #hero .cta,body.ready #hero .kick{opacity:1;tr
 .clip figcaption b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:28px;text-transform:uppercase;line-height:1}
 .clip figcaption span{font-size:12px;color:var(--fog);letter-spacing:.08em}
 
+.yts{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(10px,1.4vw,20px);align-items:start}
+.yt{position:relative;display:block;background:linear-gradient(135deg,#1d211b,#0d0e0c);width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:4px;overflow:hidden;background:#111;cursor:pointer;color:var(--paper)}
+.yt img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .4s;filter:brightness(.8)}
+.yt:hover img{transform:scale(1.04);filter:brightness(1)}
+.yt .play{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--acc);color:#140a03;display:grid;place-items:center;transition:transform .3s}
+.yt:hover .play{transform:scale(1.08)}
+.yt .play svg{width:34px;margin-left:4px}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 /* 6. pierwszy raz */
 #start{padding:clamp(90px,14vh,150px) clamp(20px,6vw,96px) 50px;border-top:1px solid var(--line)}
 #start h2{font-size:clamp(52px,7vw,118px);margin:16px 0 50px}
@@ -157,9 +164,10 @@ footer nav{display:flex;gap:22px}
 
 @media (max-width:860px){
  body{font-size:16px}
- .tri{grid-template-columns:1fr}
- .tri video:nth-child(n+2){display:none}
- #hero h1{font-size:clamp(54px,15.5vw,92px);margin:12px 0 14px}
+ .photo{bottom:36%}
+ .photo img{object-position:46% 40%}
+ #hero .shade{background:linear-gradient(0deg,rgba(13,14,12,1) 0%,rgba(13,14,12,1) 36%,rgba(13,14,12,.2) 60%,rgba(13,14,12,.2) 100%)!important}
+ #hero h1{font-size:clamp(46px,13vw,78px);margin:10px 0 12px}
  #hero .shade{background:linear-gradient(0deg,rgba(13,14,12,.97) 0%,rgba(13,14,12,.8) 42%,rgba(13,14,12,0) 70%)}
  #jump .vid{height:100%;width:100%;aspect-ratio:auto;border-radius:0}
  #jump .back{display:none}
@@ -169,7 +177,7 @@ footer nav{display:flex;gap:22px}
  #jump .stage::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(13,14,12,.85));z-index:1}
  #trasy{grid-template-columns:1fr}
  .map{order:2}
- .grid{grid-template-columns:repeat(2,1fr)}
+ .yts{grid-template-columns:1fr}
  .steps{grid-template-columns:1fr}
  .count .sep{display:none}
 }
@@ -186,11 +194,7 @@ footer nav{display:flex;gap:22px}
 
 <main>
 <section id="hero">
- <div class="tri" aria-hidden="true">
-  <video src="vid/h1.mp4" poster="img/h1.jpg" muted loop playsinline autoplay preload="auto"></video>
-  <video src="vid/h2.mp4" poster="img/h2.jpg" muted loop playsinline autoplay preload="auto"></video>
-  <video src="vid/h3.mp4" poster="img/h3.jpg" muted loop playsinline autoplay preload="auto"></video>
- </div>
+ <div class="photo" aria-hidden="true"><img src="img/las.webp" srcset="img/las_s.webp 1200w, img/las.webp 2400w" sizes="100vw" alt="" fetchpriority="high"></div>
  <div class="shade"></div>
  <canvas id="mist" aria-hidden="true"></canvas>
  <div class="txt">
@@ -267,14 +271,12 @@ footer nav{display:flex;gap:22px}
 
 <section id="klipy">
  <div class="head">
-  <div><p class="kick rv">Z Radarów</p><h2 class="big rv">Tak tu latamy.</h2></div>
-  <p class="lead rv">Nagrania ekipy Gravity ŁDZ. Więcej na Instagramie.</p>
+  <div><p class="kick rv">Filmy</p><h2 class="big rv">Tak tu latamy.</h2></div>
+  <p class="lead rv">Pełne edity z Radarów. Włącz w najwyższej jakości i na cały ekran.</p>
  </div>
- <div class="grid">
-  <figure class="clip"><video data-src="vid/d.mp4" poster="img/d.jpg" muted loop playsinline preload="none"></video><figcaption><b>Na kamerę</b><span>hopka w lesie</span></figcaption></figure>
-  <figure class="clip"><video data-src="vid/c.mp4" poster="img/c.jpg" muted loop playsinline preload="none"></video><figcaption><b>Backflip</b><span>nad stolikiem</span></figcaption></figure>
-  <figure class="clip"><video data-src="vid/f.mp4" poster="img/f.jpg" muted loop playsinline preload="none"></video><figcaption><b>Drop</b><span>z drewnianej skrzyni</span></figcaption></figure>
-  <figure class="clip"><video data-src="vid/e.mp4" poster="img/e.jpg" muted loop playsinline preload="none"></video><figcaption><b>Whip</b><span>nad bandą</span></figcaption></figure>
+ <div class="yts">
+  <button class="yt rv" data-id="CFPeq5yLj1o" data-t="2" aria-label="Odtwórz film z Radarów, część 1"><img src="https://i.ytimg.com/vi/CFPeq5yLj1o/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/CFPeq5yLj1o/hqdefault.jpg'" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+  <button class="yt rv" data-id="qL_gtKYbSg0" data-t="44" aria-label="Odtwórz film z Radarów, część 2"><img src="https://i.ytimg.com/vi/qL_gtKYbSg0/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/qL_gtKYbSg0/hqdefault.jpg'" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
  </div>
 </section>
 
@@ -302,7 +304,7 @@ footer nav{display:flex;gap:22px}
 (function(){
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 function ready(){document.body.classList.add('ready')}
-var tv=[].slice.call(document.querySelectorAll('.tri video,#jam video'));
+var tv=[].slice.call(document.querySelectorAll('#jam video'));
 function playAll(){tv.forEach(function(v){if(getComputedStyle(v).display==='none')return;v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){})})}
 playAll();addEventListener('load',playAll);['pointerdown','touchstart','scroll','keydown'].forEach(function(e){addEventListener(e,playAll,{passive:true,once:true})});
 setTimeout(ready,250);
@@ -340,16 +342,19 @@ count();setInterval(count,1000);
 
 /* pojawianie się i klipy */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
-[].forEach.call(document.querySelectorAll('.rv,.clip'),function(el){io.observe(el)});
+[].forEach.call(document.querySelectorAll('.rv'),function(el){io.observe(el)});
 var vio=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(v.getAttribute('data-src')&&!v.src){v.src=v.getAttribute('data-src')}var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.25});
-[].forEach.call(document.querySelectorAll('.clip video,#jam video'),function(v){vio.observe(v)});
+[].forEach.call(document.querySelectorAll('#jam video'),function(v){vio.observe(v)});
 
-var nav=document.getElementById('nav');
+[].forEach.call(document.querySelectorAll('.yt'),function(b){b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.getAttribute('data-id')+'?autoplay=1&rel=0&playsinline=1&start='+(b.getAttribute('data-t')||0);f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.title='Film z Radarów';b.innerHTML='';b.appendChild(f)},{once:true})});
+var nav=document.getElementById('nav'),photoEl=document.querySelector('.photo'),mx=0,my=0,tx=0,ty=0;
+addEventListener('mousemove',function(e){tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5},{passive:true});
 function prog(sec){var r=sec.getBoundingClientRect(),d=r.height-innerHeight;return d<=0?0:Math.min(1,Math.max(0,-r.top/d))}
 function tick(t){
+ mx+=(tx-mx)*.05;my+=(ty-my)*.05;
  nav.classList.toggle('solid',scrollY>40);
  var hr=document.getElementById('hero').getBoundingClientRect();
- if(hr.bottom>0&&!reduce)mist.frame(t);
+ if(hr.bottom>0&&!reduce){mist.frame(t);photoEl.style.transform='translate3d('+(-mx*18)+'px,'+(scrollY*.25-my*12)+'px,0)'}
  var jr=jump.getBoundingClientRect();
  if(jr.top<innerHeight&&jr.bottom>0){
   var p=prog(jump),pp=Math.min(1,Math.max(0,(p-.04)/.9)),tgt=pp*(dur-.04);
