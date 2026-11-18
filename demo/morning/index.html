@@ -11,7 +11,7 @@
 <meta property="og:description" content="Śniadania i kawa w Łodzi. Monopolis i Dąbrowa.">
 <meta property="og:image" content="img/og.jpg">
 <link rel="icon" href="img/favicon.png">
-<link rel="preload" as="image" href="img/sala.webp">
+<link rel="preload" as="image" href="img/hero.webp">
 <style>
 @font-face{font-family:Bc;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
 @font-face{font-family:Bc;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-024F,U+1E00-1EFF}
@@ -56,8 +56,13 @@ nav .ln a.btn{height:42px;padding:0 20px;opacity:1;font-weight:800}
 
 /* hero */
 #hero{position:relative;min-height:100svh;background:var(--cream);color:var(--ink);overflow:hidden;display:flex;align-items:center}
-#hero:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 78% 50%,#e4e9dc,transparent 70%)}
-#hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:120px 0 80px}
+#hero .bg{position:absolute;inset:0;overflow:hidden}
+#hero .bg img{width:100%;height:100%;object-fit:cover;object-position:70% 55%;transform:scale(1.08);transition:transform 2.6s cubic-bezier(.2,.7,.2,1)}
+.go #hero .bg img{transform:scale(1)}
+#hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(251,250,246,.97) 0%,rgba(251,250,246,.93) 36%,rgba(251,250,246,.6) 50%,rgba(251,250,246,0) 64%)}
+#hero .wrap,#hero .note,#hero .scroll{z-index:2}
+#hero .wrap{position:relative;padding:120px 0 80px}
+#hero .wrap>div{max-width:560px}
 #hero h1{font-size:clamp(64px,10vw,150px)}
 #hero h1 span{display:block;overflow:hidden;padding-bottom:.04em}
 #hero h1 i{display:block;font-style:normal;transform:translateY(105%);transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
@@ -79,24 +84,30 @@ nav .ln a.btn{height:42px;padding:0 20px;opacity:1;font-weight:800}
 .stack figure{transform:translate3d(0,60px,0) rotate(0deg);opacity:0}
 .go .stack figure{transform:translate3d(var(--mx,0),var(--my,0),0) rotate(var(--r));opacity:1}
 .go .stack .f2{transition-delay:.15s}.go .stack .f3{transition-delay:.3s}
-.note{position:absolute;right:-6px;bottom:2%;z-index:4;font:600 30px/1.05 Hand,cursive;color:var(--warm);transform:rotate(-6deg);text-align:right}
-.note svg{display:block;margin:4px 0 0 auto}
+.note{position:absolute;left:61%;top:30%;font:600 32px/1.05 Hand,cursive;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.35);transform:rotate(-6deg);opacity:0;transition:opacity 1s 1.2s}
+.go .note{opacity:1}
+.note svg{display:block;margin:4px 0 0 30px}
 .scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font:800 11px/1 Mr;letter-spacing:.24em;color:rgba(39,48,42,.4)}
 @media(max-width:900px){
- #hero .wrap{grid-template-columns:1fr;gap:10px;padding:96px 0 60px}
- .stack{height:72vw;max-height:460px;order:-1;margin:0 -6px}
- .note{font-size:24px;right:0;bottom:-4px}
+ #hero{display:block;min-height:0}
+ #hero .bg{position:relative;height:50svh;min-height:330px}
+ #hero .bg img{object-position:72% 60%}
+ #hero:before{background:linear-gradient(180deg,rgba(251,250,246,.85) 0,rgba(251,250,246,0) 22%,rgba(251,250,246,0) calc(50svh - 110px),var(--cream) 50svh)}
+ #hero .wrap{padding:0 0 56px;margin-top:-40px}
+ .note{left:auto;right:8%;top:calc(50svh - 190px);font-size:25px}
  #hero .lead{font-size:17px;margin:20px 0 24px}
  .scroll{display:none}
  .stars{gap:14px;margin-top:28px;flex-wrap:nowrap}.stars div{flex:1;font-size:11.5px}.stars b{font-size:25px}
 }
 
 /* shot scene */
-#shot{position:relative;height:320vh;background:var(--paper)}
+#shot{position:relative;height:420vh;background:var(--paper)}
 #shot .stage{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6vw;width:min(1180px,100% - 40px);margin:0 auto}
-#shot .ph{position:relative;height:min(82vh,760px);aspect-ratio:3/4;justify-self:end;border-radius:22px;overflow:hidden;box-shadow:0 40px 80px rgba(31,35,38,.22)}
-#shot .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity}
-#shot .ph .b{opacity:0}
+#shot .ph{position:relative;height:min(84vh,780px);aspect-ratio:2/3;justify-self:end;border-radius:22px;overflow:hidden;box-shadow:0 40px 80px rgba(31,35,38,.22)}
+#shot .zm{position:absolute;inset:0;will-change:transform}
+#shot .zm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#shot .zm img+img{opacity:0}
+#steam{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;filter:blur(2px)}
 #shot .tx{position:relative;height:340px}
 #shot .st{position:absolute;inset:0;opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
 #shot .st.on{opacity:1;transform:none}
@@ -110,7 +121,7 @@ nav .ln a.btn{height:42px;padding:0 20px;opacity:1;font-weight:800}
 .bar i{display:block;height:100%;width:0;background:var(--warm)}
 @media(max-width:900px){
  #shot .stage{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-content:start;padding-top:76px;gap:22px}
- #shot .ph{height:auto;width:100%;max-height:56svh;aspect-ratio:4/4.3;justify-self:stretch}
+ #shot .ph{height:auto;width:100%;max-height:58svh;aspect-ratio:4/4.6;justify-self:stretch}
  #shot .tx{height:auto;min-height:250px}
  #shot .st h2{font-size:46px;margin:8px 0 10px}
  #shot .st p{font-size:15.5px}
@@ -255,6 +266,8 @@ footer .ls{display:flex;gap:22px;flex-wrap:wrap}
 </nav>
 
 <header id="hero">
+ <div class="bg"><img src="img/hero.webp" alt="Śniadanie z jajecznicą, łososiem, awokado i cappuccino na stoliku w MORNING" fetchpriority="high"></div>
+ <div class="note">kawa już<br>się parzy<svg width="70" height="40" viewBox="0 0 70 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 4C18 26 40 33 62 30"/><path d="M54 22l9 8-11 4"/></svg></div>
  <div class="wrap">
   <div>
    <p class="kick">Śniadania · kanapki · kawa · Łódź</p>
@@ -267,11 +280,6 @@ footer .ls{display:flex;gap:22px;flex-wrap:wrap}
     <div><b>od 2018</b>w Łodzi</div>
    </div>
   </div>
-  <div class="stack" id="stack">
-   <figure class="f3"><img src="img/zestaw.webp" alt="Śniadanie z cappuccino w MORNING Monopolis"><figcaption>i cappuccino</figcaption></figure>
-   <figure class="f2"><img src="img/precel.webp" alt="Kanapka na preclu"><figcaption>na preclu!</figcaption></figure>
-   <figure class="f1"><img src="img/sala.webp" alt="Śniadanie z jajkami, łososiem i awokado na stoliku w MORNING na Dąbrowie"><figcaption>sobota, 10:12</figcaption></figure>
-   <div class="note">kawa już<br>się parzy<svg width="70" height="40" viewBox="0 0 70 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M64 4C52 26 30 33 8 30"/><path d="M16 22l-9 8 11 4"/></svg></div>
   </div>
  </div>
  <div class="scroll">PRZEWIŃ</div>
@@ -279,11 +287,12 @@ footer .ls{display:flex;gap:22px;flex-wrap:wrap}
 
 <section id="shot" aria-label="Jak powstaje cappuccino">
  <div class="stage">
-  <div class="ph"><img class="a" src="img/shot.webp" alt="Barista wlewa podwójne espresso do filiżanki"><img class="b" src="img/milk.webp" alt="Barista dolewa spienione mleko"></div>
+  <div class="ph" id="ph"><div class="zm" id="zm"><img src="img/k0.webp" alt="Pusta biała filiżanka na stoliku"><img src="img/k1.webp" alt="Barista wlewa espresso do filiżanki"><img src="img/k2.webp" alt="Barista dolewa spienione mleko"><img src="img/k3.webp" alt="Gotowe cappuccino z latte art"></div><canvas id="steam"></canvas></div>
   <div class="tx">
-   <div class="st on" data-s="0"><div class="n">01</div><h2 class="h">Podwójny shot</h2><p>Na start espresso. Podwójne, bo poniedziałek jest dla wszystkich taki sam.</p><span class="hand">paliwo do funkcjonowania</span></div>
-   <div class="st" data-s="1"><div class="n">02</div><h2 class="h">Spienione mleczko</h2><p>Krowie albo roślinne (+3 zł). Wlewane powoli, prosto do filiżanki.</p><span class="hand">i gotowe, siadaj</span></div>
-   <div class="st" data-s="2"><div class="n">03</div><h2 class="h">Twoje cappuccino</h2><p>Do każdego śniadania mały napój w zestawie za 5 zł. Cappuccino też się liczy.</p><div class="price"><div><span>250 ml</span>14 zł</div><div><span>400 ml</span>18 zł</div><div><span>w zestawie</span>5 zł</div></div></div>
+   <div class="st on"><div class="n">01</div><h2 class="h">Biała filiżanka</h2><p>Gruba porcelana, spodek, łyżeczka. Tak zaczyna się każde cappuccino.</p><span class="hand">przewijaj dalej</span></div>
+   <div class="st"><div class="n">02</div><h2 class="h">Podwójny shot</h2><p>Na start espresso. Podwójne, bo poniedziałek jest dla wszystkich taki sam.</p><span class="hand">paliwo do funkcjonowania</span></div>
+   <div class="st"><div class="n">03</div><h2 class="h">Spienione mleczko</h2><p>Krowie albo roślinne (+3 zł). Wlewane powoli, prosto do filiżanki.</p><span class="hand">i gotowe, siadaj</span></div>
+   <div class="st"><div class="n">04</div><h2 class="h">Twoje cappuccino</h2><p>Do każdego śniadania mały napój w zestawie za 5 zł. Cappuccino też się liczy.</p><div class="price"><div><span>250 ml</span>14 zł</div><div><span>400 ml</span>18 zł</div><div><span>w zestawie</span>5 zł</div></div></div>
    <div class="bar"><i id="bar"></i></div>
   </div>
  </div>
@@ -299,7 +308,7 @@ footer .ls{display:flex;gap:22px;flex-wrap:wrap}
    <button data-k="3"><b>Roślinnie</b><span>bez mięsa i nabiału</span></button>
   </div>
   <div class="pick rv" id="pick">
-   <div class="im"><img id="pimg" src="img/shot.webp" alt=""></div>
+   <div class="im"><img id="pimg" src="img/k1.webp" alt=""></div>
    <div class="bd">
     <div class="kick" id="pk">Śniadanka</div>
     <h3 class="t h" id="pt">Czas do wyjścia</h3>
@@ -426,41 +435,53 @@ var nav=$('#nav');
 function onS(){nav.classList.toggle('s',w.scrollY>40);shot()}
 w.addEventListener('scroll',onS,{passive:true});w.addEventListener('resize',onS);
 
-/* hero stack parallax */
-var st=$('#stack'),fs=$$('.stack figure'),k=[22,-14,10];
-if(w.matchMedia('(hover:hover)').matches){
- $('#hero').addEventListener('mousemove',function(e){
-  var x=e.clientX/w.innerWidth-.5,y=e.clientY/w.innerHeight-.5;
-  fs.forEach(function(f,i){f.style.setProperty('--mx',(x*k[i])+'px');f.style.setProperty('--my',(y*k[i])+'px')});
- });
-}
-
 /* shot scene */
-var sec=$('#shot'),A=$('#shot .a'),B=$('#shot .b'),S=$$('#shot .st'),bar=$('#bar'),cur=-1;
+var sec=$('#shot'),zm=$('#zm'),L=$$('#zm img'),S=$$('#shot .st'),bar=$('#bar'),cv=$('#steam'),cur=-1,stA=0;
 function cl(v){return v<0?0:v>1?1:v}
+function prog(){return cl(-sec.getBoundingClientRect().top/(sec.offsetHeight-w.innerHeight))}
 function shot(){
- var r=sec.getBoundingClientRect(),h=sec.offsetHeight-w.innerHeight,p=cl(-r.top/h);
- var f=cl((p-.36)/.2);
- A.style.transform='scale('+(1.12-.1*cl(p/.5))+')';
- B.style.opacity=f;B.style.transform='scale('+(1.1-.08*cl((p-.36)/.6))+')';
- A.style.opacity=1-f*.999;
- var s=p<.42?0:p<.72?1:2;
+ var p=prog(),f=p*3.4;
+ zm.style.transform='scale('+(1.1-.1*p)+')';
+ for(var i=1;i<4;i++)L[i].style.opacity=cl((f-(i-.5))/.3+.5);
+ stA=cl((f-3)/.3);cv.style.opacity=stA;
+ var s=f<.5?0:f<1.5?1:f<2.5?2:3;
  if(s!==cur){cur=s;S.forEach(function(e,i){e.classList.toggle('on',i===s)})}
  bar.style.width=(p*100)+'%';
 }
+/* para nad filiżanką: środek kawy w klatce 4 to x .52, y .52 obrazu 1024x1536 */
+var cx=cv.getContext('2d'),off=d.createElement('canvas'),oc=off.getContext('2d'),Q=6,SP=[];
+for(var i=0;i<5;i++)SP.push({x:.43+.18*(i+.5)/5,ph:Math.random()*100,sp:.55+Math.random()*.5,amp:.8+Math.random()*.6,w:.7+Math.random()*.7,a:.6+Math.random()*.4});
+function sz(){var dp=Math.min(2,w.devicePixelRatio||1);cv.width=cv.clientWidth*dp;cv.height=cv.clientHeight*dp;off.width=Math.ceil(cv.clientWidth/Q);off.height=Math.ceil(cv.clientHeight/Q)}
+sz();w.addEventListener('resize',sz);
+function steam(t){
+ requestAnimationFrame(steam);if(stA<=0)return;
+ if(!off.width||cv.width!==Math.round(cv.clientWidth*Math.min(2,w.devicePixelRatio||1)))sz();if(!off.width)return;
+ var W=cv.clientWidth,H=cv.clientHeight,sc=Math.max(W/1024,H/1536),iw=1024*sc,ih=1536*sc,l=(W-iw)/2,tp=(H-ih)/2,
+ zs=1.1-.1*prog(),T=t/1000,k=ih/1536,base=tp+ih*.52,Hs=ih*.36;
+ function X(x){return(W/2+(x-W/2)*zs)/Q}function Y(y){return(H/2+(y-H/2)*zs)/Q}
+ oc.setTransform(1,0,0,1,0,0);oc.clearRect(0,0,off.width,off.height);oc.globalCompositeOperation='lighter';oc.lineCap='round';
+ for(var j=0;j<SP.length;j++){var q=SP[j],xs=l+iw*q.x,N=30,pu=.55+.45*Math.sin(T*.35*q.sp+q.ph);
+  for(var i=1;i<N;i++){var f0=(i-1)/N,f1=i/N;
+   var px=function(f){return xs+(Math.sin(f*4.4-T*.9*q.sp+q.ph)*34*f+Math.sin(f*9-T*1.5*q.sp+q.ph*2)*14*f*f)*k*1.6*q.amp};
+   var a=Math.sin(Math.PI*Math.min(1,f1*1.05))*Math.pow(1-f1,.6)*q.a*pu*.16;
+   oc.strokeStyle='rgba(255,252,246,'+a+')';oc.lineWidth=(14+f1*50)*k*1.6*q.w*zs/Q;
+   oc.beginPath();oc.moveTo(X(px(f0)),Y(base-f0*Hs));oc.lineTo(X(px(f1)),Y(base-f1*Hs));oc.stroke()}}
+ cx.setTransform(1,0,0,1,0,0);cx.clearRect(0,0,cv.width,cv.height);cx.drawImage(off,0,0,cv.width,cv.height);
+}
+requestAnimationFrame(steam);
 onS();
 
 /* quiz */
-var Q=[
- {k:'Śniadanka',t:'Czas do wyjścia',d:'Owsianka Lotus Biscoff z karmelizowaną śliwką i ciastkami Lotus. Szybko, ciepło i na słodko przed pracą.',p:'27 zł',l:'+ cappuccino za 5 zł?',i:'img/shot.webp'},
- {k:'Śniadanka',t:'Poranny rozruch',d:'Łosoś wędzony, delikatna jajecznica z 3 jaj, awokado, warzywka i brioche z twarożkiem podwędzanym z ziołami.',p:'41 zł',l:'+ duży flat white, 17 zł',i:'img/zestaw.webp'},
- {k:'Kanapki',t:'Przyjemność',d:'Croissant albo brioche z kremem Lotus Biscoff, karmelizowaną śliwką z rozmarynem i prażonymi migdałami.',p:'32 zł',l:'+ kakao z piankami?',i:'img/milk.webp'},
+var QZ=[
+ {k:'Śniadanka',t:'Czas do wyjścia',d:'Owsianka Lotus Biscoff z karmelizowaną śliwką i ciastkami Lotus. Szybko, ciepło i na słodko przed pracą.',p:'27 zł',l:'+ cappuccino za 5 zł?',i:'img/k1.webp'},
+ {k:'Śniadanka',t:'Poranny rozruch',d:'Łosoś wędzony, delikatna jajecznica z 3 jaj, awokado, warzywka i brioche z twarożkiem podwędzanym z ziołami.',p:'41 zł',l:'+ duży flat white, 17 zł',i:'img/sala.webp'},
+ {k:'Kanapki',t:'Przyjemność',d:'Croissant albo brioche z kremem Lotus Biscoff, karmelizowaną śliwką z rozmarynem i prażonymi migdałami.',p:'32 zł',l:'+ kakao z piankami?',i:'img/k2.webp'},
  {k:'Śniadanka · vegan',t:'Wegańskie śniadanko',d:'Tofucznica z blanszowanym szpinakiem z czosnkiem, pieczarki pieczone w ziołach, warzywka i szczypiorek.',p:'35 zł',l:'+ mleko roślinne do kawy, 3 zł',i:'img/warzywa.webp'}
 ];
 var ob=$$('#opts button'),pk=$('#pick'),pim=$('#pimg');
-Q.forEach(function(q){var m=new Image();m.src=q.i});
+QZ.forEach(function(q){var m=new Image();m.src=q.i});
 ob.forEach(function(b){b.addEventListener('click',function(){
- var q=Q[+b.getAttribute('data-k')];ob.forEach(function(x){x.classList.toggle('on',x===b)});
+ var q=QZ[+b.getAttribute('data-k')];ob.forEach(function(x){x.classList.toggle('on',x===b)});
  pk.classList.add('sw');pim.style.opacity=0;
  setTimeout(function(){$('#pk').textContent=q.k;$('#pt').textContent=q.t;$('#pd').textContent=q.d;$('#pp').textContent=q.p;$('#pl').textContent=q.l;pim.src=q.i;pim.style.opacity=1;pk.classList.remove('sw')},320);
 })});
