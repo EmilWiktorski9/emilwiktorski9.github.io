@@ -80,6 +80,10 @@ defaults:
       path: "demo"
     values:
       sitemap: false
+# Demo zbudowane w Next.js trzyma skrypty w folderze _next, Jekyll domyślnie pomija takie foldery
+include:
+  - _next
+
 exclude:
   - CLAUDE.md
   - INSTRUKCJA.md
