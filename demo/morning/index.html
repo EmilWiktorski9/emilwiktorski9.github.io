@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MORNING coffee &amp; more · śniadania i kawa w Łodzi</title>
+<meta name="description" content="Śniadania, kanapki na croissancie i brioche, kawa. Dwa lokale w Łodzi: Monopolis (Kopcińskiego 62) i Dąbrowa (Gojawiczyńskiej 1/3).">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1f2326">
+<meta property="og:title" content="MORNING coffee &amp; more">
+<meta property="og:description" content="Śniadania i kawa w Łodzi. Monopolis i Dąbrowa.">
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="img/favicon.png">
+<link rel="preload" as="image" href="img/zestaw.webp">
+<style>
+@font-face{font-family:Bc;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Bc;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-024F,U+1E00-1EFF}
+@font-face{font-family:Bc;font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Bc;font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-024F,U+1E00-1EFF}
+@font-face{font-family:Hand;font-weight:600;font-display:swap;src:url(fonts/caveat-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Hand;font-weight:600;font-display:swap;src:url(fonts/caveat-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-024F}
+@font-face{font-family:Mr;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Mr;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-024F}
+@font-face{font-family:Mr;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Mr;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-024F}
+@font-face{font-family:Mr;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F}
+@font-face{font-family:Mr;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-ext-800-normal.woff2) format('woff2');unicode-range:U+0100-024F}
+:root{--ink:#1f2326;--ink2:#2a3036;--cream:#f8f4ea;--paper:#fffdf7;--olive:#6b7556;--olive2:#8c9673;--warm:#d2692b;--line:rgba(31,35,38,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--cream);color:var(--ink);font:400 17px/1.6 Mr,system-ui,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.h{font-family:Bc,Impact,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:.92}
+.hand{font-family:Hand,cursive;font-weight:600}
+.wrap{width:min(1180px,100% - 40px);margin:0 auto}
+.kick{font:800 12px/1 Mr,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--olive)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;font:800 15px/1 Mr,sans-serif;text-decoration:none;transition:transform .25s,background .25s,color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.a{background:var(--cream);color:var(--ink)}
+.btn.b{border:1.5px solid rgba(248,244,234,.5);color:var(--cream)}
+.btn.c{background:var(--ink);color:var(--cream)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px max(20px,calc((100% - 1180px)/2));transition:background .35s,padding .35s}
+nav.s{background:rgba(31,35,38,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding-top:10px;padding-bottom:10px}
+nav .lg img{height:46px;width:auto;transition:height .35s}
+nav.s .lg img{height:36px}
+nav .ln{display:flex;gap:30px;align-items:center}
+nav .ln a{color:var(--cream);text-decoration:none;font:600 15px/1 Mr,sans-serif;opacity:.85}
+nav .ln a:hover{opacity:1}
+nav .ln a.btn{height:42px;padding:0 20px;opacity:1;font-weight:800}
+@media(max-width:820px){nav .ln a:not(.btn){display:none}}
+
+/* hero */
+#hero{position:relative;min-height:100svh;background:var(--ink);color:var(--cream);overflow:hidden;display:flex;align-items:center}
+#hero:before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 75% 50%,rgba(210,105,43,.18),transparent 70%)}
+#hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:120px 0 80px}
+#hero h1{font-size:clamp(64px,10vw,150px)}
+#hero h1 span{display:block;overflow:hidden;padding-bottom:.04em}
+#hero h1 i{display:block;font-style:normal;transform:translateY(105%);transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+#hero h1 span:nth-child(2) i{transition-delay:.12s;color:var(--warm)}
+.go #hero h1 i{transform:none}
+#hero .lead{max-width:470px;margin:26px 0 30px;font-size:19px;color:rgba(248,244,234,.78)}
+#hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.stars{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
+.stars div{font:600 14px/1.35 Mr,sans-serif;color:rgba(248,244,234,.62)}
+.stars b{display:block;font:700 30px/1 Bc,sans-serif;color:var(--cream);letter-spacing:.02em}
+.stars b em{font-style:normal;color:var(--warm)}
+.stack{position:relative;height:min(640px,74vh)}
+.stack figure{position:absolute;background:#fff;padding:12px 12px 52px;border-radius:6px;box-shadow:0 30px 60px rgba(0,0,0,.45);transition:transform 1.2s cubic-bezier(.2,.8,.2,1),opacity 1s}
+.stack figure img{width:100%;height:100%;object-fit:cover;border-radius:2px}
+.stack figcaption{position:absolute;left:16px;right:12px;bottom:10px;font:600 25px/1 Hand,cursive;color:var(--ink)}
+.stack .f1{width:62%;height:78%;left:30%;top:4%;--r:5deg;z-index:3}
+.stack .f2{width:54%;height:52%;left:0;top:40%;--r:-8deg;z-index:2}
+.stack .f3{width:44%;height:40%;left:6%;top:-2%;--r:-3deg;z-index:1}
+.stack figure{transform:translate3d(0,60px,0) rotate(0deg);opacity:0}
+.go .stack figure{transform:translate3d(var(--mx,0),var(--my,0),0) rotate(var(--r));opacity:1}
+.go .stack .f2{transition-delay:.15s}.go .stack .f3{transition-delay:.3s}
+.note{position:absolute;right:-6px;bottom:2%;z-index:4;font:600 30px/1.05 Hand,cursive;color:var(--warm);transform:rotate(-6deg);text-align:right}
+.note svg{display:block;margin:4px 0 0 auto}
+.scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font:800 11px/1 Mr;letter-spacing:.24em;color:rgba(248,244,234,.5)}
+@media(max-width:900px){
+ #hero .wrap{grid-template-columns:1fr;gap:10px;padding:96px 0 60px}
+ .stack{height:72vw;max-height:460px;order:-1;margin:0 -6px}
+ .note{font-size:24px;right:0;bottom:-4px}
+ #hero .lead{font-size:17px;margin:20px 0 24px}
+ .scroll{display:none}
+ .stars{gap:14px;margin-top:28px;flex-wrap:nowrap}.stars div{flex:1;font-size:11.5px}.stars b{font-size:25px}
+}
+
+/* shot scene */
+#shot{position:relative;height:320vh;background:var(--paper)}
+#shot .stage{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6vw;width:min(1180px,100% - 40px);margin:0 auto}
+#shot .ph{position:relative;height:min(82vh,760px);aspect-ratio:3/4;justify-self:end;border-radius:22px;overflow:hidden;box-shadow:0 40px 80px rgba(31,35,38,.22)}
+#shot .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity}
+#shot .ph .b{opacity:0}
+#shot .tx{position:relative;height:340px}
+#shot .st{position:absolute;inset:0;opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
+#shot .st.on{opacity:1;transform:none}
+#shot .st .n{font:700 18px/1 Bc;color:var(--warm);letter-spacing:.1em}
+#shot .st h2{font-size:clamp(48px,6vw,88px);margin:14px 0 18px}
+#shot .st p{max-width:400px;color:#4a4f52}
+#shot .st .hand{font-size:34px;color:var(--olive);display:block;margin-top:18px;transform:rotate(-2deg)}
+.price{display:inline-flex;gap:18px;margin-top:22px;padding:16px 22px;border:1.5px solid var(--ink);border-radius:14px;font:700 26px/1 Bc;letter-spacing:.03em}
+.price span{color:#7a7f82;font-size:16px;display:block;margin-bottom:6px;font-family:Mr;font-weight:600;letter-spacing:0;text-transform:none}
+.bar{position:absolute;left:0;bottom:-40px;width:180px;height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--warm)}
+@media(max-width:900px){
+ #shot .stage{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-content:start;padding-top:76px;gap:22px}
+ #shot .ph{height:auto;width:100%;max-height:56svh;aspect-ratio:4/4.3;justify-self:stretch}
+ #shot .tx{height:auto;min-height:250px}
+ #shot .st h2{font-size:46px;margin:8px 0 10px}
+ #shot .st p{font-size:15.5px}
+ #shot .st .hand{font-size:27px;margin-top:8px}
+ .price{margin-top:12px;font-size:22px;padding:12px 16px}
+ .bar{display:none}
+}
+
+/* quiz */
+#dzis{background:var(--ink);color:var(--cream);padding:120px 0}
+#dzis .hd{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+#dzis h2{font-size:clamp(52px,7vw,104px)}
+#dzis .hd p{max-width:360px;color:rgba(248,244,234,.66)}
+.opts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:48px 0 26px}
+.opts button{all:unset;cursor:pointer;padding:22px 20px;border:1.5px solid rgba(248,244,234,.2);border-radius:16px;transition:background .3s,border-color .3s,transform .3s}
+.opts button:hover{border-color:rgba(248,244,234,.55);transform:translateY(-3px)}
+.opts button.on{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.opts b{display:block;font:700 26px/1 Bc;text-transform:uppercase;letter-spacing:.02em}
+.opts span{display:block;margin-top:8px;font-size:14px;opacity:.7}
+.pick{display:grid;grid-template-columns:1fr 1.2fr;border-radius:24px;overflow:hidden;background:var(--cream);color:var(--ink);min-height:360px}
+.pick .im{position:relative;background:#ddd}
+.pick .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s}
+.pick .bd{padding:44px 48px;display:flex;flex-direction:column;justify-content:center}
+.pick .t{font-size:clamp(40px,4.4vw,64px);margin:10px 0 14px}
+.pick .d{color:#4a4f52;max-width:460px}
+.pick .row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:24px}
+.pick .pr{font:700 40px/1 Bc;color:var(--warm)}
+.pick .plus{font:600 26px/1.1 Hand,cursive;color:var(--olive);transform:rotate(-2deg)}
+.pick .bd>*{transition:opacity .35s,transform .35s}
+.pick.sw .bd>*{opacity:0;transform:translateY(10px)}
+@media(max-width:900px){
+ #dzis{padding:84px 0}
+ .opts{grid-template-columns:1fr 1fr;margin:34px 0 18px}
+ .opts b{font-size:22px}
+ .pick{grid-template-columns:1fr}
+ .pick .im{height:230px}
+ .pick .bd{padding:28px 24px 32px}
+}
+
+/* menu */
+#menu{padding:120px 0;background:var(--cream)}
+#menu .top{text-align:center}
+#menu .top .kick{margin-bottom:16px}
+#menu h2{font-size:clamp(60px,8vw,120px);color:var(--olive)}
+#menu .top p{margin:14px auto 0;max-width:520px;color:#5b605e}
+.tabs{display:flex;justify-content:center;gap:8px;margin:40px 0 46px;flex-wrap:wrap}
+.tabs button{all:unset;cursor:pointer;padding:12px 22px;border-radius:999px;border:1.5px solid var(--olive2);font:700 20px/1 Bc;text-transform:uppercase;letter-spacing:.06em;color:var(--olive);transition:background .25s,color .25s}
+.tabs button.on{background:var(--olive);color:var(--cream);border-color:var(--olive)}
+.pane{display:none;max-width:900px;margin:0 auto}
+.pane.on{display:block;animation:fd .5s}
+@keyframes fd{from{opacity:0;transform:translateY(12px)}}
+.sub{text-align:center;font:700 19px/1 Bc;color:var(--olive2);letter-spacing:.08em;text-transform:uppercase;margin:-20px 0 30px}
+.it{display:grid;grid-template-columns:1fr auto;gap:4px 30px;padding:20px 0;border-bottom:1px dashed rgba(107,117,86,.35);color:var(--olive)}
+.it h3{font:700 27px/1 Bc;text-transform:uppercase;letter-spacing:.02em}
+.it .p{font:700 27px/1 Bc;text-align:right;white-space:nowrap}
+.it p{grid-column:1/-1;font-size:15.5px;color:#61685a;max-width:680px}
+.it .tg{display:inline-block;margin-left:10px;padding:3px 8px 2px;border-radius:5px;background:var(--olive);color:var(--cream);font:700 13px/1 Bc;letter-spacing:.08em;vertical-align:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 60px}
+.two .it{grid-template-columns:1fr auto}
+.boxn{margin:34px 0 0;padding:22px 26px;border:2px solid var(--olive);border-radius:14px;color:var(--olive);text-align:center}
+.boxn b{display:block;font:700 26px/1.1 Bc;text-transform:uppercase;letter-spacing:.03em}
+.boxn span{display:block;margin-top:6px}
+.mh{font:700 34px/1 Bc;text-transform:uppercase;color:var(--olive);margin:46px 0 4px;letter-spacing:.03em}
+.mh:first-child{margin-top:0}
+.eco{text-align:center;margin-top:26px;font:700 15px/1.3 Bc;letter-spacing:.08em;color:var(--olive2);text-transform:uppercase}
+@media(max-width:760px){
+ #menu{padding:84px 0}
+ .two{grid-template-columns:1fr}
+ .it h3,.it .p{font-size:23px}
+ .it p{font-size:14.5px}
+}
+
+/* wall */
+#poranki{background:var(--paper);padding:120px 0 110px;overflow:hidden}
+#poranki .hd{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+#poranki h2{font-size:clamp(56px,7.5vw,112px)}
+#poranki h2 .hand{display:block;font-size:.42em;text-transform:none;color:var(--warm);letter-spacing:0;line-height:1;margin-bottom:6px;transform:rotate(-2deg)}
+#poranki .hd p{color:#4a4f52;max-width:420px}
+.rowm{display:flex;gap:22px;width:max-content;animation:mq 70s linear infinite;padding:16px 0}
+.rowm.r2{animation-duration:85s;animation-direction:reverse;margin-top:8px}
+#poranki:hover .rowm{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.pc{flex:none;width:300px;background:#fff;padding:12px 12px 14px;border-radius:6px;box-shadow:0 18px 40px rgba(31,35,38,.14);transform:rotate(var(--r,0deg))}
+.pc img{width:100%;height:300px;object-fit:cover;border-radius:2px}
+.pc .c{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;font:600 24px/1 Hand,cursive}
+.pc .c small{font:600 11px/1 Mr;letter-spacing:.12em;text-transform:uppercase;color:#8a8f91}
+.qt{flex:none;width:320px;align-self:center;padding:28px 26px;border-radius:18px;background:var(--ink);color:var(--cream);transform:rotate(var(--r,0deg))}
+.qt.l{background:var(--olive)}
+.qt q{display:block;font:600 30px/1.08 Hand,cursive;quotes:none}
+.qt .w{margin-top:16px;font:600 13px/1.3 Mr;opacity:.72}
+.qt .w b{color:var(--warm);letter-spacing:2px}
+.qt.l .w b{color:var(--cream)}
+.tag{margin-top:56px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:30px 34px;border:2px dashed var(--line);border-radius:22px}
+.tag .hand{font-size:36px;line-height:1.05;color:var(--ink)}
+.tag .hand em{font-style:normal;color:var(--warm)}
+@media(max-width:760px){
+ #poranki{padding:84px 0 80px}
+ #poranki .hd{grid-template-columns:1fr;gap:16px;margin-bottom:34px}
+ .pc{width:230px}.pc img{height:230px}
+ .qt{width:250px;padding:22px 20px}.qt q{font-size:25px}
+ .tag{padding:24px 22px}.tag .hand{font-size:29px}
+}
+
+/* places */
+#lokale{background:var(--ink);color:var(--cream);padding:120px 0}
+#lokale h2{font-size:clamp(56px,7.5vw,112px);margin-bottom:46px}
+.pl{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.loc{position:relative;padding:36px 34px 32px;border-radius:24px;background:var(--ink2);overflow:hidden}
+.loc .k{font:800 12px/1 Mr;letter-spacing:.2em;text-transform:uppercase;color:var(--warm)}
+.loc h3{font-size:58px;margin:12px 0 6px}
+.loc .ad{color:rgba(248,244,234,.75)}
+.st8{display:inline-flex;align-items:center;gap:9px;margin-top:20px;padding:8px 14px;border-radius:999px;background:rgba(248,244,234,.08);font:700 14px/1 Mr}
+.st8 i{width:9px;height:9px;border-radius:50%;background:#9aa0a3}
+.st8.op i{background:#6fd08c;box-shadow:0 0 0 0 rgba(111,208,140,.6);animation:pu 2s infinite}
+@keyframes pu{70%{box-shadow:0 0 0 9px rgba(111,208,140,0)}100%{box-shadow:0 0 0 0 rgba(111,208,140,0)}}
+.hrs{margin:22px 0 26px;border-top:1px solid rgba(248,244,234,.12)}
+.hrs div{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(248,244,234,.12);font-size:15.5px}
+.hrs div.td{color:var(--warm);font-weight:800}
+.loc .acts{display:flex;gap:10px;flex-wrap:wrap}
+.loc .acts .btn{height:48px;padding:0 20px;font-size:14px}
+.loc .acts .btn.b{border-color:rgba(248,244,234,.3)}
+.loc .bgn{position:absolute;right:-10px;top:-24px;font:700 170px/1 Bc;color:rgba(248,244,234,.04);pointer-events:none}
+@media(max-width:860px){#lokale{padding:84px 0}.pl{grid-template-columns:1fr}.loc{padding:28px 22px}.loc h3{font-size:46px}}
+
+footer{background:#16191b;color:rgba(248,244,234,.6);padding:56px 0 calc(40px + env(safe-area-inset-bottom));font-size:14.5px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+footer img{height:64px;width:auto}
+footer a{color:var(--cream);text-decoration:none}
+footer .ls{display:flex;gap:22px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}#hero h1 i{transform:none}.stack figure{opacity:1;transform:rotate(var(--r))}}
+</style>
+</head>
+<body>
+<nav id="nav">
+ <a class="lg" href="#hero" aria-label="MORNING coffee &amp; more"><img src="img/logo_w.png" alt="MORNING coffee &amp; more" width="124" height="96"></a>
+ <div class="ln">
+  <a href="#menu">Menu</a>
+  <a href="#poranki">Wasze poranki</a>
+  <a href="#lokale">Lokale</a>
+  <a class="btn a" href="tel:+48574196323">Zadzwoń</a>
+ </div>
+</nav>
+
+<header id="hero">
+ <div class="wrap">
+  <div>
+   <p class="kick" style="color:var(--warm)">Śniadania · kanapki · kawa · Łódź</p>
+   <h1 class="h" style="margin-top:18px"><span><i>Dawaj,</i></span><span><i>wstawaj.</i></span></h1>
+   <p class="lead">Jajecznica z 3 jaj, croissant od Quasa, flat white. Śniadania od 8:00 w Monopolis i na Dąbrowie.</p>
+   <div class="cta"><a class="btn a" href="#menu">Zobacz menu</a><a class="btn b" href="#lokale">Gdzie jesteśmy</a></div>
+   <div class="stars">
+    <div><b>4,8 <em>★</em></b>Monopolis, 1,5 tys. opinii w Google</div>
+    <div><b>4,7 <em>★</em></b>Dąbrowa, 600 opinii w Google</div>
+    <div><b>od 2018</b>w Łodzi</div>
+   </div>
+  </div>
+  <div class="stack" id="stack">
+   <figure class="f3"><img src="img/omlet.webp" alt="Omlet ze szpinakiem"><figcaption>omlet ze szpinakiem</figcaption></figure>
+   <figure class="f2"><img src="img/precel.webp" alt="Kanapka na preclu"><figcaption>na preclu!</figcaption></figure>
+   <figure class="f1"><img src="img/zestaw.webp" alt="Śniadanie z jajkami sadzonymi, łososiem i cappuccino w MORNING Monopolis"><figcaption>sobota, 10:12</figcaption></figure>
+   <div class="note">kawa już<br>się parzy<svg width="70" height="40" viewBox="0 0 70 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M64 4C52 26 30 33 8 30"/><path d="M16 22l-9 8 11 4"/></svg></div>
+  </div>
+ </div>
+ <div class="scroll">PRZEWIŃ</div>
+</header>
+
+<section id="shot" aria-label="Jak powstaje cappuccino">
+ <div class="stage">
+  <div class="ph"><img class="a" src="img/shot.webp" alt="Barista wlewa podwójne espresso do filiżanki"><img class="b" src="img/milk.webp" alt="Barista dolewa spienione mleko"></div>
+  <div class="tx">
+   <div class="st on" data-s="0"><div class="n">01</div><h2 class="h">Podwójny shot</h2><p>Na start espresso. Podwójne, bo poniedziałek jest dla wszystkich taki sam.</p><span class="hand">paliwo do funkcjonowania</span></div>
+   <div class="st" data-s="1"><div class="n">02</div><h2 class="h">Spienione mleczko</h2><p>Krowie albo roślinne (+3 zł). Wlewane powoli, prosto do filiżanki.</p><span class="hand">i gotowe, siadaj</span></div>
+   <div class="st" data-s="2"><div class="n">03</div><h2 class="h">Twoje cappuccino</h2><p>Do każdego śniadania mały napój w zestawie za 5 zł. Cappuccino też się liczy.</p><div class="price"><div><span>250 ml</span>14 zł</div><div><span>400 ml</span>18 zł</div><div><span>w zestawie</span>5 zł</div></div></div>
+   <div class="bar"><i id="bar"></i></div>
+  </div>
+ </div>
+</section>
+
+<section id="dzis">
+ <div class="wrap">
+  <div class="hd rv"><h2 class="h">Jaki dziś<br>poranek?</h2><p>Wybierz, jak zaczynasz dzień. Podpowiemy, co zamówić.</p></div>
+  <div class="opts rv" id="opts">
+   <button class="on" data-k="0"><b>Na szybko</b><span>przed pracą</span></button>
+   <button data-k="1"><b>Na spokojnie</b><span>weekend, gazeta</span></button>
+   <button data-k="2"><b>Na słodko</b><span>bo można</span></button>
+   <button data-k="3"><b>Roślinnie</b><span>bez mięsa i nabiału</span></button>
+  </div>
+  <div class="pick rv" id="pick">
+   <div class="im"><img id="pimg" src="img/shot.webp" alt=""></div>
+   <div class="bd">
+    <div class="kick" id="pk">Śniadanka</div>
+    <h3 class="t h" id="pt">Czas do wyjścia</h3>
+    <p class="d" id="pd">Owsianka Lotus Biscoff z karmelizowaną śliwką i ciastkami Lotus.</p>
+    <div class="row"><span class="pr" id="pp">27 zł</span><span class="plus" id="pl">+ cappuccino za 5 zł?</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="menu">
+ <div class="wrap">
+  <div class="top rv"><p class="kick">Menu</p><h2 class="h">Co dziś jemy</h2><p>Jajka z wolnego wybiegu. Kanapki na croissancie albo brioche od Quasa.</p></div>
+  <div class="tabs" id="tabs"><button class="on" data-t="0">Śniadanka</button><button data-t="1">Kanapki</button><button data-t="2">Napoje</button></div>
+
+  <div class="pane on">
+   <div class="it"><h3>Dawaj wstawaj</h3><span class="p">25 zł</span><p>delikatna jajecznica z 3 jaj ze szczypiorkiem, serem dojrzewającym, solą morską, warzywka, brioche z masłem (jajko +3 zł, awokado +6 zł, szynka +8 zł, łosoś +9 zł)</p></div>
+   <div class="it"><h3>Poranny rozruch</h3><span class="p">41 zł</span><p>łosoś wędzony, delikatna jajecznica z 3 jaj, awokado, warzywka, brioche z twarożkiem podwędzanym z ziołami</p></div>
+   <div class="it"><h3>Pożywne śniadanko</h3><span class="p">43 zł</span><p>szynka Cotto, delikatna jajecznica z 3 jaj z bekonem, pieczarki pieczone w ziołach, warzywka, brioche z twarożkiem podwędzanym z ziołami</p></div>
+   <div class="it"><h3>Wegańskie śniadanko<span class="tg">VEGAN</span></h3><span class="p">35 zł</span><p>tofucznica z blanszowanym szpinakiem z czosnkiem, pieczarki pieczone w ziołach, warzywka, szczypiorek</p></div>
+   <div class="it"><h3>Czas do wyjścia</h3><span class="p">27 zł</span><p>owsianka Lotus Biscoff z karmelizowaną śliwką i ciastkami Lotus</p></div>
+   <div class="it"><h3>Wspaniały dzień</h3><span class="p">38 zł</span><p>omlet z 3 jaj z bekonem, serem dojrzewającym, pieczarkami pieczonymi w ziołach, konfiturą z czerwonej cebuli, warzywka</p></div>
+   <div class="boxn"><b>Do każdego dania mały napój w zestawie za 5 zł</b><span>cappuccino, kawa czarna, herbata lub kakao</span></div>
+  </div>
+
+  <div class="pane">
+   <p class="sub">Croissant lub brioche od Quasa</p>
+   <div class="it"><h3>Wspaniałość</h3><span class="p">37 zł</span><p>szynka Cotto, jajko sadzone, pomidor, majonez truflowy, rukola, ser dojrzewający, pieprz</p></div>
+   <div class="it"><h3>Witalność</h3><span class="p">41 zł</span><p>łosoś wędzony, pomidor, szpinak blanszowany z czosnkiem, ser Burrata, rukola, ser dojrzewający, pieprz (jajka +3 zł, awokado +6 zł)</p></div>
+   <div class="it"><h3>Przygoda</h3><span class="p">34 zł</span><p>pieczarki pieczone w ziołach, konfitura z czerwonej cebuli, twarożek podwędzany z ziołami, świeży tymianek</p></div>
+   <div class="it"><h3>Przyjemność</h3><span class="p">32 zł</span><p>krem Lotus Biscoff, karmelizowana śliwka z rozmarynem, prażone migdały i świeży tymianek</p></div>
+   <div class="it"><h3>Spełnienie</h3><span class="p">33 zł</span><p>krem miodowy, konfitura z czarnej porzeczki z limonką, zest z limonki, świeży tymianek</p></div>
+   <h4 class="mh">Kanapki na zimno</h4>
+   <div class="it"><h3>Z szynką</h3><span class="p">15 zł</span><p>szynka, pomidor, rukola, ser dojrzewający, szczypiorek</p></div>
+   <div class="it"><h3>Z łososiem</h3><span class="p">18 zł</span><p>łosoś wędzony, awokado, twarożek, rukola</p></div>
+   <div class="it"><h3>Z twarożkiem</h3><span class="p">15 zł</span><p>twarożek, warzywka, rukola, szczypiorek</p></div>
+  </div>
+
+  <div class="pane">
+   <div class="two">
+    <div>
+     <h4 class="mh">Kawa</h4>
+     <div class="it"><h3>Espresso</h3><span class="p">8 / 11 zł</span><p>30 / 60 ml</p></div>
+     <div class="it"><h3>Espresso macchiato</h3><span class="p">9 / 12 zł</span><p>40 / 80 ml</p></div>
+     <div class="it"><h3>Americano</h3><span class="p">12 / 15 zł</span><p>250 / 400 ml</p></div>
+     <div class="it"><h3>Kawa przelewowa</h3><span class="p">13 / 16 zł</span><p>250 / 400 ml</p></div>
+     <div class="it"><h3>Cappuccino</h3><span class="p">14 / 18 zł</span><p>250 / 400 ml</p></div>
+     <div class="it"><h3>Latte</h3><span class="p">17 zł</span><p>400 ml</p></div>
+     <div class="it"><h3>Flat white</h3><span class="p">17 zł</span><p>250 ml</p></div>
+     <div class="it"><h3>Latte z kurkumą, cynamonem i karmelem</h3><span class="p">20 zł</span><p>400 ml</p></div>
+     <div class="boxn"><b>Syrop +3 zł · mleko roślinne +3 zł · dodatkowe espresso +3 zł</b></div>
+    </div>
+    <div>
+     <h4 class="mh">Herbata i kakao</h4>
+     <div class="it"><h3>Herbata Palmira</h3><span class="p">12 zł</span><p>400 ml</p></div>
+     <div class="it"><h3>Herbata z dodatkami</h3><span class="p">20 zł</span><p>400 ml, z imbirem, rozmarynem, goździkami, cynamonem, cytrusami, miodem i sosem owocowym</p></div>
+     <div class="it"><h3>Kakao z piankami</h3><span class="p">14 zł</span><p>400 ml</p></div>
+     <h4 class="mh">Na zimno</h4>
+     <div class="it"><h3>Sok wyciskany</h3><span class="p">18 zł</span><p>400 ml, pomarańczowy, grejpfrutowy albo mieszany</p></div>
+     <div class="it"><h3>Cola / Cola Zero</h3><span class="p">10 zł</span><p>250 ml</p></div>
+     <div class="it"><h3>Sok Cappy</h3><span class="p">10 zł</span><p>250 ml, pomarańcza albo jabłko</p></div>
+     <div class="it"><h3>Woda Kropla Beskidu</h3><span class="p">7 zł</span><p>330 ml, gazowana albo niegazowana</p></div>
+    </div>
+   </div>
+   <p class="eco">O napoje sezonowe zapytaj obsługę :)</p>
+  </div>
+ </div>
+</section>
+
+<section id="poranki">
+ <div class="wrap">
+  <div class="hd rv"><h2 class="h"><span class="hand">tak wyglądają</span>Wasze poranki</h2><p>Zdjęcia i słowa naszych gości z Google i Facebooka. Bez sesji zdjęciowej, prosto z telefonu.</p></div>
+ </div>
+ <div class="rowm" id="r1"></div>
+ <div class="rowm r2" id="r2"></div>
+ <div class="wrap">
+  <div class="tag rv"><p class="hand">Zrób zdjęcie swojego śniadania<br>i oznacz <em>MORNING</em>. Najlepsze wrzucimy tutaj.</p><a class="btn c" href="https://www.facebook.com/morningcoffeeandmore" target="_blank" rel="noopener">Nasz Facebook</a></div>
+ </div>
+</section>
+
+<section id="lokale">
+ <div class="wrap">
+  <h2 class="h rv">Dwa lokale.<br>Jeden poranek.</h2>
+  <div class="pl">
+   <article class="loc rv" data-h="8-16,8-16,8-16,8-16,8-16,9-16,9-16">
+    <div class="bgn">M</div>
+    <p class="k">Widzew · dawna fabryka wódek</p>
+    <h3 class="h">Monopolis</h3>
+    <p class="ad">ul. Kopcińskiego 62, Łódź</p>
+    <div class="st8"><i></i><span>&nbsp;</span></div>
+    <div class="hrs"></div>
+    <div class="acts"><a class="btn a" href="https://www.google.com/maps/dir/?api=1&amp;destination=MORNING+coffee+%26+more+Monopolis+%C5%81%C3%B3d%C5%BA" target="_blank" rel="noopener">Prowadź</a><a class="btn b" href="tel:+48574196323">574 196 323</a></div>
+   </article>
+   <article class="loc rv" data-h="8-19,8-19,8-19,8-19,8-19,9-19,9-16">
+    <div class="bgn">D</div>
+    <p class="k">Dąbrowa · także z dowozem</p>
+    <h3 class="h">Dąbrowa</h3>
+    <p class="ad">ul. Poli Gojawiczyńskiej 1/3, Łódź</p>
+    <div class="st8"><i></i><span>&nbsp;</span></div>
+    <div class="hrs"></div>
+    <div class="acts"><a class="btn a" href="https://www.google.com/maps/dir/?api=1&amp;destination=MORNING+coffee+%26+more+D%C4%85browa+%C5%81%C3%B3d%C5%BA" target="_blank" rel="noopener">Prowadź</a><a class="btn b" href="tel:+48796996323">796 996 323</a><a class="btn b" href="https://www.pyszne.pl/menu/morning-coffee-more-dabrowa-dabrowa-lodz" target="_blank" rel="noopener">Zamów z dowozem</a></div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <img src="img/logo_w.png" alt="MORNING coffee &amp; more" width="83" height="64" loading="lazy">
+  <div class="ls"><a href="mailto:morning.coffeeandmore@gmail.com">morning.coffeeandmore@gmail.com</a><a href="https://www.facebook.com/morningcoffeeandmore" target="_blank" rel="noopener">Facebook</a></div>
+  <span>© 2026 MORNING coffee &amp; more</span>
+ </div>
+</footer>
+
+<script>
+(function(){
+var d=document,w=window,R=d.documentElement;
+function $(s){return d.querySelector(s)}
+function $$(s){return Array.prototype.slice.call(d.querySelectorAll(s))}
+setTimeout(function(){R.classList.add('go')},80);
+
+/* nav */
+var nav=$('#nav');
+function onS(){nav.classList.toggle('s',w.scrollY>40);shot()}
+w.addEventListener('scroll',onS,{passive:true});w.addEventListener('resize',onS);
+
+/* hero stack parallax */
+var st=$('#stack'),fs=$$('.stack figure'),k=[22,-14,10];
+if(w.matchMedia('(hover:hover)').matches){
+ $('#hero').addEventListener('mousemove',function(e){
+  var x=e.clientX/w.innerWidth-.5,y=e.clientY/w.innerHeight-.5;
+  fs.forEach(function(f,i){f.style.setProperty('--mx',(x*k[i])+'px');f.style.setProperty('--my',(y*k[i])+'px')});
+ });
+}
+
+/* shot scene */
+var sec=$('#shot'),A=$('#shot .a'),B=$('#shot .b'),S=$$('#shot .st'),bar=$('#bar'),cur=-1;
+function cl(v){return v<0?0:v>1?1:v}
+function shot(){
+ var r=sec.getBoundingClientRect(),h=sec.offsetHeight-w.innerHeight,p=cl(-r.top/h);
+ var f=cl((p-.36)/.2);
+ A.style.transform='scale('+(1.12-.1*cl(p/.5))+')';
+ B.style.opacity=f;B.style.transform='scale('+(1.1-.08*cl((p-.36)/.6))+')';
+ A.style.opacity=1-f*.999;
+ var s=p<.42?0:p<.72?1:2;
+ if(s!==cur){cur=s;S.forEach(function(e,i){e.classList.toggle('on',i===s)})}
+ bar.style.width=(p*100)+'%';
+}
+onS();
+
+/* quiz */
+var Q=[
+ {k:'Śniadanka',t:'Czas do wyjścia',d:'Owsianka Lotus Biscoff z karmelizowaną śliwką i ciastkami Lotus. Szybko, ciepło i na słodko przed pracą.',p:'27 zł',l:'+ cappuccino za 5 zł?',i:'img/shot.webp'},
+ {k:'Śniadanka',t:'Poranny rozruch',d:'Łosoś wędzony, delikatna jajecznica z 3 jaj, awokado, warzywka i brioche z twarożkiem podwędzanym z ziołami.',p:'41 zł',l:'+ duży flat white, 17 zł',i:'img/zestaw.webp'},
+ {k:'Kanapki',t:'Przyjemność',d:'Croissant albo brioche z kremem Lotus Biscoff, karmelizowaną śliwką z rozmarynem i prażonymi migdałami.',p:'32 zł',l:'+ kakao z piankami?',i:'img/milk.webp'},
+ {k:'Śniadanka · vegan',t:'Wegańskie śniadanko',d:'Tofucznica z blanszowanym szpinakiem z czosnkiem, pieczarki pieczone w ziołach, warzywka i szczypiorek.',p:'35 zł',l:'+ mleko roślinne do kawy, 3 zł',i:'img/warzywa.webp'}
+];
+var ob=$$('#opts button'),pk=$('#pick'),pim=$('#pimg');
+Q.forEach(function(q){var m=new Image();m.src=q.i});
+ob.forEach(function(b){b.addEventListener('click',function(){
+ var q=Q[+b.getAttribute('data-k')];ob.forEach(function(x){x.classList.toggle('on',x===b)});
+ pk.classList.add('sw');pim.style.opacity=0;
+ setTimeout(function(){$('#pk').textContent=q.k;$('#pt').textContent=q.t;$('#pd').textContent=q.d;$('#pp').textContent=q.p;$('#pl').textContent=q.l;pim.src=q.i;pim.style.opacity=1;pk.classList.remove('sw')},320);
+})});
+
+/* menu tabs */
+var tb=$$('#tabs button'),pn=$$('.pane');
+tb.forEach(function(b,i){b.addEventListener('click',function(){tb.forEach(function(x,j){x.classList.toggle('on',j===i);pn[j].classList.toggle('on',j===i)})})});
+
+/* wall */
+var P=[['img/zestaw.webp','sobota, 10:12','Monopolis'],['img/precel2.webp','precel i jajecznica','Google'],['img/lody.webp','lody na lato','archiwum'],['img/shot.webp','podwójny shot','Instagram'],['img/omlet.webp','omlet na święta','Google'],['img/precel.webp','na preclu','archiwum'],['img/milk.webp','i mleczko','Instagram']];
+var T=[['Najlepsza kawa. Profesjonalna obsługa.','Monika G., Facebook'],['Polecam, moje ulubione miejsce. Pyszne śniadania i kawka.','Natalia M., Facebook'],['Od siedmiu lat moje ulubione miejsce na śniadanie.','Ragnar Ó., Google (tłum.)'],['Obsługa przemiła, herbatka wyśmienita i podana przepięknie.','Hania R., Facebook'],['Dobra kawa, miła obsługa, idealna atmosfera.','Paulina C., Facebook']];
+function pc(a,r){return '<figure class="pc" style="--r:'+r+'deg"><img src="'+a[0]+'" alt="""" loading="lazy"><figcaption class="c">'+a[1]+'<small>'+a[2]+'</small></figcaption></figure>'}
+function qt(a,r,l){return '<blockquote class="qt'+(l?' l':'')+'" style="--r:'+r+'deg"><q>'+a[0]+'</q><p class="w"><b>★★★★★</b><br>'+a[1]+'</p></blockquote>'}
+var rr=[-2,1.5,-1,2,-1.5,1,-2.5],h1='',h2='';
+for(var i=0;i<7;i++){h1+=pc(P[i],rr[i]);if(i%2===1)h1+=qt(T[(i>>1)%5],-rr[i],i%4===3)}
+for(i=0;i<7;i++){var j=(i+3)%7;h2+=qt(T[(i+2)%5],rr[i]/2,i%2);h2+=pc(P[j],-rr[i])}
+$('#r1').innerHTML=h1+h1;$('#r2').innerHTML=h2+h2;
+
+/* places */
+var DN=['Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota','Niedziela'];
+var now=new Date(),wd=(now.getDay()+6)%7,hr=now.getHours()+now.getMinutes()/60;
+$$('.loc').forEach(function(l){
+ var H=l.getAttribute('data-h').split(','),o='';
+ H.forEach(function(x,i){var a=x.split('-');o+='<div'+(i===wd?' class="td"':'')+'><span>'+DN[i]+'</span><span>'+a[0]+':00 do '+a[1]+':00</span></div>'});
+ l.querySelector('.hrs').innerHTML=o;
+ var t=H[wd].split('-'),op=hr>=+t[0]&&hr<+t[1],s=l.querySelector('.st8');
+ s.classList.toggle('op',op);
+ var nx=H[(wd+1)%7].split('-')[0];
+ s.querySelector('span').textContent=op?'Otwarte, zamykamy o '+t[1]+':00':(hr<+t[0]?'Otwieramy dziś o '+t[0]+':00':'Zamknięte, jutro od '+nx+':00');
+});
+
+/* reveal */
+var io='IntersectionObserver' in w?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15}):null;
+$$('.rv').forEach(function(e){io?io.observe(e):e.classList.add('in')});
+})();
+</script>
+</body>
+</html>
