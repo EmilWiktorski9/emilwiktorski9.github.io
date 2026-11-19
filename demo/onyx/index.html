@@ -73,7 +73,7 @@ nav .ln .btn{height:42px;padding:0 18px;font-size:12px}
 
 section.sec{padding:120px 0}
 .hd{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
-.hd h2{font-size:clamp(30px,4vw,52px);margin-top:16px}
+.hd h2{font-size:clamp(30px,4vw,52px)}
 .hd p{color:var(--tx2);max-width:460px}
 @media(max-width:860px){section.sec{padding:84px 0}.hd{grid-template-columns:1fr;gap:16px;margin-bottom:36px}}
 
@@ -103,8 +103,8 @@ section.sec{padding:120px 0}
 .sv li{counter-increment:s;border-top:1px solid var(--ln);padding:22px 0;cursor:pointer}
 .sv li:last-child{border-bottom:1px solid var(--ln)}
 .sv li .t{display:flex;align-items:baseline;gap:18px;font:400 clamp(17px,1.7vw,22px)/1.3 Mi;text-transform:uppercase;color:#6c7179;transition:color .3s}
-.sv li .t::before{content:"0" counter(s);font:800 12px Mr;letter-spacing:.15em;color:#4c5058}
-.sv li p{max-height:0;overflow:hidden;color:var(--tx2);font-size:15.5px;padding-left:38px;transition:max-height .5s,margin .5s}
+
+.sv li p{max-height:0;overflow:hidden;color:var(--tx2);font-size:15.5px;transition:max-height .5s,margin .5s}
 .sv li.on .t{color:var(--tx)}
 .sv li.on p{max-height:120px;margin-top:10px}
 .sv .ph{position:sticky;top:110px;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#000}
@@ -114,16 +114,16 @@ section.sec{padding:120px 0}
 .sv .ph .cap{position:absolute;left:22px;bottom:20px;z-index:2;font:800 11px Mr;letter-spacing:.2em;color:var(--si)}
 @media(max-width:860px){.sv{grid-template-columns:1fr;gap:26px}.sv .ph{position:relative;top:0;aspect-ratio:4/3;order:-1}}
 
-/* 4. gallery */
-#gallery{padding-bottom:0}
-.gal{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(20px,calc((100% - 1200px)/2)) 30px;scrollbar-width:none}
-.gal::-webkit-scrollbar{display:none}
-.gal figure{flex:none;width:min(440px,80vw);scroll-snap-align:start}
-.gal .im{aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#000}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .6s;filter:grayscale(.85) contrast(1.05)}
-.gal figure:hover img{transform:scale(1.04);filter:none}
-.gal figcaption{margin-top:12px;font:800 11px Mr;letter-spacing:.2em;color:var(--tx2);text-transform:uppercase}
-
+/* 4. gallery: one slow row, colour, hover pauses and lifts */
+#gallery{padding-bottom:90px;overflow:hidden}
+.gal{display:flex;gap:18px;width:max-content;animation:gl 70s linear infinite;padding:20px 0}
+.gal:hover{animation-play-state:paused}
+@keyframes gl{to{transform:translateX(-50%)}}
+.gal figure{flex:none;width:min(400px,72vw)}
+.gal .im{aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#000;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal figure:hover .im{transform:scale(1.04);box-shadow:0 30px 60px -20px #000}
+.gal figcaption{margin-top:14px;font:800 11px Mr;letter-spacing:.2em;color:var(--tx2);text-transform:uppercase}
 /* 5. every vehicle */
 .veh{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ln)}
 .veh div{padding:30px 26px 34px 0;border-right:1px solid var(--ln);margin-right:26px}
@@ -206,12 +206,7 @@ footer img{width:54px;height:54px;border-radius:50%}
 
 <section class="sec" id="results">
  <div class="wrap">
-  <div class="hd rv"><div><p class="k">01 · Before &amp; after</p><h2 class="h">The detail makes<br>the difference.</h2></div><p>Drag the line. Real work from the studio, photographed before and after treatment.</p></div>
-  <div class="tabs rv" id="batabs">
-   <button class="on" data-i="0">Headlights</button>
-   <button data-i="1">Interior</button>
-   <button data-i="2">Snow foam wash</button>
-  </div>
+  <div class="hd rv"><div><h2 class="h">The detail makes<br>the difference.</h2></div><p>Drag the line. Real work from the studio: the same headlight before and after restoration.</p></div>
   <div class="ba rv" id="ba" style="--p:50%">
    <img class="af" id="baA" src="img/ba-head-a.webp" alt="Headlights after restoration">
    <img class="bf" id="baB" src="img/ba-head-b.webp" alt="Headlights before restoration">
@@ -226,7 +221,7 @@ footer img{width:54px;height:54px;border-radius:50%}
 
 <section class="sec" id="services">
  <div class="wrap">
-  <div class="hd rv"><div><p class="k">02 · The treatments</p><h2 class="h">Choose the care<br>your vehicle needs.</h2></div><p>Every job starts with a conversation about the condition of your vehicle and the finish you want. Then a tailored quote.</p></div>
+  <div class="hd rv"><div><h2 class="h">Choose the care<br>your vehicle needs.</h2></div><p>Every job starts with a conversation about the condition of your vehicle and the finish you want. Then a tailored quote.</p></div>
   <div class="sv">
    <ol id="svl">
     <li class="on" data-im="0"><div class="t">Full valet</div><p>Interior and exterior cleaning for a fresh start, with as much attention on the cabin as on the paint.</p></li>
@@ -252,20 +247,27 @@ footer img{width:54px;height:54px;border-radius:50%}
 </section>
 
 <section class="sec" id="gallery">
- <div class="wrap"><div class="hd rv"><div><p class="k">03 · Recent work</p><h2 class="h">Vehicles in focus.</h2></div><p>Hover a car to bring its colour back.</p></div></div>
- <div class="gal">
+ <div class="wrap"><div class="hd rv"><div><h2 class="h">Vehicles in focus.</h2></div><p>Recent cars from the studio in Reading.</p></div></div>
+ <div class="gal" id="gal">
   <figure><div class="im"><img src="img/merc-front.webp" alt="Black Mercedes GLE front" loading="lazy"></div><figcaption>Mercedes GLE · Front</figcaption></figure>
   <figure><div class="im"><img src="img/merc-side.webp" alt="Black Mercedes GLE side" loading="lazy"></div><figcaption>Mercedes GLE · Profile</figcaption></figure>
   <figure><div class="im"><img src="img/merc-back.webp" alt="Black Mercedes GLE rear" loading="lazy"></div><figcaption>Mercedes GLE · Rear</figcaption></figure>
   <figure><div class="im"><img src="img/audi-front.webp" alt="Blue Audi A1 front" loading="lazy"></div><figcaption>Audi A1 · Front</figcaption></figure>
   <figure><div class="im"><img src="img/audi-side.webp" alt="Blue Audi A1 side" loading="lazy"></div><figcaption>Audi A1 · Profile</figcaption></figure>
   <figure><div class="im"><img src="img/kia-clean.webp" alt="Silver Kia Sorento after wash" loading="lazy"></div><figcaption>Kia Sorento · After wash</figcaption></figure>
+ 
+  <figure aria-hidden="true"><div class="im"><img src="img/merc-front.webp" alt="Black Mercedes GLE front" loading="lazy"></div><figcaption>Mercedes GLE · Front</figcaption></figure>
+  <figure aria-hidden="true"><div class="im"><img src="img/merc-side.webp" alt="Black Mercedes GLE side" loading="lazy"></div><figcaption>Mercedes GLE · Profile</figcaption></figure>
+  <figure aria-hidden="true"><div class="im"><img src="img/merc-back.webp" alt="Black Mercedes GLE rear" loading="lazy"></div><figcaption>Mercedes GLE · Rear</figcaption></figure>
+  <figure aria-hidden="true"><div class="im"><img src="img/audi-front.webp" alt="Blue Audi A1 front" loading="lazy"></div><figcaption>Audi A1 · Front</figcaption></figure>
+  <figure aria-hidden="true"><div class="im"><img src="img/audi-side.webp" alt="Blue Audi A1 side" loading="lazy"></div><figcaption>Audi A1 · Profile</figcaption></figure>
+  <figure aria-hidden="true"><div class="im"><img src="img/kia-clean.webp" alt="Silver Kia Sorento after wash" loading="lazy"></div><figcaption>Kia Sorento · After wash</figcaption></figure>
  </div>
 </section>
 
 <section class="sec">
  <div class="wrap">
-  <div class="hd rv"><div><p class="k">04 · Every vehicle</p><h2 class="h">Your vehicle.<br>Its own kind of care.</h2></div></div>
+  <div class="hd rv"><div><h2 class="h">Your vehicle.<br>Its own kind of care.</h2></div></div>
   <div class="veh rv">
    <div><b>Daily drivers</b><p>Cleaning and protection for the car you rely on every day.</p></div>
    <div><b>Premium &amp; performance</b><p>From premium saloons to supercars: correction, gloss and protection.</p></div>
@@ -279,7 +281,7 @@ footer img{width:54px;height:54px;border-radius:50%}
 <section class="sec" id="protection" style="background:var(--bg2)">
  <div class="wrap pro">
   <div class="rv">
-   <p class="k">05 · Surface protection</p>
+   
    <h2 class="h">A finish worth<br>protecting.</h2>
    <p>Ceramic coatings, wheel protection and Invisible Wiper glass coating. The studio will recommend the right combination and how to care for it afterwards.</p>
    <div class="yrs"><span><b>2</b><small>years</small></span><span><b>3</b><small>years</small></span><span><b>5</b><small>years</small></span></div>
@@ -297,7 +299,7 @@ footer img{width:54px;height:54px;border-radius:50%}
 <section class="sec" id="contact">
  <div class="wrap ct">
   <div class="rv">
-   <p class="k">06 · Your next detail</p>
+   
    <h2 class="h">Let's talk about<br><span class="met">your vehicle.</span></h2>
    <p>Tell us what you drive, fly or sail, and the result you have in mind.</p>
    <div class="meta"><span><b>Studio:</b> Reading, UK</span><span><b>Appointments:</b> by arrangement, message first</span></div>
@@ -339,17 +341,6 @@ ba.addEventListener('pointerdown',function(e){drag=true;ba.setPointerCapture(e.p
 ba.addEventListener('pointermove',function(e){if(drag)setP(e.clientX)});
 ba.addEventListener('pointerup',function(){drag=false});ba.addEventListener('pointercancel',function(){drag=false});
 kn.addEventListener('keydown',function(e){var v=+kn.getAttribute('aria-valuenow');if(e.key==='ArrowLeft'||e.key==='ArrowRight'){v+=e.key==='ArrowLeft'?-5:5;var r=ba.getBoundingClientRect();setP(r.left+r.width*v/100);e.preventDefault()}});
-var BA=[
- ['ba-head-b','ba-head-a','<b>Headlight restoration.</b> Yellowed, cloudy lenses brought back to clear.','BMW 5 Series'],
- ['ba-int-b','ba-int-a','<b>Interior transformation.</b> Seats, carpets and trim cleaned and refreshed.','BMW Z4'],
- ['ba-kia-b','ba-kia-a','<b>Snow foam wash.</b> Pre-wash foam lifts the dirt before the paint is touched.','Kia Sorento']
-];
-BA.forEach(function(x){[x[0],x[1]].forEach(function(n){var i=new Image();i.src='img/'+n+'.webp'})});
-$$('#batabs button').forEach(function(b){b.addEventListener('click',function(){
- var x=BA[+b.getAttribute('data-i')];$$('#batabs button').forEach(function(o){o.classList.toggle('on',o===b)});
- $('#baB').src='img/'+x[0]+'.webp';$('#baA').src='img/'+x[1]+'.webp';$('#bat').innerHTML=x[2];$('.bacap span:last-child').textContent=x[3];
- ba.style.setProperty('--p','50%');
-})});
 /* gentle demo sweep the first time the slider is seen */
 var swept=false;if('IntersectionObserver' in w){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!swept&&!ba.classList.contains('used')){swept=true;var t0=null;function an(t){if(ba.classList.contains('used'))return;t0=t0||t;var k=(t-t0)/1800;if(k>1)k=1;var v=50+22*Math.sin(k*Math.PI*2);ba.style.setProperty('--p',v+'%');if(k<1)requestAnimationFrame(an)}requestAnimationFrame(an)}})},{threshold:.6}).observe(ba)}
 
