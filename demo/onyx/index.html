@@ -105,19 +105,19 @@ section.sec{padding:120px 0}
 .sv{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .sv ol{list-style:none;counter-reset:s}
 .sv li{counter-increment:s;border-top:1px solid var(--ln);padding:22px 0;cursor:pointer}
-.sv ol{padding-bottom:30vh}
+.svpin{height:calc(100vh + 7 * 75vh)}.svst{position:sticky;top:0;height:100vh;display:flex;align-items:center}.svst .sv{width:100%}
 .sv li:last-child{border-bottom:1px solid var(--ln)}
 .sv li .t{display:flex;align-items:baseline;gap:18px;font:400 clamp(17px,1.7vw,22px)/1.3 Mi;text-transform:uppercase;color:#6c7179;transition:color .3s}
 
 .sv li p{max-height:0;overflow:hidden;color:var(--tx2);font-size:15.5px;transition:max-height .5s,margin .5s}
 .sv li.on .t{color:var(--tx)}
 .sv li.on p{max-height:120px;margin-top:10px}
-.sv .ph{position:sticky;top:calc(50vh - min(40vh,300px));aspect-ratio:4/5;max-height:80vh;border-radius:22px;overflow:hidden;background:#000}
-.sv .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.sv .ph{position:relative;aspect-ratio:4/5;max-height:78vh;border-radius:22px;overflow:hidden;background:#000}
+.sv .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1s,transform 1.4s cubic-bezier(.2,.7,.2,1)}
 .sv .ph img.on{opacity:1;transform:none}
 .sv .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,11,.55),transparent 40%)}
 .sv .ph .cap{position:absolute;left:22px;bottom:20px;z-index:2;font:800 11px Mr;letter-spacing:.2em;color:var(--si)}
-@media(max-width:860px){.sv{grid-template-columns:1fr;gap:20px}.sv .ph{position:sticky;top:64px;z-index:2;aspect-ratio:4/3;max-height:42vh;order:-1}.sv ol{padding-bottom:40vh}}
+@media(max-width:860px){.svpin{height:calc(100svh + 7 * 65svh)}.svst{height:100svh;align-items:flex-start;padding-top:72px}.sv{grid-template-columns:1fr;gap:14px}.sv .ph{aspect-ratio:auto;height:34svh;max-height:none;order:-1}.sv li{padding:11px 0}.sv li .t{font-size:15px}.sv li p{font-size:14px}.sv li.on p{margin-top:6px}}
 
 /* 4. gallery: one slow row, colour, hover pauses and lifts */
 #gallery{padding-bottom:90px;overflow:hidden}
@@ -212,22 +212,23 @@ footer img{width:54px;height:54px;border-radius:50%}
 
 <section class="sec" id="results">
  <div class="wrap">
-  <div class="hd rv"><div><h2 class="h">The detail makes<br>the difference.</h2></div><p>Drag the line. Real work from the studio: the same headlight before and after restoration.</p></div>
+  <div class="hd rv"><div><h2 class="h">The detail makes<br>the difference.</h2></div><p>Drag the line. The same cabin before and after an interior detail.</p></div>
   <div class="ba rv" id="ba" style="--p:50%">
-   <img class="af" id="baA" src="img/ba-head-a.webp" alt="Headlights after restoration">
-   <img class="bf" id="baB" src="img/ba-head-b.webp" alt="Headlights before restoration">
+   <img class="af" id="baA" src="img/ba-int-a.webp" alt="BMW Z4 interior after a full interior detail">
+   <img class="bf" id="baB" src="img/ba-int-b.webp" alt="BMW Z4 interior before: dust, mud, crumbs and rubbish">
    <span class="tg l">BEFORE</span><span class="tg r">AFTER</span>
    <div class="bar"></div>
    <div class="knob" role="slider" tabindex="0" aria-label="Compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div>
    <span class="hint">Drag to compare</span>
   </div>
-  <div class="bacap rv"><span id="bat"><b>Headlight restoration.</b> Yellowed, cloudy lenses brought back to clear.</span><span>BMW 5 Series</span></div>
+  <div class="bacap rv"><span id="bat"><b>Interior detail.</b> Dust, mud and crumbs out, leather cleaned and protected.</span><span>BMW Z4</span></div>
  </div>
 </section>
 
 <section class="sec" id="services">
  <div class="wrap">
   <div class="hd rv"><div><h2 class="h">Choose the care<br>your vehicle needs.</h2></div><p>Every job starts with a conversation about the condition of your vehicle and the finish you want. Then a tailored quote.</p></div>
+  <div class="svpin" id="svpin"><div class="svst">
   <div class="sv">
    <ol id="svl">
     <li class="on" data-im="0"><div class="t">Full valet</div><p>Interior and exterior cleaning for a fresh start, with as much attention on the cabin as on the paint.</p></li>
@@ -249,6 +250,7 @@ footer img{width:54px;height:54px;border-radius:50%}
     <span class="cap" id="svc">FULL VALET</span>
    </div>
   </div>
+  </div></div>
  </div>
 </section>
 
@@ -326,11 +328,11 @@ var d=document,w=window;function $(s){return d.querySelector(s)}function $$(s){r
 function cl(v){return v<0?0:v>1?1:v}
 var nav=$('#nav'),hero=$('#hero'),car=$('#car'),dark=$('#dark'),t1=$('#t1'),t2=$('#t2'),cue=$('#cue');
 /* zoom target: front wheel of the Mercedes, as a share of the image */
-var vid=$('#vid'),tgt=0,cur=0,ready=false,dur=0;
+var vid=$('#vid'),tgt=0,vcur=0,ready=false,dur=0;
 function prime(){if(ready)return;ready=true;dur=vid.duration||7;var pr=vid.play();if(pr&&pr.then)pr.then(function(){vid.pause()}).catch(function(){})}
 vid.addEventListener('loadedmetadata',function(){dur=vid.duration;prime()});
 ['touchstart','pointerdown','scroll'].forEach(function(ev){w.addEventListener(ev,prime,{once:true,passive:true})});
-(function loop(){cur+=(tgt-cur)*.18;if(dur&&Math.abs(vid.currentTime-cur)>.02&&!vid.seeking){try{vid.currentTime=cur}catch(e){}}requestAnimationFrame(loop)})();
+(function loop(){vcur+=(tgt-vcur)*.18;if(dur&&Math.abs(vid.currentTime-vcur)>.02&&!vid.seeking){try{vid.currentTime=vcur}catch(e){}}requestAnimationFrame(loop)})();
 function onS(){
  nav.classList.toggle('s',w.scrollY>40);
  var r=hero.getBoundingClientRect(),run=hero.offsetHeight-w.innerHeight,p=cl(-r.top/run);
@@ -355,10 +357,12 @@ var swept=false;if('IntersectionObserver' in w){new IntersectionObserver(functio
 /* services */
 var li=$$('#svl li'),im=$$('#svp img'),cap=$('#svc');
 function sv(i){li.forEach(function(l,j){l.classList.toggle('on',j===i)});im.forEach(function(m,j){m.classList.toggle('on',j===i)});cap.textContent=li[i].querySelector('.t').textContent.toUpperCase()}
-li.forEach(function(l,i){l.addEventListener('click',function(){sv(i)})});
-/* scroll: the item crossing the middle of the screen becomes active */
-var cur=0;function svs(){var mid=w.innerHeight*.5,best=0,bd=1e9;li.forEach(function(l,i){var r=l.getBoundingClientRect(),c=r.top+28,dd=Math.abs(c-mid);if(dd<bd){bd=dd;best=i}});if(best!==cur){cur=best;sv(best)}}
-w.addEventListener('scroll',svs,{passive:true});
+var pin=$('#svpin'),N=li.length,si=0;
+function pinRange(){var r=pin.getBoundingClientRect();return{top:r.top+w.scrollY,len:r.height-w.innerHeight}}
+li.forEach(function(l,i){l.addEventListener('click',function(){var g=pinRange();w.scrollTo({top:g.top+g.len*(i+.5)/N,behavior:'smooth'})})});
+/* scroll: the section stays pinned and each service holds for about 3/4 of a screen */
+function svs(){var r=pin.getBoundingClientRect(),len=r.height-w.innerHeight,p=len>0?-r.top/len:0;p=Math.max(0,Math.min(.9999,p));var i=Math.floor(p*N);if(i!==si){si=i;sv(i)}}
+w.addEventListener('scroll',svs,{passive:true});w.addEventListener('resize',svs);svs();
 
 var io='IntersectionObserver' in w?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12}):null;
 $$('.rv').forEach(function(e){io?io.observe(e):e.classList.add('in')});
