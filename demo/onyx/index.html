@@ -105,18 +105,19 @@ section.sec{padding:120px 0}
 .sv{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .sv ol{list-style:none;counter-reset:s}
 .sv li{counter-increment:s;border-top:1px solid var(--ln);padding:22px 0;cursor:pointer}
+.sv ol{padding-bottom:30vh}
 .sv li:last-child{border-bottom:1px solid var(--ln)}
 .sv li .t{display:flex;align-items:baseline;gap:18px;font:400 clamp(17px,1.7vw,22px)/1.3 Mi;text-transform:uppercase;color:#6c7179;transition:color .3s}
 
 .sv li p{max-height:0;overflow:hidden;color:var(--tx2);font-size:15.5px;transition:max-height .5s,margin .5s}
 .sv li.on .t{color:var(--tx)}
 .sv li.on p{max-height:120px;margin-top:10px}
-.sv .ph{position:sticky;top:110px;aspect-ratio:4/5;max-height:80vh;border-radius:22px;overflow:hidden;background:#000}
+.sv .ph{position:sticky;top:calc(50vh - min(40vh,300px));aspect-ratio:4/5;max-height:80vh;border-radius:22px;overflow:hidden;background:#000}
 .sv .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .sv .ph img.on{opacity:1;transform:none}
 .sv .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,11,.55),transparent 40%)}
 .sv .ph .cap{position:absolute;left:22px;bottom:20px;z-index:2;font:800 11px Mr;letter-spacing:.2em;color:var(--si)}
-@media(max-width:860px){.sv{grid-template-columns:1fr;gap:26px}.sv .ph{position:relative;top:0;aspect-ratio:4/3;order:-1}}
+@media(max-width:860px){.sv{grid-template-columns:1fr;gap:20px}.sv .ph{position:sticky;top:64px;z-index:2;aspect-ratio:4/3;max-height:42vh;order:-1}.sv ol{padding-bottom:40vh}}
 
 /* 4. gallery: one slow row, colour, hover pauses and lifts */
 #gallery{padding-bottom:90px;overflow:hidden}
@@ -354,7 +355,10 @@ var swept=false;if('IntersectionObserver' in w){new IntersectionObserver(functio
 /* services */
 var li=$$('#svl li'),im=$$('#svp img'),cap=$('#svc');
 function sv(i){li.forEach(function(l,j){l.classList.toggle('on',j===i)});im.forEach(function(m,j){m.classList.toggle('on',j===i)});cap.textContent=li[i].querySelector('.t').textContent.toUpperCase()}
-li.forEach(function(l,i){l.addEventListener('mouseenter',function(){sv(i)});l.addEventListener('click',function(){sv(i)})});
+li.forEach(function(l,i){l.addEventListener('click',function(){sv(i)})});
+/* scroll: the item crossing the middle of the screen becomes active */
+var cur=0;function svs(){var mid=w.innerHeight*.5,best=0,bd=1e9;li.forEach(function(l,i){var r=l.getBoundingClientRect(),c=r.top+28,dd=Math.abs(c-mid);if(dd<bd){bd=dd;best=i}});if(best!==cur){cur=best;sv(best)}}
+w.addEventListener('scroll',svs,{passive:true});
 
 var io='IntersectionObserver' in w?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12}):null;
 $$('.rv').forEach(function(e){io?io.observe(e):e.classList.add('in')});
