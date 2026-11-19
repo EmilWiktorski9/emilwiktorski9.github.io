@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ONYX DESIGN · Detailing &amp; Protection · Reading</title>
+<meta name="description" content="Detailing, paint correction and ceramic protection in Reading. Cars, boats and aircraft. Message ONYX DESIGN on WhatsApp for a tailored quote.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#08090b">
+<meta property="og:title" content="ONYX DESIGN · We protect &amp; perfect">
+<meta property="og:description" content="Detailing, paint correction and ceramic protection in Reading.">
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="img/favicon.png">
+<link rel="preload" as="image" href="img/merc-side.webp">
+<style>
+@font-face{font-family:Mi;font-display:swap;src:url(fonts/michroma-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Mr;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Mr;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Mr;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-800-normal.woff2) format('woff2')}
+:root{--bg:#08090b;--bg2:#101215;--card:#17191d;--tx:#f3f4f5;--tx2:#a9aeb6;--si:#cdd1d7;--ln:#2a2e34;--metal:linear-gradient(135deg,#7d848e 0%,#f4f5f7 42%,#a6adb7 72%,#dfe2e6 100%)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font:400 17px/1.6 Mr,system-ui,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1200px,100% - 40px);margin:0 auto}
+.h{font-family:Mi,Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.08;font-weight:400}
+.met{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+.k{font:800 11.5px/1 Mr;letter-spacing:.26em;text-transform:uppercase;color:var(--tx2)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;font:800 14px/1 Mr;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.a{background:var(--metal);color:#0b0c0e;box-shadow:0 10px 30px -12px rgba(220,225,232,.5)}
+.btn.a:hover{box-shadow:0 14px 34px -10px rgba(220,225,232,.7)}
+.btn.b{border:1px solid #4a4f57;color:var(--tx)}
+.btn.b:hover{border-color:var(--si)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px max(20px,calc((100% - 1200px)/2));transition:background .35s,padding .35s}
+nav.s{background:rgba(8,9,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-top:10px;padding-bottom:10px;box-shadow:0 1px 0 var(--ln)}
+nav .lg{display:flex;align-items:center;gap:12px;text-decoration:none}
+nav .lg img{width:46px;height:46px;border-radius:50%}
+nav .lg span{font:400 15px/1 Mi;letter-spacing:.12em}
+nav .ln{display:flex;gap:28px;align-items:center}
+nav .ln a{font:600 14px/1 Mr;text-decoration:none;color:var(--tx2);transition:color .2s}
+nav .ln a:hover{color:var(--tx)}
+nav .ln .btn{height:42px;padding:0 18px;font-size:12px}
+@media(max-width:860px){nav .ln a:not(.btn){display:none}nav .lg span{display:none}}
+
+/* 1. hero: car, then the camera drives into the wheel */
+#hero{position:relative;height:260vh}
+#hero .pin{position:sticky;top:0;height:100svh;overflow:hidden}
+#hero .car{position:absolute;inset:0;will-change:transform}
+#hero .car img{width:100%;height:100%;object-fit:cover;object-position:62% 62%}
+#hero .sh{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.92) 0%,rgba(8,9,11,.6) 38%,rgba(8,9,11,.05) 70%),linear-gradient(0deg,var(--bg) 0%,rgba(8,9,11,0) 30%)}
+#hero .dark{position:absolute;inset:0;background:var(--bg);opacity:0;pointer-events:none}
+#hero .t1{position:absolute;left:max(20px,calc((100% - 1200px)/2));bottom:14vh;max-width:620px;will-change:opacity,transform}
+#hero h1{font-size:clamp(30px,3.9vw,54px);margin:18px 0 22px}
+#hero .lead{color:var(--tx2);max-width:480px;font-size:18px}
+#hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+#hero .t2{position:absolute;inset:0;display:grid;place-items:center;text-align:center;opacity:0;pointer-events:none;padding:0 20px}
+#hero .t2 h2{font-size:clamp(30px,5vw,64px)}
+#hero .t2 p{color:var(--tx2);margin-top:16px}
+.cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font:800 10.5px/1 Mr;letter-spacing:.3em;color:#6f747c}
+.cue::after{content:"";display:block;width:1px;height:30px;margin:10px auto 0;background:linear-gradient(#9aa0a8,transparent);animation:cu 1.8s infinite}
+@keyframes cu{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:760px){#hero .car img{object-position:68% 60%}#hero .sh{background:linear-gradient(0deg,rgba(8,9,11,.96) 0%,rgba(8,9,11,.7) 45%,rgba(8,9,11,.1) 75%)}#hero .t1{bottom:8vh;right:20px}#hero .lead{font-size:16px}.cue{display:none}}
+
+.strip{border-block:1px solid var(--ln);overflow:hidden;padding:18px 0;background:var(--bg)}
+.strip div{display:flex;gap:56px;width:max-content;animation:mq 30s linear infinite;font:400 14px/1 Mi;letter-spacing:.22em;color:#5d626a}
+.strip span::after{content:"·";margin-left:56px;color:#3a3e44}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section.sec{padding:120px 0}
+.hd{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.hd h2{font-size:clamp(30px,4vw,52px);margin-top:16px}
+.hd p{color:var(--tx2);max-width:460px}
+@media(max-width:860px){section.sec{padding:84px 0}.hd{grid-template-columns:1fr;gap:16px;margin-bottom:36px}}
+
+/* 2. before and after */
+#results{background:var(--bg2)}
+.ba{position:relative;aspect-ratio:16/10;max-height:76vh;width:100%;border-radius:22px;overflow:hidden;cursor:ew-resize;touch-action:pan-y;user-select:none;background:#000;box-shadow:0 40px 80px -40px #000}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .bf{clip-path:inset(0 calc(100% - var(--p,50%)) 0 0)}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--p,50%);width:2px;margin-left:-1px;background:var(--metal)}
+.ba .knob{position:absolute;top:50%;left:var(--p,50%);width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--metal);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.5);transition:transform .2s}
+.ba:active .knob{transform:scale(.92)}
+.ba .knob svg{width:26px;height:26px;color:#111}
+.ba .tg{position:absolute;top:18px;padding:8px 13px;border-radius:999px;background:rgba(8,9,11,.65);backdrop-filter:blur(6px);font:800 11px/1 Mr;letter-spacing:.2em}
+.ba .tg.l{left:18px}.ba .tg.r{right:18px}
+.ba .hint{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);font:600 13px Mr;color:#d9dce0;background:rgba(8,9,11,.6);padding:7px 14px;border-radius:999px;transition:opacity .5s}
+.ba.used .hint{opacity:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tabs button{all:unset;cursor:pointer;padding:11px 18px;border-radius:999px;border:1px solid var(--ln);font:700 13px/1 Mr;letter-spacing:.06em;color:var(--tx2);transition:all .25s}
+.tabs button:hover{border-color:#5a5f67;color:var(--tx)}
+.tabs button.on{background:var(--tx);color:#0b0c0e;border-color:var(--tx)}
+.bacap{display:flex;justify-content:space-between;gap:20px;margin-top:16px;color:var(--tx2);font-size:15px;flex-wrap:wrap}
+.bacap b{color:var(--tx);font-weight:800}
+
+/* 3. services: hover changes the photo */
+.sv{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.sv ol{list-style:none;counter-reset:s}
+.sv li{counter-increment:s;border-top:1px solid var(--ln);padding:22px 0;cursor:pointer}
+.sv li:last-child{border-bottom:1px solid var(--ln)}
+.sv li .t{display:flex;align-items:baseline;gap:18px;font:400 clamp(17px,1.7vw,22px)/1.3 Mi;text-transform:uppercase;color:#6c7179;transition:color .3s}
+.sv li .t::before{content:"0" counter(s);font:800 12px Mr;letter-spacing:.15em;color:#4c5058}
+.sv li p{max-height:0;overflow:hidden;color:var(--tx2);font-size:15.5px;padding-left:38px;transition:max-height .5s,margin .5s}
+.sv li.on .t{color:var(--tx)}
+.sv li.on p{max-height:120px;margin-top:10px}
+.sv .ph{position:sticky;top:110px;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#000}
+.sv .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.sv .ph img.on{opacity:1;transform:none}
+.sv .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,9,11,.55),transparent 40%)}
+.sv .ph .cap{position:absolute;left:22px;bottom:20px;z-index:2;font:800 11px Mr;letter-spacing:.2em;color:var(--si)}
+@media(max-width:860px){.sv{grid-template-columns:1fr;gap:26px}.sv .ph{position:relative;top:0;aspect-ratio:4/3;order:-1}}
+
+/* 4. gallery */
+#gallery{padding-bottom:0}
+.gal{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(20px,calc((100% - 1200px)/2)) 30px;scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal figure{flex:none;width:min(440px,80vw);scroll-snap-align:start}
+.gal .im{aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#000}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .6s;filter:grayscale(.85) contrast(1.05)}
+.gal figure:hover img{transform:scale(1.04);filter:none}
+.gal figcaption{margin-top:12px;font:800 11px Mr;letter-spacing:.2em;color:var(--tx2);text-transform:uppercase}
+
+/* 5. every vehicle */
+.veh{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ln)}
+.veh div{padding:30px 26px 34px 0;border-right:1px solid var(--ln);margin-right:26px}
+.veh div:last-child{border:0;margin:0}
+.veh b{display:block;font:400 15px/1.3 Mi;text-transform:uppercase;margin-bottom:12px}
+.veh p{color:var(--tx2);font-size:15px}
+.mob{margin-top:48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:30px 34px;border-radius:22px;background:var(--card);border:1px solid var(--ln)}
+.mob .h{font-size:clamp(22px,2.6vw,32px)}
+.mob p{color:var(--tx2);margin-top:6px;max-width:560px}
+@media(max-width:860px){.veh{grid-template-columns:1fr 1fr}.veh div{padding:24px 16px 24px 0;margin-right:16px}.veh div:nth-child(2){border:0;margin:0}.veh div:nth-child(n+3){border-top:1px solid var(--ln)}}
+
+/* 6. protection */
+.pro{display:grid;grid-template-columns:1fr 1.1fr;gap:60px}
+.pro h2{font-size:clamp(30px,4vw,52px);margin:16px 0 20px}
+.pro>div>p{color:var(--tx2);margin-bottom:28px}
+.yrs{display:flex;gap:10px;margin-bottom:28px}
+.yrs span{flex:1;padding:20px 16px;border:1px solid var(--ln);border-radius:16px;text-align:center}
+.yrs b{display:block;font:400 34px/1 Mi}
+.yrs small{display:block;margin-top:8px;font:800 10.5px Mr;letter-spacing:.2em;color:var(--tx2);text-transform:uppercase}
+details{border-top:1px solid var(--ln)}
+details:last-child{border-bottom:1px solid var(--ln)}
+summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;position:relative;font:700 17px Mr}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:18px;font:400 26px Mr;color:var(--tx2);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--tx2);padding:0 40px 22px 0}
+@media(max-width:860px){.pro{grid-template-columns:1fr;gap:20px}}
+
+/* 7. contact */
+#contact{background:radial-gradient(60% 70% at 80% 40%,#1b1e23,transparent 70%),var(--bg)}
+.ct{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.ct h2{font-size:clamp(32px,4.4vw,58px);margin:16px 0 18px}
+.ct p{color:var(--tx2)}
+.ct .meta{margin-top:24px;display:grid;gap:6px;font-size:15px}
+.ct .meta b{color:var(--tx);font-weight:700}
+.links a{display:flex;justify-content:space-between;align-items:center;padding:24px 4px;border-top:1px solid var(--ln);text-decoration:none;transition:padding .3s,color .3s}
+.links a:last-child{border-bottom:1px solid var(--ln)}
+.links a:hover{padding-left:14px}
+.links small{display:block;font:800 11px Mr;letter-spacing:.22em;color:var(--tx2);margin-bottom:6px}
+.links span{font:600 clamp(17px,1.8vw,21px) Mr}
+.links i{font-style:normal;font-size:22px;color:var(--si);transition:transform .3s}
+.links a:hover i{transform:translate(3px,-3px)}
+@media(max-width:860px){.ct{grid-template-columns:1fr;gap:30px}}
+
+footer{border-top:1px solid var(--ln);padding:34px 0 calc(34px + env(safe-area-inset-bottom));color:#666b73;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer img{width:54px;height:54px;border-radius:50%}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav id="nav">
+ <a class="lg" href="#hero"><img src="img/logo.webp" alt="ONYX DESIGN" width="46" height="46"><span>ONYX DESIGN</span></a>
+ <div class="ln">
+  <a href="#results">Before &amp; after</a>
+  <a href="#services">Services</a>
+  <a href="#gallery">Work</a>
+  <a href="#protection">Protection</a>
+  <a class="btn a" href="https://wa.me/447387424933" target="_blank" rel="noopener">WhatsApp</a>
+ </div>
+</nav>
+
+<header id="hero">
+ <div class="pin">
+  <div class="car" id="car"><img src="img/merc-side.webp" alt="Black Mercedes GLE after a full detail at ONYX DESIGN, Reading" fetchpriority="high"></div>
+  <div class="sh"></div>
+  <div class="dark" id="dark"></div>
+  <div class="t1" id="t1">
+   <p class="k">Detailing · Protection · Perfection · Reading</p>
+   <h1 class="h">We don't just clean.<br><span class="met">We protect &amp; perfect.</span></h1>
+   <p class="lead">Paint correction, ceramic coatings and full valets for daily drivers, supercars, boats and aircraft.</p>
+   <div class="cta"><a class="btn a" href="https://wa.me/447387424933" target="_blank" rel="noopener">Get a quote on WhatsApp</a><a class="btn b" href="#results">See the results</a></div>
+  </div>
+  <div class="t2" id="t2"><div><p class="k">Showroom Shine Detailing Studio</p><h2 class="h met" style="margin-top:18px">Every detail.<br>Considered.</h2><p>Down to the last spoke.</p></div></div>
+  <div class="cue" id="cue">SCROLL</div>
+ </div>
+</header>
+
+<div class="strip" aria-hidden="true"><div><span>DETAILING</span><span>PROTECTION</span><span>PERFECTION</span><span>READING, UK</span><span>DETAILING</span><span>PROTECTION</span><span>PERFECTION</span><span>READING, UK</span></div></div>
+
+<section class="sec" id="results">
+ <div class="wrap">
+  <div class="hd rv"><div><p class="k">01 · Before &amp; after</p><h2 class="h">The detail makes<br>the difference.</h2></div><p>Drag the line. Real work from the studio, photographed before and after treatment.</p></div>
+  <div class="tabs rv" id="batabs">
+   <button class="on" data-i="0">Headlights</button>
+   <button data-i="1">Interior</button>
+   <button data-i="2">Snow foam wash</button>
+  </div>
+  <div class="ba rv" id="ba" style="--p:50%">
+   <img class="af" id="baA" src="img/ba-head-a.webp" alt="Headlights after restoration">
+   <img class="bf" id="baB" src="img/ba-head-b.webp" alt="Headlights before restoration">
+   <span class="tg l">BEFORE</span><span class="tg r">AFTER</span>
+   <div class="bar"></div>
+   <div class="knob" role="slider" tabindex="0" aria-label="Compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div>
+   <span class="hint">Drag to compare</span>
+  </div>
+  <div class="bacap rv"><span id="bat"><b>Headlight restoration.</b> Yellowed, cloudy lenses brought back to clear.</span><span>BMW 5 Series</span></div>
+ </div>
+</section>
+
+<section class="sec" id="services">
+ <div class="wrap">
+  <div class="hd rv"><div><p class="k">02 · The treatments</p><h2 class="h">Choose the care<br>your vehicle needs.</h2></div><p>Every job starts with a conversation about the condition of your vehicle and the finish you want. Then a tailored quote.</p></div>
+  <div class="sv">
+   <ol id="svl">
+    <li class="on" data-im="0"><div class="t">Full valet</div><p>Interior and exterior cleaning for a fresh start, with as much attention on the cabin as on the paint.</p></li>
+    <li data-im="1"><div class="t">Paint correction &amp; polishing</div><p>Swirls and scratches addressed with a polishing stage chosen for your paintwork's condition.</p></li>
+    <li data-im="2"><div class="t">Ceramic coating</div><p>2, 3 and 5 year packages for long-lasting gloss and easier washing.</p></li>
+    <li data-im="3"><div class="t">Interior care &amp; protection</div><p>Leather and fabric cleaned, refreshed and protected for the surfaces you touch every day.</p></li>
+    <li data-im="4"><div class="t">Wheel &amp; caliper protection</div><p>Dedicated coatings that make brake dust easier to remove and wheels easier to keep clean.</p></li>
+    <li data-im="5"><div class="t">Invisible Wiper glass coating</div><p>Rain-repellent treatment that makes water bead and roll off the glass.</p></li>
+    <li data-im="6"><div class="t">Engine bay detailing</div><p>Careful cleaning and dressing to finish the presentation under the bonnet.</p></li>
+   </ol>
+   <div class="ph" id="svp">
+    <img class="on" src="img/kia-foam.webp" alt="Silver Kia covered in snow foam">
+    <img src="img/merc-side.webp" alt="Black Mercedes with corrected paint" loading="lazy">
+    <img src="img/audi-front.webp" alt="Blue Audi after ceramic protection" loading="lazy">
+    <img src="img/int-after.webp" alt="Cleaned BMW interior" loading="lazy">
+    <img src="img/wheel.webp" alt="Mercedes alloy wheel and brake caliper" loading="lazy">
+    <img src="img/audi-side.webp" alt="Blue Audi side profile with clean glass" loading="lazy">
+    <img src="img/ba-head-a.webp" alt="Engine bay and restored headlight" loading="lazy">
+    <span class="cap" id="svc">FULL VALET</span>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="gallery">
+ <div class="wrap"><div class="hd rv"><div><p class="k">03 · Recent work</p><h2 class="h">Vehicles in focus.</h2></div><p>Hover a car to bring its colour back.</p></div></div>
+ <div class="gal">
+  <figure><div class="im"><img src="img/merc-front.webp" alt="Black Mercedes GLE front" loading="lazy"></div><figcaption>Mercedes GLE · Front</figcaption></figure>
+  <figure><div class="im"><img src="img/merc-side.webp" alt="Black Mercedes GLE side" loading="lazy"></div><figcaption>Mercedes GLE · Profile</figcaption></figure>
+  <figure><div class="im"><img src="img/merc-back.webp" alt="Black Mercedes GLE rear" loading="lazy"></div><figcaption>Mercedes GLE · Rear</figcaption></figure>
+  <figure><div class="im"><img src="img/audi-front.webp" alt="Blue Audi A1 front" loading="lazy"></div><figcaption>Audi A1 · Front</figcaption></figure>
+  <figure><div class="im"><img src="img/audi-side.webp" alt="Blue Audi A1 side" loading="lazy"></div><figcaption>Audi A1 · Profile</figcaption></figure>
+  <figure><div class="im"><img src="img/kia-clean.webp" alt="Silver Kia Sorento after wash" loading="lazy"></div><figcaption>Kia Sorento · After wash</figcaption></figure>
+ </div>
+</section>
+
+<section class="sec">
+ <div class="wrap">
+  <div class="hd rv"><div><p class="k">04 · Every vehicle</p><h2 class="h">Your vehicle.<br>Its own kind of care.</h2></div></div>
+  <div class="veh rv">
+   <div><b>Daily drivers</b><p>Cleaning and protection for the car you rely on every day.</p></div>
+   <div><b>Premium &amp; performance</b><p>From premium saloons to supercars: correction, gloss and protection.</p></div>
+   <div><b>Boats &amp; yachts</b><p>Care for marine surfaces exposed to salt, UV and water.</p></div>
+   <div><b>Aircraft</b><p>Specialist surface care for private planes.</p></div>
+  </div>
+  <div class="mob rv"><div><p class="k">Mobile service</p><h3 class="h" style="margin-top:10px">We come to you.</h3><p>Mobile detailing for boats and aircraft. Ask about coverage, access and availability.</p></div><a class="btn b" href="https://wa.me/447387424933" target="_blank" rel="noopener">Ask about mobile</a></div>
+ </div>
+</section>
+
+<section class="sec" id="protection" style="background:var(--bg2)">
+ <div class="wrap pro">
+  <div class="rv">
+   <p class="k">05 · Surface protection</p>
+   <h2 class="h">A finish worth<br>protecting.</h2>
+   <p>Ceramic coatings, wheel protection and Invisible Wiper glass coating. The studio will recommend the right combination and how to care for it afterwards.</p>
+   <div class="yrs"><span><b>2</b><small>years</small></span><span><b>3</b><small>years</small></span><span><b>5</b><small>years</small></span></div>
+   <a class="btn a" href="https://wa.me/447387424933" target="_blank" rel="noopener">Discuss a package</a>
+  </div>
+  <div class="rv">
+   <details open><summary>Which ceramic packages are available?</summary><p>2, 3 and 5 year ceramic coating packages. Preparation, coverage and aftercare are confirmed with you before work starts.</p></details>
+   <details><summary>What is Invisible Wiper glass coating?</summary><p>A rain-repellent coating for glass. Water beads up and runs off, which helps visibility and makes the glass easier to clean.</p></details>
+   <details><summary>Do you offer mobile detailing?</summary><p>Yes, for boats and aircraft. Message the studio with the location and the vessel or aircraft.</p></details>
+   <details><summary>How do I get a price?</summary><p>Send a message on WhatsApp with your vehicle, a photo of its current condition and the treatment you are interested in. You get a tailored quote.</p></details>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="contact">
+ <div class="wrap ct">
+  <div class="rv">
+   <p class="k">06 · Your next detail</p>
+   <h2 class="h">Let's talk about<br><span class="met">your vehicle.</span></h2>
+   <p>Tell us what you drive, fly or sail, and the result you have in mind.</p>
+   <div class="meta"><span><b>Studio:</b> Reading, UK</span><span><b>Appointments:</b> by arrangement, message first</span></div>
+  </div>
+  <div class="links rv">
+   <a href="https://wa.me/447387424933" target="_blank" rel="noopener"><div><small>WHATSAPP</small><span>+44 7387 424933</span></div><i>↗</i></a>
+   <a href="mailto:onyxdesign2026@gmail.com"><div><small>EMAIL</small><span>onyxdesign2026@gmail.com</span></div><i>↗</i></a>
+   <a href="https://www.instagram.com/onyxdesign2026/" target="_blank" rel="noopener"><div><small>INSTAGRAM</small><span>@onyxdesign2026</span></div><i>↗</i></a>
+  </div>
+ </div>
+</section>
+
+<footer><div class="wrap"><img src="img/logo.webp" alt="ONYX DESIGN" width="54" height="54" loading="lazy"><span>ONYX DESIGN · Detailing. Protection. Perfection.</span><span>Reading, UK</span></div></footer>
+
+<script>
+(function(){
+var d=document,w=window;function $(s){return d.querySelector(s)}function $$(s){return [].slice.call(d.querySelectorAll(s))}
+function cl(v){return v<0?0:v>1?1:v}
+var nav=$('#nav'),hero=$('#hero'),car=$('#car'),dark=$('#dark'),t1=$('#t1'),t2=$('#t2'),cue=$('#cue');
+/* zoom target: front wheel of the Mercedes, as a share of the image */
+var IX=.635,IY=.67,IW=2016,IH=1512,img=car.querySelector('img');
+function org(){var W=car.clientWidth,H=car.clientHeight,sc=Math.max(W/IW,H/IH),w2=IW*sc,h2=IH*sc,op=getComputedStyle(img).objectPosition.split(' '),px=parseFloat(op[0])/100,py=parseFloat(op[1])/100;return [((W-w2)*px+w2*IX)/W*100,((H-h2)*py+h2*IY)/H*100]}
+function onS(){
+ nav.classList.toggle('s',w.scrollY>40);
+ var r=hero.getBoundingClientRect(),run=hero.offsetHeight-w.innerHeight,p=cl(-r.top/run);
+ var z=1+2.4*Math.pow(cl(p/.85),1.6);
+ var o=org();car.style.transformOrigin=o[0]+'% '+o[1]+'%';car.style.transform='scale('+z+')';
+ t1.style.opacity=1-cl(p/.22);t1.style.transform='translateY('+(-40*cl(p/.22))+'px)';
+ cue.style.opacity=1-cl(p/.08);
+ dark.style.opacity=cl((p-.45)/.3)*.82;
+ t2.style.opacity=cl((p-.52)/.18)-cl((p-.92)/.08);
+}
+w.addEventListener('scroll',onS,{passive:true});w.addEventListener('resize',onS);onS();
+
+/* before / after */
+var ba=$('#ba'),kn=ba.querySelector('.knob'),drag=false;
+function setP(x){var r=ba.getBoundingClientRect(),p=Math.max(2,Math.min(98,(x-r.left)/r.width*100));ba.style.setProperty('--p',p+'%');kn.setAttribute('aria-valuenow',Math.round(p));ba.classList.add('used')}
+ba.addEventListener('pointerdown',function(e){drag=true;ba.setPointerCapture(e.pointerId);setP(e.clientX)});
+ba.addEventListener('pointermove',function(e){if(drag)setP(e.clientX)});
+ba.addEventListener('pointerup',function(){drag=false});ba.addEventListener('pointercancel',function(){drag=false});
+kn.addEventListener('keydown',function(e){var v=+kn.getAttribute('aria-valuenow');if(e.key==='ArrowLeft'||e.key==='ArrowRight'){v+=e.key==='ArrowLeft'?-5:5;var r=ba.getBoundingClientRect();setP(r.left+r.width*v/100);e.preventDefault()}});
+var BA=[
+ ['ba-head-b','ba-head-a','<b>Headlight restoration.</b> Yellowed, cloudy lenses brought back to clear.','BMW 5 Series'],
+ ['ba-int-b','ba-int-a','<b>Interior transformation.</b> Seats, carpets and trim cleaned and refreshed.','BMW Z4'],
+ ['ba-kia-b','ba-kia-a','<b>Snow foam wash.</b> Pre-wash foam lifts the dirt before the paint is touched.','Kia Sorento']
+];
+BA.forEach(function(x){[x[0],x[1]].forEach(function(n){var i=new Image();i.src='img/'+n+'.webp'})});
+$$('#batabs button').forEach(function(b){b.addEventListener('click',function(){
+ var x=BA[+b.getAttribute('data-i')];$$('#batabs button').forEach(function(o){o.classList.toggle('on',o===b)});
+ $('#baB').src='img/'+x[0]+'.webp';$('#baA').src='img/'+x[1]+'.webp';$('#bat').innerHTML=x[2];$('.bacap span:last-child').textContent=x[3];
+ ba.style.setProperty('--p','50%');
+})});
+/* gentle demo sweep the first time the slider is seen */
+var swept=false;if('IntersectionObserver' in w){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!swept&&!ba.classList.contains('used')){swept=true;var t0=null;function an(t){if(ba.classList.contains('used'))return;t0=t0||t;var k=(t-t0)/1800;if(k>1)k=1;var v=50+22*Math.sin(k*Math.PI*2);ba.style.setProperty('--p',v+'%');if(k<1)requestAnimationFrame(an)}requestAnimationFrame(an)}})},{threshold:.6}).observe(ba)}
+
+/* services */
+var li=$$('#svl li'),im=$$('#svp img'),cap=$('#svc');
+function sv(i){li.forEach(function(l,j){l.classList.toggle('on',j===i)});im.forEach(function(m,j){m.classList.toggle('on',j===i)});cap.textContent=li[i].querySelector('.t').textContent.toUpperCase()}
+li.forEach(function(l,i){l.addEventListener('mouseenter',function(){sv(i)});l.addEventListener('click',function(){sv(i)})});
+
+var io='IntersectionObserver' in w?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12}):null;
+$$('.rv').forEach(function(e){io?io.observe(e):e.classList.add('in')});
+})();
+</script>
+</body>
+</html>
