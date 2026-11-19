@@ -11,7 +11,7 @@
 <meta property="og:description" content="Detailing, paint correction and ceramic protection in Reading.">
 <meta property="og:image" content="img/og.jpg">
 <link rel="icon" href="img/favicon.png">
-<link rel="preload" as="image" href="img/merc-side.webp">
+<link rel="preload" as="image" href="img/drift-poster.jpg">
 <style>
 @font-face{font-family:Mi;font-display:swap;src:url(fonts/michroma-latin-400-normal.woff2) format('woff2')}
 @font-face{font-family:Mr;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2')}
@@ -48,23 +48,27 @@ nav .ln .btn{height:42px;padding:0 18px;font-size:12px}
 @media(max-width:860px){nav .ln a:not(.btn){display:none}nav .lg span{display:none}}
 
 /* 1. hero: car, then the camera drives into the wheel */
-#hero{position:relative;height:260vh}
+#hero{position:relative;height:340vh}
 #hero .pin{position:sticky;top:0;height:100svh;overflow:hidden}
 #hero .car{position:absolute;inset:0;will-change:transform}
-#hero .car img{width:100%;height:100%;object-fit:cover;object-position:62% 62%}
-#hero .sh{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.92) 0%,rgba(8,9,11,.6) 38%,rgba(8,9,11,.05) 70%),linear-gradient(0deg,var(--bg) 0%,rgba(8,9,11,0) 30%)}
+#hero .car{background:#000}
+#hero .car video{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+#hero .sh{position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,rgba(8,9,11,0) 22%),linear-gradient(180deg,rgba(8,9,11,.75) 0%,rgba(8,9,11,0) 28%)}
 #hero .dark{position:absolute;inset:0;background:var(--bg);opacity:0;pointer-events:none}
-#hero .t1{position:absolute;left:max(20px,calc((100% - 1200px)/2));bottom:14vh;max-width:620px;will-change:opacity,transform}
-#hero h1{font-size:clamp(30px,3.9vw,54px);margin:18px 0 22px}
+#hero .t1{position:absolute;inset:0;padding:12vh 20px 7vh;text-align:center;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;will-change:opacity,transform}
+#hero .t1 .cta{pointer-events:auto}
+#hero .t1 .lead{margin:0 auto}
+#hero .t1 .cta{justify-content:center}
+#hero h1{font-size:clamp(28px,3.4vw,48px);margin:16px 0 0}
 #hero .lead{color:var(--tx2);max-width:480px;font-size:18px}
-#hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-#hero .t2{position:absolute;inset:0;display:grid;place-items:center;text-align:center;opacity:0;pointer-events:none;padding:0 20px}
+#hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+#hero .t2{position:absolute;inset:0;display:grid;place-items:start center;padding-top:13vh!important;text-align:center;opacity:0;pointer-events:none;padding:0 20px}
 #hero .t2 h2{font-size:clamp(30px,5vw,64px)}
 #hero .t2 p{color:var(--tx2);margin-top:16px}
-.cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font:800 10.5px/1 Mr;letter-spacing:.3em;color:#6f747c}
+.cue{display:none;position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font:800 10.5px/1 Mr;letter-spacing:.3em;color:#6f747c}
 .cue::after{content:"";display:block;width:1px;height:30px;margin:10px auto 0;background:linear-gradient(#9aa0a8,transparent);animation:cu 1.8s infinite}
 @keyframes cu{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-@media(max-width:760px){#hero .car img{object-position:68% 60%}#hero .sh{background:linear-gradient(0deg,rgba(8,9,11,.96) 0%,rgba(8,9,11,.7) 45%,rgba(8,9,11,.1) 75%)}#hero .t1{bottom:8vh;right:20px}#hero .lead{font-size:16px}.cue{display:none}}
+@media(max-width:760px){#hero .car{inset:auto 0;top:50%;height:66vw;transform:translateY(-45%)}#hero .car video{object-fit:cover;object-position:50% 55%}#hero .car::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#000 0,transparent 15%,transparent 80%,var(--bg) 100%)}#hero .t1{padding:13vh 20px 8vh}#hero .lead{font-size:16px}.cue{display:none}}
 
 .strip{border-block:1px solid var(--ln);overflow:hidden;padding:18px 0;background:var(--bg)}
 .strip div{display:flex;gap:56px;width:max-content;animation:mq 30s linear infinite;font:400 14px/1 Mi;letter-spacing:.22em;color:#5d626a}
@@ -188,16 +192,17 @@ footer img{width:54px;height:54px;border-radius:50%}
 
 <header id="hero">
  <div class="pin">
-  <div class="car" id="car"><img src="img/merc-side.webp" alt="Black Mercedes GLE after a full detail at ONYX DESIGN, Reading" fetchpriority="high"></div>
+  <div class="car" id="car"><video id="vid" src="img/drift.mp4" poster="img/drift-poster.jpg" muted playsinline preload="auto" aria-label="Black Mercedes-AMG GT drifting and leaving a white tyre trail"></video></div>
   <div class="sh"></div>
   <div class="dark" id="dark"></div>
-  <div class="t1" id="t1">
+  <div class="t1" id="t1"><div>
    <p class="k">Detailing · Protection · Perfection · Reading</p>
    <h1 class="h">We don't just clean.<br><span class="met">We protect &amp; perfect.</span></h1>
-   <p class="lead">Paint correction, ceramic coatings and full valets for daily drivers, supercars, boats and aircraft.</p>
+  </div><div>
+   <p class="lead">Paint correction, ceramic coatings and full valets in Reading.</p>
    <div class="cta"><a class="btn a" href="https://wa.me/447387424933" target="_blank" rel="noopener">Get a quote on WhatsApp</a><a class="btn b" href="#results">See the results</a></div>
-  </div>
-  <div class="t2" id="t2"><div><p class="k">Showroom Shine Detailing Studio</p><h2 class="h met" style="margin-top:18px">Every detail.<br>Considered.</h2><p>Down to the last spoke.</p></div></div>
+  </div></div>
+  <div class="t2" id="t2"><div><p class="k">Showroom Shine Detailing Studio</p><h2 class="h met" style="margin-top:18px">Every detail.<br>Considered.</h2></div></div>
   <div class="cue" id="cue">SCROLL</div>
  </div>
 </header>
@@ -320,17 +325,19 @@ var d=document,w=window;function $(s){return d.querySelector(s)}function $$(s){r
 function cl(v){return v<0?0:v>1?1:v}
 var nav=$('#nav'),hero=$('#hero'),car=$('#car'),dark=$('#dark'),t1=$('#t1'),t2=$('#t2'),cue=$('#cue');
 /* zoom target: front wheel of the Mercedes, as a share of the image */
-var IX=.635,IY=.67,IW=2016,IH=1512,img=car.querySelector('img');
-function org(){var W=car.clientWidth,H=car.clientHeight,sc=Math.max(W/IW,H/IH),w2=IW*sc,h2=IH*sc,op=getComputedStyle(img).objectPosition.split(' '),px=parseFloat(op[0])/100,py=parseFloat(op[1])/100;return [((W-w2)*px+w2*IX)/W*100,((H-h2)*py+h2*IY)/H*100]}
+var vid=$('#vid'),tgt=0,cur=0,ready=false,dur=0;
+function prime(){if(ready)return;ready=true;dur=vid.duration||7;var pr=vid.play();if(pr&&pr.then)pr.then(function(){vid.pause()}).catch(function(){})}
+vid.addEventListener('loadedmetadata',function(){dur=vid.duration;prime()});
+['touchstart','pointerdown','scroll'].forEach(function(ev){w.addEventListener(ev,prime,{once:true,passive:true})});
+(function loop(){cur+=(tgt-cur)*.18;if(dur&&Math.abs(vid.currentTime-cur)>.02&&!vid.seeking){try{vid.currentTime=cur}catch(e){}}requestAnimationFrame(loop)})();
 function onS(){
  nav.classList.toggle('s',w.scrollY>40);
  var r=hero.getBoundingClientRect(),run=hero.offsetHeight-w.innerHeight,p=cl(-r.top/run);
- var z=1+2.4*Math.pow(cl(p/.85),1.6);
- var o=org();car.style.transformOrigin=o[0]+'% '+o[1]+'%';car.style.transform='scale('+z+')';
- t1.style.opacity=1-cl(p/.22);t1.style.transform='translateY('+(-40*cl(p/.22))+'px)';
- cue.style.opacity=1-cl(p/.08);
- dark.style.opacity=cl((p-.45)/.3)*.82;
- t2.style.opacity=cl((p-.52)/.18)-cl((p-.92)/.08);
+ tgt=cl(p/.8)*(dur?dur-.05:0);
+ t1.style.opacity=1-cl(p/.16);t1.style.transform='translateY('+(-30*cl(p/.16))+'px)';
+ cue.style.opacity=1-cl(p/.06);
+ dark.style.opacity=cl((p-.8)/.15)*.55;
+ t2.style.opacity=cl((p-.8)/.12);
 }
 w.addEventListener('scroll',onS,{passive:true});w.addEventListener('resize',onS);onS();
 
