@@ -15,7 +15,7 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:url" content="https://emilwiktorski.pl/demo/carcosmetics/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2309090a'/%3E%3Crect x='5' y='5' width='54' height='54' rx='8' fill='none' stroke='%23d9b866' stroke-width='3'/%3E%3Ctext x='32' y='42' font-family='monospace' font-weight='700' font-size='26' fill='%23e8cc82' text-anchor='middle'%3ECC%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="preload" as="image" href="img/hero.webp" media="(min-width:761px)">
 <link rel="preload" as="image" href="img/hero-m.webp" media="(max-width:760px)">
 <style>
@@ -49,6 +49,8 @@ button{font:inherit;color:inherit}
 
 nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px max(20px,calc((100% - 1200px)/2));transition:background .35s,padding .35s,box-shadow .35s}
 nav.s{background:rgba(9,9,10,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-top:10px;padding-bottom:10px;box-shadow:0 1px 0 var(--ln)}
+nav .lg{display:block;line-height:0}nav .lg img{height:44px;width:auto;transition:height .35s}nav.s .lg img{height:36px}
+footer .flg{height:72px;width:auto}
 nav .ln{display:flex;gap:28px;align-items:center}
 nav .ln a{font:600 14px/1 Ar;text-decoration:none;color:var(--tx2);transition:color .2s}
 nav .ln a:hover{color:var(--tx)}
@@ -243,7 +245,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 </head>
 <body>
 <nav id="nav">
- <a class="plate" href="#hero" aria-label="Car Cosmetics Detailing, na górę strony"><b>CAR COSMETICS</b><b>DETAILING</b></a>
+ <a class="lg" href="#hero"><img src="img/logo.svg" alt="Car Cosmetics Detailing" width="120" height="44"></a>
  <div class="ln">
   <a href="#realizacje">Realizacje</a>
   <a href="#efekt">Przed i po</a>
@@ -405,7 +407,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
  </div>
 </section>
 
-<footer><div class="wrap"><span class="plate"><b>CAR COSMETICS</b><b>DETAILING</b></span><span>ul. Warszawska 28, Bełchatów · 798 546 985</span><span>© 2026</span></div></footer>
+<footer><div class="wrap"><img class="flg" src="img/logo-full.svg" alt="Car Cosmetics Detailing" width="170" height="83" loading="lazy"><span>ul. Warszawska 28, Bełchatów · 798 546 985</span><span>© 2026</span></div></footer>
 
 <script>
 (function(){
