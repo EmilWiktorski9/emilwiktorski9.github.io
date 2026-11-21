@@ -19,32 +19,22 @@
 <link rel="preload" as="image" href="img/hero.webp" media="(min-width:761px)">
 <link rel="preload" as="image" href="img/hero-m.webp" media="(max-width:760px)">
 <style>
-@font-face{font-family:Fr;font-style:normal;font-display:swap;src:url(fonts/fraunces-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:Fr;font-style:normal;font-display:swap;src:url(fonts/fraunces-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:Fr;font-style:italic;font-display:swap;src:url(fonts/fraunces-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:Fr;font-style:italic;font-display:swap;src:url(fonts/fraunces-latin-ext-400-italic.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:Sm;font-weight:700;font-display:swap;src:url(fonts/space-mono-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:Sm;font-weight:700;font-display:swap;src:url(fonts/space-mono-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:Mr;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:Mr;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:Mr;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:Mr;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:Mr;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:Mr;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-ext-800-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Ar;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(fonts/archivo-latin-wdth-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Ar;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(fonts/archivo-latin-ext-wdth-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 
 :root{--bg:#09090a;--bg2:#111112;--card:#161617;--tx:#f3efe6;--tx2:#a8a397;--ln:#2a2824;--g1:#d9b866;--gold:linear-gradient(135deg,#8c6c2c 0%,#f5dc95 40%,#b88f3c 70%,#efd38a 100%)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--tx);font:400 17px/1.6 Mr,system-ui,sans-serif;overflow-x:hidden}
+body{background:var(--bg);color:var(--tx);font:400 17px/1.6 Ar,system-ui,sans-serif;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
 button{font:inherit;color:inherit}
 .wrap{width:min(1200px,100% - 40px);margin:0 auto}
-.h{font-family:Fr,Georgia,serif;font-weight:400;letter-spacing:-.015em;line-height:1.06}
-.h em,.gd{font-style:italic;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.h{font-family:Ar,Arial,sans-serif;font-weight:700;font-stretch:125%;text-transform:uppercase;letter-spacing:-.01em;line-height:1.02}
+.h em,.gd{font-style:normal;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
 .gd{font-style:normal}
-.k{font:800 11.5px/1.3 Mr;letter-spacing:.24em;text-transform:uppercase;color:var(--tx2)}
-.btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;font:800 13.5px/1 Mr;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;transition:transform .25s,box-shadow .25s,border-color .25s}
+.k{font:700 11.5px/1.3 Ar;font-stretch:115%;letter-spacing:.24em;text-transform:uppercase;color:var(--tx2)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;font:700 13px/1 Ar;font-stretch:115%;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;transition:transform .25s,box-shadow .25s,border-color .25s}
 .btn:hover{transform:translateY(-2px)}
 .btn.a{background:var(--gold);color:#120f08;box-shadow:0 10px 30px -12px rgba(217,184,102,.55)}
 .btn.a:hover{box-shadow:0 16px 36px -10px rgba(217,184,102,.75)}
@@ -55,12 +45,12 @@ button{font:inherit;color:inherit}
 
 /* tablica: ich własny znak z każdego zdjęcia */
 .plate{display:inline-grid;place-items:center;padding:7px 14px 6px;border-radius:7px;background:#050505;box-shadow:inset 0 0 0 1.5px #6f5a2b,inset 0 0 0 3px #050505,inset 0 0 0 4px rgba(217,184,102,.5);text-decoration:none;line-height:1.12;text-align:center}
-.plate b{font:700 12px/1.15 Sm;letter-spacing:.14em;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.plate b{font:700 11px/1.2 Ar;font-stretch:125%;letter-spacing:.12em;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
 
 nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px max(20px,calc((100% - 1200px)/2));transition:background .35s,padding .35s,box-shadow .35s}
 nav.s{background:rgba(9,9,10,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-top:10px;padding-bottom:10px;box-shadow:0 1px 0 var(--ln)}
 nav .ln{display:flex;gap:28px;align-items:center}
-nav .ln a{font:600 14px/1 Mr;text-decoration:none;color:var(--tx2);transition:color .2s}
+nav .ln a{font:600 14px/1 Ar;text-decoration:none;color:var(--tx2);transition:color .2s}
 nav .ln a:hover{color:var(--tx)}
 nav .ln .btn{height:42px;padding:0 18px;font-size:12px;color:#120f08}
 @media(max-width:900px){nav .ln a:not(.btn){display:none}}
@@ -73,22 +63,22 @@ nav .ln .btn{height:42px;padding:0 18px;font-size:12px;color:#120f08}
 #hero .gl{position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;background:radial-gradient(circle at var(--gx,70%) var(--gy,55%),rgba(255,246,220,.95) 0,rgba(255,236,190,.35) 9%,transparent 26%);opacity:.9}
 #hero .sh{position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,9,10,.9) 0%,rgba(9,9,10,.55) 38%,rgba(9,9,10,0) 64%),linear-gradient(0deg,var(--bg) 0%,rgba(9,9,10,0) 34%),linear-gradient(180deg,rgba(9,9,10,.6) 0%,rgba(9,9,10,0) 20%)}
 #hero .in{position:relative;z-index:2;width:min(1200px,100% - 40px);margin:0 auto;padding:0 0 9vh}
-#hero h1{font-size:clamp(44px,7vw,104px);margin:18px 0 22px;max-width:9.5em}
+#hero h1{font-size:clamp(40px,5.8vw,86px);margin:18px 0 22px;max-width:9em}
 #hero .lead{color:#cfc9bc;max-width:500px;font-size:18px}
 #hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
 .proof{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-.proof span{display:inline-flex;align-items:center;gap:9px;padding:9px 15px;border-radius:999px;border:1px solid rgba(217,184,102,.28);background:rgba(9,9,10,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font:600 13.5px/1 Mr;color:#e6dfcf}
+.proof span{display:inline-flex;align-items:center;gap:9px;padding:9px 15px;border-radius:999px;border:1px solid rgba(217,184,102,.28);background:rgba(9,9,10,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font:600 13.5px/1 Ar;color:#e6dfcf}
 .proof i{font-style:normal;color:var(--g1);letter-spacing:.06em}
-@media(max-width:760px){#hero{align-items:stretch;flex-direction:column;min-height:auto}#hero .ph{position:relative;inset:auto;height:62svh}#hero .ph img{object-position:58% 55%}#hero .sh{background:linear-gradient(0deg,var(--bg) 0%,var(--bg) 6%,rgba(9,9,10,.6) 28%,rgba(9,9,10,0) 48%),linear-gradient(180deg,rgba(9,9,10,.7) 0%,rgba(9,9,10,0) 22%);height:calc(62svh + 2px);bottom:auto}#hero .gl{height:62svh;bottom:auto}#hero .in{margin-top:-13svh;padding-bottom:56px}#hero .nm{display:none}#hero .k{text-shadow:0 1px 8px #000}#hero h1{font-size:clamp(42px,12vw,60px);margin:14px 0 16px}#hero .lead{font-size:16px}#hero .cta .btn{flex:1;justify-content:center;padding:0 14px;white-space:nowrap;font-size:12.5px;letter-spacing:.06em}}
+@media(max-width:760px){#hero{align-items:stretch;flex-direction:column;min-height:auto}#hero .ph{position:relative;inset:auto;height:62svh}#hero .ph img{object-position:58% 55%}#hero .sh{background:linear-gradient(0deg,var(--bg) 0%,var(--bg) 6%,rgba(9,9,10,.6) 28%,rgba(9,9,10,0) 48%),linear-gradient(180deg,rgba(9,9,10,.7) 0%,rgba(9,9,10,0) 22%);height:calc(62svh + 2px);bottom:auto}#hero .gl{height:62svh;bottom:auto}#hero .in{margin-top:-13svh;padding-bottom:56px}#hero .nm{display:none}#hero .k{text-shadow:0 1px 8px #000}#hero h1{font-size:clamp(34px,9.6vw,46px);margin:14px 0 16px}#hero .lead{font-size:16px}#hero .cta .btn{flex:1;justify-content:center;padding:0 14px;white-space:nowrap;font-size:12.5px;letter-spacing:.06em}}
 
 .strip{border-block:1px solid var(--ln);overflow:hidden;padding:18px 0}
-.strip div{display:flex;gap:52px;width:max-content;animation:mq 34s linear infinite;font:700 13px/1 Sm;letter-spacing:.2em;color:#6d675b}
+.strip div{display:flex;gap:52px;width:max-content;animation:mq 34s linear infinite;font:700 13px/1 Ar;letter-spacing:.2em;color:#6d675b}
 .strip span::after{content:"◆";margin-left:52px;font-size:8px;vertical-align:2px;color:#8a7238}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 section.sec{padding:120px 0}
 .hd{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
-.hd h2{font-size:clamp(36px,5vw,66px)}
+.hd h2{font-size:clamp(30px,4vw,54px)}
 .hd p{color:var(--tx2);max-width:470px}
 @media(max-width:860px){section.sec{padding:84px 0}.hd{grid-template-columns:1fr;gap:16px;margin-bottom:34px}}
 
@@ -104,8 +94,8 @@ section.sec{padding:120px 0}
 .pj:hover .cc,.pj:focus-visible .cc{grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:5px;box-shadow:0 34px 70px -28px #000,0 0 0 1px rgba(217,184,102,.35);transform:translateY(-4px)}
 .pj:hover .cc .m{transform:scale(1.03)}
 .pm{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:16px}
-.pm h3{font-size:clamp(22px,2.2vw,28px);margin-top:8px}
-.pm .op{flex:none;font:800 11px/1 Mr;letter-spacing:.2em;text-transform:uppercase;color:var(--g1);opacity:.75;transition:opacity .3s,transform .3s}
+.pm h3{font-size:clamp(17px,1.6vw,21px);margin-top:8px}
+.pm .op{flex:none;font:800 11px/1 Ar;letter-spacing:.2em;text-transform:uppercase;color:var(--g1);opacity:.75;transition:opacity .3s,transform .3s}
 .pj:hover .pm .op{opacity:1;transform:translateX(3px)}
 @media(hover:none){.cc{grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:4px}}
 .tc{display:none}@media(hover:none){.hv{display:none}.tc{display:inline}}
@@ -117,7 +107,7 @@ section.sec{padding:120px 0}
 .lbm{position:relative;display:flex;flex-direction:column;min-height:0;padding:24px 0 20px 24px}
 .lbi{position:relative;flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);place-items:center;touch-action:pan-y}
 .lbi img{min-width:0;min-height:0;max-width:100%;max-height:100%;object-fit:contain;border-radius:14px;user-select:none;-webkit-user-drag:none;transition:opacity .25s}
-.lbi .cap{position:absolute;left:14px;bottom:14px;padding:7px 12px;border-radius:999px;background:rgba(9,9,10,.7);font:800 10.5px/1 Mr;letter-spacing:.18em;text-transform:uppercase}
+.lbi .cap{position:absolute;left:14px;bottom:14px;padding:7px 12px;border-radius:999px;background:rgba(9,9,10,.7);font:800 10.5px/1 Ar;letter-spacing:.18em;text-transform:uppercase}
 .lbi .cap:empty{display:none}
 .ar{position:absolute;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;border:1px solid #4b473f;background:rgba(9,9,10,.6);display:grid;place-items:center;cursor:pointer;font-size:20px;transition:border-color .2s}
 .ar:hover{border-color:var(--g1)}
@@ -128,17 +118,17 @@ section.sec{padding:120px 0}
 .th button.on{opacity:1;outline-color:var(--g1)}
 .th img{width:100%;height:100%;object-fit:cover}
 .lbs{padding:70px 34px 30px;overflow-y:auto;border-left:1px solid var(--ln)}
-.lbs h3{font-size:36px;margin:12px 0 14px}
+.lbs h3{font-size:28px;margin:12px 0 14px}
 .lbs>p{color:var(--tx2)}
 .lbs ul{list-style:none;margin:26px 0 30px}
 .lbs li{padding:15px 0;border-top:1px solid var(--ln);font-size:15.5px;color:var(--tx2)}
 .lbs li:last-child{border-bottom:1px solid var(--ln)}
-.lbs li b{display:block;font:800 11px/1 Mr;letter-spacing:.2em;text-transform:uppercase;color:var(--g1);margin-bottom:7px}
+.lbs li b{display:block;font:800 11px/1 Ar;letter-spacing:.2em;text-transform:uppercase;color:var(--g1);margin-bottom:7px}
 .lbs .btn{width:100%;justify-content:center}
 .x{position:absolute;top:18px;right:18px;z-index:3;width:46px;height:46px;border-radius:50%;border:1px solid #4b473f;background:rgba(9,9,10,.7);cursor:pointer;font-size:22px;line-height:1;transition:border-color .2s}
 .x:hover{border-color:var(--g1)}
-.cnt{font:700 12px/1 Sm;letter-spacing:.12em;color:var(--tx2);margin-top:10px}
-@media(max-width:900px){.lb{display:block;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}.lbm{min-width:0;min-height:auto}.x{position:fixed}.lbm{padding:64px 12px 12px}.lbi{height:56svh;flex:none}.ar{width:44px;height:44px;margin-top:-22px}.lbs{border:0;padding:16px 20px 40px;overflow:visible}.lbs h3{font-size:30px}}
+.cnt{font:700 12px/1 Ar;letter-spacing:.12em;color:var(--tx2);margin-top:10px}
+@media(max-width:900px){.lb{display:block;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}.lbm{min-width:0;min-height:auto}.x{position:fixed}.lbm{padding:64px 12px 12px}.lbi{height:56svh;flex:none}.ar{width:44px;height:44px;margin-top:-22px}.lbs{border:0;padding:16px 20px 40px;overflow:visible}.lbs h3{font-size:24px}}
 
 /* 3. przed i po */
 #efekt{background:var(--bg2)}
@@ -149,9 +139,9 @@ section.sec{padding:120px 0}
 .ba .knob{position:absolute;top:50%;left:var(--p,50%);width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--gold);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.5);transition:transform .2s}
 .ba:active .knob{transform:scale(.92)}
 .ba .knob svg{width:26px;height:26px;color:#120f08}
-.ba .tg{position:absolute;top:18px;padding:8px 13px;border-radius:999px;background:rgba(9,9,10,.65);backdrop-filter:blur(6px);font:800 11px/1 Mr;letter-spacing:.2em}
+.ba .tg{position:absolute;top:18px;padding:8px 13px;border-radius:999px;background:rgba(9,9,10,.65);backdrop-filter:blur(6px);font:800 11px/1 Ar;letter-spacing:.2em}
 .ba .tg.l{left:18px}.ba .tg.r{right:18px}
-.ba .hint{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);font:600 13px Mr;color:#e6dfcf;background:rgba(9,9,10,.6);padding:7px 14px;border-radius:999px;transition:opacity .5s;white-space:nowrap}
+.ba .hint{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);font:600 13px Ar;color:#e6dfcf;background:rgba(9,9,10,.6);padding:7px 14px;border-radius:999px;transition:opacity .5s;white-space:nowrap}
 .ba.used .hint{opacity:0}
 .bacap{max-width:780px;margin:16px auto 0;display:flex;justify-content:space-between;gap:20px;color:var(--tx2);font-size:15px;flex-wrap:wrap}
 .bacap b{color:var(--tx);font-weight:800}
@@ -162,8 +152,8 @@ section.sec{padding:120px 0}
 .sv li{border-top:1px solid var(--ln);padding:20px 0;cursor:pointer}
 .sv li:last-child{border-bottom:1px solid var(--ln)}
 .svpin{height:calc(100vh + 6 * 70vh)}.svst{position:sticky;top:0;height:100vh;display:flex;align-items:center}.svst .sv{width:100%}
-.sv li .t{display:flex;align-items:baseline;gap:16px;font:400 clamp(20px,2vw,27px)/1.2 Fr;color:#6f6a60;transition:color .3s}
-.sv li .t small{font:700 11px/1 Sm;letter-spacing:.1em;color:#5d584f;transition:color .3s}
+.sv li .t{display:flex;align-items:baseline;gap:16px;font:600 clamp(17px,1.6vw,22px)/1.2 Ar;font-stretch:120%;text-transform:uppercase;color:#6f6a60;transition:color .3s}
+.sv li .t small{font:700 11px/1 Ar;font-stretch:100%;letter-spacing:.1em;color:#5d584f;transition:color .3s}
 .sv li p{max-height:0;overflow:hidden;color:var(--tx2);font-size:15.5px;transition:max-height .5s,margin .5s}
 .sv li.on .t{color:var(--tx)}
 .sv li.on .t small{color:var(--g1)}
@@ -172,25 +162,25 @@ section.sec{padding:120px 0}
 .sv .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1s,transform 1.4s cubic-bezier(.2,.7,.2,1)}
 .sv .ph img.on{opacity:1;transform:none}
 .sv .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,9,10,.6),transparent 40%)}
-.sv .ph .cap{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;font:800 11px/1.4 Mr;letter-spacing:.2em;color:#e6dfcf}
-@media(max-width:860px){.svpin{height:calc(100svh + 6 * 60svh)}.svst{height:100svh;align-items:flex-start;padding-top:70px}.sv{grid-template-columns:1fr;gap:12px}.sv .ph{aspect-ratio:auto;height:33svh;max-height:none;order:-1}.sv li{padding:10px 0}.sv li .t{font-size:18px}.sv li p{font-size:14px}.sv li.on p{margin-top:5px}}
+.sv .ph .cap{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;font:800 11px/1.4 Ar;letter-spacing:.2em;color:#e6dfcf}
+@media(max-width:860px){.svpin{height:calc(100svh + 6 * 60svh)}.svst{height:100svh;align-items:flex-start;padding-top:70px}.sv{grid-template-columns:1fr;gap:12px}.sv .ph{aspect-ratio:auto;height:33svh;max-height:none;order:-1}.sv li{padding:10px 0}.sv li .t{font-size:15px}.sv li p{font-size:14px}.sv li.on p{margin-top:5px}}
 
 /* 5. certyfikat i pytania */
 .fx{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:start}
 .fx .im{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3}
 .fx .im img{width:100%;height:100%;object-fit:cover}
-.fx .im span{position:absolute;left:18px;bottom:18px;padding:8px 13px;border-radius:999px;background:rgba(9,9,10,.7);font:800 10.5px/1 Mr;letter-spacing:.18em;text-transform:uppercase}
-.fx h2{font-size:clamp(34px,4.4vw,58px);margin:16px 0 18px}
+.fx .im span{position:absolute;left:18px;bottom:18px;padding:8px 13px;border-radius:999px;background:rgba(9,9,10,.7);font:800 10.5px/1 Ar;letter-spacing:.18em;text-transform:uppercase}
+.fx h2{font-size:clamp(30px,4vw,52px);margin:16px 0 18px}
 .fx .lead{color:var(--tx2);margin-bottom:26px}
 .st{display:flex;gap:10px;margin:0 0 34px}
 .st span{flex:1;padding:18px 14px;border:1px solid var(--ln);border-radius:16px;text-align:center}
-.st b{display:block;font:400 30px/1 Fr;font-style:italic;color:var(--g1)}
-.st small{display:block;margin-top:8px;font:800 10.5px/1.35 Mr;letter-spacing:.16em;color:var(--tx2);text-transform:uppercase}
+.st b{display:block;font:400 30px/1 Ar;font-style:italic;color:var(--g1)}
+.st small{display:block;margin-top:8px;font:800 10.5px/1.35 Ar;letter-spacing:.16em;color:var(--tx2);text-transform:uppercase}
 details{border-top:1px solid var(--ln)}
 details:last-of-type{border-bottom:1px solid var(--ln)}
-summary{list-style:none;cursor:pointer;padding:21px 40px 21px 0;position:relative;font:700 17px Mr}
+summary{list-style:none;cursor:pointer;padding:21px 40px 21px 0;position:relative;font:700 17px Ar}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:4px;top:16px;font:400 26px Mr;color:var(--g1);transition:transform .3s}
+summary::after{content:"+";position:absolute;right:4px;top:16px;font:400 26px Ar;color:var(--g1);transition:transform .3s}
 details[open] summary::after{transform:rotate(45deg)}
 details p{color:var(--tx2);padding:0 40px 22px 0}
 @media(max-width:860px){.fx{grid-template-columns:1fr;gap:30px}.st{flex-direction:column}}
@@ -198,33 +188,33 @@ details p{color:var(--tx2);padding:0 40px 22px 0}
 /* 6. opinie */
 .sc{display:flex;align-items:center;gap:46px;flex-wrap:wrap;padding:30px 0;border-block:1px solid var(--ln);margin-bottom:56px}
 .sc div{display:flex;align-items:center;gap:16px}
-.sc b{font:400 clamp(46px,5.4vw,72px)/1 Fr;font-style:italic;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sc b{font:700 clamp(42px,5vw,66px)/1 Ar;font-stretch:125%;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
 .sc span{color:var(--tx2);font-size:14.5px;line-height:1.45}
 .sc .btn{margin-left:auto}
-.rq{columns:3 320px;column-gap:44px}
+.rq{columns:2 340px;column-gap:44px}
 .rq figure{break-inside:avoid;padding:0 0 32px;margin-bottom:32px;border-bottom:1px solid var(--ln)}
 .rq .stars{color:var(--g1);letter-spacing:.2em;font-size:13px;margin-bottom:12px}
-.rq blockquote{font:400 21px/1.45 Fr;color:var(--tx)}
+.rq blockquote{font:400 18px/1.6 Ar;color:var(--tx)}
 .rq figcaption{margin-top:16px;display:flex;gap:12px;align-items:baseline;font-size:14px}
 .rq figcaption b{font-weight:700}
-.rq figcaption span{font:800 10.5px Mr;letter-spacing:.2em;text-transform:uppercase;color:var(--tx2)}
-@media(max-width:700px){.sc{gap:24px}.sc .btn{margin-left:0}.rq blockquote{font-size:19px}}
+.rq figcaption span{font:800 10.5px Ar;letter-spacing:.2em;text-transform:uppercase;color:var(--tx2)}
+@media(max-width:700px){.sc{gap:24px}.sc .btn{margin-left:0}.rq blockquote{font-size:17px}}
 
 /* 7. kontakt */
 #kontakt{background:radial-gradient(60% 70% at 85% 30%,#1d1a13,transparent 70%),var(--bg)}
 .ct{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start}
-.ct h2{font-size:clamp(38px,5vw,68px);margin:16px 0 18px}
+.ct h2{font-size:clamp(32px,4.4vw,58px);margin:16px 0 18px}
 .ct>div>p{color:var(--tx2)}
 .links{margin-top:28px}
 .links a{display:flex;justify-content:space-between;align-items:center;padding:22px 4px;border-top:1px solid var(--ln);text-decoration:none;transition:padding .3s}
 .links a:last-child{border-bottom:1px solid var(--ln)}
 .links a:hover{padding-left:14px}
-.links small{display:block;font:800 11px Mr;letter-spacing:.22em;color:var(--tx2);margin-bottom:6px}
-.links span{font:600 clamp(16px,1.7vw,20px) Mr;word-break:break-word}
+.links small{display:block;font:800 11px Ar;letter-spacing:.22em;color:var(--tx2);margin-bottom:6px}
+.links span{font:600 clamp(16px,1.7vw,20px) Ar;word-break:break-word}
 .links i{font-style:normal;font-size:22px;color:var(--g1);transition:transform .3s}
 .links a:hover i{transform:translate(3px,-3px)}
 .hrs{margin-top:24px}
-.hrs small{display:block;font:800 11px Mr;letter-spacing:.22em;color:var(--tx2);margin-bottom:10px}
+.hrs small{display:block;font:800 11px Ar;letter-spacing:.22em;color:var(--tx2);margin-bottom:10px}
 .hrs p{display:flex;justify-content:space-between;max-width:340px;padding:6px 0;color:var(--tx2);font-size:15px}
 .hrs b{color:var(--tx);font-weight:600}
 .soc{display:flex;gap:12px;margin-top:26px}
@@ -233,13 +223,13 @@ details p{color:var(--tx2);padding:0 40px 22px 0}
 .soc svg{width:21px;height:21px;fill:var(--tx)}
 .fm{display:grid;gap:12px;padding:34px;border:1px solid var(--ln);border-radius:24px;background:rgba(22,22,23,.7)}
 .fm .r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.fm label{display:block;font:800 10.5px Mr;letter-spacing:.2em;color:var(--tx2);margin-bottom:7px;text-transform:uppercase}
-.fm input,.fm select,.fm textarea{width:100%;background:#0c0c0d;border:1px solid var(--ln);border-radius:14px;color:var(--tx);font:500 16px Mr;padding:15px 16px;outline:none;transition:border-color .2s}
+.fm label{display:block;font:800 10.5px Ar;letter-spacing:.2em;color:var(--tx2);margin-bottom:7px;text-transform:uppercase}
+.fm input,.fm select,.fm textarea{width:100%;background:#0c0c0d;border:1px solid var(--ln);border-radius:14px;color:var(--tx);font:500 16px Ar;padding:15px 16px;outline:none;transition:border-color .2s}
 .fm textarea{min-height:110px;resize:vertical}
 .fm input:focus,.fm select:focus,.fm textarea:focus{border-color:var(--g1)}
 .fm .tel{display:flex;align-items:center;background:#0c0c0d;border:1px solid var(--ln);border-radius:14px;transition:border-color .2s}
 .fm .tel:focus-within{border-color:var(--g1)}
-.fm .tel span{padding:0 4px 0 16px;color:var(--tx2);font:600 16px Mr}
+.fm .tel span{padding:0 4px 0 16px;color:var(--tx2);font:600 16px Ar}
 .fm .tel input{border:0;background:none;padding-left:6px}
 .fm .btn{justify-content:center;width:100%;margin-top:4px}
 .fm .rodo{font-size:12.5px;color:#6f6a60;line-height:1.5}
@@ -268,18 +258,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
  <div class="gl" id="gl"></div>
  <div class="sh"></div>
  <div class="in">
-  <p class="k">Powłoki · Folie PPF · Detailing · Bełchatów</p>
+  <p class="k">Certyfikowane studio FX Protect · Bełchatów</p>
   <h1 class="h">Lepiej niż <em>w&nbsp;dniu odbioru.</em></h1>
-  <p class="lead">Powłoki ochronne, folie PPF, korekta lakieru, czyszczenie wnętrza i&nbsp;serwis klimatyzacji. Certyfikowane studio FX Protect w&nbsp;Bełchatowie.</p>
+  <p class="lead">Powłoki, folie PPF, korekta lakieru, wnętrza i&nbsp;klimatyzacja.</p>
   <div class="proof"><span><i>★★★★★</i> 5,0 w&nbsp;Google · 75 opinii</span><span><i>100%</i> poleca na Facebooku</span></div>
   <div class="cta"><a class="btn a" href="tel:+48798546985">Zadzwoń<span class="nm">: 798 546 985</span></a><a class="btn b" href="#realizacje">Zobacz realizacje</a></div>
  </div>
 </header>
 
-<div class="strip" aria-hidden="true"><div><span>POWŁOKI</span><span>FOLIE PPF</span><span>KOREKTA LAKIERU</span><span>WNĘTRZA</span><span>KLIMATYZACJA</span><span>BEŁCHATÓW</span><span>POWŁOKI</span><span>FOLIE PPF</span><span>KOREKTA LAKIERU</span><span>WNĘTRZA</span><span>KLIMATYZACJA</span><span>BEŁCHATÓW</span></div></div>
-
 <section class="sec" id="realizacje">
- <div class="wrap"><div class="hd rv"><div><p class="k">Realizacje</p><h2 class="h" style="margin-top:14px">Auta, które<br><em>wyjechały od nas.</em></h2></div><p><span class="hv">Najedź na auto, żeby zobaczyć więcej zdjęć. Kliknij, żeby otworzyć</span><span class="tc">Stuknij auto, żeby otworzyć</span> całą galerię i&nbsp;listę tego, co zrobiliśmy.</p></div></div>
+ <div class="wrap"><div class="hd rv"><div><h2 class="h">Auta, które<br><em>wyjechały od nas.</em></h2></div><p><span class="hv">Kliknij auto,</span><span class="tc">Stuknij auto,</span> żeby zobaczyć wszystkie zdjęcia i&nbsp;zakres prac.</p></div></div>
  <div class="galw" id="galw"><div class="gal" id="gal">
   <article class="pj" data-i="0" tabindex="0" role="button" aria-label="Volkswagen Golf 8 GTI, otwórz galerię">
    <div class="cc"><img class="m" src="img/gti-przod-s.webp" alt="Biały Volkswagen Golf 8 GTI z przodu" loading="lazy"><img src="img/gti-tyl-s.webp" alt="" loading="lazy"><img src="img/gti-felga-s.webp" alt="" loading="lazy"><img src="img/gti-garaz-s.webp" alt="" loading="lazy"></div>
@@ -316,7 +304,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
 <section class="sec" id="efekt">
  <div class="wrap">
-  <div class="hd rv"><div><p class="k">Przed i po</p><h2 class="h" style="margin-top:14px">Ten sam kadr.<br><em>Inne auto.</em></h2></div><p>Przesuń linię. Podłoga w&nbsp;Volkswagenie Atlasie przed i&nbsp;po kompleksowym czyszczeniu wnętrza.</p></div>
+  <div class="hd rv"><div><h2 class="h">Ten sam kadr.<br><em>Inne auto.</em></h2></div><p>Volkswagen Atlas przed i&nbsp;po czyszczeniu wnętrza.</p></div>
   <div class="ba rv" id="ba" style="--p:50%">
    <img id="baA" src="img/ba-po.webp" alt="Podłoga i dywanik po czyszczeniu: czysta, czarna wykładzina">
    <img class="bf" id="baB" src="img/ba-przed.webp" alt="Podłoga i dywanik przed czyszczeniem: piasek i brud">
@@ -325,31 +313,30 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
    <div class="knob" role="slider" tabindex="0" aria-label="Porównaj przed i po" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div>
    <span class="hint">Przesuń, żeby porównać</span>
   </div>
-  <div class="bacap rv"><span><b>Czyszczenie wnętrza.</b> Piasek i&nbsp;błoto zniknęły z&nbsp;dywanika i&nbsp;wykładziny.</span><span>Volkswagen Atlas</span></div>
  </div>
 </section>
 
 <section class="sec" id="uslugi">
  <div class="wrap">
-  <div class="hd rv"><div><p class="k">Usługi</p><h2 class="h" style="margin-top:14px">Od lakieru<br><em>po nawiew.</em></h2></div><p>Każde zlecenie zaczyna się od obejrzenia auta i&nbsp;rozmowy o&nbsp;tym, jaki efekt chcesz uzyskać i&nbsp;jak jeździsz. Potem dostajesz wycenę.</p></div>
+  <div class="hd rv"><div><h2 class="h">Od lakieru<br><em>po nawiew.</em></h2></div></div>
   <div class="svpin" id="svpin"><div class="svst">
   <div class="sv">
    <ol id="svl">
-    <li class="on"><div class="t"><small>01</small>Powłoki ochronne</div><p>Powłoki ceramiczne i&nbsp;elastomerowe FX Protect. Lakier jest śliski, ma głębszy kolor, woda spływa, a&nbsp;auto łatwiej umyć.</p></li>
-    <li><div class="t"><small>02</small>Folie PPF</div><p>Bezbarwna folia tam, gdzie lakier obrywa najczęściej: reflektory, słupki w&nbsp;czarnym połysku, wnęki klamek. Nie widać jej, a&nbsp;chroni przed odpryskami i&nbsp;rysami.</p></li>
-    <li><div class="t"><small>03</small>Korekta lakieru</div><p>Usuwamy zarysowania i&nbsp;zmatowienia. Od jednoetapowego polerowania po pełną renowację lakieru.</p></li>
-    <li><div class="t"><small>04</small>Wnętrze i&nbsp;skóra</div><p>Kompleksowe czyszczenie wnętrza oraz konserwacja i&nbsp;renowacja tapicerki skórzanej.</p></li>
-    <li><div class="t"><small>05</small>Serwis klimatyzacji</div><p>Serwis z&nbsp;odgrzybianiem parownika. Na zdjęciu pomiar na nawiewie po serwisie: 4,8°C.</p></li>
-    <li><div class="t"><small>06</small>Szyby, felgi i&nbsp;lampy</div><p>Niewidzialna wycieraczka na szybach, powłoka na felgach przeciw pyłowi z&nbsp;klocków, polerowanie lamp.</p></li>
+    <li class="on"><div class="t"><small>01</small>Powłoki ochronne</div><p>Ceramiczne i&nbsp;elastomerowe FX Protect. Połysk, głębia koloru, łatwiejsze mycie.</p></li>
+    <li><div class="t"><small>02</small>Folie PPF</div><p>Bezbarwna ochrona reflektorów, słupków i&nbsp;wnęk klamek.</p></li>
+    <li><div class="t"><small>03</small>Korekta lakieru</div><p>Od jednoetapowego polerowania po pełną renowację.</p></li>
+    <li><div class="t"><small>04</small>Wnętrze i&nbsp;skóra</div><p>Czyszczenie wnętrza i&nbsp;renowacja tapicerki skórzanej.</p></li>
+    <li><div class="t"><small>05</small>Klimatyzacja</div><p>Serwis z&nbsp;odgrzybianiem parownika.</p></li>
+    <li><div class="t"><small>06</small>Szyby, felgi, lampy</div><p>Niewidzialna wycieraczka, ochrona felg, polerowanie lamp.</p></li>
    </ol>
    <div class="ph" id="svp">
     <img class="on" src="img/gti-tyl-s.webp" alt="Biały Golf GTI po nałożeniu powłoki, lakier odbija otoczenie">
-    <img src="img/ppf-klamka-s.webp" alt="Oklejanie wnęki klamki bezbarwną folią PPF" loading="lazy">
+    <img src="img/gti-przod-s.webp" alt="Golf 8 GTI z folią PPF na reflektorach" loading="lazy">
     <img src="img/a6-bok-s.webp" alt="Bok czarnego Audi A6 po renowacji lakieru" loading="lazy">
     <img src="img/fotel-s.webp" alt="Skórzany fotel w trakcie czyszczenia, lewa połowa już czysta" loading="lazy">
     <img src="img/klima-s.webp" alt="Termometr przy nawiewie pokazuje 4,8 stopnia" loading="lazy">
     <img src="img/gti-felga-s.webp" alt="Czarna felga Golfa GTI z czerwonym zaciskiem" loading="lazy">
-    <span class="cap" id="svc">POWŁOKA NA GOLFIE 8 GTI</span>
+    <span class="cap" id="svc">GOLF 8 GTI</span>
    </div>
   </div>
   </div></div>
@@ -358,23 +345,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
 <section class="sec" id="fx">
  <div class="wrap fx">
-  <div class="rv"><div class="im"><img src="img/golf7-studio-s.webp" alt="Granatowy Golf 7 w studiu, na ścianie certyfikaty FX Protect" loading="lazy"><span>Studio przy ul. Warszawskiej 28</span></div></div>
+  <div class="rv"><div class="im"><img src="img/golf7-studio-s.webp" alt="Granatowy Golf 7 w studiu, na ścianie certyfikaty FX Protect" loading="lazy"><span>Warszawska 28</span></div></div>
   <div class="rv">
    <p class="k">Certyfikowane studio FX Protect</p>
    <h2 class="h">Ochrona, która<br><em>zostaje na lata.</em></h2>
-   <p class="lead">Studio ma certyfikat FX Protect, producenta powłok, które nakłada. Najpierw lakier jest doprowadzany do porządku, dopiero potem zabezpieczany.</p>
-   <div class="st"><span><b>1</b><small>Mycie i&nbsp;przygotowanie</small></span><span><b>2</b><small>Korekta lakieru</small></span><span><b>3</b><small>Powłoka lub folia</small></span></div>
-   <details open><summary>Ile wytrzyma powłoka?</summary><p>To zależy od powłoki. Przykład z&nbsp;realizacji: Audi A6 dostało powłokę z&nbsp;ochroną na 12 miesięcy. Rodzaj powłoki dobieramy do auta i&nbsp;do tego, jak jeździsz.</p></details>
-   <details><summary>Czym różni się powłoka elastomerowa?</summary><p>Daje szklisty połysk i&nbsp;głębię koloru, a&nbsp;pod wpływem ciepła potrafi zabliźnić mikrozarysowania.</p></details>
-   <details><summary>Kiedy warto dać folię PPF?</summary><p>Na nowe auto i&nbsp;na miejsca, które najczęściej się rysują: reflektory, czarne słupki w&nbsp;połysku, wnęki klamek. Folia jest bezbarwna, więc nie zmienia wyglądu auta.</p></details>
-   <details><summary>Jak poznać cenę?</summary><p>Zadzwoń albo napisz przez formularz, najlepiej ze zdjęciem auta. Cena zależy od wielkości auta, stanu lakieru i&nbsp;wybranej ochrony.</p></details>
+   <p class="lead">Certyfikat producenta powłok, które nakładamy.</p>
+   <details open><summary>Ile wytrzyma powłoka?</summary><p>Zależy od powłoki. Audi A6 z&nbsp;realizacji ma ochronę na 12 miesięcy.</p></details>
+   <details><summary>Jak poznać cenę?</summary><p>Zadzwoń albo napisz. Cena zależy od auta, stanu lakieru i&nbsp;wybranej ochrony.</p></details>
   </div>
  </div>
 </section>
 
 <section class="sec" id="opinie" style="background:var(--bg2)">
  <div class="wrap">
-  <div class="hd rv"><div><p class="k">Opinie</p><h2 class="h" style="margin-top:14px">Co mówią<br><em>klienci.</em></h2></div><p>Opinie z&nbsp;Google i&nbsp;Facebooka.</p></div>
+  <div class="hd rv"><div><h2 class="h">Co mówią<br><em>klienci.</em></h2></div></div>
   <div class="sc rv">
    <div><b>5,0</b><span>średnia w&nbsp;Google<br>75 opinii</span></div>
    <div><b>100%</b><span>poleca na Facebooku<br>55 opinii</span></div>
@@ -383,10 +367,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   <div class="rq">
 <figure class="rv"><p class="stars">★★★★★</p><blockquote>„Samochód rocznik 2018 wyjechał jak rocznik 2026. Usługa wykonana bez zastrzeżeń.”</blockquote><figcaption><b>Asia Bukowska</b><span>Facebook</span></figcaption></figure>
 <figure class="rv"><p class="stars">★★★★★</p><blockquote>„Samochód po odebraniu wygląda chyba lepiej niż jak był nowy. Genialna robota, dopracowany w szczegółach. Tylko żal teraz jeździć, by nie zniszczyć efektu.”</blockquote><figcaption><b>Krzysztof Kaźmierczak</b><span>Google</span></figcaption></figure>
-<figure class="rv"><p class="stars">★★★★★</p><blockquote>„Oddałem auto na pełny pakiet: korektę lakieru oraz zabezpieczenie powłokami ceramicznymi (lakieru, szyb, plastików i elementów nielakierowanych). Korekta lakieru usunęła wszelkie niedoskonałości, lakier odzyskał głębię koloru i lśni jak lustro.”</blockquote><figcaption><b>Emil Anszperger</b><span>Facebook</span></figcaption></figure>
 <figure class="rv"><p class="stars">★★★★★</p><blockquote>„Dokładność, terminowość, czyli profesjonalne podejście do klienta i samochodu. Jestem bardzo zadowolona z usług Pana Bartka, szczerze polecam!”</blockquote><figcaption><b>Katarzyna Gabrysiak</b><span>Google</span></figcaption></figure>
 <figure class="rv"><p class="stars">★★★★★</p><blockquote>„Auto po detailingu wygląda lepiej niż po wyjeździe z salonu. Dodatkowo serwis klimatyzacji wykonany szybko i fachowo, teraz chłodzi idealnie. Świetny kontakt, uczciwe podejście i ogromna wiedza.”</blockquote><figcaption><b>Adam Amróżkiewicz</b><span>Facebook</span></figcaption></figure>
-<figure class="rv"><p class="stars">★★★★★</p><blockquote>„Pełen profesjonalizm i dbałość o każdy, nawet najmniejszy detal! Po odbiorze samochód wygląda dosłownie tak, jakby przed sekundą wyjechał z salonu.”</blockquote><figcaption><b>Michał Bąk</b><span>Google</span></figcaption></figure>
   </div>
  </div>
 </section>
@@ -394,9 +376,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 <section class="sec" id="kontakt">
  <div class="wrap ct">
   <div class="rv">
-   <p class="k">Kontakt</p>
+   
    <h2 class="h">Umów auto<br><em>na wizytę.</em></h2>
-   <p>Napisz, jakie masz auto i&nbsp;czego potrzebuje. Odpowiemy z&nbsp;terminem i&nbsp;wyceną.</p>
+   
    <div class="links">
     <a href="tel:+48798546985"><div><small>TELEFON</small><span>798 546 985</span></div><i>↗</i></a>
     <a href="mailto:bartekrzepecki300899@wp.pl"><div><small>E-MAIL</small><span>bartekrzepecki300899@wp.pl</span></div><i>↗</i></a>
@@ -493,7 +475,7 @@ kn.addEventListener('keydown',function(e){var v=+kn.getAttribute('aria-valuenow'
 var swept=false;if('IntersectionObserver' in w){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!swept&&!ba.classList.contains('used')){swept=true;var t1=null;function an(t){if(ba.classList.contains('used'))return;t1=t1||t;var k=(t-t1)/1800;if(k>1)k=1;ba.style.setProperty('--p',(50+22*Math.sin(k*Math.PI*2))+'%');if(k<1)requestAnimationFrame(an)}requestAnimationFrame(an)}})},{threshold:.6}).observe(ba)}
 
 /* usługi */
-var li=$$('#svl li'),si=$$('#svp img'),svc=$('#svc'),caps=['POWŁOKA NA GOLFIE 8 GTI','FOLIA PPF WE WNĘCE KLAMKI','AUDI A6 PO RENOWACJI LAKIERU','FOTEL W TRAKCIE CZYSZCZENIA: LEWA POŁOWA JUŻ CZYSTA','NAWIEW PO SERWISIE: 4,8°C','FELGA PO ZABEZPIECZENIU'];
+var li=$$('#svl li'),si=$$('#svp img'),svc=$('#svc'),caps=['GOLF 8 GTI','GOLF 8 GTI','AUDI A6 C7','W TRAKCIE CZYSZCZENIA','PO SERWISIE: 4,8°C','GOLF 8 GTI'];
 function sv(i){li.forEach(function(l,j){l.classList.toggle('on',j===i)});si.forEach(function(m,j){m.classList.toggle('on',j===i)});svc.textContent=caps[i]}
 var pin=$('#svpin'),N=li.length,sc=0;
 li.forEach(function(l,i){l.addEventListener('click',function(){var r=pin.getBoundingClientRect(),top=r.top+w.scrollY,len=r.height-w.innerHeight;w.scrollTo({top:top+len*(i+.5)/N,behavior:'smooth'})})});
