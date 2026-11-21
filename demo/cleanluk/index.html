@@ -189,7 +189,7 @@ footer img{width:54px;height:54px;border-radius:50%}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 
 /* opinie */
-#opinie{background:var(--bg2)}
+#opinie{background:var(--bg)}
 .op{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;padding:40px 44px;border:1px solid var(--ln);border-radius:22px;background:var(--card)}
 .op .big{font:400 clamp(54px,7vw,92px)/1 Mi}
 .op .big small{font:800 12px Mr;letter-spacing:.2em;color:var(--tx2);display:block;margin-top:12px}
@@ -215,6 +215,26 @@ footer img{width:54px;height:54px;border-radius:50%}
 .soc a:hover{border-color:var(--si);transform:translateY(-2px)}
 .soc svg{width:21px;height:21px;fill:var(--tx)}
 .ct{align-items:start}
+
+.sc{display:flex;align-items:center;gap:46px;flex-wrap:wrap;padding:30px 0;border-block:1px solid var(--ln);margin-bottom:56px}
+.sc div{display:flex;align-items:center;gap:16px}
+.sc b{font:400 clamp(40px,5vw,64px)/1 Mi}
+.sc span{color:var(--tx2);font-size:14.5px;line-height:1.45}
+.sc .btn{margin-left:auto}
+.rq{columns:3 320px;column-gap:44px}
+.rq figure{break-inside:avoid;padding:0 0 34px;margin-bottom:34px;border-bottom:1px solid var(--ln)}
+.rq blockquote{font:500 18px/1.6 Mr;color:var(--tx)}
+.rq figcaption{margin-top:16px;display:flex;gap:12px;align-items:baseline;font-size:14px}
+.rq figcaption b{font-weight:700}
+.rq figcaption span{font:800 10.5px Mr;letter-spacing:.2em;text-transform:uppercase;color:var(--tx2)}
+@media(max-width:700px){.sc{gap:24px}.sc .btn{margin-left:0}}
+.mob{gap:30px}.mob .mi{width:220px;aspect-ratio:4/3;object-fit:cover;border-radius:14px;flex:none}
+.mob>div{flex:1;min-width:240px}
+@media(max-width:860px){.mob .mi{width:100%}}
+.hrs{margin-top:22px}
+.hrs small{display:block;font:800 11px Mr;letter-spacing:.22em;color:var(--tx2);margin-bottom:10px}
+.hrs p{display:flex;justify-content:space-between;max-width:340px;padding:6px 0;color:var(--tx2);font-size:15px}
+.hrs b{color:var(--tx);font-weight:600}
 </style>
 </head>
 <body>
@@ -277,9 +297,9 @@ footer img{width:54px;height:54px;border-radius:50%}
    </ol>
    <div class="ph" id="svp">
     <img class="on" src="img/lexus-wnetrze.webp" alt="Wnętrze Lexusa NX z jasną skórą po czyszczeniu">
-    <img src="img/lexus-fotel.webp" alt="Fotel z karmelowej skóry po czyszczeniu" loading="lazy">
+    <img src="img/tapicerka.webp" alt="Pranie fotela samochodowego odkurzaczem piorącym" loading="lazy">
     <img src="img/porsche-bok.webp" alt="Porsche Macan, w lakierze odbijają się drzewa" loading="lazy">
-    <img src="img/lexus-tyl.webp" alt="Zielony Lexus NX z błyszczącym lakierem" loading="lazy">
+    <img src="img/powloka.webp" alt="Nakładanie powłoki ochronnej na czerwony lakier" loading="lazy">
     <img src="img/porsche-przod.webp" alt="Porsche Macan przygotowany do sprzedaży" loading="lazy">
     <span class="cap" id="svc">KOSMETYKA WNĘTRZA</span>
    </div>
@@ -317,16 +337,25 @@ footer img{width:54px;height:54px;border-radius:50%}
    <div><b>Auta na sprzedaż</b><p>Przygotowanie do zdjęć i&nbsp;oględzin, żeby auto pokazało się z&nbsp;najlepszej strony.</p></div>
    <div><b>Dom i&nbsp;firma</b><p>Pranie mebli i&nbsp;dywanów oraz mycie okien w&nbsp;domach, biurach i&nbsp;firmach.</p></div>
   </div>
-  <div class="mob rv"><div><p class="k">Z dojazdem do klienta</p><h3 class="h" style="margin-top:10px">Przyjedziemy do Ciebie.</h3><p>Pranie tapicerki meblowej i&nbsp;dywanów oraz mycie okien robimy u&nbsp;Ciebie na miejscu. Zapytaj o&nbsp;termin.</p></div><a class="btn b" href="tel:+48791930102">Zapytaj o termin</a></div>
+  <div class="mob rv"><img class="mi" src="img/kanapa.webp" alt="Welurowa kanapa po praniu tapicerki, realizacja Clean-Luk" loading="lazy"><div><p class="k">Z dojazdem do klienta</p><h3 class="h" style="margin-top:10px">Przyjedziemy do Ciebie.</h3><p>Pranie tapicerki meblowej i&nbsp;dywanów oraz mycie okien robimy u&nbsp;Ciebie na miejscu. Zapytaj o&nbsp;termin.</p></div><a class="btn b" href="tel:+48791930102">Zapytaj o termin</a></div>
  </div>
 </section>
 
 <section class="sec" id="opinie">
  <div class="wrap">
-  <div class="op rv">
-   <div class="big">100%<small>POLECA NA FACEBOOKU</small></div>
-   <p><b>83 opinie</b> klientów na Facebooku i&nbsp;każda z&nbsp;nich poleca Clean-Luk. Przeczytaj, co piszą o&nbsp;efektach i&nbsp;obsłudze.</p>
-   <a class="btn b" href="https://www.facebook.com/Clean-Luk/reviews" target="_blank" rel="noopener">Czytaj opinie</a>
+  <div class="hd rv"><div><h2 class="h">Co mówią<br>klienci.</h2></div><p>Opinie z&nbsp;Facebooka i&nbsp;Google, słowo w&nbsp;słowo.</p></div>
+  <div class="sc rv">
+   <div><b>100%</b><span>poleca na Facebooku<br>83 opinie</span></div>
+   <div><b>4,9</b><span>średnia w&nbsp;Google<br>82 opinie</span></div>
+   <a class="btn b" href="https://www.facebook.com/Clean-Luk/reviews" target="_blank" rel="noopener">Wszystkie opinie</a>
+  </div>
+  <div class="rq">
+<figure class="rv"><blockquote>„Kontakt z właścicielem: rewelacja! Bardzo krótki czas oczekiwania na realizację. Auto wygląda idealnie zarówno w środku, jak i na zewnątrz. Polecam wszystkim kompleksową usługę w bardzo dobrej cenie.”</blockquote><figcaption><b>Sylwia Kociszewska</b><span>Facebook</span></figcaption></figure>
+<figure class="rv"><blockquote>„Skorzystałem z usługi regeneracji, polerowania reflektorów Nissan Note. Praca wykonana profesjonalnie, obsługa konkretna, na temat.”</blockquote><figcaption><b>Wojciech Kryger</b><span>Google</span></figcaption></figure>
+<figure class="rv"><blockquote>„Polecam Clean-Luk, fotele i kanapa czyściutkie, bardzo fajny kontakt z klientem. Pierwszy raz korzystałam i pewnie kiedyś znowu skorzystam. Rzetelna firma.”</blockquote><figcaption><b>Anna Jóźwiak</b><span>Facebook</span></figcaption></figure>
+<figure class="rv"><blockquote>„Jestem super zadowolony z usług tej firmy: mycie, woskowanie kampera i korekta uszkodzenia szyby akrylowej na medal!”</blockquote><figcaption><b>Tomasz Patora</b><span>Google</span></figcaption></figure>
+<figure class="rv"><blockquote>„Polecam, firma dokładna i skuteczna. Dywan i materace wyczyszczone perfekcyjnie.”</blockquote><figcaption><b>Izabela Skrabińska</b><span>Facebook</span></figcaption></figure>
+<figure class="rv"><blockquote>„Nie pierwszy i nie ostatni raz skorzystałam z usług. Fachowa obsługa, jestem bardzo zadowolona z efektów. Samochód wygląda super! Pełen profesjonalizm!”</blockquote><figcaption><b>Paulina Wichrzyńska</b><span>Facebook</span></figcaption></figure>
   </div>
  </div>
 </section>
@@ -343,7 +372,7 @@ footer img{width:54px;height:54px;border-radius:50%}
    <details open><summary>Jak poznać cenę?</summary><p>Zadzwoń albo napisz przez formularz, najlepiej ze zdjęciem auta. Cena zależy od wielkości auta i&nbsp;jego stanu, więc podajemy ją po obejrzeniu.</p></details>
    <details><summary>Czy przygotujecie auto do sprzedaży?</summary><p>Tak. Czyścimy wnętrze, odświeżamy lakier i&nbsp;detale, żeby auto dobrze wyglądało na zdjęciach i&nbsp;przy oględzinach.</p></details>
    <details><summary>Czy dojeżdżacie do klienta?</summary><p>Tak, przy praniu tapicerki meblowej i&nbsp;dywanów oraz przy myciu okien w&nbsp;domach, biurach i&nbsp;firmach.</p></details>
-   <details><summary>Gdzie jesteście?</summary><p>W Zgierzu, przy ul. Długiej 98a. Najpierw zadzwoń albo napisz, żeby umówić termin.</p></details>
+   <details><summary>Gdzie jesteście?</summary><p>W Zgierzu, przy ul. Długiej 98a. Pracujemy od poniedziałku do piątku w&nbsp;godz. 8:30-18:00 i&nbsp;w&nbsp;sobotę w&nbsp;godz. 9:00-14:00. Najlepiej zadzwoń wcześniej, żeby umówić termin.</p></details>
   </div>
  </div>
 </section>
@@ -358,6 +387,7 @@ footer img{width:54px;height:54px;border-radius:50%}
     <a href="mailto:autokosmetyka.cleanluk@gmail.com"><div><small>E-MAIL</small><span>autokosmetyka.cleanluk@gmail.com</span></div><i>↗</i></a>
     <a href="https://www.google.com/maps/search/?api=1&amp;query=Clean-Luk+D%C5%82uga+98a+Zgierz" target="_blank" rel="noopener"><div><small>ADRES</small><span>ul. Długa 98a, Zgierz</span></div><i>↗</i></a>
    </div>
+   <div class="hrs"><small>GODZINY OTWARCIA</small><p><span>Poniedziałek-piątek</span><b>8:30-18:00</b></p><p><span>Sobota</span><b>9:00-14:00</b></p><p><span>Niedziela</span><b>zamknięte</b></p></div>
    <div class="soc">
     <a href="https://www.facebook.com/Clean-Luk" target="_blank" rel="noopener" aria-label="Facebook Clean-Luk"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8.1v3h2.5V21h2.9z"/></svg></a>
     <a href="https://www.instagram.com/clean_luk/" target="_blank" rel="noopener" aria-label="Instagram clean_luk"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM12 3.6c2.7 0 3 0 4.1.1 1 .1 1.5.2 1.9.4.5.2.8.4 1.2.8.4.4.6.7.8 1.2.1.4.3.9.4 1.9 0 1.1.1 1.4.1 4.1s0 3-.1 4.1c-.1 1-.2 1.5-.4 1.9-.2.5-.4.8-.8 1.2-.4.4-.7.6-1.2.8-.4.1-.9.3-1.9.4-1.1 0-1.4.1-4.1.1s-3 0-4.1-.1c-1-.1-1.5-.2-1.9-.4-.5-.2-.8-.4-1.2-.8-.4-.4-.6-.7-.8-1.2-.1-.4-.3-.9-.4-1.9 0-1.1-.1-1.4-.1-4.1s0-3 .1-4.1c.1-1 .2-1.5.4-1.9.2-.5.4-.8.8-1.2.4-.4.7-.6 1.2-.8.4-.1.9-.3 1.9-.4 1.1 0 1.4-.1 4.1-.1zM12 2c-2.7 0-3.1 0-4.1.1-1.1 0-1.8.2-2.4.5-.7.3-1.2.6-1.8 1.2-.6.6-.9 1.1-1.2 1.8-.3.6-.4 1.3-.5 2.4C2 8.9 2 9.3 2 12s0 3.1.1 4.1c0 1.1.2 1.8.5 2.4.3.7.6 1.2 1.2 1.8.6.6 1.1.9 1.8 1.2.6.3 1.3.4 2.4.5 1 .1 1.4.1 4.1.1s3.1 0 4.1-.1c1.1 0 1.8-.2 2.4-.5.7-.3 1.2-.6 1.8-1.2.6-.6.9-1.1 1.2-1.8.3-.6.4-1.3.5-2.4.1-1 .1-1.4.1-4.1s0-3.1-.1-4.1c0-1.1-.2-1.8-.5-2.4-.3-.7-.6-1.2-1.2-1.8-.6-.6-1.1-.9-1.8-1.2-.6-.3-1.3-.4-2.4-.5C15.1 2 14.7 2 12 2z"/></svg></a>
