@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Fundacja Instytut Przedsiębiorczości Społecznej · wsparcie dla MŚP · Łódź</title>
+<meta name="description" content="Finansowanie, CSR/ESG, doradztwo i networking dla małych i średnich firm. Fundacja IPS, Łódź.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f6f5f1">
+<meta property="og:title" content="Fundacja IPS · wspieramy firmy, które tworzą połowę PKB">
+<meta property="og:description" content="Finansowanie, CSR/ESG, doradztwo i networking dla MŚP.">
+<meta property="og:image" content="https://emilwiktorski.pl/demo/fips/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://emilwiktorski.pl/demo/fips/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:Fr;font-style:normal;font-display:swap;src:url(fonts/fraunces-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Fr;font-style:normal;font-display:swap;src:url(fonts/fraunces-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Fr;font-style:italic;font-display:swap;src:url(fonts/fraunces-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Fr;font-style:italic;font-display:swap;src:url(fonts/fraunces-latin-ext-400-italic.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Mr;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Mr;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Mr;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Mr;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Mr;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Mr;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-ext-800-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--bg:#f6f5f1;--bg2:#ecebe5;--card:#fff;--nv:#031150;--tx:#0e1530;--tx2:#5c6175;--ln:#dcdbd3;--gr:#16b46c;--gr2:#d9f3e5}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--tx);font:400 17px/1.65 Mr,system-ui,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{width:min(1200px,100% - 40px);margin:0 auto}
+.h{font-family:Fr,Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1.05;color:var(--nv)}
+.h em{font-style:italic;color:var(--gr)}
+.k{font:800 11.5px/1.3 Mr;letter-spacing:.22em;text-transform:uppercase;color:var(--tx2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;font:800 13.5px/1 Mr;letter-spacing:.04em;text-decoration:none;cursor:pointer;border:0;white-space:nowrap;transition:transform .25s,background .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.a{background:var(--nv);color:#fff;box-shadow:0 12px 30px -14px rgba(3,17,80,.6)}
+.btn.a:hover{background:#0a1d78}
+.btn.b{background:none;border:1px solid #b9b8ae;color:var(--nv)}
+.btn.b:hover{border-color:var(--nv)}
+.btn.g{background:var(--gr);color:#fff}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+section.sec{padding:120px 0}
+.hd{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.hd h2{font-size:clamp(36px,4.6vw,64px)}
+.hd p{color:var(--tx2);max-width:470px}
+@media(max-width:860px){section.sec{padding:84px 0}.hd{grid-template-columns:1fr;gap:14px;margin-bottom:34px}}
+
+nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px max(20px,calc((100% - 1200px)/2));transition:background .35s,padding .35s,box-shadow .35s}
+nav.s{background:rgba(246,245,241,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-top:11px;padding-bottom:11px;box-shadow:0 1px 0 var(--ln)}
+.lg{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--nv)}
+.lg img{height:34px;width:auto}
+.lg span{font:600 12px/1.25 Mr;color:var(--tx2);max-width:170px}
+nav .ln{display:flex;gap:28px;align-items:center}
+nav .ln a{font:600 14.5px/1 Mr;text-decoration:none;color:var(--tx2);transition:color .2s}
+nav .ln a:hover{color:var(--nv)}
+nav .ln .btn{height:44px;padding:0 20px;font-size:13px;color:#fff}
+@media(max-width:960px){nav .ln a:not(.btn){display:none}.lg span{display:none}}
+
+/* 1. start: złotówka dzieli się na pół */
+#hero{position:relative;height:260vh}
+#hero .pin{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;width:min(1200px,100% - 40px);margin:0 auto}
+#hero h1{font-size:clamp(40px,5.4vw,80px)}
+#hero .lead{margin-top:24px;color:var(--tx2);font-size:19px;max-width:500px}
+#hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+#hero .t2{position:absolute;left:0;right:0;opacity:0;pointer-events:none}
+.txt{position:relative}
+.coin{position:relative;width:min(400px,32vw);aspect-ratio:1;justify-self:center}
+.coin .hf{position:absolute;inset:0;will-change:transform}
+.coin svg{width:100%;height:100%;overflow:visible}
+.coin .ct1{transition:none}.coin .pct{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;opacity:0;pointer-events:none}
+.coin .pct b{display:block;font:400 clamp(40px,4.6vw,72px)/1 Fr;color:var(--nv);letter-spacing:-.03em}
+.coin .pct small{display:block;margin-top:10px;font:800 11px/1.4 Mr;letter-spacing:.2em;text-transform:uppercase;color:var(--tx2)}
+.cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);font:800 10.5px/1 Mr;letter-spacing:.3em;color:#9a9c94}
+.cue::after{content:"";display:block;width:1px;height:30px;margin:10px auto 0;background:linear-gradient(#9a9c94,transparent)}
+@media(max-width:860px){#hero{height:230vh}#hero .pin{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:center;gap:28px;padding-top:70px}.coin{width:min(300px,70vw);order:-1}#hero h1{font-size:clamp(34px,9vw,46px)}#hero .lead{font-size:16.5px;margin-top:16px}#hero .cta{margin-top:22px}#hero .cta .btn{flex:1;padding:0 14px}.cue{display:none}}
+
+/* 2. liczby */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ln)}
+.nums div{padding:34px 24px 10px 0;border-right:1px solid var(--ln);margin-right:24px}
+.nums div:last-child{border:0;margin:0}
+.nums b{display:block;font:400 clamp(44px,5vw,68px)/1 Fr;color:var(--nv)}
+.nums small{display:block;margin-top:12px;color:var(--tx2);font-size:15px;line-height:1.5}
+@media(max-width:860px){.nums{grid-template-columns:1fr 1fr}.nums div{padding:24px 14px 18px 0;margin-right:14px}.nums div:nth-child(2){border:0;margin:0}.nums div:nth-child(n+3){border-top:1px solid var(--ln)}}
+
+/* 3. oferta */
+#oferta{background:var(--nv);color:#fff}
+#oferta .h{color:#fff}
+#oferta .hd p{color:#aab0cf}
+.of{display:grid;grid-template-columns:1fr 1fr;gap:0 60px}
+.of details{border-top:1px solid rgba(255,255,255,.16)}
+.of details:nth-last-child(-n+2){border-bottom:1px solid rgba(255,255,255,.16)}
+.of summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:18px;padding:26px 44px 26px 0;position:relative;font:400 clamp(22px,2.2vw,30px)/1.2 Fr}
+.of summary::-webkit-details-marker{display:none}
+.of summary small{font:800 11px/1 Mr;letter-spacing:.12em;color:var(--gr)}
+.of summary::after{content:"+";position:absolute;right:4px;top:24px;font:300 28px Mr;color:var(--gr);transition:transform .3s}
+.of details[open] summary::after{transform:rotate(45deg)}
+.of details ul{list-style:none;padding:0 0 26px 36px;color:#c8cce3;font-size:15.5px}
+.of details li{padding:4px 0}
+.of details li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gr);margin-right:12px;vertical-align:2px}
+@media(max-width:860px){.of{grid-template-columns:1fr}.of details:nth-last-child(2){border-bottom:0}.of details ul{padding-left:0}}
+
+/* 4. programy */
+.pr{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pr article{display:flex;flex-direction:column;padding:34px 30px;border-radius:24px;background:var(--card);border:1px solid var(--ln);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.pr article:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(3,17,80,.35)}
+.pr .tag{align-self:flex-start;padding:7px 12px;border-radius:999px;background:var(--gr2);color:#0b7a47;font:800 11px/1 Mr;letter-spacing:.14em}
+.pr h3{font-size:30px;margin:22px 0 14px}
+.pr p{color:var(--tx2);font-size:15.5px;flex:1}
+.pr .n{margin-top:24px;padding-top:20px;border-top:1px solid var(--ln);font-size:14.5px;color:var(--tx2)}
+.pr .n b{font:400 30px/1 Fr;color:var(--nv);margin-right:8px}
+.pr a.more{margin-top:20px;font:800 13px Mr;color:var(--nv);text-decoration:none}
+@media(max-width:900px){.pr{grid-template-columns:1fr}}
+
+/* 5. zespół */
+.zr{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:70px}
+.zr figure{cursor:default}
+.zr .im{aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#ddd}
+.zr img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.zr figure:hover img{transform:scale(1.04)}
+.zr figcaption{margin-top:18px}
+.zr figcaption b{display:block;font:400 26px/1.2 Fr;color:var(--nv)}
+.zr figcaption span{display:block;font:800 11px/1.4 Mr;letter-spacing:.16em;text-transform:uppercase;color:var(--gr);margin:6px 0 10px}
+.zr figcaption p{color:var(--tx2);font-size:15px}
+.ex h3{font:800 12px Mr;letter-spacing:.22em;text-transform:uppercase;color:var(--tx2);margin-bottom:22px}
+.exs{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+.exs figure{position:relative}
+.exs .im{aspect-ratio:7/8;border-radius:16px;overflow:hidden;background:#ddd}
+.exs img{width:100%;height:100%;object-fit:cover}
+.exs b{display:block;font:700 14px/1.3 Mr;margin-top:12px;color:var(--nv)}
+.exs span{display:block;font-size:13px;color:var(--tx2);margin-top:3px;line-height:1.4}
+@media(max-width:1000px){.exs{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:860px){.zr{grid-template-columns:1fr;gap:34px}.zr .im{aspect-ratio:5/4}.zr img{object-position:50% 25%}}
+@media(max-width:560px){.exs{grid-template-columns:repeat(2,1fr)}}
+
+/* 6. ebook */
+#ebook{background:var(--bg2)}
+.eb{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.book{position:relative;width:min(340px,70vw);aspect-ratio:3/4;margin:0 auto;perspective:1400px}
+.book .pg{position:absolute;inset:0 0 0 6px;border-radius:4px 14px 14px 4px;background:#fff;box-shadow:0 30px 60px -24px rgba(3,17,80,.45);padding:34px 30px 30px 40px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.book .pg p{font:600 13px/1.5 Mr;color:var(--tx2)}
+.book .pg p b{color:var(--nv)}
+.book .cv{position:absolute;inset:0;border-radius:4px 14px 14px 4px;background:linear-gradient(150deg,#0a1d78,#031150 70%);color:#fff;padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between;transform-origin:left center;transition:transform 1.1s cubic-bezier(.2,.7,.2,1);box-shadow:inset 10px 0 18px -10px rgba(0,0,0,.5),0 30px 60px -24px rgba(3,17,80,.55)}
+.book:hover .cv,.book.open .cv{transform:rotateY(-62deg)}
+.book .cv img{height:30px;width:auto;filter:brightness(0) invert(1)}
+.book .cv h3{font:400 34px/1.1 Fr;color:#fff}
+.book .cv h3 em{color:#5be3a3;font-style:italic}
+.book .cv small{font:800 11px Mr;letter-spacing:.2em;color:#aab0cf}
+.eb h2{font-size:clamp(34px,4.2vw,58px);margin-bottom:18px}
+.eb>div>p{color:var(--tx2);margin-bottom:26px}
+.sub{display:flex;gap:10px;flex-wrap:wrap}
+.sub input{flex:1;min-width:220px;height:56px;padding:0 20px;border-radius:999px;border:1px solid #c9c8be;background:#fff;font:500 16px Mr;color:var(--tx);outline:none}
+.sub input:focus{border-color:var(--nv)}
+.cb{display:flex;gap:10px;margin-top:14px;font-size:13px;color:var(--tx2);line-height:1.5}
+.cb input{flex:none;width:17px;height:17px;margin-top:2px;accent-color:#031150}
+.done{display:none;margin-top:6px;padding:18px 20px;border-radius:16px;background:var(--gr2);color:#0b5c36;font-size:15px}
+.done.on{display:block}
+.sec2{margin-top:22px;font-size:14.5px;color:var(--tx2)}
+.sec2 a{color:var(--nv);font-weight:700}
+@media(max-width:860px){.eb{grid-template-columns:1fr;gap:44px}}
+
+/* 7. nabory */
+.nb{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.nb a{display:flex;flex-direction:column;gap:12px;padding:30px;border-radius:22px;border:1px solid var(--ln);background:var(--card);text-decoration:none;transition:border-color .3s,transform .4s}
+.nb a:hover{border-color:var(--nv);transform:translateY(-3px)}
+.nb small{font:800 11px Mr;letter-spacing:.18em;color:var(--gr);text-transform:uppercase}
+.nb b{font:400 24px/1.25 Fr;color:var(--nv)}
+.nb span{font:800 13px Mr;color:var(--nv)}
+@media(max-width:760px){.nb{grid-template-columns:1fr}}
+
+/* 8. partnerzy */
+.pt{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:26px 40px;padding:40px 0;border-block:1px solid var(--ln)}
+.pt span{font:800 clamp(16px,1.6vw,21px)/1 Mr;letter-spacing:.02em;color:#8c8f9c;transition:color .3s}
+.pt span:hover{color:var(--nv)}
+
+/* 9. kontakt */
+#kontakt{background:var(--nv);color:#fff}
+#kontakt .h{color:#fff}
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.ct h2{font-size:clamp(38px,5vw,68px);margin-bottom:22px}
+.ct>div>p{color:#aab0cf}
+.links{margin-top:30px}
+.links>a,.links>div{display:flex;justify-content:space-between;align-items:center;padding:22px 4px;border-top:1px solid rgba(255,255,255,.16);text-decoration:none}
+.links>:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
+.links small{display:block;font:800 11px Mr;letter-spacing:.22em;color:#8f96bd;margin-bottom:6px}
+.links span{font:600 clamp(16px,1.7vw,20px) Mr}
+.links i{font-style:normal;font-size:22px;color:var(--gr)}
+.fm{display:grid;gap:12px;padding:34px;border-radius:24px;background:#0a1a63;border:1px solid rgba(255,255,255,.12)}
+.fm label{display:block;font:800 10.5px Mr;letter-spacing:.2em;color:#8f96bd;margin-bottom:7px;text-transform:uppercase}
+.fm input,.fm textarea{width:100%;background:#061355;border:1px solid rgba(255,255,255,.14);border-radius:14px;color:#fff;font:500 16px Mr;padding:15px 16px;outline:none}
+.fm textarea{min-height:120px;resize:vertical}
+.fm input:focus,.fm textarea:focus{border-color:var(--gr)}
+.fm .r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ch{display:flex;flex-wrap:wrap;gap:8px}
+.ch button{cursor:pointer;padding:10px 15px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:none;font:600 14px Mr;color:#c8cce3}
+.ch button[aria-pressed="true"]{background:var(--gr);border-color:var(--gr);color:#fff}
+.fm .btn{width:100%;margin-top:4px}
+.fm .rodo{font-size:12.5px;color:#8f96bd;line-height:1.5}
+@media(max-width:860px){.ct{grid-template-columns:1fr;gap:34px}.fm{padding:22px}}
+@media(max-width:560px){.fm .r2{grid-template-columns:1fr}}
+
+footer{padding:56px 0 calc(34px + env(safe-area-inset-bottom));font-size:14px;color:var(--tx2)}
+.ft{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+.ft small{display:block;font:800 11px Mr;letter-spacing:.22em;margin-bottom:12px}
+.ft p{margin-bottom:6px}
+.ft a{text-decoration:none;color:var(--nv)}
+.ft a:hover{text-decoration:underline}
+.fb{margin-top:34px;padding-top:22px;border-top:1px solid var(--ln);font-size:13px}
+@media(max-width:860px){.ft{grid-template-columns:1fr 1fr;gap:30px}}
+@media(max-width:520px){.ft{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav id="nav">
+ <a class="lg" href="#hero" aria-label="Fundacja IPS, na górę strony"><img src="img/logo.svg" alt="IPS" width="56" height="34"><span>Fundacja Instytut Przedsiębiorczości Społecznej</span></a>
+ <div class="ln"><a href="#oferta">Oferta</a><a href="#programy">Programy</a><a href="#zespol">Zespół</a><a href="#ebook">Do pobrania</a><a class="btn a" href="#kontakt">Zacznijmy współpracę</a></div>
+</nav>
+
+<header id="hero">
+ <div class="pin">
+  <div class="txt">
+   <div id="t1">
+    <p class="k">Fundacja IPS · Łódź</p>
+    <h1 class="h" style="margin-top:18px">Co druga złotówka<br>polskiego PKB<br><em>powstaje w&nbsp;MŚP.</em></h1>
+    <p class="lead">Wspieramy małe i&nbsp;średnie firmy w&nbsp;finansowaniu, CSR/ESG i&nbsp;budowaniu relacji biznesowych.</p>
+    <div class="cta"><a class="btn a" href="#kontakt">Zacznijmy współpracę</a><a class="btn b" href="#oferta">W czym pomagamy</a></div>
+   </div>
+   <div class="t2" id="t2">
+    <p class="k">Sektor MŚP w Polsce</p>
+    <h2 class="h" style="margin-top:18px;font-size:clamp(34px,4.4vw,64px)">Niemal 70%<br>pracujących<br><em>to ludzie z&nbsp;MŚP.</em></h2>
+    <p class="lead">To firmy rodzinne, warsztaty, startupy i&nbsp;producenci. Im pomagamy rosnąć.</p>
+   </div>
+  </div>
+  <div class="coin" id="coin" aria-hidden="true">
+   <div class="hf" id="hL"><svg viewBox="0 0 200 200"><defs><clipPath id="cl"><rect x="0" y="0" width="100" height="200"/></clipPath><radialGradient id="cg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#1a2d8f"/><stop offset="1" stop-color="#031150"/></radialGradient></defs><g clip-path="url(#cl)"><circle cx="100" cy="100" r="96" fill="url(#cg)"/><circle cx="100" cy="100" r="84" fill="none" stroke="#16b46c" stroke-width="1.2" stroke-dasharray="2 4"/><text class="ct1" x="100" y="118" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="58" fill="#fff">1 zł</text></g></svg></div>
+   <div class="hf" id="hR"><svg viewBox="0 0 200 200"><defs><clipPath id="cr"><rect x="100" y="0" width="100" height="200"/></clipPath><radialGradient id="cg2" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#1fd283"/><stop offset="1" stop-color="#0d8f55"/></radialGradient></defs><g clip-path="url(#cr)"><circle cx="100" cy="100" r="96" fill="url(#cg2)"/><circle cx="100" cy="100" r="84" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.2" stroke-dasharray="2 4"/><text class="ct1" x="100" y="118" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="58" fill="#fff">1 zł</text></g></svg></div>
+   <div class="pct" id="pct"><b id="pn">0,0%</b><small>polskiego PKB<br>wytwarzają MŚP</small></div>
+  </div>
+  <div class="cue" id="cue">PRZEWIŃ</div>
+ </div>
+</header>
+
+<section class="sec" style="padding-top:40px">
+ <div class="wrap">
+  <div class="nums rv">
+   <div><b>25</b><small>firm wdrożyło CSR w&nbsp;programie PSO</small></div>
+   <div><b>2000</b><small>osób na konferencji, którą organizowaliśmy</small></div>
+   <div><b>7</b><small>ekspertów: dotacje, podatki, CSR/ESG, prawo</small></div>
+   <div><b>6</b><small>obszarów wsparcia dla MŚP i&nbsp;NGO</small></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="oferta">
+ <div class="wrap">
+  <div class="hd rv"><h2 class="h">W czym<br><em>pomagamy.</em></h2><p>Pracujemy z&nbsp;małymi i&nbsp;średnimi firmami, organizacjami pozarządowymi i&nbsp;osobami, które zakładają fundację rodzinną.</p></div>
+  <div class="of rv">
+   <details open><summary><small>01</small>Finansowanie</summary><ul><li>Dotacje unijne i&nbsp;krajowe: B+R, innowacje, cyfryzacja, inwestycje</li><li>Pożyczki i&nbsp;kredyty inwestycyjne, m.in. z&nbsp;BGK i&nbsp;ARP</li><li>Leasing sprzętu i&nbsp;technologii</li><li>Dotacje dla organizacji pozarządowych</li></ul></details>
+   <details><summary><small>02</small>Strategia CSR/ESG</summary><ul><li>Audyty CSR/ESG</li><li>Kodeksy etyczne, regulaminy i&nbsp;polityki</li><li>Strategie łączące aspekty społeczne, środowiskowe i&nbsp;zarządcze</li></ul></details>
+   <details><summary><small>03</small>Wydarzenia</summary><ul><li>Konferencje, seminaria, warsztaty, wyjazdy integracyjne</li><li>Dobór prelegentów, moderatorów i&nbsp;ekspertów</li><li>Doświadczenie: konferencja dla 2000 osób</li></ul></details>
+   <details><summary><small>04</small>Doradztwo biznesowe</summary><ul><li>Planowanie strategiczne i&nbsp;wejście na nowe rynki</li><li>Zarządzanie zespołem i&nbsp;optymalizacja procesów</li><li>Budowanie wizerunku, m.in. z&nbsp;portalem PKB24.pl</li></ul></details>
+   <details><summary><small>05</small>Prawo i&nbsp;podatki</summary><ul><li>Zakładanie fundacji, stowarzyszeń i&nbsp;fundacji rodzinnych</li><li>Audyty prawne, w&nbsp;tym compliance i&nbsp;środowiskowe</li><li>Dobór formy prawnej, podatkowej i&nbsp;finansowej</li></ul></details>
+   <details><summary><small>06</small>Szkolenia</summary><ul><li>Zgodne z&nbsp;wytycznymi ISO 26000 (CSR)</li><li>Komunikacja, wizerunek, zarządzanie projektami i&nbsp;zespołami</li><li>Prawo i&nbsp;podatki dla MŚP i&nbsp;NGO</li></ul></details>
+  </div>
+  <div class="rv" style="margin-top:44px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn g" href="#kontakt">Porozmawiajmy o&nbsp;Twojej firmie</a><a class="btn b" style="color:#fff;border-color:rgba(255,255,255,.35)" href="https://fips.pl/wspolpraca/" target="_blank" rel="noopener">Pobierz ofertę PDF</a></div>
+ </div>
+</section>
+
+<section class="sec" id="programy">
+ <div class="wrap">
+  <div class="hd rv"><h2 class="h">Nasze<br><em>programy.</em></h2><p>Bezpłatne programy dla firm i&nbsp;osób, które dopiero zaczynają.</p></div>
+  <div class="pr">
+   <article class="rv"><span class="tag">PSO</span><h3 class="h">Przedsiębiorca Społecznie Odpowiedzialny</h3><p>Bezpłatnie opracowujemy i&nbsp;wdrażamy praktyki CSR w&nbsp;firmach w&nbsp;100% polskich, które dotąd nie robiły CSR albo robiły to okazjonalnie.</p><p class="n"><b>25</b>przedsiębiorstw w&nbsp;programie</p><a class="more" href="https://fips.pl/nasze-dzialania/przedsiebiorca-spolecznie-odpowiedzialny/" target="_blank" rel="noopener">Więcej o&nbsp;programie →</a></article>
+   <article class="rv"><span class="tag">SSO</span><h3 class="h">Startup Społecznie Odpowiedzialny</h3><p>Cykliczne szkolenia dla osób przed 30. rokiem życia, które chcą założyć firmę: weryfikacja pomysłu, finanse, prawo, podatki, biznesplan i&nbsp;wnioski o&nbsp;dotacje.</p><p class="n"><b>&lt;30</b>lat, dla kogo</p><a class="more" href="https://fips.pl/nasze-dzialania/startup-spolecznie-odpowiedzialny/" target="_blank" rel="noopener">Więcej o&nbsp;programie →</a></article>
+   <article class="rv"><span class="tag">IPB</span><h3 class="h">Integracja Polskiego Biznesu</h3><p>Platforma, na której przedsiębiorcy wymieniają się doświadczeniem, dobrymi praktykami CSR, rekomendacjami i&nbsp;kontaktami do zaufanych firm.</p><p class="n"><b>B2B</b>networking i&nbsp;polecenia</p><a class="more" href="https://fips.pl/nasze-dzialania/integracja-polskiego-biznesu/" target="_blank" rel="noopener">Więcej o&nbsp;programie →</a></article>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="zespol" style="background:var(--card)">
+ <div class="wrap">
+  <div class="hd rv"><h2 class="h">Ludzie,<br><em>z&nbsp;którymi pracujesz.</em></h2><p>Zarząd fundacji i&nbsp;eksperci, do których kierujemy firmy z&nbsp;konkretnym problemem.</p></div>
+  <div class="zr">
+   <figure class="rv"><div class="im"><img src="img/nowacka.webp" alt="Monika Nowacka" loading="lazy"></div><figcaption><b>Monika Nowacka</b><span>Fundator i&nbsp;Prezes</span><p>Członek Łódzkiej Wojewódzkiej Rady Działalności Pożytku Publicznego. MBA i&nbsp;CSR Management.</p></figcaption></figure>
+   <figure class="rv"><div class="im"><img src="img/kujawa.webp" alt="Magda Kujawa" loading="lazy"></div><figcaption><b>Magda Kujawa</b><span>Wiceprezes</span><p>Organizuje wydarzenia biznesowe, konferencje i&nbsp;wyjazdy integracyjne. Od 10 lat w&nbsp;organizacjach pozarządowych.</p></figcaption></figure>
+   <figure class="rv"><div class="im"><img src="img/wyszynski.webp" alt="Adam Wyszyński" loading="lazy"></div><figcaption><b>Adam Wyszyński</b><span>Członek Zarządu, integracja biznesu</span><p>Redaktor naczelny PKB24.pl, prowadzi firmy w&nbsp;branży medialnej, motoryzacyjnej i&nbsp;recyklingowej.</p></figcaption></figure>
+  </div>
+  <div class="ex rv"><h3>Eksperci IPS</h3>
+   <div class="exs">
+    <figure><div class="im"><img src="img/gajus.webp" alt="Katarzyna Gajus-Wyrwicz" loading="lazy"></div><b>Katarzyna Gajus-Wyrwicz</b><span>CSR i&nbsp;ESG</span></figure>
+    <figure><div class="im"><img src="img/mrowczynska.webp" alt="Kinga Mrówczyńska-Rybak" loading="lazy"></div><b>Kinga Mrówczyńska-Rybak</b><span>Dotacje</span></figure>
+    <figure><div class="im"><img src="img/jaworska.webp" alt="Anna Jaworska" loading="lazy"></div><b>Anna Jaworska</b><span>Rozwój biznesu</span></figure>
+    <figure><div class="im"><img src="img/kadziela.webp" alt="Karol Kądziela" loading="lazy"></div><b>Karol Kądziela</b><span>Doradca podatkowy</span></figure>
+    <figure><div class="im"><img src="img/michas.webp" alt="Radosław Michaś" loading="lazy"></div><b>Radosław Michaś</b><span>Pożyczki preferencyjne</span></figure>
+    <figure><div class="im"><img src="img/sut.webp" alt="Anna Sut" loading="lazy"></div><b>Anna Sut</b><span>Rozwój organizacji</span></figure>
+    <figure><div class="im"><img src="img/zjawiony.webp" alt="Kamil Zjawiony" loading="lazy"></div><b>Kamil Zjawiony</b><span>Certyfikacja maszyn</span></figure>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="ebook">
+ <div class="wrap eb">
+  <div class="rv"><div class="book" id="book"><div class="pg"><p class="k" style="color:var(--gr)">W środku</p><p><b>Dotacje</b> na inwestycje, B+R i&nbsp;cyfryzację</p><p><b>Pożyczki</b> preferencyjne i&nbsp;kredyty z&nbsp;BGK</p><p><b>Leasing</b> sprzętu i&nbsp;technologii</p><p><b>Terminy</b> naborów na najbliższe miesiące</p></div><div class="cv"><img src="img/logo.svg" alt="" width="50" height="30"><div><h3>Dostępne finansowanie<br><em>dla MŚP</em></h3></div><small>DARMOWY EBOOK</small></div></div></div>
+  <div class="rv">
+   <p class="k">Do pobrania</p>
+   <h2 class="h" style="margin-top:16px">Sprawdź, na co<br><em>możesz dostać pieniądze.</em></h2>
+   <p>Darmowy ebook o&nbsp;dostępnych formach finansowania dla małych i&nbsp;średnich firm. Wyślemy go na Twój e-mail razem z&nbsp;comiesięcznym raportem o&nbsp;finansowaniu, CSR/ESG i&nbsp;zmianach prawnych.</p>
+   <form id="ebf" novalidate><div class="sub"><input type="email" id="em" placeholder="Twój e-mail firmowy" autocomplete="email" required><button class="btn a" type="submit">Wyślij mi ebook</button></div>
+   <label class="cb"><input type="checkbox" id="ag" required> Zgadzam się na otrzymywanie newslettera Fundacji IPS. Mogę się wypisać w&nbsp;każdej chwili.</label></form>
+   <p class="done" id="done">Dziękujemy. To podgląd strony, więc nic nie zostało wysłane. Ebook możesz pobrać tutaj: <a href="https://fips.pl/publikacje/dostepne-finansowanie-dla-msp/" target="_blank" rel="noopener">Dostępne finansowanie dla MŚP</a>.</p>
+   <p class="sec2">Interesuje Cię CSR? Pobierz też <a href="https://fips.pl/publikacje/publikacja-dotyczaca-praktyk-csr/" target="_blank" rel="noopener">poradnik o&nbsp;praktykach CSR w&nbsp;MŚP</a>.</p>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="nabory">
+ <div class="wrap">
+  <div class="hd rv"><h2 class="h">Najnowsze<br><em>nabory.</em></h2><p>Na bieżąco piszemy o&nbsp;nowych konkursach i&nbsp;pożyczkach dla firm i&nbsp;organizacji.</p></div>
+  <div class="nb">
+   <a class="rv" href="https://fips.pl/aktualnosci/" target="_blank" rel="noopener"><small>Dla organizacji pozarządowych</small><b>Nabory NOWEFIO i&nbsp;PROO 2027</b><span>Czytaj →</span></a>
+   <a class="rv" href="https://fips.pl/aktualnosci/" target="_blank" rel="noopener"><small>Dla firm</small><b>Pożyczki dla firm na lata 2026 i&nbsp;2027</b><span>Czytaj →</span></a>
+  </div>
+  <div class="pt rv" style="margin-top:70px" aria-label="Partnerzy fundacji"><span>Stickman</span><span>PKB24</span><span>Bunkier</span><span>PAMMS</span><span>Polish-Taiwanese Chamber of Commerce</span></div>
+ </div>
+</section>
+
+<section class="sec" id="kontakt">
+ <div class="wrap ct">
+  <div class="rv">
+   <p class="k" style="color:#8f96bd">Kontakt</p>
+   <h2 class="h" style="margin-top:16px">Opowiedz nam<br><em>o&nbsp;swojej firmie.</em></h2>
+   <p>Odpowiemy, czy i&nbsp;jak możemy pomóc, i&nbsp;skierujemy Cię do właściwego eksperta.</p>
+   <div class="links">
+    <a href="mailto:m.nowacka@fips.pl"><div><small>E-MAIL</small><span>m.nowacka@fips.pl</span></div><i>↗</i></a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Legion%C3%B3w+44+%C5%81%C3%B3d%C5%BA" target="_blank" rel="noopener"><div><small>BIURO</small><span>ul. Legionów 44 lok. 5U, Łódź</span></div><i>↗</i></a>
+   </div>
+  </div>
+  <form class="fm rv" id="fm" novalidate>
+   <div><label>W czym możemy pomóc?</label><div class="ch" id="tp"><button type="button" aria-pressed="true">Finansowanie</button><button type="button" aria-pressed="false">CSR/ESG</button><button type="button" aria-pressed="false">Wydarzenie</button><button type="button" aria-pressed="false">Prawo i podatki</button><button type="button" aria-pressed="false">Szkolenie</button><button type="button" aria-pressed="false">Partnerstwo</button></div></div>
+   <div class="r2"><div><label for="f1">Imię i nazwisko</label><input id="f1" autocomplete="name"></div><div><label for="f2">Firma</label><input id="f2" autocomplete="organization"></div></div>
+   <div><label for="f3">E-mail</label><input id="f3" type="email" autocomplete="email"></div>
+   <div><label for="f4">Wiadomość</label><textarea id="f4" placeholder="Czym zajmuje się firma i czego potrzebujecie?"></textarea></div>
+   <button class="btn g" type="submit">Wyślij wiadomość</button>
+   <p class="rodo">Dane służą tylko do odpowiedzi na wiadomość. Administratorem jest Fundacja Instytut Przedsiębiorczości Społecznej, ul. Legionów 44 lok. 5U, 90-702 Łódź.</p>
+  </form>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap ft">
+  <div><a class="lg" href="#hero"><img src="img/logo.svg" alt="IPS" width="56" height="34"><span style="display:block">Fundacja Instytut Przedsiębiorczości Społecznej</span></a></div>
+  <div><small>BIURO</small><p>ul. Legionów 44 lok. 5U</p><p>90-702 Łódź</p><p><a href="mailto:m.nowacka@fips.pl">m.nowacka@fips.pl</a></p></div>
+  <div><small>DANE</small><p>KRS 0000857857</p><p>NIP 7252302388</p><p>REGON 38691786000000</p></div>
+  <div><small>WIĘCEJ</small><p><a href="https://fips.pl/aktualnosci/" target="_blank" rel="noopener">Aktualności</a></p><p><a href="https://fips.pl/otrzymane-dotacje/" target="_blank" rel="noopener">Otrzymane dotacje</a></p><p><a href="https://fips.pl/polityka-prywatnosci/" target="_blank" rel="noopener">Polityka prywatności</a></p></div>
+ </div>
+ <div class="wrap fb">© 2026 Fundacja Instytut Przedsiębiorczości Społecznej</div>
+</footer>
+
+<script>
+(function(){
+var d=document,w=window;function $(s){return d.querySelector(s)}function $$(s){return [].slice.call(d.querySelectorAll(s))}
+function cl(v){return v<0?0:v>1?1:v}function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+var nav=$('#nav'),hero=$('#hero'),hL=$('#hL'),hR=$('#hR'),pct=$('#pct'),pn=$('#pn'),t1=$('#t1'),t2=$('#t2'),cue=$('#cue');
+function onS(){
+ nav.classList.toggle('s',w.scrollY>40);
+ var r=hero.getBoundingClientRect(),run=hero.offsetHeight-w.innerHeight,p=cl(-r.top/run);
+ var s=ease(cl(p/.5)),mob=w.innerWidth<860,gap=(mob?34:40)*s;$$('.ct1').forEach(function(t){t.style.opacity=1-cl(s*2.2)});
+ hL.style.transform='translateX('+(-gap)+'%) rotate('+(-8*s)+'deg)';
+ hR.style.transform='translateX('+gap+'%) rotate('+(8*s)+'deg)';
+ pct.style.opacity=cl((p-.18)/.2);
+ pn.textContent=(49.1*cl((p-.18)/.32)).toFixed(1).replace('.',',')+'%';
+ var q=cl((p-.62)/.18);t1.style.opacity=1-q;t1.style.transform='translateY('+(-24*q)+'px)';t1.style.pointerEvents=q>.5?'none':'';
+ t2.style.opacity=q;t2.style.transform='translateY('+(24*(1-q))+'px)';
+ cue.style.opacity=1-cl(p/.06);
+}
+w.addEventListener('scroll',onS,{passive:true});w.addEventListener('resize',onS);onS();
+/* t2 ma tę samą pozycję co t1 */
+function placeT2(){t2.style.top=t1.offsetTop+'px'}placeT2();w.addEventListener('resize',placeT2);
+
+/* oferta: na komputerze jeden otwarty naraz w kolumnie */
+var book=$('#book');if('IntersectionObserver' in w&&!matchMedia('(hover:hover)').matches){new IntersectionObserver(function(es){es.forEach(function(e){book.classList.toggle('open',e.isIntersecting)})},{threshold:.7}).observe(book)}
+
+$('#ebf').addEventListener('submit',function(e){e.preventDefault();var m=$('#em');if(!/.+@.+\..+/.test(m.value)){m.focus();return}if(!$('#ag').checked){$('#ag').focus();return}this.style.display='none';$('#done').classList.add('on');book.classList.add('open')});
+
+$$('#tp button').forEach(function(b){b.addEventListener('click',function(){$$('#tp button').forEach(function(x){x.setAttribute('aria-pressed',x===b)})})});
+$('#fm').addEventListener('submit',function(e){e.preventDefault();var t=$('#tp [aria-pressed="true"]').textContent;
+ var b='Temat: '+t+'\nImię i nazwisko: '+$('#f1').value+'\nFirma: '+$('#f2').value+'\nE-mail: '+$('#f3').value+'\n\n'+$('#f4').value;
+ location.href='mailto:m.nowacka@fips.pl?subject='+encodeURIComponent('Współpraca: '+t)+'&body='+encodeURIComponent(b)});
+
+var io='IntersectionObserver' in w?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12}):null;
+$$('.rv').forEach(function(e){io?io.observe(e):e.classList.add('in')});
+})();
+</script>
+</body>
+</html>
