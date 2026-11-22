@@ -165,7 +165,7 @@ section.sec{padding:120px 0}
 .sv .ph img.on{opacity:1;transform:none}
 .sv .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,9,10,.6),transparent 40%)}
 .sv .ph .cap{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;font:800 11px/1.4 Ar;letter-spacing:.2em;color:#e6dfcf}
-@media(max-width:860px){.svpin{height:calc(100svh + 6 * 60svh)}.svst{height:100svh;align-items:flex-start;padding-top:70px}.sv{grid-template-columns:1fr;gap:12px}.sv .ph{aspect-ratio:auto;height:33svh;max-height:none;order:-1}.sv li{padding:10px 0}.sv li .t{font-size:15px}.sv li p{font-size:14px}.sv li.on p{margin-top:5px}}
+@media(max-width:860px){.svpin{height:calc(100svh + 6 * 60svh)}.svst{height:100svh;align-items:center;padding-top:64px}.sv{grid-template-columns:1fr;gap:12px}.sv .ph{aspect-ratio:auto;height:clamp(200px,calc(100svh - 470px),46svh);max-height:none;order:-1}.sv li{padding:10px 0}.sv li .t{font-size:15px}.sv li p{font-size:14px}.sv li.on p{margin-top:5px}}
 
 /* 5. certyfikat i pytania */
 .fx{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:start}
@@ -238,8 +238,8 @@ details p{color:var(--tx2);padding:0 40px 22px 0}
 @media(max-width:860px){.ct{grid-template-columns:1fr;gap:34px}.fm{padding:22px}}
 @media(max-width:600px){.fm .r2{grid-template-columns:1fr}}
 
-footer{border-top:1px solid var(--ln);padding:34px 0 calc(34px + env(safe-area-inset-bottom));color:#6f6a60;font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-inset-bottom));color:#6f6a60;font-size:14px}
+footer .ft{display:grid;grid-template-columns:1.2fr 1fr 1.2fr .8fr;gap:40px;align-items:start}footer .fc small{display:block;font:700 11px Ar;letter-spacing:.22em;color:var(--tx2);margin-bottom:12px}footer .fc p{margin:0 0 6px;color:var(--tx2);font-size:14.5px}footer .fc b{color:var(--tx);font-weight:600}footer .fc a{text-decoration:none;color:var(--tx);transition:color .2s}footer .fc a:hover{color:var(--g1)}footer .cert{margin-top:16px!important;display:inline-flex;flex-direction:column;gap:3px;padding:10px 14px;border:1px solid rgba(217,184,102,.35);border-radius:12px}footer .cert span{font-size:11px;letter-spacing:.14em;text-transform:uppercase}footer .cert b{font-stretch:125%;letter-spacing:.16em;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent!important}footer .soc{margin-top:0}footer .fb{margin-top:34px;padding-top:22px;border-top:1px solid var(--ln);font-size:13px}@media(max-width:860px){footer .ft{grid-template-columns:1fr 1fr;gap:30px}}@media(max-width:520px){footer .ft{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -345,19 +345,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
  </div>
 </section>
 
-<section class="sec" id="fx">
- <div class="wrap fx">
-  <div class="rv"><div class="im"><img src="img/golf7-studio-s.webp" alt="Granatowy Golf 7 w studiu, na ścianie certyfikaty FX Protect" loading="lazy"><span>Warszawska 28</span></div></div>
-  <div class="rv">
-   <p class="k">Certyfikowane studio FX Protect</p>
-   <h2 class="h">Ochrona, która<br><em>zostaje na lata.</em></h2>
-   <p class="lead">Certyfikat producenta powłok, które nakładamy.</p>
-   <details open><summary>Ile wytrzyma powłoka?</summary><p>Zależy od powłoki. Audi A6 z&nbsp;realizacji ma ochronę na 12 miesięcy.</p></details>
-   <details><summary>Jak poznać cenę?</summary><p>Zadzwoń albo napisz. Cena zależy od auta, stanu lakieru i&nbsp;wybranej ochrony.</p></details>
-  </div>
- </div>
-</section>
-
 <section class="sec" id="opinie" style="background:var(--bg2)">
  <div class="wrap">
   <div class="hd rv"><div><h2 class="h">Co mówią<br><em>klienci.</em></h2></div></div>
@@ -407,7 +394,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
  </div>
 </section>
 
-<footer><div class="wrap"><img class="flg" src="img/logo-full.svg" alt="Car Cosmetics Detailing" width="170" height="83" loading="lazy"><span>ul. Warszawska 28, Bełchatów · 798 546 985</span><span>© 2026</span></div></footer>
+<footer>
+ <div class="wrap ft">
+  <div class="fc"><img class="flg" src="img/logo-full.svg" alt="Car Cosmetics Detailing" width="170" height="83" loading="lazy"><p class="cert"><span>Certyfikowane studio</span><b>FX PROTECT</b></p></div>
+  <div class="fc"><small>GODZINY</small><p>Poniedziałek-piątek <b>8:00-18:00</b></p><p>Sobota i&nbsp;niedziela <b>zamknięte</b></p></div>
+  <div class="fc"><small>KONTAKT</small><p><a href="tel:+48798546985">798 546 985</a></p><p><a href="mailto:bartekrzepecki300899@wp.pl">bartekrzepecki300899@wp.pl</a></p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=Car+Cosmetics+Detailing+Warszawska+28+Be%C5%82chat%C3%B3w" target="_blank" rel="noopener">ul. Warszawska 28, Bełchatów</a></p></div>
+  <div class="fc"><small>OBSERWUJ</small><div class="soc"><a href="https://www.facebook.com/search/pages/?q=Car%20Cosmetics%20Detailing%20Be%C5%82chat%C3%B3w" target="_blank" rel="noopener" aria-label="Facebook Car Cosmetics Detailing"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8.1v3h2.5V21h2.9z"/></svg></a></div></div>
+ </div>
+ <div class="wrap fb"><span>© 2026 Car Cosmetics Detailing</span></div>
+</footer>
 
 <script>
 (function(){
