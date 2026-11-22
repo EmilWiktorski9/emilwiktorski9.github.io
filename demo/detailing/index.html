@@ -310,6 +310,7 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
  <a class="lg" href="#hero" aria-label="LUSTRO, na górę strony"><b>LUSTRO</b><span>STUDIO DETAILINGU</span></a>
  <div class="ln">
   <a href="#realizacje">Realizacje</a>
+  <a href="#efekt">Przed i po</a>
   <a href="#uslugi">Usługi i ceny</a>
   <a href="#opinie">Opinie</a>
   <a href="#kontakt">Kontakt</a>
@@ -350,6 +351,18 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
  <div class="lbm"><div class="lbi" id="lbi"><img id="lbim" src="" alt=""><button class="ar p" id="lbp" aria-label="Poprzednie zdjęcie">←</button><button class="ar n" id="lbn" aria-label="Następne zdjęcie">→</button></div><div class="th" id="lbt"></div></div>
  <aside class="lbs"><p class="k" id="lbk"></p><h3 class="h" id="lbh"></h3><p id="lbd"></p><p class="cnt" id="lbo"></p><ul id="lbl"></ul><a class="btn a" href="#wycena" id="lbcta">Chcę taki efekt</a></aside>
 </div>
+
+<section class="sec" id="efekt" style="background:var(--bg2)">
+ <div class="wrap">
+  <div class="hd rv"><h2 class="h">Ten sam kadr.<br><em>Inny reflektor.</em></h2><p>Przesuń linię. Regeneracja klosza: matowanie, polerowanie i&nbsp;zabezpieczenie.</p></div>
+  <div class="ba rv" id="ba" style="--p:50%;aspect-ratio:16/9">
+   <img src="img/ba-po.webp" alt="Reflektor po regeneracji: przejrzysty klosz">
+   <img class="bf" src="img/ba-przed.webp" alt="Reflektor przed regeneracją: zmatowiały, żółty klosz">
+   <span class="tg l">PRZED</span><span class="tg r">PO</span><div class="bar"></div>
+   <div class="knob" role="slider" tabindex="0" aria-label="Porównaj przed i po" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div>
+  </div>
+ </div>
+</section>
 
 <section class="sec" id="uslugi" style="padding-bottom:0">
  <div class="wrap">
@@ -518,6 +531,15 @@ $('#lbx').addEventListener('click',close);$('#lbp').addEventListener('click',fun
 $('#lbcta').addEventListener('click',function(){var t=P[cur].t;close();var a=$('#f3');if(!a.value)a.value=t});
 d.addEventListener('keydown',function(e){if(!lbOpen)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(ix-1);if(e.key==='ArrowRight')show(ix+1)});
 var sx=null;$('#lbi').addEventListener('pointerdown',function(e){sx=e.clientX});$('#lbi').addEventListener('pointerup',function(e){if(sx===null)return;var dx=e.clientX-sx;sx=null;if(Math.abs(dx)>45)show(ix+(dx<0?1:-1))});
+
+/* przed i po */
+var ba=$('#ba'),kn=ba.querySelector('.knob'),drag=false,used=false;
+function setP(x){var r=ba.getBoundingClientRect(),p=Math.max(2,Math.min(98,(x-r.left)/r.width*100));ba.style.setProperty('--p',p+'%');kn.setAttribute('aria-valuenow',Math.round(p));used=true}
+ba.addEventListener('pointerdown',function(e){drag=true;ba.setPointerCapture(e.pointerId);setP(e.clientX)});
+ba.addEventListener('pointermove',function(e){if(drag)setP(e.clientX)});
+ba.addEventListener('pointerup',function(){drag=false});ba.addEventListener('pointercancel',function(){drag=false});
+kn.addEventListener('keydown',function(e){var v=+kn.getAttribute('aria-valuenow');if(e.key==='ArrowLeft'||e.key==='ArrowRight'){v+=e.key==='ArrowLeft'?-5:5;var r=ba.getBoundingClientRect();setP(r.left+r.width*v/100);e.preventDefault()}});
+if('IntersectionObserver' in w){var sw=false;new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!sw&&!used){sw=true;var t1=null;(function an(t){if(used)return;t1=t1||t;var k=Math.min(1,(t-t1)/1800);ba.style.setProperty('--p',(50+24*Math.sin(k*Math.PI*2))+'%');if(k<1)requestAnimationFrame(an)})(performance.now())}})},{threshold:.6}).observe(ba)}
 
 /* usługi */
 var li=$$('#svl li'),si=$$('#svp img'),pin=$('#svpin'),N=li.length,sc=0;
