@@ -241,6 +241,18 @@ details p{color:var(--tx2);padding:0 40px 22px 0}
 
 footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-inset-bottom));color:#6f6a60;font-size:14px}
 footer .ft{display:grid;grid-template-columns:1.2fr 1fr 1.2fr .8fr;gap:40px;align-items:start}footer .fc small{display:block;font:700 11px Ar;letter-spacing:.22em;color:var(--tx2);margin-bottom:12px}footer .fc p{margin:0 0 6px;color:var(--tx2);font-size:14.5px}footer .fc b{color:var(--tx);font-weight:600}footer .fc a{text-decoration:none;color:var(--tx);transition:color .2s}footer .fc a:hover{color:var(--g1)}footer .cert{margin-top:16px!important;display:inline-flex;flex-direction:column;gap:3px;padding:10px 14px;border:1px solid rgba(255,58,64,.35);border-radius:12px}footer .cert span{font-size:11px;letter-spacing:.14em;text-transform:uppercase}footer .cert b{font-stretch:125%;letter-spacing:.16em;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent!important}footer .soc{margin-top:0}footer .fb{margin-top:34px;padding-top:22px;border-top:1px solid var(--ln);font-size:13px}@media(max-width:860px){footer .ft{grid-template-columns:1fr 1fr;gap:30px}}@media(max-width:520px){footer .ft{grid-template-columns:1fr}}
+.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+.pk article{position:relative;display:flex;flex-direction:column;padding:30px 28px;border:1px solid var(--ln);border-radius:22px;background:var(--card)}
+.pk article.hi{border-color:rgba(255,58,64,.6);background:linear-gradient(180deg,#22161a,var(--card))}
+.pk .bd{position:absolute;top:-12px;left:28px;padding:6px 12px;border-radius:999px;background:var(--gold);color:#fff;font:700 10.5px/1 Ar;letter-spacing:.14em;text-transform:uppercase}
+.pk h3{font-size:19px;margin-top:10px}
+.pk .pr{font:700 32px/1 Ar;font-stretch:125%;margin:20px 0 4px}
+.pk .pr small{font-size:14px;font-stretch:100%;color:var(--tx2);font-weight:500}
+.pk ul{list-style:none;margin:18px 0 26px;flex:1}
+.pk li{padding:9px 0 9px 24px;border-top:1px solid var(--ln);font-size:14.5px;color:var(--tx2);position:relative;line-height:1.45}
+.pk li::before{content:"";position:absolute;left:2px;top:15px;width:11px;height:6px;border-left:2px solid var(--g1);border-bottom:2px solid var(--g1);transform:rotate(-45deg)}
+.pk .btn{justify-content:center}
+@media(max-width:760px){.pk{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:14px 20px 6px;scrollbar-width:none}.pk::-webkit-scrollbar{display:none}.pk article{flex:none;width:84vw;scroll-snap-align:center;opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -250,6 +262,7 @@ footer .ft{display:grid;grid-template-columns:1.2fr 1fr 1.2fr .8fr;gap:40px;alig
  <div class="ln">
   <a href="#realizacje">Realizacje</a>
   <a href="#uslugi">Usługi</a>
+  <a href="#cennik">Cennik</a>
   <a href="#opinie">Opinie</a>
   <a class="btn a" href="tel:+48605081948">Zadzwoń</a>
  </div>
@@ -328,6 +341,13 @@ footer .ft{display:grid;grid-template-columns:1.2fr 1fr 1.2fr .8fr;gap:40px;alig
    </div>
   </div>
   </div></div>
+ </div>
+</section>
+
+<section class="sec" id="cennik">
+ <div class="wrap">
+  <div class="hd rv"><div><h2 class="h">Ile to<br><em>kosztuje.</em></h2></div><p>Ceny netto. Dokładna cena zależy od wielkości auta, stanu lakieru i&nbsp;stopnia zabrudzenia.</p></div>
+  <div class="pk"><article class="rv hi"><span class=bd>Najpełniejszy efekt</span><p class="k">Lakier</p><h3 class="h">Korekta pełna</h3><p class="pr">od 1 500 zł<small> netto</small></p><ul><li>Wieloetapowa korekta lakieru, usuwa nawet do 80% rys</li><li>Mycie felg i&nbsp;środek hydrofobowy</li><li>Czyszczenie i&nbsp;impregnacja plastików na zewnątrz</li><li>Czyszczenie opon i&nbsp;dressing</li><li>Do wyboru zabezpieczenie: powłoka ceramiczna, wosk, polimer lub kwarc</li></ul><a class="btn a" href="#kontakt" data-pk="Korekta pełna">Umów termin</a></article><article class="rv"><p class="k">Lakier</p><h3 class="h">Korekta jednoetapowa</h3><p class="pr">od 1 000 zł<small> netto</small></p><ul><li>Mycie detailingowe</li><li>Dekontaminacja i&nbsp;glinkowanie</li><li>Jednoetapowa korekta lakieru</li><li>Felgi z&nbsp;preparatem hydrofobowym, opony z&nbsp;dressingiem</li><li>Do wyboru zabezpieczenie: wosk, powłoka ceramiczna, polimer lub kwarc</li></ul><a class="btn b" href="#kontakt" data-pk="Korekta jednoetapowa">Umów termin</a></article><article class="rv"><p class="k">Wnętrze</p><h3 class="h">Detailing i&nbsp;dezynfekcja wnętrza</h3><p class="pr">od 650 zł<small> netto</small></p><ul><li>Ozonowanie wnętrza</li><li>Pranie tapicerek i&nbsp;wykładzin, czyszczenie skór</li><li>Czyszczenie plastików, dressing lub wosk</li><li>Dezynfekcja skór i&nbsp;tekstyliów</li><li>Czyszczenie podsufitki, mycie szyb i&nbsp;nadwozia</li></ul><a class="btn b" href="#kontakt" data-pk="Detailing i dezynfekcja wnętrza">Umów termin</a></article><article class="rv"><p class="k">Zewnątrz</p><h3 class="h">Pakiet premium</h3><p class="pr">od 400 zł<small> netto</small></p><ul><li>Mycie detailingowe</li><li>Glinkowanie lakieru</li><li>Czyszczenie plastików i&nbsp;dressing</li><li>Mycie szyb</li><li>Wosk syntetyczny lub naturalny</li></ul><a class="btn b" href="#kontakt" data-pk="Pakiet premium">Umów termin</a></article><article class="rv"><p class="k">Całe auto</p><h3 class="h">Pakiet „Komplet”</h3><p class="pr">od 400 zł<small> netto</small></p><ul><li>Mycie detailingowe i&nbsp;usuwanie osadów z&nbsp;lakieru</li><li>Odkurzanie wnętrza i&nbsp;czyszczenie plastików</li><li>Mycie szyb</li><li>Wykończenie płynnym woskiem lub quick detailerem</li></ul><a class="btn b" href="#kontakt" data-pk="Pakiet „Komplet”">Umów termin</a></article></div>
  </div>
 </section>
 
@@ -456,6 +476,7 @@ li.forEach(function(l,i){l.addEventListener('click',function(){var r=pin.getBoun
 function svs(){var r=pin.getBoundingClientRect(),len=r.height-w.innerHeight,p=len>0?-r.top/len:0;p=Math.max(0,Math.min(.9999,p));var i=Math.floor(p*N);if(i!==sc){sc=i;sv(i)}}
 w.addEventListener('scroll',svs,{passive:true});w.addEventListener('resize',svs);svs();
 
+document.querySelectorAll('[data-pk]').forEach(function(a){a.addEventListener('click',function(){var m=document.getElementById('f5');if(m&&!m.value)m.value='Interesuje mnie: '+a.dataset.pk+'. '})});
 /* formularz: telefon w formacie 600 123 456, wysyłka mailem do studia */
 var f2=$('#f2');f2.addEventListener('input',function(){var v=f2.value.replace(/\D/g,'');if(v.indexOf('48')===0&&v.length>9)v=v.slice(2);v=v.slice(0,9);f2.value=v.replace(/(\d{3})(?=\d)/g,'$1 ')});
 $('#fm').addEventListener('submit',function(e){e.preventDefault();var n=$('#f1').value.trim(),t=f2.value.replace(/\D/g,'');
