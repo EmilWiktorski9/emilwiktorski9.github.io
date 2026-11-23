@@ -92,7 +92,7 @@ nav .btn{padding:11px 20px;font-size:14px}
 /* o mnie */
 .about{background:var(--light);color:var(--dark)}
 .about .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;padding-top:120px;padding-bottom:120px}
-.about img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:4px}
+.about img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:52% 40%;border-radius:4px}
 .about h2{font-size:clamp(48px,5.4vw,84px);margin-bottom:32px}
 .about h2 em{color:#d2501c}
 .about p{font-size:18px;color:#46423b;margin-bottom:18px;max-width:31em}
@@ -154,19 +154,21 @@ nav .btn{padding:11px 20px;font-size:14px}
 .zl a:hover{color:var(--ink)}
 
 /* kontakt */
-.kontakt{border-top:1px solid var(--line)}
-.kontakt .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px}
-.kontakt h2{font-size:clamp(56px,6.8vw,108px);margin-bottom:28px}
-.kontakt .lead{color:#c9c2b6;max-width:28em;margin-bottom:40px}
-.price{list-style:none;border-top:1px solid var(--line);margin-bottom:40px}
-.price li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.kontakt{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);background:var(--bg)}
+.kph{position:relative;min-height:100%;overflow:hidden}
+.kph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 35%}
+.kin{padding:120px max(32px,calc((100vw - var(--w))/2 + 32px)) 120px 80px}
+.kontakt h2{font-size:clamp(52px,5.6vw,92px);margin-bottom:26px}
+.kontakt .lead{color:#c9c2b6;max-width:28em;margin-bottom:36px}
+.price{list-style:none;border-top:1px solid var(--line);margin-bottom:36px}
+.price li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
 .price b{display:block;font-weight:500}
 .price small{color:var(--mut);font-size:14px}
 .price strong{font-family:Se;font-weight:400;font-size:38px;line-height:1;white-space:nowrap}
 .price strong.s{font-family:In;font-size:15px;color:var(--mut)}
-.where{display:grid;gap:22px}
-.where div{padding-left:20px;border-left:1px solid var(--acc)}
-.where b{display:block;font-size:13px;color:var(--mut);font-weight:400;margin-bottom:2px}
+.where{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;font-size:15px}
+.where div{padding-left:16px;border-left:1px solid var(--acc)}
+.where b{display:block;font-size:13px;color:var(--mut);font-weight:400;margin-bottom:4px}
 
 /* stopka */
 footer{background:#070706;padding:90px 0 36px;overflow:hidden}
@@ -198,7 +200,11 @@ dialog.wide{max-width:min(92vw,1100px)}
  .hero .ph{aspect-ratio:auto;width:100%}
  .hero .ph::after{background:linear-gradient(90deg,var(--bg) 0,rgba(12,11,10,.2) 50%,rgba(12,11,10,0) 100%),linear-gradient(0deg,var(--bg) 0,rgba(12,11,10,0) 40%)}
  .hero .ph img{object-position:70% 20%}
- .about .wrap,.kontakt .grid{grid-template-columns:1fr;gap:48px}
+ .about .wrap{grid-template-columns:1fr;gap:48px}
+ .kontakt{grid-template-columns:1fr}
+ .kph{min-height:0;aspect-ratio:4/3}
+ .kin{padding:80px 32px}
+ .where{grid-template-columns:1fr}
  .about img{max-width:520px}
  .two{grid-template-columns:1fr}
  footer .cols{grid-template-columns:1fr 1fr}
@@ -240,6 +246,8 @@ dialog.wide{max-width:min(92vw,1100px)}
  .ev .im{height:340px}
  .ev h3{font-size:26px}
  .kontakt .btn{width:100%;justify-content:center}
+ .kin{padding:64px 22px 72px}
+ .kph{aspect-ratio:1/1}
  .price strong{font-size:30px}
  footer{padding-top:64px}
  footer .cols{grid-template-columns:1fr;gap:32px;padding-bottom:44px}
@@ -252,9 +260,9 @@ dialog.wide{max-width:min(92vw,1100px)}
 <nav id="nav"><div class="wrap">
  <a class="logo" href="#top">Jan Benesz<i>.</i></a>
  <ul>
-  <li><a href="#o-mnie">O mnie</a></li>
   <li><a href="#pomoc">Jak pomagam</a></li>
   <li><a href="#sala">Wykłady</a></li>
+  <li><a href="#o-mnie">O mnie</a></li>
   <li><a href="#opinie">Opinie</a></li>
  </ul>
  <a class="btn or" href="#kontakt">Umów konsultację</a>
@@ -291,26 +299,12 @@ dialog.wide{max-width:min(92vw,1100px)}
  </div>
 </section>
 
-<section class="about" id="o-mnie"><div class="wrap">
- <img class="rv" src="img/matczak.webp" alt="Jan Benesz na hali podczas Filip Matczak Camp" width="1240" height="1548" loading="lazy">
- <div class="rv">
-  <h2>Grałem w&nbsp;II&nbsp;lidze. <em>Wiem, jak głośno bywa w głowie.</em></h2>
-  <p>Zanim zostałem psychologiem, grałem w koszykówkę w II lidze. Znam to z własnej skóry: rzut wolny przy remisie, ławka po słabej kwarcie, mecz, który poszedł dobrze, a radości i tak brak.</p>
-  <p>Dziś łączę to doświadczenie z rzetelną wiedzą naukową. Pracuję w nurcie ACT. Nie walczymy z myślami. Uczysz się grać razem z nimi.</p>
-  <div class="facts">
-   <div><strong>5,0</strong><span>średnia z 12 opinii na ZnanyLekarz</span></div>
-   <div><strong>300+</strong><span>godzin warsztatów grupowych</span></div>
-   <div><strong>4,4 tys.</strong><span>osób obserwuje mnie na Instagramie</span></div>
-  </div>
-  <p class="edu">Magister psychologii SWPS · studia podyplomowe z psychologii sportu · kurs „ACT w sporcie” · szkolenie z dr. Russem Harrisem</p>
- </div>
-</div></section>
 
 <section class="sec" id="pomoc"><div class="wrap">
  <h2 class="rv">Pracuję z jedną osobą <em>albo z całą drużyną.</em></h2>
  <div class="two">
   <article class="pc rv">
-   <img src="img/hala-1.webp" alt="Jan Benesz na hali koszykarskiej" loading="lazy">
+   <img src="img/matczak.webp" alt="Jan Benesz na hali podczas Filip Matczak Camp" loading="lazy" style="object-position:50% 25%">
    <h3>Spotkania 1:1</h3>
    <p>Dla zawodników, rodziców młodych sportowców i sędziów. Stres przed startem, strach przed błędem, negatywne myśli w trakcie meczu.</p>
    <div class="meta"><b>200 zł</b> · 50 minut · Gdańsk albo online</div>
@@ -344,6 +338,21 @@ dialog.wide{max-width:min(92vw,1100px)}
  </div>
 </section>
 
+<section class="about" id="o-mnie"><div class="wrap">
+ <img class="rv" src="img/hala-1.webp" alt="Jan Benesz na hali koszykarskiej" width="1276" height="926" loading="lazy">
+ <div class="rv">
+  <h2>Grałem w&nbsp;II&nbsp;lidze. <em>Wiem, jak głośno bywa w głowie.</em></h2>
+  <p>Zanim zostałem psychologiem, grałem w koszykówkę w II lidze. Znam to z własnej skóry: rzut wolny przy remisie, ławka po słabej kwarcie, mecz, który poszedł dobrze, a radości i tak brak.</p>
+  <p>Dziś łączę to doświadczenie z rzetelną wiedzą naukową. Pracuję w nurcie ACT. Nie walczymy z myślami. Uczysz się grać razem z nimi.</p>
+  <div class="facts">
+   <div><strong>5,0</strong><span>średnia z 12 opinii na ZnanyLekarz</span></div>
+   <div><strong>300+</strong><span>godzin warsztatów grupowych</span></div>
+   <div><strong>4,4 tys.</strong><span>osób obserwuje mnie na Instagramie</span></div>
+  </div>
+  <p class="edu">Magister psychologii SWPS · studia podyplomowe z psychologii sportu · kurs „ACT w sporcie” · szkolenie z dr. Russem Harrisem</p>
+ </div>
+</div></section>
+
 <section class="sec ops" id="opinie"><div class="wrap">
  <div class="qwrap rv">
   <figure class="q on"><blockquote>Polecam go każdemu, kto chce rozwijać się mentalnie i osiągać lepsze wyniki.</blockquote><figcaption><b>A.A.</b>, sportowiec</figcaption></figure>
@@ -355,31 +364,29 @@ dialog.wide{max-width:min(92vw,1100px)}
  <p class="zl"><b>5,0</b><span class="st">★★★★★</span>12 opinii na ZnanyLekarz · <a href="https://www.znanylekarz.pl/profil/jan-benesz" target="_blank" rel="noopener">przeczytaj wszystkie</a></p>
 </div></section>
 
-<section class="sec kontakt" id="kontakt"><div class="wrap grid">
- <div class="rv">
+<section class="kontakt" id="kontakt">
+ <figure class="kph"><img src="img/jan-kubek.webp" alt="Jan Benesz z kubkiem kawy" width="1200" height="1200" loading="lazy"></figure>
+ <div class="kin rv">
   <h2>Pierwszy krok to <em>jedna rozmowa.</em></h2>
-  <p class="lead">Napisz, w jakim sporcie grasz albo sędziujesz i co chcesz zmienić. Resztę ustalimy na spotkaniu.</p>
-  <a class="btn or" href="https://www.znanylekarz.pl/profil/jan-benesz" target="_blank" rel="noopener">Umów wizytę <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
- </div>
- <div class="rv">
+  <p class="lead">Napisz, w jakim sporcie grasz albo sędziujesz i co chcesz zmienić. Resztę ustalimy przy pierwszym spotkaniu.</p>
   <ul class="price">
-   <li><span><b>Konsultacja psychologiczna</b><small>50 minut · gabinet albo online</small></span><strong>200 zł</strong></li>
-   <li><span><b>Consultation in English</b><small>50 minutes · in person or online</small></span><strong>200 zł</strong></li>
+   <li><span><b>Konsultacja psychologiczna</b><small>50 minut · gabinet albo online · także po angielsku</small></span><strong>200 zł</strong></li>
    <li><span><b>Warsztaty i wykłady</b><small>kluby, akademie, obozy, sędziowie</small></span><strong class="s">wycena indywidualna</strong></li>
   </ul>
+  <a class="btn or" href="https://www.znanylekarz.pl/profil/jan-benesz" target="_blank" rel="noopener">Umów wizytę <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
   <div class="where">
-   <div><b>Gabinet Gdańsk Główny</b>ul. Jana Heweliusza 11, 6 piętro, pokój 1, Gdańsk</div>
-   <div><b>UTULE Centrum Terapii i Rozwoju</b>ul. Romana Dmowskiego 14/4, Gdańsk</div>
-   <div><b>Online</b>po polsku i po angielsku</div>
+   <div><b>Gabinet Gdańsk Główny</b>Heweliusza 11, Gdańsk</div>
+   <div><b>UTULE</b>Dmowskiego 14/4, Gdańsk</div>
+   <div><b>Online</b>po polsku i angielsku</div>
   </div>
  </div>
-</div></section>
+</section>
 
 <footer>
  <div class="wrap">
   <div class="cols">
    <div><p class="claim">Myśli przychodzą. <em>Ty grasz dalej.</em></p></div>
-   <div><h4>Strona</h4><ul><li><a href="#o-mnie">O mnie</a></li><li><a href="#pomoc">Jak pomagam</a></li><li><a href="#sala">Wykłady</a></li><li><a href="#opinie">Opinie</a></li></ul></div>
+   <div><h4>Strona</h4><ul><li><a href="#pomoc">Jak pomagam</a></li><li><a href="#sala">Wykłady</a></li><li><a href="#o-mnie">O mnie</a></li><li><a href="#opinie">Opinie</a></li></ul></div>
    <div><h4>Gdzie</h4><ul><li>Gdańsk, Heweliusza 11</li><li>Gdańsk, Dmowskiego 14/4</li><li>Online</li></ul></div>
    <div><h4>Obserwuj</h4><ul><li><a href="https://www.instagram.com/sportowypsycholog/" target="_blank" rel="noopener">Instagram ↗</a></li><li><a href="https://www.znanylekarz.pl/profil/jan-benesz" target="_blank" rel="noopener">ZnanyLekarz ↗</a></li></ul></div>
   </div>
@@ -407,8 +414,8 @@ function step(d){rail.scrollBy({left:d*Math.min(580,rail.clientWidth*.8),behavio
 document.getElementById('rn').onclick=function(){step(1)};document.getElementById('rp').onclick=function(){step(-1)};
 var qs=document.querySelectorAll('.q'),qd=document.getElementById('qd'),i=0,tm;
 qs.forEach(function(_,k){var d=document.createElement('i');if(!k)d.className='on';d.style.cursor='pointer';d.onclick=function(){go(k)};qd.appendChild(d)});
-function go(n){qs[i].classList.remove('on');qd.children[i].classList.remove('on');i=(n+qs.length)%qs.length;qs[i].classList.add('on');qd.children[i].classList.add('on');clearInterval(tm);tm=setInterval(function(){go(i+1)},6500)}
-tm=setInterval(function(){go(i+1)},6500);
+function go(n){qs[i].classList.remove('on');qd.children[i].classList.remove('on');i=(n+qs.length)%qs.length;qs[i].classList.add('on');qd.children[i].classList.add('on');clearInterval(tm);tm=setInterval(function(){go(i+1)},5000)}
+tm=setInterval(function(){go(i+1)},5000);
 })();
 </script>
 </body>
