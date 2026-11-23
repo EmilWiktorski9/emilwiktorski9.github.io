@@ -47,6 +47,13 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--acc)}
 .btn.ln:hover{box-shadow:inset 0 0 0 1px var(--ink);background:transparent;color:var(--ink)}
 section{position:relative}
 
+/* jasne sekcje */
+.lt{--ink:#14120f;--dark:#f2ede4;--mut:#6b665d;--line:rgba(20,18,15,.14);background:var(--light);color:var(--ink)}
+.lt h2 em,.lt h3 em{color:#d2501c}
+.lt .btn.or:hover{color:var(--dark)}
+.lt .pc .btn{background:#f2ede4;color:#14120f}
+.lt .pc .btn:hover{background:var(--acc);color:#111}
+
 /* nav */
 nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s}
 nav.s{background:rgba(12,11,10,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
@@ -115,7 +122,7 @@ nav .btn{padding:11px 20px;font-size:14px}
 .pc .meta b{color:#fff;font-weight:500}
 
 /* na sali */
-.sala{background:var(--bg2);overflow:hidden}
+.sala{background:var(--bg);overflow:hidden}
 .sala .top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:48px}
 .sala .top h2{font-size:clamp(48px,5.8vw,92px);margin:0}
 .arrows{display:flex;gap:10px}
@@ -154,12 +161,12 @@ nav .btn{padding:11px 20px;font-size:14px}
 .zl a:hover{color:var(--ink)}
 
 /* kontakt */
-.kontakt{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);background:var(--bg)}
+.kontakt{display:grid;grid-template-columns:1fr 1fr}
 .kph{position:relative;min-height:100%;overflow:hidden}
 .kph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 35%}
 .kin{padding:120px max(32px,calc((100vw - var(--w))/2 + 32px)) 120px 80px}
 .kontakt h2{font-size:clamp(52px,5.6vw,92px);margin-bottom:26px}
-.kontakt .lead{color:#c9c2b6;max-width:28em;margin-bottom:36px}
+.kontakt .lead{color:#46423b;max-width:28em;margin-bottom:36px}
 .price{list-style:none;border-top:1px solid var(--line);margin-bottom:36px}
 .price li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
 .price b{display:block;font-weight:500}
@@ -300,7 +307,7 @@ dialog.wide{max-width:min(92vw,1100px)}
 </section>
 
 
-<section class="sec" id="pomoc"><div class="wrap">
+<section class="sec lt" id="pomoc"><div class="wrap">
  <h2 class="rv">Pracuję z jedną osobą <em>albo z całą drużyną.</em></h2>
  <div class="two">
   <article class="pc rv">
@@ -364,7 +371,7 @@ dialog.wide{max-width:min(92vw,1100px)}
  <p class="zl"><b>5,0</b><span class="st">★★★★★</span>12 opinii na ZnanyLekarz · <a href="https://www.znanylekarz.pl/profil/jan-benesz" target="_blank" rel="noopener">przeczytaj wszystkie</a></p>
 </div></section>
 
-<section class="kontakt" id="kontakt">
+<section class="kontakt lt" id="kontakt">
  <figure class="kph"><img src="img/jan-kubek.webp" alt="Jan Benesz z kubkiem kawy" width="1200" height="1200" loading="lazy"></figure>
  <div class="kin rv">
   <h2>Pierwszy krok to <em>jedna rozmowa.</em></h2>
