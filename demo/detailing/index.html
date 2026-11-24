@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://emilwiktorski.pl/demo/detailing/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308090b'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='34' fill='%23e6e8eb' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
-<link rel="preload" as="image" href="img/hero-poster.jpg">
+<link rel="preload" as="image" href="img/drift-poster.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoRepair","name":"LUSTRO Studio Detailingu","address":{"@type":"PostalAddress","streetAddress":"ul. Przykładowa 12","addressLocality":"Łódź","postalCode":"90-001","addressCountry":"PL"},"telephone":"+48600100200","openingHours":["Mo-Fr 08:00-18:00","Sa 09:00-14:00"],"priceRange":"$$"}</script>
 <style>
 @font-face{font-family:Ar;font-weight:400;font-display:swap;src:url(fonts/inter-tight-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -91,6 +91,10 @@ section.sec{padding:96px 0}
 .bon small.n{font-size:13px;color:#6c7179}
 @media(max-width:860px){.bon{grid-template-columns:1fr;gap:34px}.bon .r2{grid-template-columns:1fr}}
 
+.gnav{justify-content:space-between;align-items:center}
+.ga{display:flex;gap:10px}
+.ga button{width:54px;height:54px;border-radius:50%;border:1px solid #4a4f57;background:none;color:var(--tx);font-size:20px;cursor:pointer;transition:border-color .2s,background .2s}
+.ga button:hover{border-color:var(--si);background:#1a1d22}
 /* menu */
 nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px max(20px,calc((100% - 1200px)/2));transition:background .35s,padding .35s,box-shadow .35s}
 nav.s{background:rgba(8,9,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-top:10px;padding-bottom:10px;box-shadow:0 1px 0 var(--ln)}
@@ -105,10 +109,10 @@ nav .ln .btn{height:42px;padding:0 18px;font-size:12px;color:#0b0c0e}
 @media(max-width:960px){nav .ln a:not(.btn){display:none}}
 
 /* 1. film sterowany przewijaniem */
-#hero{position:relative;height:200vh}
+#hero{position:relative;height:330vh}
 #hero .pin{position:sticky;top:0;height:100svh;overflow:hidden}
 #hero .car{position:absolute;inset:0;background:#000}
-#hero .car video{width:100%;height:100%;object-fit:cover;object-position:50% 60%;opacity:.62;transform:scale(1.04)}
+#hero .car video{width:100%;height:100%;object-fit:cover;object-position:50% 55%;opacity:.9}
 #hero .car::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(70% 60% at 50% 55%,transparent 30%,rgba(8,9,11,.55) 100%)}
 #hero .sh{position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 0%,rgba(8,9,11,0) 26%),linear-gradient(180deg,rgba(8,9,11,.75) 0%,rgba(8,9,11,0) 28%)}
 #hero .dark{position:absolute;inset:0;background:var(--bg);opacity:0;pointer-events:none}
@@ -386,7 +390,7 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
 
 <header id="hero">
  <div class="pin">
-  <div class="car"><video id="vid" autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg" aria-label="Białe Porsche 911 w czarnym studiu detailingu, kamera powoli okrąża auto"><source src="img/hero-m.mp4" media="(max-width:760px)" type="video/mp4"><source src="img/hero.mp4" type="video/mp4"></video></div>
+  <div class="car"><video id="vid" muted playsinline preload="auto" poster="img/drift-poster.jpg" aria-label="Czarne auto sportowe driftuje w ciemnym studiu"><source src="img/drift-m.mp4" media="(max-width:760px)" type="video/mp4"><source src="img/drift.mp4" type="video/mp4"></video></div>
   <div class="sh"></div>
   <div class="dark" id="dark"></div>
   <div class="t1" id="t1"><div>
@@ -409,7 +413,7 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
   <article class="pj" data-i="2" tabindex="0" role="button" aria-label="Audi Q5, otwórz galerię"><div class="cc"><img class="m" src="img/q5-przod-s.webp" alt="Grafitowe Audi Q5" loading="lazy"><img src="img/q5-bok-s.webp" alt="" loading="lazy"><img src="img/q5-tyl-s.webp" alt="" loading="lazy"><img src="img/q5-felga-s.webp" alt="" loading="lazy"></div><div class="pm"><div><p class="k">Korekta jednoetapowa · wosk</p><h3 class="h">Audi Q5</h3></div><span class="op">Galeria →</span></div></article>
   <article class="pj" data-i="3" tabindex="0" role="button" aria-label="BMW serii 5 Touring, otwórz galerię"><div class="cc"><img class="m" src="img/bmw-przod-s.webp" alt="Granatowe BMW serii 5 Touring" loading="lazy"><img src="img/bmw-bok-s.webp" alt="" loading="lazy"><img src="img/bmw-tyl-s.webp" alt="" loading="lazy"><img src="img/bmw-felga-s.webp" alt="" loading="lazy"></div><div class="pm"><div><p class="k">Przygotowanie do sprzedaży</p><h3 class="h">BMW serii 5 Touring</h3></div><span class="op">Galeria →</span></div></article>
  </div></div>
- <div class="wrap"><div class="cta-row rv"><a class="btn a" href="#wycena">Chcę taki efekt</a></div></div>
+ <div class="wrap"><div class="cta-row rv gnav"><a class="btn a" href="#wycena">Chcę taki efekt</a><span class="ga"><button type="button" id="gp" aria-label="Poprzednie auto">←</button><button type="button" id="gn" aria-label="Następne auto">→</button></span></div></div>
 </section>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbh" aria-hidden="true">
@@ -446,7 +450,7 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
    </ol><a class="btn a" href="#wycena">Policz cenę dla swojego auta</a></div>
    <div class="ph" id="svp">
     <video class="on" src="img/sv-powloka.mp4" poster="img/krople-s.webp" muted loop playsinline preload="metadata" aria-label="Krople wody spływają z lakieru z powłoką ceramiczną"></video>
-    <img src="img/polerowanie-s.webp" alt="Polerowanie czarnej maski polerką" loading="lazy">
+    <video src="img/sv-korekta.mp4" poster="img/polerowanie-s.webp" muted loop playsinline preload="metadata" aria-label="Polerowanie czarnej maski polerką"></video>
     <img src="img/ppf-s.webp" alt="Montaż bezbarwnej folii PPF na zderzaku" loading="lazy">
     <img src="img/fotel-s.webp" alt="Czyszczenie skórzanego fotela pędzelkiem" loading="lazy">
     <img src="img/sv-glass.webp" alt="Krople na szybie z powłoką hydrofobową" loading="lazy">
@@ -596,14 +600,18 @@ var RM=w.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
 var nav=$('#nav'),hero=$('#hero'),dark=$('#dark'),t1=$('#t1'),t2=$('#t2'),fl=$('#fl');
 
 /* film w tle: gra sam w pętli */
-var vid=$('#vid');function tryPlay(){var pr=vid.play();if(pr&&pr.catch)pr.catch(function(){})}tryPlay();['touchstart','pointerdown'].forEach(function(ev){w.addEventListener(ev,tryPlay,{once:true,passive:true})});
+var vid=$('#vid'),tgt=0,vcur=0,ready=false,dur=0;
+function prime(){if(ready)return;ready=true;dur=vid.duration||7;var pr=vid.play();if(pr&&pr.then)pr.then(function(){vid.pause()}).catch(function(){})}
+vid.addEventListener('loadedmetadata',function(){dur=vid.duration;prime()});if(vid.readyState>0){dur=vid.duration;prime()}
+['touchstart','pointerdown','scroll'].forEach(function(ev){w.addEventListener(ev,prime,{once:true,passive:true})});
+(function loop(){vcur+=(tgt-vcur)*.18;if(dur&&Math.abs(vid.currentTime-vcur)>.02&&!vid.seeking){try{vid.currentTime=vcur}catch(e){}}requestAnimationFrame(loop)})();
 var bkSec=$('#wycena');
 function onS(){
  var y=w.scrollY;nav.classList.toggle('s',y>40);
  var r=hero.getBoundingClientRect(),run=hero.offsetHeight-w.innerHeight,p=cl(-r.top/run);
- vid.style.transform='scale('+(1.04+.42*p)+')';vid.style.opacity=(.62-.4*p).toFixed(3);
+ tgt=cl(p/.8)*(dur?dur-.05:0);vid.style.opacity=(.9-.45*cl((p-.75)/.25)).toFixed(3);
  t1.style.opacity=1-cl(p/.16);t1.style.transform='translateY('+(-30*cl(p/.16))+'px)';t1.style.pointerEvents=p>.12?'none':'';
- dark.style.opacity=cl((p-.6)/.3)*.35;t2.style.opacity=cl((p-.5)/.25);
+ dark.style.opacity=cl((p-.8)/.15)*.55;t2.style.opacity=cl((p-.8)/.12);
  var b=bkSec.getBoundingClientRect();fl.classList.toggle('on',r.bottom<w.innerHeight*.6&&!(b.top<w.innerHeight&&b.bottom>0));
 }
 w.addEventListener('scroll',onS,{passive:true});w.addEventListener('resize',onS);onS();
@@ -713,6 +721,10 @@ document.querySelectorAll('#bat button').forEach(function(b){b.addEventListener(
 (function(){var links=[].slice.call(document.querySelectorAll('nav .ln a:not(.btn)')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
 function upd(){var y=innerHeight*.4,c=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<y)c=i});links.forEach(function(a,i){a.classList.toggle('cur',i===c&&secs[c].getBoundingClientRect().bottom>y)})}
 addEventListener('scroll',upd,{passive:true});upd()})();
+/* realizacje: strzalki */
+(function(){var gw=document.getElementById('galw'),T=matchMedia('(hover:none)').matches;function step(d){var c=gw.querySelector('.pj'),wd=c?c.getBoundingClientRect().width+22:500;
+ if(!T){gw.dispatchEvent(new Event('wheel'))}gw.scrollBy({left:d*wd,behavior:'smooth'})}
+document.getElementById('gp').onclick=function(){step(-1)};document.getElementById('gn').onclick=function(){step(1)}})();
 /* pakiety: zaznacz uslugi w kalkulatorze */
 document.querySelectorAll('[data-pk]').forEach(function(b){b.addEventListener('click',function(){var want=b.dataset.pk.split(',');
  document.querySelectorAll('#svc button').forEach(function(x){var on=x.getAttribute('aria-pressed')==='true';if(on!==(want.indexOf(x.dataset.id)>-1))x.click()});
