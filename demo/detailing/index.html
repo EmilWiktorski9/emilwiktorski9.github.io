@@ -209,8 +209,8 @@ nav .ln .btn{height:42px;padding:0 18px;font-size:12px;color:#0b0c0e}
 .sv li.on .t small{color:var(--si)}
 .sv li.on p{max-height:120px;margin-top:8px}
 .sv .ph{position:relative;aspect-ratio:4/5;max-height:80vh;border-radius:22px;overflow:hidden;background:#000}
-.sv .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1s,transform 1.4s cubic-bezier(.2,.7,.2,1)}
-.sv .ph img.on{opacity:1;transform:none}
+.sv .ph img,.sv .ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1s,transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.sv .ph img.on,.sv .ph video.on{opacity:1;transform:none}
 .sv .btn{margin-top:22px}
 @media(max-width:860px){.svpin{height:calc(100svh + 7 * 55svh)}.svst{height:100svh;align-items:center;padding-top:64px}.sv{grid-template-columns:1fr;gap:12px}.sv .ph{aspect-ratio:auto;height:clamp(170px,calc(100svh - 560px),40svh);max-height:none;order:-1}.sv li{padding:9px 0}.sv li .t{font-size:14px}.sv li .t em{font-size:12px}.sv li p{font-size:13.5px}.sv li.on p{margin-top:4px}.sv .btn{margin-top:12px;height:46px;width:100%}}
 
@@ -445,7 +445,7 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
     <li><div class="t">Komora silnika<em>od 150 zł</em></div><p>Bezpieczne mycie i&nbsp;zabezpieczenie tworzyw.</p></li>
    </ol><a class="btn a" href="#wycena">Policz cenę dla swojego auta</a></div>
    <div class="ph" id="svp">
-    <img class="on" src="img/krople-s.webp" alt="Krople wody na czarnym lakierze z powłoką ceramiczną">
+    <video class="on" src="img/sv-powloka.mp4" poster="img/krople-s.webp" muted loop playsinline preload="metadata" aria-label="Krople wody spływają z lakieru z powłoką ceramiczną"></video>
     <img src="img/polerowanie-s.webp" alt="Polerowanie czarnej maski polerką" loading="lazy">
     <img src="img/ppf-s.webp" alt="Montaż bezbarwnej folii PPF na zderzaku" loading="lazy">
     <img src="img/fotel-s.webp" alt="Czyszczenie skórzanego fotela pędzelkiem" loading="lazy">
@@ -649,11 +649,12 @@ kn.addEventListener('keydown',function(e){var v=+kn.getAttribute('aria-valuenow'
 if('IntersectionObserver' in w){var sw=false;new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!sw&&!used){sw=true;var t1=null;(function an(t){if(used)return;t1=t1||t;var k=Math.min(1,(t-t1)/1800);ba.style.setProperty('--p',(50+24*Math.sin(k*Math.PI*2))+'%');if(k<1)requestAnimationFrame(an)})(performance.now())}})},{threshold:.6}).observe(ba)}
 
 /* usługi */
-var li=$$('#svl li'),si=$$('#svp img'),pin=$('#svpin'),N=li.length,sc=0;
-function sv(i){li.forEach(function(l,j){l.classList.toggle('on',j===i)});si.forEach(function(m,j){m.classList.toggle('on',j===i)})}
+var li=$$('#svl li'),si=$$('#svp > img, #svp > video'),pin=$('#svpin'),N=li.length,sc=0;
+function sv(i){li.forEach(function(l,j){l.classList.toggle('on',j===i)});si.forEach(function(m,j){m.classList.toggle('on',j===i);if(m.tagName==='VIDEO'){if(j===i){var pr=m.play();if(pr&&pr.catch)pr.catch(function(){})}else m.pause()}})}
 li.forEach(function(l,i){l.addEventListener('click',function(){var r=pin.getBoundingClientRect(),len=r.height-w.innerHeight;w.scrollTo({top:r.top+w.scrollY+len*(i+.5)/N,behavior:'smooth'})})});
 function svs(){var r=pin.getBoundingClientRect(),len=r.height-w.innerHeight,p=len>0?-r.top/len:0;p=Math.max(0,Math.min(.9999,p));var i=Math.floor(p*N);if(i!==sc){sc=i;sv(i)}}
 w.addEventListener('scroll',svs,{passive:true});w.addEventListener('resize',svs);svs();
+if('IntersectionObserver' in w)new IntersectionObserver(function(es){var v=si[sc];if(v&&v.tagName==='VIDEO'){if(es[0].isIntersecting){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}else v.pause()}}).observe($('#svp'));
 
 /* kalkulator wyceny */
 function zl(n){return String(Math.round(n/10)*10).replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
