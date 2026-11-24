@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>By o la la..! Hurt dla butików (demo)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111'/%3E%3Ctext x='32' y='43' font-family='Georgia' font-size='30' fill='%23fff' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:Cg;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Cg;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Cg;font-weight:600;font-display:swap;src:url(fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Cg;font-weight:600;font-display:swap;src:url(fonts/cormorant-garamond-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Is;font-weight:400 700;font-display:swap;src:url(fonts/instrument-sans-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Is;font-weight:400 700;font-display:swap;src:url(fonts/instrument-sans-latin-ext-wght-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--bg:#fff;--bg2:#f4f2ef;--tx:#141210;--tx2:#6b655f;--ln:#e6e2dd;--es:#3a2a22;--ok:#2f6b3f;--r:2px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.6 Is,system-ui,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+img{display:block;max-width:100%}
+a{color:inherit}
+.w{max-width:1320px;margin:0 auto;padding:0 32px}
+.h{font-family:Cg,Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.02;text-wrap:balance}
+.h em{font-style:normal;color:#9a928a}
+p{text-wrap:pretty}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 26px;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.btn.d{background:var(--tx);color:#fff}.btn.d:hover{background:var(--es)}
+.btn.l{border:1px solid var(--tx)}.btn.l:hover{background:var(--tx);color:#fff}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+/* demo */
+.demo{background:var(--tx);color:#d9d4ce;font-size:13px;text-align:center;padding:7px 16px}
+.demo b{color:#fff;font-weight:600}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+nav .w{display:flex;align-items:center;height:68px;gap:36px}
+.logo{font-family:Cg,Georgia,serif;font-size:27px;font-weight:600;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.logo small{font:600 11px/1 Is;letter-spacing:.04em;color:var(--tx2);margin-left:8px;vertical-align:3px}
+nav .ln{display:flex;gap:28px;font-size:15px}
+nav .ln a{text-decoration:none;color:var(--tx2)}nav .ln a:hover{color:var(--tx)}
+nav .rt{margin-left:auto;display:flex;align-items:center;gap:10px}
+.who{font-size:14px;color:var(--tx2);display:none}
+body.in .who{display:block}
+body.in #login{display:none}
+#cartb{position:relative;height:44px;padding:0 16px;border:1px solid var(--ln);border-radius:var(--r);font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+#cartb:hover{border-color:var(--tx)}
+#cartb i{font-style:normal;background:var(--tx);color:#fff;border-radius:99px;min-width:22px;height:22px;font-size:12px;display:grid;place-items:center;padding:0 6px}
+#login{height:44px;padding:0 18px;font-size:14px}
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;height:min(calc(100vh - 102px),880px);min-height:560px;border-bottom:1px solid var(--ln)}
+.hero .t{padding:64px 56px 56px max(32px,calc((100vw - 1320px)/2 + 32px));display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(46px,5.4vw,84px)}
+.hero p{font-size:18px;color:var(--tx2);max-width:500px;margin:24px 0 34px}
+.hero .bt{display:flex;gap:12px}
+.hero .bt .btn{flex:1;max-width:220px}
+.hero .im{position:relative;background:var(--bg2);overflow:hidden}
+.hero .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--ln)}
+.facts div{padding:26px 32px;border-right:1px solid var(--ln)}
+.facts div:last-child{border:0}
+.facts b{display:block;font-family:Cg,Georgia,serif;font-weight:500;font-size:40px;line-height:1}
+.facts span{font-size:14px;color:var(--tx2)}
+/* sections */
+section{padding:96px 0}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:32px;flex-wrap:wrap}
+.hd h2{font-size:clamp(36px,4vw,56px)}
+/* catalog */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{height:38px;padding:0 16px;border:1px solid var(--ln);border-radius:99px;font-size:14px;color:var(--tx2)}
+.chips button:hover{border-color:var(--tx);color:var(--tx)}
+.chips button.on{background:var(--tx);border-color:var(--tx);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 20px}
+.card{cursor:pointer;text-align:left}
+.card .ph{position:relative;aspect-ratio:3/4;background:var(--bg2);overflow:hidden;margin-bottom:14px}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ph img{transform:scale(1.035)}
+.card .ph .tone{position:absolute;inset:0}
+.card .tag{position:absolute;left:10px;top:10px;background:#fff;font-size:12px;font-weight:600;padding:4px 9px;border-radius:var(--r)}
+.card .qk{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.96);height:44px;display:grid;place-items:center;font-size:14px;font-weight:600;opacity:0;transform:translateY(6px);transition:.25s}
+.card:hover .qk{opacity:1;transform:none}
+.card h3{font:500 15px/1.35 Is;margin-bottom:6px}
+.sw{display:flex;gap:6px;margin-bottom:8px}
+.sw i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.pr{font-size:14px;color:var(--tx2)}
+.pr b{color:var(--tx);font-weight:600;font-size:15px}
+.lock{display:inline-flex;align-items:center;gap:6px;color:var(--tx2)}
+.lock svg{width:13px;height:13px}
+/* how */
+#jak{background:var(--bg2)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.steps div{background:#fff;padding:32px;border:1px solid var(--ln)}
+.steps h3{font-family:Cg,Georgia,serif;font-weight:500;font-size:30px;line-height:1.1;margin-bottom:10px}
+.steps p{color:var(--tx2);font-size:15px}
+/* panel */
+.pan{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ln)}
+.pan form{padding:36px;border-right:1px solid var(--ln);display:grid;grid-template-columns:1fr 1fr;gap:16px 16px;align-content:start}
+.pan .full{grid-column:1/-1}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+input,select,textarea{width:100%;height:46px;border:1px solid var(--ln);border-radius:var(--r);padding:0 14px;background:#fff;font-size:15px}
+textarea{height:auto;padding:12px 14px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--tx)}
+.pan .out{padding:36px;background:var(--bg2);display:flex;flex-direction:column}
+.pan .out .lb{font-size:13px;font-weight:600;color:var(--tx2);margin-bottom:12px}
+.pan .out h3{font-family:Cg,Georgia,serif;font-weight:500;font-size:32px;line-height:1.1;margin-bottom:14px}
+#ai-txt{font-size:16px;line-height:1.7;white-space:pre-line;min-height:220px}
+#ai-txt.wait{color:var(--tx2)}
+.pan .note{margin-top:auto;padding-top:20px;font-size:13px;color:var(--tx2)}
+/* konto */
+.acc{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.acc ul{list-style:none;display:grid;gap:14px;margin-top:8px}
+.acc li{display:flex;gap:12px;font-size:16px}
+.acc li svg{flex:none;width:20px;height:20px;margin-top:3px}
+.acc form{display:grid;grid-template-columns:1fr 1fr;gap:16px;border:1px solid var(--ln);padding:36px}
+.acc .ok{grid-column:1/-1;display:none;background:#eef5ef;color:var(--ok);padding:14px 16px;font-size:15px;font-weight:500}
+.acc .rodo{grid-column:1/-1;font-size:12px;color:var(--tx2)}
+footer{border-top:1px solid var(--ln);padding:36px 0;font-size:14px;color:var(--tx2)}
+footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+/* drawers */
+.ov{position:fixed;inset:0;background:rgba(20,18,16,.4);z-index:40;opacity:0;pointer-events:none;transition:opacity .3s}
+.ov.on{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(980px,100vw);background:#fff;z-index:50;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1);overflow-y:auto}
+.dr.on{transform:none}
+#cart{width:min(480px,100vw);display:flex;flex-direction:column}
+.x{position:absolute;right:16px;top:14px;width:44px;height:44px;display:grid;place-items:center;z-index:3;background:#fff;border-radius:50%}
+.x svg{width:20px;height:20px}
+.pd{display:grid;grid-template-columns:1fr 1fr;min-height:100%}
+.pd .gal{background:var(--bg2);position:relative}
+.pd .gal .main{aspect-ratio:3/4;position:relative;overflow:hidden}
+.pd .gal .main img{width:100%;height:100%;object-fit:cover}
+.pd .gal .th{display:flex;gap:8px;padding:8px}
+.pd .gal .th button{width:64px;aspect-ratio:3/4;background:var(--bg2);overflow:hidden;opacity:.55;border:1px solid transparent}
+.pd .gal .th button.on{opacity:1;border-color:var(--tx)}
+.pd .gal .th img{width:100%;height:100%;object-fit:cover}
+.pd .inf{padding:44px 40px 40px}
+.pd h2{font-size:38px;margin-bottom:10px}
+.pd .prc{display:flex;gap:18px;align-items:baseline;margin-bottom:22px;flex-wrap:wrap}
+.pd .prc b{font-size:24px;font-weight:600}
+.pd .prc span{font-size:14px;color:var(--tx2)}
+.row{margin-bottom:22px}
+.row>label{margin-bottom:10px}
+.cols{display:flex;gap:8px;flex-wrap:wrap}
+.cols button{height:38px;padding:0 14px 0 10px;border:1px solid var(--ln);border-radius:99px;font-size:14px;display:flex;align-items:center;gap:8px}
+.cols button i{width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.cols button.on{border-color:var(--tx);box-shadow:inset 0 0 0 1px var(--tx)}
+.pk{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.pk button{border:1px solid var(--ln);padding:12px 14px;text-align:left;border-radius:var(--r)}
+.pk button b{display:block;font-size:14px}
+.pk button span{font-size:13px;color:var(--tx2)}
+.pk button.on{border-color:var(--tx);box-shadow:inset 0 0 0 1px var(--tx)}
+.sz{width:100%;border-collapse:collapse;font-size:14px}
+.sz td{padding:9px 0;border-bottom:1px solid var(--ln)}
+.sz td:first-child{font-weight:600;width:48px}
+.sz .st{color:var(--tx2)}
+.sz .st.lo{color:#a3541f}
+.stp{display:inline-flex;align-items:center;border:1px solid var(--ln);border-radius:var(--r)}
+.stp button{width:36px;height:34px;font-size:18px}
+.stp button:disabled{opacity:.25;cursor:default}
+.stp b{min-width:28px;text-align:center;font-weight:600}
+.sz td:last-child{text-align:right}
+.sum{display:flex;justify-content:space-between;align-items:center;padding:16px 0;font-size:15px}
+.sum b{font-size:20px}
+.add{width:100%}
+.spec{margin-top:28px;border-top:1px solid var(--ln)}
+.spec details{border-bottom:1px solid var(--ln)}
+.spec summary{padding:16px 0;font-weight:600;font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.spec summary::after{content:'+';font-weight:400;font-size:20px;line-height:1}
+.spec details[open] summary::after{content:'\2212'}
+.spec details p,.spec details dl{padding:0 0 16px;font-size:15px;color:var(--tx2)}
+.spec dl{display:grid;grid-template-columns:120px 1fr;gap:6px}
+.spec dt{color:var(--tx)}
+.gate{background:var(--bg2);padding:18px;font-size:15px;margin-bottom:12px}
+.gate button{text-decoration:underline;font-weight:600}
+/* cart */
+#cart .hd2{padding:22px 24px;border-bottom:1px solid var(--ln)}
+#cart .hd2 h2{font-size:32px}
+#cart .ls{flex:1;overflow-y:auto;padding:8px 24px}
+.ci{display:grid;grid-template-columns:72px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--ln);font-size:14px}
+.ci .ph{aspect-ratio:3/4;background:var(--bg2);overflow:hidden}
+.ci .ph img{width:100%;height:100%;object-fit:cover}
+.ci b{font-weight:600;font-size:15px}
+.ci span{color:var(--tx2);display:block}
+.ci .rm{font-size:13px;color:var(--tx2);text-decoration:underline;align-self:start}
+#cart .ft{padding:20px 24px 24px;border-top:1px solid var(--ln)}
+.bar{height:4px;background:var(--ln);margin:10px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--tx);transition:width .4s}
+.mini{font-size:13px;color:var(--tx2)}
+.tot{display:flex;justify-content:space-between;font-size:15px;margin:14px 0 4px}
+.tot b{font-size:22px}
+.empty{color:var(--tx2);padding:40px 0;text-align:center}
+.done{display:none;padding:40px 24px}
+.done h3{font-family:Cg,Georgia,serif;font-weight:500;font-size:34px;line-height:1.1;margin-bottom:10px}
+.done p{color:var(--tx2)}
+/* modal */
+.mod{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%);width:min(440px,calc(100vw - 32px));background:#fff;z-index:60;padding:36px;opacity:0;pointer-events:none;transition:.3s}
+.mod.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.mod h2{font-size:34px;margin-bottom:8px}
+.mod p{color:var(--tx2);font-size:15px;margin-bottom:20px}
+.mod .btn{width:100%;margin-top:14px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--tx);color:#fff;padding:12px 20px;font-size:14px;z-index:70;opacity:0;transition:.3s;pointer-events:none;border-radius:var(--r)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:1000px){
+  nav .ln{display:none}
+ .hero{grid-template-columns:1fr;height:auto;min-height:0}
+ .hero .im{aspect-ratio:4/5;order:-1}
+ .hero .t{padding:40px 20px 48px}
+ .facts{grid-template-columns:1fr 1fr}
+ .facts div:nth-child(2){border-right:0}
+ .facts div:nth-child(-n+2){border-bottom:1px solid var(--ln)}
+ .grid{grid-template-columns:1fr 1fr;gap:28px 12px}
+ .steps,.pan,.acc{grid-template-columns:1fr}
+ .pan form{border-right:0;border-bottom:1px solid var(--ln)}
+ .acc{gap:32px}
+ .pd{grid-template-columns:1fr}
+ .pd .inf{padding:28px 20px 40px}
+}
+@media (max-width:640px){
+ .w{padding:0 20px}
+ section{padding:64px 0}
+ .logo small{display:none}
+ #login{padding:0 12px}
+ #cartb span{display:none}
+ .hero .bt .btn{max-width:none}
+ .facts div{padding:18px 20px}
+ .facts b{font-size:32px}
+ .pan form,.acc form{grid-template-columns:1fr;padding:22px}
+ .pan .out{padding:22px}
+ .card .qk{display:none}
+ .who{display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="demo"><b>Demo</b> sklepu hurtowego, przygotował Emil Wiktorski. Ceny hurtowe, stany, składy i warunki są przykładowe.</div>
+
+<nav>
+ <div class="w">
+  <a class="logo" href="#">By o la la..!<small>HURT</small></a>
+  <div class="ln"><a href="#kolekcja">Kolekcja</a><a href="#jak">Jak zamawiać</a><a href="#panel">Panel</a><a href="#konto">Konto hurtowe</a></div>
+  <div class="rt">
+   <span class="who">Butik Maja, Kraków</span>
+   <button class="btn l" id="login">Zaloguj się</button>
+   <button id="cartb" aria-label="Koszyk"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7.5 7V5.5a2.5 2.5 0 015 0V7"/></svg><span>Koszyk</span><i id="cc">0</i></button>
+  </div>
+ </div>
+</nav>
+
+<header class="hero">
+ <div class="t">
+  <h1 class="h">Kolekcja jesień/zima <em>dla Twojego butiku</em></h1>
+  <p>Zamawiasz pakiety rozmiarowe online, widzisz stany magazynowe na bieżąco i nie musisz dzwonić, żeby sprawdzić, czy jest jeszcze M w espresso.</p>
+  <div class="bt"><a class="btn d" href="#kolekcja">Zobacz kolekcję</a><a class="btn l" href="#konto">Załóż konto</a></div>
+ </div>
+ <div class="im"><img src="img/hero.webp" alt="Kolekcja By o la la..! jesień/zima"></div>
+</header>
+
+<div class="facts">
+ <div><b>14 lat</b><span>na rynku</span></div>
+ <div><b>39</b><span>sklepów firmowych</span></div>
+ <div><b>2022</b><span>Kobieca Marka Roku</span></div>
+ <div><b>902 tys.</b><span>obserwujących na Facebooku</span></div>
+</div>
+
+<section id="kolekcja">
+ <div class="w">
+  <div class="hd">
+   <h2 class="h">Kolekcja <em>jesień/zima 2026</em></h2>
+   <div class="chips" id="chips"></div>
+  </div>
+  <div class="grid" id="grid"></div>
+ </div>
+</section>
+
+<section id="jak">
+ <div class="w">
+  <div class="hd"><h2 class="h">Jak zamawiać <em>jako butik</em></h2></div>
+  <div class="steps">
+   <div><h3>Konto hurtowe</h3><p>Zostawiasz NIP i adres butiku. Weryfikujemy go w ciągu jednego dnia roboczego i od razu widzisz ceny hurtowe.</p></div>
+   <div><h3>Pakiety rozmiarowe</h3><p>Każdy model zamawiasz gotowym pakietem 1 S, 2 M, 2 L, 1 XL albo układasz własny. Stany widzisz przy każdym rozmiarze.</p></div>
+   <div><h3>Wysyłka i faktura</h3><p>Minimum zamówienia to 1 500 zł netto, od 3 000 zł netto wysyłka jest bezpłatna. Fakturę VAT dostajesz mailem.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="panel">
+ <div class="w">
+  <div class="hd"><h2 class="h">Panel sprzedawcy <em>z opisami od AI</em></h2></div>
+  <div class="pan">
+   <form id="aiForm">
+    <div class="full"><label for="a-n">Nazwa produktu</label><input id="a-n" value="Sukienka jeansowa z bufiastym rękawem"></div>
+    <div><label for="a-k">Kolor</label><input id="a-k" value="czarna"></div>
+    <div><label for="a-f">Fason</label><select id="a-f"><option selected>dopasowany w talii</option><option>rozkloszowany</option><option>prosty</option><option>oversize</option></select></div>
+    <div class="full"><label for="a-s">Skład</label><input id="a-s" value="98% bawełna, 2% elastan"></div>
+    <div><label for="a-d">Długość (rozmiar M)</label><input id="a-d" value="84 cm"></div>
+    <div><label for="a-o">Na jaką okazję</label><select id="a-o"><option selected>do pracy i na co dzień</option><option>na wieczór</option><option>na uroczystość</option></select></div>
+    <div class="full"><label for="a-x">Wyróżnik (opcjonalnie)</label><input id="a-x" value="bufiaste rękawy, stójka, kontrastowe przeszycia"></div>
+    <div class="full"><button class="btn d" type="submit" style="width:100%">Napisz opis</button></div>
+   </form>
+   <div class="out">
+    <div class="lb">Opis na kartę produktu</div>
+    <h3 id="ai-h">Sukienka jeansowa z bufiastym rękawem</h3>
+    <div id="ai-txt" class="wait">Uzupełnij pola po lewej i kliknij „Napisz opis”. Tekst trafi od razu na kartę produktu, do poprawienia jednym kliknięciem.</div>
+    <div class="note">W demo opis składa się z gotowego szablonu. W prawdziwym panelu pisze go model AI na podstawie zdjęcia, składu i wymiarów.</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="konto" style="background:var(--bg2)">
+ <div class="w acc">
+  <div>
+   <div class="hd" style="margin-bottom:20px"><h2 class="h">Konto <em>dla butiku</em></h2></div>
+   <ul>
+    <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>Ceny hurtowe i sugerowane ceny detaliczne przy każdym modelu.</li>
+    <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>Stany magazynowe w każdym rozmiarze, odświeżane na bieżąco.</li>
+    <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>Zdjęcia kampanii do pobrania na Twój Instagram i do sklepu.</li>
+    <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>Historia zamówień i ponowne zamówienie jednym kliknięciem.</li>
+   </ul>
+  </div>
+  <form id="accForm">
+   <div class="full" style="grid-column:1/-1"><label for="f-b">Nazwa butiku</label><input id="f-b" required></div>
+   <div><label for="f-n">NIP</label><input id="f-n" inputmode="numeric" required></div>
+   <div><label for="f-m">Miasto</label><input id="f-m" required></div>
+   <div><label for="f-e">E-mail</label><input id="f-e" type="email" required></div>
+   <div><label for="f-t">Telefon</label><input id="f-t" type="tel"></div>
+   <button class="btn d" type="submit" style="grid-column:1/-1">Wyślij zgłoszenie</button>
+   <div class="ok" id="accOk">Dziękujemy. To demo, więc zgłoszenie nigdzie nie poszło. W sklepie trafi do weryfikacji, a butik dostanie maila z dostępem.</div>
+   <p class="rodo">Administratorem danych jest właściciel marki By o la la..!. Dane posłużą wyłącznie do założenia konta hurtowego.</p>
+  </form>
+ </div>
+</section>
+
+<footer><div class="w"><span>By o la la..! Hurt · demo sklepu B2B</span><span>Projekt i wykonanie: Emil Wiktorski</span></div></footer>
+
+<div class="ov" id="ov"></div>
+
+<aside class="dr" id="prod" aria-hidden="true">
+ <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+ <div class="pd">
+  <div class="gal"><div class="main" id="pMain"></div><div class="th" id="pTh"></div></div>
+  <div class="inf">
+   <h2 class="h" id="pN"></h2>
+   <div class="prc" id="pP"></div>
+   <div class="row"><label>Kolor: <span id="pKn" style="font-weight:400"></span></label><div class="cols" id="pK"></div></div>
+   <div id="pBuy">
+    <div class="row"><label>Pakiet</label>
+     <div class="pk"><button data-pk="std" class="on"><b>Pakiet 6 szt.</b><span>1 S, 2 M, 2 L, 1 XL</span></button><button data-pk="own"><b>Własny układ</b><span>dowolne ilości</span></button></div>
+     <table class="sz" id="pS"></table>
+    </div>
+    <div class="sum"><span id="pQ">6 szt.</span><b id="pV"></b></div>
+    <button class="btn d add" id="pAdd">Dodaj do zamówienia</button>
+   </div>
+   <div class="gate" id="pGate">Ceny hurtowe i zamawianie są dostępne po zalogowaniu. <button data-login>Zaloguj się jako butik testowy</button></div>
+   <div class="spec">
+    <details open><summary>Opis</summary><p id="pD"></p></details>
+    <details><summary>Skład i wymiary</summary><dl id="pW"></dl></details>
+    <details><summary>Wysyłka i zwroty dla butików</summary><p>Wysyłka w 2 dni robocze od zaksięgowania płatności. Od 3 000 zł netto wysyłka bezpłatna. Wymiana rozmiaru w ciągu 14 dni, jeśli metki są nienaruszone.</p></details>
+   </div>
+  </div>
+ </div>
+</aside>
+
+<aside class="dr" id="cart" aria-hidden="true">
+ <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+ <div class="hd2"><h2 class="h">Zamówienie</h2></div>
+ <div class="ls" id="cL"></div>
+ <div class="ft" id="cF">
+  <div class="mini" id="cMin"></div>
+  <div class="bar"><i id="cBar"></i></div>
+  <div class="tot"><span>Razem netto</span><b id="cT">0 zł</b></div>
+  <div class="mini" id="cPc" style="margin-bottom:16px"></div>
+  <button class="btn d" id="cGo" style="width:100%">Złóż zamówienie</button>
+ </div>
+ <div class="done" id="cDone"><h3>Zamówienie przyjęte</h3><p>To demo, więc nic nie zostało wysłane. W sklepie zamówienie trafia do działu sprzedaży, a butik dostaje potwierdzenie i fakturę proforma na maila.</p><button class="btn l" data-close style="margin-top:22px">Wróć do kolekcji</button></div>
+</aside>
+
+<div class="mod" id="mod" role="dialog" aria-modal="true">
+ <h2 class="h">Logowanie</h2>
+ <p>W demo nie trzeba hasła. Wchodzisz na konto przykładowego butiku i widzisz ceny hurtowe.</p>
+ <label for="m-e">E-mail butiku</label><input id="m-e" value="butik.maja@przyklad.pl" readonly>
+ <button class="btn d" id="mGo">Wejdź jako butik testowy</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
+var C={'biała':'#f4f2ee','kwiatowy żakard':'#7a4e2f',granatowa:'#24345e',czarna:'#141414',espresso:'#3a2620',karmel:'#8a5634',czekolada:'#3f2a22'};
+var P=[
+ {id:'kurtka',n:'Kurtka bomber z kwiatowego żakardu',c:'Okrycia',k:['kwiatowy żakard'],im:{'kwiatowy żakard':['kurtka-1','kurtka-2','kurtka-3']},r:279,h:129,nw:1,s:'60% bawełna, 40% poliester, podszewka 100% poliester',d:'58 cm',f:'oversize',o:'do pracy i na co dzień',x:'bufiaste rękawy, zamek na całej długości, żakard w jesiennych kolorach'},
+ {id:'sukienka',n:'Sukienka jeansowa z bufiastym rękawem',c:'Sukienki',k:['granatowa','czarna'],im:{granatowa:['sukienka-g1','sukienka-g2'],czarna:['sukienka-c1','sukienka-c2','sukienka-c3']},r:379,h:179,nw:1,s:'98% bawełna, 2% elastan',d:'84 cm',f:'dopasowany w talii',o:'do pracy i na co dzień',x:'bufiaste rękawy, stójka, kontrastowe przeszycia'},
+ {id:'marynarka',n:'Marynarka oversize z broszką',c:'Marynarki',k:['espresso','czarna'],im:{espresso:['marynarka-e1','marynarka-e2','marynarka-e3'],czarna:['marynarka-c1','marynarka-c2']},r:279,h:129,nw:1,s:'64% poliester, 33% wiskoza, 3% elastan',d:'78 cm',f:'oversize',o:'do pracy i na co dzień',x:'broszka w komplecie, kieszenie z klapką'},
+ {id:'spodnie',n:'Spodnie z prostą nogawką',c:'Spodnie i szorty',k:['espresso','czarna'],im:{espresso:['spodnie-e1','marynarka-e1'],czarna:['spodnie-c1','marynarka-c1']},r:159,h:75,s:'64% poliester, 33% wiskoza, 3% elastan',d:'102 cm',f:'prosty',o:'do pracy i na co dzień',x:'wysoki stan, komplet z marynarką oversize'},
+ {id:'szorty',n:'Szorty z eko zamszu',c:'Spodnie i szorty',k:['karmel','czekolada'],im:{karmel:['szorty-k1','szorty-k2'],czekolada:['szorty-c1']},r:189,h:85,s:'92% poliester, 8% elastan',d:'40 cm',f:'szeroki',o:'do pracy i na co dzień',x:'zakładki, mankiety, wysoki stan'}
+];
+P.push({id:'koszula',n:'Koszula z haftowanym monogramem',c:'Koszule',k:['czekolada','biała'],im:{czekolada:['koszula-c1','koszula-c2','koszula-c3','koszula-c4'],'biała':['koszula-b1']},r:199,h:92,nw:1,s:'97% bawełna, 3% elastan',d:'72 cm',f:'prosty',o:'do pracy i na co dzień',x:'haftowany monogram B na plecach, szerokie mankiety'});
+var SZ=['S','M','L','XL'],STD={S:1,M:2,L:2,XL:1},IN=false,CART=[],cur=null,cK=0,pk='std',Q={};
+function zl(v){return v.toLocaleString('pl-PL',{minimumFractionDigits:0,maximumFractionDigits:2}).replace(/ /g,' ')+' zł'}
+function stock(p,k,s){var h=0,t=p.id+k+s;for(var i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))%997;var v=h%40;return v<4?v:v+4}
+function ims(p,k){return p.im[k||p.k[0]]}
+function ph(p,i,k){var a=ims(p,k);return '<img src="img/'+a[Math.min(i,a.length-1)]+'.webp" alt="'+p.n+', '+(k||p.k[0])+'" loading="lazy">'}
+var lockI='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="6" width="9" height="6.5" rx="1"/><path d="M4.5 6V4.5a2.5 2.5 0 015 0V6"/></svg>';
+function price(p){return IN?'<b>'+zl(p.h)+' netto</b> · sugerowana '+zl(p.r):'<span class="lock">'+lockI+'Cena hurtowa po zalogowaniu</span>'}
+var cat='Wszystko';
+function chips(){var cs=['Wszystko'];P.forEach(function(p){if(cs.indexOf(p.c)<0)cs.push(p.c)});$('#chips').innerHTML=cs.map(function(c){return '<button class="'+(c==cat?'on':'')+'">'+c+'</button>'}).join('');$$('#chips button').forEach(function(b){b.onclick=function(){cat=b.textContent;chips();grid()}})}
+function grid(){$('#grid').innerHTML=P.filter(function(p){return cat=='Wszystko'||p.c==cat}).map(function(p){return '<button class="card" data-id="'+p.id+'"><div class="ph">'+ph(p,0)+(p.nw?'<span class="tag">Nowość</span>':'')+'<span class="qk">Zobacz pakiety</span></div><h3>'+p.n+'</h3><div class="sw">'+p.k.map(function(k){return '<i style="background:'+(C[k]||'#ccc')+'" title="'+k+'"></i>'}).join('')+'</div><div class="pr">'+price(p)+'</div></button>'}).join('');$$('#grid .card').forEach(function(c){c.onclick=function(){open(c.dataset.id)}})}
+function desc(p){return p.n+' w kolorze '+p.k[0]+'. Fason '+p.f+', który dobrze leży w rozmiarach od S do XL. Wyróżnia ją: '+p.x+'. Sprawdzi się '+p.o+'.'}
+function open(id){cur=P.filter(function(p){return p.id==id})[0];cK=0;pk='std';Q=JSON.parse(JSON.stringify(STD));render();show('#prod')}
+function render(){var p=cur,k=p.k[cK];
+ $('#pMain').innerHTML=ph(p,0,k);
+ $('#pTh').innerHTML=ims(p,k).map(function(x,i){return '<button class="'+(i?'':'on')+'" data-i="'+i+'">'+ph(p,i,k)+'</button>'}).join('');
+ $$('#pTh button').forEach(function(b){b.onclick=function(){$$('#pTh button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');$('#pMain').innerHTML=ph(p,+b.dataset.i,k)}});
+ $('#pN').textContent=p.n;
+ $('#pP').innerHTML=IN?'<b>'+zl(p.h)+' netto / szt.</b><span>sugerowana cena detaliczna '+zl(p.r)+'</span>':'<span>sugerowana cena detaliczna '+zl(p.r)+'</span>';
+ $('#pKn').textContent=k;
+ $('#pK').innerHTML=p.k.map(function(c,i){return '<button class="'+(i==cK?'on':'')+'" data-i="'+i+'"><i style="background:'+(C[c]||'#ccc')+'"></i>'+c+'</button>'}).join('');
+ $$('#pK button').forEach(function(b){b.onclick=function(){cK=+b.dataset.i;render()}});
+ $('#pBuy').style.display=IN?'':'none';$('#pGate').style.display=IN?'none':'';
+ $$('.pk button').forEach(function(b){b.classList.toggle('on',b.dataset.pk==pk)});
+ $('#pS').innerHTML=SZ.map(function(s){var st=stock(p,k,s);var q=Q[s];if(q>st)q=Q[s]=st;return '<tr><td>'+s+'</td><td class="st'+(st<6?' lo':'')+'">'+(st?(st<6?'zostało '+st+' szt.':'dostępne, '+st+' szt.'):'brak, dostawa za 2 tygodnie')+'</td><td>'+(pk=='own'?'<span class="stp"><button data-s="'+s+'" data-d="-1"'+(q<=0?' disabled':'')+' aria-label="Mniej">−</button><b>'+q+'</b><button data-s="'+s+'" data-d="1"'+(q>=st?' disabled':'')+' aria-label="Więcej">+</button></span>':'<b>'+q+' szt.</b>')+'</td></tr>'}).join('');
+ $$('#pS .stp button').forEach(function(b){b.onclick=function(){Q[b.dataset.s]+= +b.dataset.d;render()}});
+ var n=SZ.reduce(function(a,s){return a+Q[s]},0);
+ $('#pQ').textContent=n+' szt.'+(pk=='std'&&n<6?' (część rozmiarów niedostępna)':'');
+ $('#pV').textContent=zl(n*p.h)+' netto';
+ $('#pAdd').disabled=!n;
+ $('#pD').textContent=desc(p);
+ $('#pW').innerHTML='<dt>Skład</dt><dd>'+p.s+'</dd><dt>Długość (M)</dt><dd>'+p.d+'</dd><dt>Fason</dt><dd>'+p.f+'</dd>';
+}
+$$('.pk button').forEach(function(b){b.onclick=function(){pk=b.dataset.pk;if(pk=='std')Q=JSON.parse(JSON.stringify(STD));render()}});
+$('#pAdd').onclick=function(){var p=cur,k=p.k[cK],q={};SZ.forEach(function(s){q[s]=Q[s]});var n=SZ.reduce(function(a,s){return a+q[s]},0);if(!n)return;
+ var ex=CART.filter(function(c){return c.id==p.id&&c.k==k})[0];if(ex){SZ.forEach(function(s){ex.q[s]+=q[s]})}else CART.push({id:p.id,k:k,q:q});
+ cartR();hide();toast(p.n+', '+k+': dodano '+n+' szt.')};
+var MIN=1500,FREE=3000;
+function cartR(){var n=0,v=0;CART.forEach(function(c){var p=P.filter(function(x){return x.id==c.id})[0],m=SZ.reduce(function(a,s){return a+c.q[s]},0);n+=m;v+=m*p.h});
+ $('#cc').textContent=n;
+ $('#cL').innerHTML=CART.length?CART.map(function(c,i){var p=P.filter(function(x){return x.id==c.id})[0],m=SZ.reduce(function(a,s){return a+c.q[s]},0);return '<div class="ci"><div class="ph">'+ph(p,0,c.k)+'</div><div><b>'+p.n+'</b><span>'+c.k+'</span><span>'+SZ.filter(function(s){return c.q[s]}).map(function(s){return c.q[s]+' '+s}).join(', ')+'</span><span>'+m+' szt. × '+zl(p.h)+' = <b style="font-size:14px;color:var(--tx)">'+zl(m*p.h)+'</b></span></div><button class="rm" data-i="'+i+'">Usuń</button></div>'}).join(''):'<p class="empty">Zamówienie jest puste. Wybierz model i dodaj pakiet rozmiarowy.</p>';
+ $$('#cL .rm').forEach(function(b){b.onclick=function(){CART.splice(+b.dataset.i,1);cartR()}});
+ $('#cT').textContent=zl(v);
+ $('#cPc').textContent=n+' szt. w '+CART.length+' '+(CART.length==1?'modelu':'modelach')+(v>=FREE?', wysyłka bezpłatna':'');
+ $('#cMin').textContent=v<MIN?'Do minimum zamówienia brakuje '+zl(MIN-v)+' netto':(v<FREE?'Minimum spełnione. Do darmowej wysyłki brakuje '+zl(FREE-v):'Minimum spełnione, wysyłka bezpłatna');
+ $('#cBar').style.width=Math.min(100,v/(v<MIN?MIN:FREE)*100)+'%';
+ $('#cGo').disabled=v<MIN;
+ $('#cF').style.display=CART.length?'':'none';
+}
+$('#cGo').onclick=function(){$('#cL').style.display='none';$('#cF').style.display='none';$('#cDone').style.display='block';CART=[];$('#cc').textContent=0};
+function show(s){$('#ov').classList.add('on');$(s).classList.add('on');$(s).setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function hide(){$$('.dr,.mod').forEach(function(d){d.classList.remove('on');d.setAttribute('aria-hidden','true')});$('#ov').classList.remove('on');document.body.style.overflow='';
+ setTimeout(function(){$('#cL').style.display='';$('#cDone').style.display='none';cartR()},450)}
+$('#ov').onclick=hide;$$('[data-close]').forEach(function(b){b.onclick=hide});
+document.addEventListener('keydown',function(e){if(e.key=='Escape')hide()});
+$('#cartb').onclick=function(){cartR();show('#cart')};
+function loginOpen(){if($('#prod').classList.contains('on')){$('#prod').classList.remove('on')}show('#mod')}
+$('#login').onclick=loginOpen;
+document.addEventListener('click',function(e){if(e.target.closest('[data-login]'))loginOpen()});
+$('#mGo').onclick=function(){IN=true;document.body.classList.add('in');$('#mod').classList.remove('on');grid();if(cur){render();$('#prod').classList.add('on')}else hide();toast('Zalogowano jako Butik Maja. Widzisz ceny hurtowe.')};
+var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2600)}
+// AI demo
+var typing;
+$('#aiForm').onsubmit=function(e){e.preventDefault();
+ var n=$('#a-n').value.trim(),k=$('#a-k').value.trim(),f=$('#a-f').value,s=$('#a-s').value.trim(),d=$('#a-d').value.trim(),o=$('#a-o').value,x=$('#a-x').value.trim();
+ var skl=/wiskoza/i.test(s)?'Wiskoza sprawia, że materiał jest miękki, przewiewny i ładnie się układa.':/bawełn/i.test(s)?'Bawełna w składzie daje przyjemny w dotyku, oddychający materiał.':'Materiał trzyma kształt i nie gniecie się w ciągu dnia.';
+ var el=/elastan/i.test(s)?' Dodatek elastanu zapewnia swobodę ruchu.':'';
+ var t=n+' w kolorze '+k+' to model, który łatwo wpleść w codzienne stylizacje. Fason '+f+(x?', a do tego '+x:'')+'.\n\n'+skl+el+' Sprawdzi się '+o+': z botkami i marynarką albo z kozakami i krótką kurtką.\n\nSkład: '+s+'\nDługość w rozmiarze M: '+d;
+ $('#ai-h').textContent=n;var el2=$('#ai-txt');el2.classList.remove("wait");el2.textContent='';clearInterval(typing);var i=0;
+ typing=setInterval(function(){i+=3;el2.textContent=t.slice(0,i);if(i>=t.length)clearInterval(typing)},16)};
+$('#accForm').onsubmit=function(e){e.preventDefault();$('#accOk').style.display='block';this.querySelector('button').disabled=true};
+chips();grid();cartR();
+</script>
+</body>
+</html>
