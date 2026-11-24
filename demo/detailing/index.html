@@ -79,7 +79,7 @@ section.sec{padding:96px 0}
 
 /* bon */
 .bon{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
-.bon canvas{width:100%;height:auto;aspect-ratio:1.6;border-radius:18px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px #2a2d33;transform:perspective(1200px) rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.bon canvas{width:100%;height:auto;aspect-ratio:1.6;border-radius:18px;box-shadow:0 24px 50px -30px rgba(0,0,0,.9);transform:perspective(1200px) rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .bon form{display:grid;gap:22px}
 .bon label{display:block;font-size:13px;color:var(--tx2);margin-bottom:10px}
 .bon .ch2{display:flex;flex-wrap:wrap;gap:8px}
@@ -96,6 +96,7 @@ section.sec{padding:96px 0}
 .ga{display:flex;gap:10px}
 .ga button{width:54px;height:54px;border-radius:50%;border:1px solid #4a4f57;background:none;color:var(--tx);font-size:20px;cursor:pointer;transition:border-color .2s,background .2s}
 .ga button:hover{border-color:var(--si);background:#1a1d22}
+.proof2{margin-top:18px;font-size:14px;color:var(--tx2)}
 /* menu */
 nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px max(20px,calc((100% - 1200px)/2));transition:background .35s,padding .35s,box-shadow .35s}
 nav.s{background:rgba(8,9,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-top:10px;padding-bottom:10px;box-shadow:0 1px 0 var(--ln)}
@@ -140,7 +141,7 @@ nav .ln .btn{height:42px;padding:0 18px;font-size:12px;color:#0b0c0e}
 .cc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0fr);grid-template-rows:repeat(3,minmax(0,1fr));gap:0;aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#000;transition:grid-template-columns .75s cubic-bezier(.2,.7,.2,1),gap .75s,box-shadow .6s,transform .6s cubic-bezier(.2,.7,.2,1)}
 .cc img{width:100%;height:100%;min-width:0;min-height:0;object-fit:cover}
 .cc .m{grid-row:1/4}
-.pj:hover .cc,.pj:focus-visible .cc{grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:5px;box-shadow:0 34px 70px -28px #000,0 0 0 1px rgba(205,209,215,.3);transform:translateY(-4px)}
+.pj:hover .cc,.pj:focus-visible .cc{grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:5px;box-shadow:0 24px 50px -30px #000;transform:translateY(-4px)}
 .pm{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:16px}
 .pm h3{font-size:clamp(17px,1.6vw,21px);margin-top:8px}
 .pm .op{flex:none;font:700 11px/1 Ar;letter-spacing:.2em;text-transform:none;color:var(--si)}
@@ -230,7 +231,7 @@ nav .ln .btn{height:42px;padding:0 18px;font-size:12px;color:#0b0c0e}
 .grid7 button{aspect-ratio:auto;height:40px}
 .pane{padding:30px;border:1px solid var(--ln);border-radius:24px;background:rgba(21,23,27,.8)}
 .step{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.step i{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--metal);color:#0b0c0e;font:800 13px/1 Ar;font-style:normal}
+.step i.x{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--metal);color:#0b0c0e;font:800 13px/1 Ar;font-style:normal}
 .step b{font:700 13px Ar;letter-spacing:.16em;text-transform:none}
 .ch{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
 .ch button{cursor:pointer;padding:12px 16px;border-radius:14px;border:1px solid var(--ln);background:#0c0d10;font:600 14.5px/1.2 Ar;color:var(--tx2);text-align:left;transition:all .2s}
@@ -395,14 +396,13 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
   <div class="sh"></div>
   <div class="dark" id="dark"></div>
   <div class="t1" id="t1"><div>
-   <p class="k">Powłoki · Folie PPF · Korekta lakieru · Łódź</p>
    <h1 class="h">Lakier jak lustro.<br><em>Ochrona na lata.</em></h1>
-   <div class="proof"><span><i>★★★★★</i> 4,9 w&nbsp;Google · 128 opinii</span><span><i>100%</i> poleca na Facebooku</span></div>
   </div><div>
    <p class="lead">Powłoki, folie PPF, korekta lakieru i&nbsp;wnętrza. Cena w&nbsp;minutę, termin online.</p>
    <div class="cta"><a class="btn a" href="#wycena">Zarezerwuj termin</a><a class="btn b" href="tel:+48600100200">Zadzwoń</a></div>
+   <p class="proof2">4,9 w&nbsp;Google ze 128 opinii · 100% poleca na Facebooku</p>
   </div></div>
-  <div class="t2" id="t2"><div><p class="k">Studio detailingu w&nbsp;Łodzi</p><h2 class="h met" style="margin-top:18px">Każdy detal.<br>Dopracowany.</h2></div></div>
+  <div class="t2" id="t2"><div><h2 class="h met">Każdy detal.<br>Dopracowany.</h2></div></div>
  </div>
 </header>
 
@@ -485,14 +485,14 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
   <div class="hd rv"><h2 class="h">Wycena <em>i&nbsp;wolny termin.</em></h2></div>
   <div class="bk">
    <div class="pane rv" id="calc">
-    <div class="step"><i>1</i><b>Wielkość auta</b></div>
+    <div class="step"><b>Wielkość auta</b></div>
     <div class="ch" id="size">
      <button type="button" data-m="1" aria-pressed="false">Małe<small>np. Golf, Yaris</small></button>
      <button type="button" data-m="1.15" aria-pressed="true">Średnie<small>np. Passat, A4</small></button>
      <button type="button" data-m="1.3" aria-pressed="false">SUV<small>np. Tiguan, X3</small></button>
      <button type="button" data-m="1.45" aria-pressed="false">Duże<small>np. X5, GLE, van</small></button>
     </div>
-    <div class="step"><i>2</i><b>Co robimy</b></div>
+    <div class="step"><b>Co robimy</b></div>
     <div class="ch" id="svc">
      <button type="button" data-id="ceramika" data-p="1300" aria-pressed="true">Powłoka ceramiczna</button>
      <button type="button" data-id="korekta" data-p="700" aria-pressed="false">Korekta lakieru</button>
@@ -506,7 +506,7 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
    </div>
    <div class="pane rv" id="cal">
     <div id="bkf">
-     <div class="step"><i>3</i><b>Dzień i&nbsp;godzina</b></div>
+     <div class="step"><b>Dzień i&nbsp;godzina</b></div>
      <div class="cal"><div class="calh"><button type="button" id="cp" aria-label="Poprzedni miesiąc">←</button><b id="cm"></b><button type="button" id="cn" aria-label="Następny miesiąc">→</button></div><div class="grid7" id="cg"></div></div>
      <div class="leg"><span>Przekreślone: zajęte</span><span>Niedziela: zamknięte</span></div>
      <div class="slots" id="sl"><p>Wybierz dzień w&nbsp;kalendarzu.</p></div>
@@ -514,7 +514,7 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
     </div>
     <div class="ok" id="ok"><div class="ic"></div><h3 class="h">Termin zarezerwowany</h3><p id="okt"></p><p style="margin-top:14px;font-size:13px;color:#6c7179">To strona pokazowa, nic nie zostało wysłane.</p><button class="btn b" type="button" id="again" style="margin-top:22px">Zmień termin</button></div>
    </div>
-   <div class="pane rv" id="dane"><div class="step"><i>4</i><b>Twoje dane</b></div>
+   <div class="pane rv" id="dane"><div class="step"><b>Twoje dane</b></div>
      <form class="fm" id="fm" novalidate>
       <p class="pick" id="pick">Wybrane: <b>jeszcze nic</b></p>
       <div class="r2"><div><label for="f1">Imię</label><input id="f1" autocomplete="given-name" required></div><div><label for="f2">Telefon</label><div class="tel"><span>+48</span><input id="f2" inputmode="tel" autocomplete="tel-national" placeholder="600 123 456" required></div></div></div>
@@ -530,7 +530,7 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
 <section class="sec" id="opinie" style="background:var(--bg2)">
  <div class="wrap">
   <div class="hd rv"><h2 class="h">Co mówią <em>klienci.</em></h2></div>
-  <div class="sc rv"><div><b>4,9</b><span>średnia w&nbsp;Google<br>128 opinii</span></div><div><b>100%</b><span>poleca na Facebooku<br>64 opinie</span></div><a class="btn b" href="#opinie">Wszystkie opinie</a></div>
+  <div class="sc rv"><div><b>4,9</b><span>średnia w&nbsp;Google<br>128 opinii</span></div><div><b>100%</b><span>poleca na Facebooku<br>64 opinie</span></div><a class="btn b" href="https://www.google.com/maps/search/?api=1&amp;query=studio+detailingu+%C5%81%C3%B3d%C5%BA" target="_blank" rel="noopener">Opinie w&nbsp;Google</a></div>
   <div class="rq">
    <figure class="rv"><p class="st">★★★★★</p><blockquote>„Oddałem auto po zimie, odebrałem jak z&nbsp;salonu. Cena taka, jaką pokazał kalkulator.”</blockquote><figcaption>Tomasz</figcaption></figure>
    <figure class="rv"><p class="st">★★★★★</p><blockquote>„Termin zarezerwowałam wieczorem przez stronę, rano przyszedł SMS z&nbsp;potwierdzeniem. Wnętrze pachnie jak nowe.”</blockquote><figcaption>Karolina</figcaption></figure>
