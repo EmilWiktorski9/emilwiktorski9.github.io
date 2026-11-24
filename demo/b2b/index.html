@@ -40,18 +40,14 @@ p{text-wrap:pretty}
 .tile{position:relative;aspect-ratio:3/4;overflow:hidden;color:#fff;background:var(--bg2)}
 .tile img{width:100%;height:100%;object-fit:cover}
 .tile span{position:absolute;inset:auto 0 0;padding:80px 16px 28px;background:linear-gradient(transparent,rgba(0,0,0,.45));font-family:Cg,Georgia,serif;font-size:clamp(34px,3.2vw,52px);line-height:1;text-align:center}
-.tile:hover img{transform:scale(1.04)!important}
-/* zoom in */
-.zi img{transform:scale(1.14);transition:transform 1.8s cubic-bezier(.2,.7,.2,1)}
-.zi.in img{transform:scale(1)}
-.hero .im img{animation:hz 2.4s cubic-bezier(.2,.7,.2,1) both}
-@keyframes hz{from{transform:scale(1.14)}to{transform:scale(1)}}
-@media (prefers-reduced-motion:reduce){.zi img,.hero .im img{transition:none;animation:none;transform:none}}
+/* hover zoom tylko na komputerze */
+.tile img,.lk .fr img,.brand .im img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.tile:hover img,.lk .fr:hover img{transform:scale(1.04)}}
 /* looks */
 #looki{padding-bottom:40px}
 .looks{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .lk .fr{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--bg2)}
-.lk .fr img{width:100%;height:100%;object-fit:cover;transform:scale(var(--z,1.08));transition:transform .2s linear;will-change:transform}
+.lk .fr img{width:100%;height:100%;object-fit:cover}
 .hs{position:absolute;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;box-shadow:0 0 0 6px rgba(255,255,255,.28);transition:box-shadow .25s,background .25s}
 .hs svg{width:14px;height:14px;transition:transform .25s}
 .hs:hover,.hs:focus-visible{box-shadow:0 0 0 10px rgba(255,255,255,.35);outline:none}
@@ -88,14 +84,14 @@ body.in #login{display:none}
 #cartb i{font-style:normal;background:var(--tx);color:#fff;border-radius:99px;min-width:22px;height:22px;font-size:14px;display:grid;place-items:center;padding:0 6px}
 #login{height:44px;padding:0 18px;font-size:14px}
 /* hero */
-.hero{display:grid;grid-template-columns:1fr 1.05fr;height:min(calc(100vh - 102px),880px);min-height:560px;border-bottom:1px solid var(--ln)}
+.hero{display:grid;grid-template-columns:1fr min(46vw,calc((100vh - 110px)*.64));height:min(calc(100vh - 102px),880px);min-height:560px;border-bottom:1px solid var(--ln)}
 .hero .t{padding:64px 56px 56px max(32px,calc((100vw - 1320px)/2 + 32px));display:flex;flex-direction:column;justify-content:center}
 .hero h1{font-size:clamp(46px,5.4vw,84px)}
 .hero p{font-size:18px;color:var(--tx2);max-width:500px;margin:24px 0 34px}
 .hero .bt{display:flex;gap:12px}
 .hero .bt .btn{flex:1;max-width:220px}
 .hero .im{position:relative;background:var(--bg2);overflow:hidden}
-.hero .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero .im video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .facts{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--ln)}
 .facts div{padding:26px 32px;border-right:1px solid var(--ln)}
 .facts div:last-child{border:0}
@@ -114,9 +110,9 @@ section{padding:96px 0}
 .card{cursor:pointer;text-align:left}
 .card .ph{position:relative;aspect-ratio:3/4;background:var(--bg2);overflow:hidden;margin-bottom:14px}
 .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.card:hover .ph img{transform:scale(1.035)}
+@media (hover:hover){.card:hover .ph img{transform:scale(1.035)}}
 .card .ph .alt{position:absolute;inset:0;opacity:0;transition:opacity .4s}
-.card:hover .ph .alt{opacity:1}
+@media (hover:hover){.card:hover .ph .alt{opacity:1}}
 .card .ph .tone{position:absolute;inset:0}
 .card .tag{position:absolute;left:10px;top:10px;background:#fff;font-size:14px;font-weight:600;padding:4px 9px;border-radius:var(--r)}
 .card .qk{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.96);height:44px;display:grid;place-items:center;font-size:14px;font-weight:600;opacity:0;transform:translateY(6px);transition:.25s}
@@ -253,7 +249,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
  #login{display:none}
  body.in .who{display:none}
  .hero{grid-template-columns:1fr;height:auto;min-height:0}
- .hero .im{aspect-ratio:4/5;order:-1}
+ .hero .im{aspect-ratio:3/4.6;order:-1}
  .hero .t{padding:40px 20px 48px}
  .facts{grid-template-columns:1fr 1fr}
  .facts div:nth-child(2){border-right:0}
@@ -317,7 +313,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <p>Zamawiasz pakiety rozmiarowe online, widzisz stany magazynowe na bieżąco i nie musisz dzwonić, żeby sprawdzić, czy jest jeszcze M w espresso.</p>
   <div class="bt"><a class="btn d" href="#kolekcja">Zobacz kolekcję</a><a class="btn l" href="#konto">Załóż konto</a></div>
  </div>
- <div class="im"><img src="img/hero.webp" alt="Kolekcja By o la la..! jesień/zima"></div>
+ <div class="im"><video id="hv" src="img/hero.mp4" poster="img/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Kolekcja By o la la..! jesień/zima, sesja w studiu"></video></div>
 </header>
 
 <div class="facts">
@@ -329,10 +325,10 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section id="kategorie">
  <div class="tiles">
-  <button class="tile zi" data-cat="Okrycia"><img src="img/kurtka-3.webp" alt="" loading="lazy"><span>Okrycia</span></button>
-  <button class="tile zi" data-cat="Sukienki"><img src="img/sukienka-c3.webp" alt="" loading="lazy"><span>Sukienki</span></button>
-  <button class="tile zi" data-cat="Komplety"><img src="img/marynarka-e2.webp" alt="" loading="lazy"><span>Komplety</span></button>
-  <button class="tile zi" data-cat="Koszule"><img src="img/koszula-c1.webp" alt="" loading="lazy"><span>Koszule</span></button>
+  <button class="tile" data-cat="Okrycia"><img src="img/kurtka-3.webp" alt="" loading="lazy"><span>Okrycia</span></button>
+  <button class="tile" data-cat="Sukienki"><img src="img/sukienka-c3.webp" alt="" loading="lazy"><span>Sukienki</span></button>
+  <button class="tile" data-cat="Komplety"><img src="img/marynarka-e2.webp" alt="" loading="lazy"><span>Komplety</span></button>
+  <button class="tile" data-cat="Koszule"><img src="img/koszula-c1.webp" alt="" loading="lazy"><span>Koszule</span></button>
  </div>
 </section>
 
@@ -392,7 +388,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section id="marka">
  <div class="w brand">
-  <div class="im zi"><img src="img/koszula-c4.webp" alt="Haftowany monogram By o la la..! na koszuli" loading="lazy"></div>
+  <div class="im"><img src="img/koszula-c4.webp" alt="Haftowany monogram By o la la..! na koszuli" loading="lazy"></div>
   <div>
    <h2 class="h" style="font-size:clamp(36px,4vw,56px)">Polska marka <em>z historią</em></h2>
    <p>By o la la..! projektuje kobiecą odzież od 14 lat. Od ponad 13 lat sprzedaje przez butiki, ma 39 sklepów firmowych, a w 2022 roku dostała tytuł Kobieca Marka Roku. Kampanie fotografuje na ulicach miasta i w jasnym studiu.</p>
@@ -574,13 +570,11 @@ $$('[data-add-look]').forEach(function(b,i){b.onclick=function(){if(!IN){pend=i;
 function addLook(i){var n=0;LOOKS[i].forEach(function(it){var p=byId(it.id),k=p.k[it.k],q=pack(p,it.k);n+=SZ.reduce(function(a,s){return a+q[s]},0);
  var ex=CART.filter(function(c){return c.id==p.id&&c.k==k})[0];if(ex){SZ.forEach(function(s){ex.q[s]+=q[s]})}else CART.push({id:p.id,k:k,q:q})});
  cartR();toast('Dodano cały look: '+n+' szt. w pakietach')}
-function zoom(){var vh=innerHeight;$$('.lk .fr').forEach(function(f){var r=f.getBoundingClientRect(),t=1-Math.min(1,Math.max(0,(r.top+r.height*.3)/vh));f.firstElementChild.style.setProperty('--z',(1.08-.08*t).toFixed(4))})}
-addEventListener('scroll',zoom,{passive:true});addEventListener('resize',zoom);
 $('#burg').onclick=function(){show('#menu')};
 $$('#menu .mn a').forEach(function(a){a.onclick=function(){hide()}});
 $$('[data-cat]').forEach(function(t){t.onclick=function(){cat=t.dataset.cat;chips();grid();$('#kolekcja').scrollIntoView({behavior:'smooth'})}});
-if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});$$('.zi').forEach(function(z){io.observe(z)})}else $$('.zi').forEach(function(z){z.classList.add('in')});
-chips();grid();cartR();looksR();zoom();
+var hv=$('#hv');if(hv){var pl=function(){var r=hv.play();if(r&&r.catch)r.catch(function(){})};pl();document.addEventListener('visibilitychange',function(){if(!document.hidden)pl()})}
+chips();grid();cartR();looksR();
 </script>
 </body>
 </html>
