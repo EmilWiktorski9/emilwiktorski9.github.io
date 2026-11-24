@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Maxx-Audio · studio nagrań w Łodzi · audiobooki i lektorzy</title>
+<meta name="description" content="Studio nagrań w Łodzi. Ponad 500 audiobooków, słuchowiska, postprodukcja i nagrania lektorskie. Bank głosów: aktorzy, lektorzy i native speakerzy.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0d0c0b">
+<meta property="og:title" content="Maxx-Audio · studio nagrań w Łodzi">
+<meta property="og:description" content="Głosy, które znasz. Audiobooki, słuchowiska i nagrania lektorskie.">
+<meta property="og:image" content="https://emilwiktorski.pl/demo/maxx-audio/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://emilwiktorski.pl/demo/maxx-audio/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%230d0c0b'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23ff4a2e'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/newsreader-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Nr;font-style:normal;font-weight:400;font-display:swap;src:url(fonts/newsreader-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Nr;font-style:normal;font-weight:400;font-display:swap;src:url(fonts/newsreader-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Nr;font-style:italic;font-weight:400;font-display:swap;src:url(fonts/newsreader-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Nr;font-style:italic;font-weight:400;font-display:swap;src:url(fonts/newsreader-latin-ext-400-italic.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:In;font-weight:400;font-display:swap;src:url(fonts/inter-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:In;font-weight:400;font-display:swap;src:url(fonts/inter-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:In;font-weight:500;font-display:swap;src:url(fonts/inter-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:In;font-weight:500;font-display:swap;src:url(fonts/inter-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:In;font-weight:600;font-display:swap;src:url(fonts/inter-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:In;font-weight:600;font-display:swap;src:url(fonts/inter-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--bg:#0d0c0b;--bg2:#161412;--ink:#efe9df;--mut:#958d81;--line:rgba(239,233,223,.12);--rec:#ff4a2e;--light:#ece6dc;--w:1240px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 In,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:Nr,Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1}
+h1 em,h2 em{font-style:italic;color:var(--rec)}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--bg);font-weight:500;font-size:15px;padding:16px 26px;border-radius:40px;transition:background .25s,transform .25s}
+.btn:hover{background:var(--rec);color:#fff;transform:translateY(-2px)}
+.btn.ln{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.ln:hover{box-shadow:inset 0 0 0 1px var(--ink);background:transparent}
+.btn svg{width:16px;height:16px}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s}
+nav.s{background:rgba(13,12,11,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+nav .wrap{display:flex;align-items:center;gap:34px;height:76px;max-width:none;padding:0 40px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:17px;letter-spacing:-.01em}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--rec);box-shadow:0 0 0 0 rgba(255,74,46,.6)}
+body.on .logo i{animation:rec 1.4s infinite}
+@keyframes rec{0%{box-shadow:0 0 0 0 rgba(255,74,46,.55)}100%{box-shadow:0 0 0 12px rgba(255,74,46,0)}}
+nav ul{display:flex;gap:30px;list-style:none;margin-left:auto;font-size:14px;color:var(--mut)}
+nav ul a:hover{color:var(--ink)}
+nav .btn{padding:10px 18px;font-size:14px}
+
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:120px 0 60px}
+#wave{display:block;width:calc(100% + 120px);margin-left:-60px;height:clamp(140px,24vh,240px);pointer-events:none}
+.hero .wrap{position:relative;width:100%;display:grid;grid-template-columns:1.25fr 1fr;gap:60px;align-items:end}
+.hero h1{font-size:clamp(60px,min(8.4vw,14vh),136px);line-height:.92}
+.hero h1 em{display:block}
+.hero p{max-width:30em;color:#c9c1b4;font-size:19px;margin:30px 0 36px}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.feat{background:rgba(22,20,18,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:6px;padding:10px}
+.feat>p{font-size:13px;color:var(--mut);padding:12px 14px 8px;margin:0}
+.tr{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:14px;width:100%;text-align:left;padding:10px 14px;border-radius:4px;transition:background .2s}
+.tr:hover{background:rgba(239,233,223,.05)}
+.pb{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .2s,border-color .2s}
+.tr:hover .pb{border-color:var(--ink)}
+.pb svg{width:14px;height:14px;fill:currentColor}
+.pb .ps{display:none}
+.tr.play .pb{background:var(--rec);border-color:var(--rec);color:#fff}
+.tr.play .pb .pl{display:none}.tr.play .pb .ps{display:block}
+.tr b{font-family:Nr;font-weight:400;font-size:24px;letter-spacing:-.01em;line-height:1.1;display:block}
+.tr small{font-size:13px;color:var(--mut)}
+.bars{display:flex;gap:3px;align-items:flex-end;height:18px;width:26px}
+.bars i{flex:1;background:var(--mut);height:3px;border-radius:1px;transition:height .15s}
+.tr.play .bars i{background:var(--rec);animation:eq .9s ease-in-out infinite}
+.tr.play .bars i:nth-child(2){animation-delay:-.3s}.tr.play .bars i:nth-child(3){animation-delay:-.6s}.tr.play .bars i:nth-child(4){animation-delay:-.15s}
+@keyframes eq{0%,100%{height:4px}50%{height:18px}}
+
+/* liczby */
+.nums{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nums .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.nums div.n{padding:46px 28px 42px;border-left:1px solid var(--line)}
+.nums div.n:first-child{border-left:0;padding-left:0}
+.nums strong{display:block;font-family:Nr;font-weight:400;font-size:clamp(52px,5.6vw,84px);line-height:1;letter-spacing:-.03em}
+.nums span{display:block;margin-top:10px;font-size:15px;color:var(--mut)}
+
+/* sekcje */
+.sec{padding:130px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:48px}
+.head h2{font-size:clamp(50px,6vw,96px)}
+.head p{max-width:26em;color:var(--mut)}
+.lt{background:var(--light);color:#16130f;--ink:#16130f;--mut:#6c655b;--line:rgba(22,19,15,.14)}
+.lt h2 em{color:#d93a20}
+.lt .btn{color:var(--light)}
+.lt .btn:hover{color:#fff}
+
+/* bank glosow */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tabs button{padding:11px 18px;border-radius:40px;border:1px solid var(--line);font-size:14px;color:var(--mut);transition:all .2s}
+.tabs button:hover{color:var(--ink);border-color:var(--ink)}
+.tabs button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.lang{display:flex;flex-wrap:wrap;gap:6px 18px;margin:-10px 0 26px;font-size:14px;color:var(--mut)}
+.lang button{color:var(--mut);padding:4px 0;border-bottom:1px solid transparent}
+.lang button.on{color:var(--ink);border-color:var(--rec)}
+.list{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.list .tr{border-radius:0;border-bottom:1px solid var(--line);padding:16px 14px 16px 0}
+.list .tr b{font-size:22px}
+.list .tr:hover{background:transparent}
+.list .tr:hover b{color:var(--rec)}
+.more{margin-top:26px;font-size:15px;color:var(--mut)}
+
+/* realizacje */
+.rz{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.rz h3{font-size:34px;margin-bottom:18px}
+.rz .tr{border-bottom:1px solid var(--line);border-radius:0;padding:14px 0}
+.rz .tr b{font-size:21px}
+.rz .tr:hover{background:transparent}
+.rz .tr:hover b{color:#d93a20}
+
+/* jakosc */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.tier{background:var(--bg);padding:34px 30px 30px;display:flex;flex-direction:column;gap:18px;text-align:left;transition:background .3s}
+.tier:hover{background:var(--bg2)}
+.tier h3{font-size:44px}
+.tier p{color:var(--mut);font-size:15px}
+.tier .tr{padding:0;margin-top:auto}
+.tier .tr:hover{background:transparent}
+.what{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 60px;margin-top:90px}
+.what div{border-top:1px solid var(--line);padding-top:20px}
+.what h3{font-size:30px;margin-bottom:8px}
+.what p{color:var(--mut);font-size:15px}
+
+/* wycena */
+.form{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+.form h2{font-size:clamp(52px,6vw,96px);margin-bottom:24px}
+.form .lead{color:var(--mut);max-width:24em;margin-bottom:36px}
+.contact{display:grid;gap:18px;font-size:17px}
+.contact b{display:block;font-size:13px;color:var(--mut);font-weight:400}
+.contact a:hover{color:#d93a20}
+form{display:grid;gap:26px}
+.q label,.q legend{display:block;font-size:14px;color:var(--mut);margin-bottom:12px}
+.q fieldset{border:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;padding:11px 18px;border-radius:40px;border:1px solid var(--line);font-size:15px;cursor:pointer;transition:all .2s}
+.chips input:checked+span{background:var(--ink);color:var(--light);border-color:var(--ink)}
+.chips input:focus-visible+span{outline:2px solid #d93a20;outline-offset:2px}
+.q input[type=text],.q input[type=email],.q textarea{width:100%;font:inherit;font-size:17px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 0 12px;outline:none;transition:border-color .2s;border-radius:0}
+.q input:focus,.q textarea:focus{border-color:var(--ink)}
+.q textarea{resize:vertical;min-height:80px}
+form .btn{justify-self:start}
+form small{font-size:13px;color:var(--mut)}
+
+/* stopka */
+footer{padding:80px 0 34px;overflow:hidden}
+footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:50px}
+footer .claim{font-family:Nr;font-size:40px;line-height:1.02;max-width:9em}
+footer .claim em{color:var(--rec)}
+footer h4{font-size:13px;color:var(--mut);font-weight:400;margin-bottom:14px}
+footer ul{list-style:none;display:grid;gap:8px;font-size:15px}
+footer ul a:hover{color:var(--rec)}
+footer .mega{font-family:Nr;font-style:italic;font-size:21vw;line-height:.8;letter-spacing:-.04em;color:#1a1816;text-align:center;white-space:nowrap;margin:10px 0 26px;user-select:none}
+footer .bot{display:flex;justify-content:space-between;gap:20px;font-size:13px;color:#6d665c;border-top:1px solid var(--line);padding-top:24px}
+
+/* odtwarzacz */
+.player{position:fixed;left:50%;bottom:20px;transform:translate(-50%,140%);z-index:60;display:flex;align-items:center;gap:16px;background:rgba(22,20,18,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(239,233,223,.14);border-radius:60px;padding:8px 22px 8px 8px;min-width:min(440px,calc(100vw - 32px));transition:transform .45s cubic-bezier(.2,.8,.2,1);color:#efe9df}
+.player.on{transform:translate(-50%,0)}
+.player .pb{background:var(--rec);border-color:var(--rec);color:#fff;flex:none}
+.player .pb .pl{display:none}.player .pb .ps{display:block}
+.player.paused .pb .pl{display:block}.player.paused .pb .ps{display:none}
+.player .t{flex:1;min-width:0}
+.player .t b{display:block;font-family:Nr;font-weight:400;font-size:19px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player .bar{height:3px;background:rgba(239,233,223,.14);border-radius:2px;margin-top:6px;overflow:hidden;cursor:pointer}
+.player .bar i{display:block;height:100%;width:0;background:var(--rec)}
+.player .x{font-size:22px;color:#958d81;padding:4px 2px}
+.player .x:hover{color:#efe9df}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media(max-width:1000px){
+ nav ul{display:none}
+ nav .wrap{justify-content:space-between;padding:0 24px}
+ .hero .wrap{grid-template-columns:1fr;gap:40px}
+ .list{grid-template-columns:1fr 1fr}
+ .rz,.form{grid-template-columns:1fr;gap:56px}
+ .tiers,.what{grid-template-columns:1fr}
+ .head{display:block}.head p{margin-top:18px}
+ footer .cols{grid-template-columns:1fr 1fr}footer .cols>div:first-child{grid-column:1/-1}
+}
+@media(max-width:760px){
+ body{font-size:16px}
+ .wrap{padding:0 22px}
+ nav .wrap{height:64px;padding:0 20px}
+ nav .btn{padding:9px 15px;font-size:13px}
+ .hero{padding:100px 0 50px;min-height:0}
+ #wave{height:130px;width:calc(100% + 44px);margin-left:-22px}
+ .hero h1{font-size:clamp(52px,15vw,78px)}
+ .hero p{font-size:17px;margin:22px 0 28px}
+ .hero .btn{flex:1;justify-content:center;white-space:nowrap;padding:15px 16px;font-size:14px}
+ .hero .btn svg{display:none}
+ .nums .wrap{grid-template-columns:1fr 1fr}
+ .nums div.n{padding:28px 0 26px 18px}
+ .nums div.n:nth-child(odd){border-left:0;padding-left:0}
+ .nums div.n:nth-child(-n+2){border-bottom:1px solid var(--line)}
+ .sec{padding:84px 0}
+ .list{grid-template-columns:1fr}
+ .what{margin-top:60px}
+ form .btn{justify-self:stretch;justify-content:center}
+ footer .cols{grid-template-columns:1fr}
+ footer .bot{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap">
+ <a class="logo" href="#top"><i></i>Maxx-Audio</a>
+ <ul>
+  <li><a href="#glosy">Bank głosów</a></li>
+  <li><a href="#realizacje">Realizacje</a></li>
+  <li><a href="#studio">Co nagrywamy</a></li>
+  <li><a href="#wycena">Kontakt</a></li>
+ </ul>
+ <a class="btn" href="#wycena">Zapytaj o wycenę</a>
+</div></nav>
+
+<section class="hero" id="top">
+ <div class="wrap">
+  <div>
+   <h1>Głosy, które znasz. <em>Nagrane w Łodzi.</em></h1>
+   <p>Studio nagrań Maxx-Audio. Audiobooki, słuchowiska, postprodukcja i nagrania lektorskie, z aktorami i lektorami, których słyszysz w radiu, telewizji i w słuchawkach.</p>
+   <div class="row">
+    <a class="btn" href="#glosy">Posłuchaj głosów <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="btn ln" href="#wycena">Zapytaj o wycenę</a>
+   </div>
+  </div>
+  <div class="side"><canvas id="wave" aria-hidden="true"></canvas><div class="feat" id="feat"><p>Kliknij i posłuchaj</p></div></div>
+ </div>
+</section>
+
+<section class="nums"><div class="wrap">
+ <div class="n rv"><strong data-c="500">500</strong><span>audiobooków</span></div>
+ <div class="n rv"><strong data-c="4860">4860</strong><span>nagrań lektorskich</span></div>
+ <div class="n rv"><strong data-c="267">267</strong><span>postprodukcji</span></div>
+ <div class="n rv"><strong data-c="59">59</strong><span>słuchowisk</span></div>
+</div></section>
+
+<section class="sec" id="glosy"><div class="wrap">
+ <div class="head rv"><h2>Bank <em>głosów.</em></h2><p>Wybierz głos do audiobooka, reklamy albo e-learningu. Każdą próbkę odsłuchasz jednym kliknięciem. To nie cała baza: współpracujemy z wieloma innymi aktorami.</p></div>
+ <div class="tabs rv" id="tabs"></div>
+ <div class="lang" id="lang" hidden></div>
+ <div class="list" id="list"></div>
+</div></section>
+
+<section class="sec lt" id="realizacje"><div class="wrap">
+ <div class="head rv"><h2>Ponad 500 <em>książek</em> w słuchawkach.</h2><p>Wybrane fragmenty audiobooków i słuchowisk dla dzieci, które nagraliśmy i zmontowaliśmy.</p></div>
+ <div class="rz">
+  <div class="rv"><h3>Audiobooki</h3><div id="rz-a"></div></div>
+  <div class="rv"><h3>Bajki i słuchowiska</h3><div id="rz-b"></div></div>
+ </div>
+</div></section>
+
+<section class="sec" id="studio"><div class="wrap">
+ <div class="head rv"><h2>Posłuchaj <em>różnicy.</em></h2><p>Ten sam materiał w trzech wariantach realizacji. Wybierasz ten, który pasuje do projektu i budżetu.</p></div>
+ <div class="tiers rv" id="tiers"></div>
+ <div class="what">
+  <div class="rv"><h3>Audiobooki</h3><p>Od wyboru lektora, przez nagranie, po montaż i mastering gotowy do wydania.</p></div>
+  <div class="rv"><h3>Słuchowiska</h3><p>Wiele głosów, efekty i muzyka. Także dla dzieci.</p></div>
+  <div class="rv"><h3>Nagrania lektorskie</h3><p>Reklama radiowa i internetowa, prezentacje, filmy firmowe.</p></div>
+  <div class="rv"><h3>E-learning</h3><p>Szkolenia i kursy nagrane wyraźnie i w jednym tempie.</p></div>
+  <div class="rv"><h3>Native speakerzy</h3><p>Angielski, niemiecki, francuski, rosyjski, hiszpański i włoski.</p></div>
+  <div class="rv"><h3>Postprodukcja</h3><p>Montaż, czyszczenie dźwięku i mastering Twoich nagrań.</p></div>
+ </div>
+</div></section>
+
+<section class="sec lt" id="wycena"><div class="wrap form">
+ <div class="rv">
+  <h2>Opowiedz, co <em>nagrywamy.</em></h2>
+  <p class="lead">Napisz kilka słów o projekcie. Odpiszemy z propozycją głosu, terminu i ceny.</p>
+  <div class="contact">
+   <div><b>Studio</b>ul. ks. Skorupki 7, 93-208 Łódź</div>
+   <div><b>Telefon</b><a href="tel:+48426630562">42 663 05 62</a> · <a href="tel:+48603751221">603 751 221</a></div>
+   <div><b>E-mail</b><a href="mailto:studio@maxx-audio.com">studio@maxx-audio.com</a></div>
+  </div>
+ </div>
+ <form class="rv" id="f">
+  <div class="q"><fieldset><legend>Rodzaj projektu</legend><div class="chips">
+   <label><input type="radio" name="typ" value="Audiobook" checked><span>Audiobook</span></label>
+   <label><input type="radio" name="typ" value="Reklama"><span>Reklama</span></label>
+   <label><input type="radio" name="typ" value="E-learning"><span>E-learning</span></label>
+   <label><input type="radio" name="typ" value="Słuchowisko"><span>Słuchowisko</span></label>
+   <label><input type="radio" name="typ" value="Postprodukcja"><span>Postprodukcja</span></label>
+  </div></fieldset></div>
+  <div class="q"><label for="glos">Wybrany głos (opcjonalnie)</label><input type="text" id="glos" name="glos" placeholder="np. Krystyna Czubówna albo „głos męski, ciepły”"></div>
+  <div class="q"><label for="opis">O projekcie</label><textarea id="opis" name="opis" placeholder="Długość tekstu, termin, gdzie zostanie użyte nagranie"></textarea></div>
+  <div class="q"><label for="mail">Twój e-mail</label><input type="email" id="mail" name="mail" required placeholder="imie@firma.pl"></div>
+  <button class="btn" type="submit">Wyślij zapytanie <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  <small>Przycisk otworzy Twoją pocztę z gotową wiadomością do studia.</small>
+ </form>
+</div></section>
+
+<footer><div class="wrap">
+ <div class="cols">
+  <div><p class="claim">Głosy, które znasz. <em>Nagrane w Łodzi.</em></p></div>
+  <div><h4>Studio</h4><ul><li>ul. ks. Skorupki 7</li><li>93-208 Łódź</li></ul></div>
+  <div><h4>Kontakt</h4><ul><li><a href="tel:+48426630562">42 663 05 62</a></li><li><a href="tel:+48603751221">603 751 221</a></li><li><a href="mailto:studio@maxx-audio.com">studio@maxx-audio.com</a></li></ul></div>
+ </div>
+</div>
+<div class="mega" aria-hidden="true">Maxx-Audio</div>
+<div class="wrap"><div class="bot"><span>© 2026 Maxx-Audio · studio nagrań</span><span>Łódź</span></div></div>
+</footer>
+
+<div class="player" id="pl" aria-live="polite">
+ <button class="pb" id="plb" aria-label="Pauza"><svg class="pl" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="ps" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
+ <div class="t"><b id="plt"></b><div class="bar" id="plbar"><i id="plp"></i></div></div>
+ <button class="x" id="plx" aria-label="Zamknij odtwarzacz">×</button>
+</div>
+
+<script>
+(function(){
+var U='https://maxx-audio.com/wp-content/uploads/2017/07/';
+function L(s){return s.split('|').map(function(x){var p=x.split('=');return {f:p[0],n:p[1]||p[0].replace(/[-_]/g,' ')}})}
+var V={
+ akt:L('Cezary-Żak|Anna-Seniuk|Artur-Barciś|Krysztyna-Czubówna=Krystyna Czubówna|Karolina-Gruszka|Jerzy-Zelnik|Agnieszka-Grochowska|Ksawery-Jasienski|Dariusz-Kowalski|Janusz-German|Robert-Michalak|Grzegorz-Pawlak|Masza-Bogucka|Bronislaw-Wroclawski|Magda-Zając|Mariusz-Siudziński|MilenaLisiecka=Milena Lisiecka|Agnieszka-Greinert|Daniel-Pachelski|Anita-Sajnóg|Boguslaw-Suszka|Jolanta-Jackowska|Michał-Staszczak|Barbara-Marszalek|Sambor-Czartona|Basia-Spirała|Piotr-Krukowski|Róża-Chrabelska|Ireneusz-Czop|Wojciech-Poradowski|Małgorzata-Flegel|Tomek-Kubiatowicz|Dorota-Kiełkowicz|Dorota-Bielska|Andrzej-Wichrowski|Ula-Rodziewicz|Ula-Gryczewska'),
+ m:L('Tomasz-Knapik|Janusz-1=Janusz|Robert-M=Robert M.|Daniel|Grzegorz|Bogdan|Artur|Krzysztof-G=Krzysztof G.|Krzysztof-GR=Krzysztof GR|Rino|Marek|Robert-A=Robert A.'),
+ k:L('Krysztyna-Czubówna=Krystyna Czubówna|Magda|Milena|Alicja|Agnieszka-G=Agnieszka G.|Beata|Mirella|Anita|Karolina|Basia|Ola|Urszula'),
+ dz:L('Aron|Bronek|Lea|Leon|Maks|Marta|Nina|Pola|Zosia')
+};
+var N={'Angielski':L('Josh|Tim|Kevin|Mark|Eva|Craig|Doris|Karina|Tony|Mary|Mick|Peter|Sharon|Teresa|Alexis|Brian_N=Brian|David|Ed|Gregg|Kim|Laurel|Shanya|Stuart|Tara'),'Niemiecki':L('Martin|Anjes|Matt|Stefan|Thomas'),'Francuski':L('Yann|Claudia|David-R=David|Jerome|Stefan-1=Stefan'),'Rosyjski':L('Pavel|Alekseeva|Alexin|Dmitriy|Wladimir'),'Hiszpański':L('Gunter|Joanna|Juan|Louis|Xabier'),'Włoski':L('Alberto|Angelo|Chiara|Mauro|Ugo')};
+var TABS=[['akt','Aktorzy · audiobooki','Aktor'],['m','Lektorzy','Lektor'],['k','Lektorki','Lektorka'],['nat','Native speakerzy',''],['dz','Głosy dziecięce','Głos dziecięcy']];
+var RA=L('Popiół-i-diament=Popiół i diament|Opowieści-z-Narnii=Opowieści z Narnii|Twierdza-szyfrów=Twierdza szyfrów|Był-sobie-pies=Był sobie pies|Kroniki-Jakuba-Wędrowycza=Kroniki Jakuba Wędrowycza|The-Great-Gatsby=The Great Gatsby|Ułamek-sekundy=Ułamek sekundy|Konflikt-interesów=Konflikt interesów|Maska-Dimitriosa=Maska Dimitriosa|Jednominutowy-Menedżer=Jednominutowy Menedżer|Zjedz-te-żabe=Zjedz tę żabę|Alice’s-Adventures-in-Wonderland=Alice’s Adventures in Wonderland');
+var RB=L('Przygody-Koziołka-Matołka=Przygody Koziołka Matołka|Przygody-Słonika-Bombika=Przygody Słonika Bombika|Wielki-wyścig=Wielki wyścig|Co-słonko-widziało=Co słonko widziało|Małpka-Fiki-Miki=Małpka Fiki Miki|Zegar-z-kurantem=Zegar z kurantem');
+var BARS='<span class="bars"><i></i><i></i><i></i><i></i></span>';
+var PB='<span class="pb"><svg class="pl" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="ps" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></span>';
+function tr(v,sub){return '<button class="tr" data-f="'+v.f+'" data-n="'+v.n+'" aria-label="Odtwórz: '+v.n+'">'+PB+'<span><b>'+v.n+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</span>'+BARS+'</button>'}
+function ext(f){return f==='Adrian'?'.wav':'.mp3'}
+
+/* hero */
+var feat=document.getElementById('feat');
+[['Cezary-Żak','Cezary Żak','aktor, audiobooki'],['Krysztyna-Czubówna','Krystyna Czubówna','lektorka'],['Tomasz-Knapik','Tomasz Knapik','lektor'],['Anna-Seniuk','Anna Seniuk','aktorka, audiobooki']].forEach(function(a){feat.insertAdjacentHTML('beforeend',tr({f:a[0],n:a[1]},a[2]))});
+
+/* bank glosow */
+var tabs=document.getElementById('tabs'),list=document.getElementById('list'),lang=document.getElementById('lang');
+function show(k,l){
+ tabs.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.k===k)});
+ var arr,sub;
+ if(k==='nat'){lang.hidden=false;l=l||'Angielski';lang.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.textContent===l)});arr=N[l];sub=l}
+ else{lang.hidden=true;arr=V[k];sub=TABS.filter(function(t){return t[0]===k})[0][2]}
+ list.innerHTML=arr.map(function(v){return tr(v,sub)}).join('');mark();
+}
+TABS.forEach(function(t){var b=document.createElement('button');b.textContent=t[1];b.dataset.k=t[0];b.onclick=function(){show(t[0])};tabs.appendChild(b)});
+Object.keys(N).forEach(function(l){var b=document.createElement('button');b.textContent=l;b.onclick=function(){show('nat',l)};lang.appendChild(b)});
+show('akt');
+
+/* realizacje */
+document.getElementById('rz-a').innerHTML=RA.map(function(v){return tr(v,'')}).join('');
+document.getElementById('rz-b').innerHTML=RB.map(function(v){return tr(v,'')}).join('');
+
+/* warianty */
+var T=[['DeLux','Najwyższa jakość: dobór lektorów, pełna postprodukcja i efekty.'],['Standard','Profesjonalne nagranie i montaż dla większości projektów.'],['Economy','Rozsądna cena przy dużej ilości materiału.']];
+document.getElementById('tiers').innerHTML=T.map(function(t){return '<div class="tier"><h3>'+t[0]+'</h3><p>'+t[1]+'</p>'+tr({f:t[0],n:'Posłuchaj: '+t[0]},'')+'</div>'}).join('');
+
+/* odtwarzacz */
+var au=new Audio(),cur=null,pl=document.getElementById('pl'),plt=document.getElementById('plt'),plp=document.getElementById('plp');
+au.preload='none';
+function mark(){document.querySelectorAll('.tr').forEach(function(b){b.classList.toggle('play',!!cur&&b.dataset.f===cur&&!au.paused)})}
+document.addEventListener('click',function(e){var b=e.target.closest('.tr');if(!b)return;
+ if(cur===b.dataset.f){au.paused?au.play():au.pause();return}
+ cur=b.dataset.f;au.src=U+encodeURIComponent(b.dataset.f)+ext(b.dataset.f);au.play().catch(function(){});
+ plt.textContent=b.dataset.n.replace(/^Posłuchaj: /,'');pl.classList.add('on');
+});
+au.addEventListener('play',function(){pl.classList.remove('paused');document.body.classList.add('on');mark()});
+au.addEventListener('pause',function(){pl.classList.add('paused');document.body.classList.remove('on');mark()});
+au.addEventListener('ended',function(){au.currentTime=0;plp.style.width='0'});
+au.addEventListener('timeupdate',function(){if(au.duration)plp.style.width=(au.currentTime/au.duration*100)+'%'});
+document.getElementById('plb').onclick=function(){au.paused?au.play():au.pause()};
+document.getElementById('plx').onclick=function(){au.pause();cur=null;pl.classList.remove('on');mark()};
+document.getElementById('plbar').onclick=function(e){if(au.duration){var r=this.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration}};
+
+/* fala: spokojna, ozywa, gdy cos gra */
+var cv=document.getElementById('wave'),cx=cv.getContext('2d'),amp=.12,tgt=.12,t0=0,red=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function rs(){var d=Math.min(devicePixelRatio||1,2);cv.width=cv.clientWidth*d;cv.height=cv.clientHeight*d;cx.setTransform(d,0,0,d,0,0)}rs();addEventListener('resize',rs);
+function draw(ts){var w=cv.clientWidth,h=cv.clientHeight,m=h/2;t0=ts/1000;
+ tgt=(!au.paused&&cur)?(.75+.3*Math.sin(t0*3.1)*Math.sin(t0*1.7)+.25*Math.random()):.32;amp+=(tgt-amp)*.08;
+ cx.clearRect(0,0,w,h);
+ [[.35,'rgba(239,233,223,.10)',1.3],[.7,'rgba(239,233,223,.22)',.9],[1,'rgba(255,74,46,.85)',.55]].forEach(function(L,i){
+  cx.beginPath();cx.lineWidth=i===2?1.6:1;cx.strokeStyle=L[1];
+  for(var x=0;x<=w;x+=4){var p=x/w,env=Math.sin(Math.PI*p)*Math.sin(Math.PI*p);
+   var y=m+Math.sin(p*18*L[2]+t0*(1.2+i*.4))*Math.sin(p*5.3-t0*.7+i)*m*.9*amp*L[0]*env;
+   x?cx.lineTo(x,y):cx.moveTo(x,y)}
+  cx.stroke()});
+ if(!red)requestAnimationFrame(draw)}
+requestAnimationFrame(draw);
+
+/* reszta */
+var nav=document.getElementById('nav');function sc(){nav.classList.toggle('s',scrollY>40)}sc();addEventListener('scroll',sc,{passive:true});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;co.unobserve(e.target);var el=e.target,v=+el.dataset.c,s=null;
+ function f(ts){if(!s)s=ts;var p=Math.min((ts-s)/1600,1);el.textContent=Math.round(v*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})},{threshold:.6});
+if(!red)document.querySelectorAll('[data-c]').forEach(function(el){co.observe(el)});
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(this);
+ var body='Rodzaj projektu: '+d.get('typ')+'\nGłos: '+(d.get('glos')||'do ustalenia')+'\n\n'+(d.get('opis')||'')+'\n\nKontakt: '+d.get('mail');
+ location.href='mailto:studio@maxx-audio.com?subject='+encodeURIComponent('Zapytanie o wycenę: '+d.get('typ'))+'&body='+encodeURIComponent(body)});
+})();
+</script>
+</body>
+</html>
