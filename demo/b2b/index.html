@@ -34,6 +34,19 @@ p{text-wrap:pretty}
 .pill{position:fixed;left:16px;bottom:16px;z-index:30;background:rgba(255,255,255,.95);border:1px solid var(--ln);font-size:14px;padding:8px 14px;border-radius:99px;color:var(--tx2)}
 .trust .dm{display:none}.trust .dm b{color:#fff}
 .pill b{color:var(--tx);font-weight:600;margin-right:4px}
+/* tiles */
+#kategorie{padding:20px 0 0}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.tile{position:relative;aspect-ratio:3/4;overflow:hidden;color:#fff;background:var(--bg2)}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile span{position:absolute;inset:auto 0 0;padding:80px 16px 28px;background:linear-gradient(transparent,rgba(0,0,0,.45));font-family:Cg,Georgia,serif;font-size:clamp(34px,3.2vw,52px);line-height:1;text-align:center}
+.tile:hover img{transform:scale(1.04)!important}
+/* zoom in */
+.zi img{transform:scale(1.14);transition:transform 1.8s cubic-bezier(.2,.7,.2,1)}
+.zi.in img{transform:scale(1)}
+.hero .im img{animation:hz 2.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes hz{from{transform:scale(1.14)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.zi img,.hero .im img{transition:none;animation:none;transform:none}}
 /* looks */
 #looki{padding-bottom:40px}
 .looks{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -59,13 +72,14 @@ p{text-wrap:pretty}
 .brand dd{font-size:14px;color:var(--tx2);margin-top:4px}
 /* nav */
 nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
-nav .w{display:flex;align-items:center;height:68px;gap:36px}
-.logo{font-family:Cg,Georgia,serif;font-size:27px;font-weight:600;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
-.logo small{font:400 15px/1 Is;color:var(--tx2);margin-left:8px;vertical-align:2px}
-nav .ln{display:flex;gap:28px;font-size:15px;margin-left:auto}
+nav .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px;gap:24px}
+nav .lf{display:flex;align-items:center;gap:20px}
+.burg{display:none;width:44px;height:44px;margin-left:-10px;place-items:center}
+.burg svg{width:24px;height:24px}
+.logo{font-family:Cg,Georgia,serif;font-size:30px;font-weight:600;text-decoration:none;letter-spacing:.02em;white-space:nowrap;text-align:center;line-height:1}
+nav .ln{display:flex;gap:26px;font-size:15px}
 nav .ln a{text-decoration:none;color:var(--tx2)}nav .ln a:hover{color:var(--tx)}
-nav .rt{display:flex;align-items:center;gap:10px;margin-left:20px}
-@media (max-width:1000px){nav .rt{margin-left:auto}}
+nav .rt{display:flex;align-items:center;justify-content:flex-end;gap:10px}
 .who{font-size:14px;color:var(--tx2);display:none}
 body.in .who{display:block}
 body.in #login{display:none}
@@ -150,6 +164,10 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .dr{position:fixed;top:0;right:0;bottom:0;width:min(980px,100vw);background:#fff;z-index:50;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1);overflow-y:auto}
 .dr.on{transform:none}
 #cart{width:min(480px,100vw);display:flex;flex-direction:column}
+#menu{width:min(420px,88vw)}
+#menu.on{transform:none!important}
+.mn{padding:84px 28px 40px;display:flex;flex-direction:column}
+.mn a{font-family:Cg,Georgia,serif;font-size:36px;line-height:1.15;text-decoration:none;padding:8px 0;border-bottom:1px solid var(--ln)}
 .x{position:absolute;right:16px;top:14px;width:44px;height:44px;display:grid;place-items:center;z-index:3;background:#fff;border-radius:50%}
 .x svg{width:20px;height:20px}
 .pd{display:grid;grid-template-columns:1fr 1fr;min-height:100%}
@@ -229,6 +247,11 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 @media (max-width:1000px){
   nav .ln{display:none}
+ .burg{display:grid}
+ nav .w{height:64px;gap:8px}
+ .logo{font-size:24px}
+ #login{display:none}
+ body.in .who{display:none}
  .hero{grid-template-columns:1fr;height:auto;min-height:0}
  .hero .im{aspect-ratio:4/5;order:-1}
  .hero .t{padding:40px 20px 48px}
@@ -238,6 +261,8 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
  .grid{grid-template-columns:1fr 1fr;gap:28px 12px}
  .steps,.pan,.acc,.brand{grid-template-columns:1fr}
  .looks{grid-template-columns:1fr}
+ .tiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:4px;scrollbar-width:none}
+ .tile{flex:0 0 72vw;scroll-snap-align:start}
  .brand{gap:28px}
  .trust{gap:6px 20px}
  .pan form{border-right:0;border-bottom:1px solid var(--ln)}
@@ -248,7 +273,6 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media (max-width:640px){
  .w{padding:0 20px}
  section{padding:64px 0}
- .logo small{display:none}
  #login{padding:0 12px}
  #cartb span{display:none}
  .hero .bt .btn{max-width:none}
@@ -265,13 +289,13 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </style>
 </head>
 <body>
-<div class="trust"><span class="dm"><b>Demo</b> · dane przykładowe</span><span>Wysyłka w 2 dni robocze</span><span>Wymiana rozmiaru w 14 dni</span><span>Opiekun handlowy dla każdego butiku</span></div>
+<div class="trust"><span class="dm">Sklep hurtowy dla butików · <b>demo</b></span><span>Sklep hurtowy dla butików</span><span>Wysyłka w 2 dni robocze</span><span>Wymiana rozmiaru w 14 dni</span><span>Opiekun handlowy dla każdego butiku</span></div>
 <div class="pill"><b>Demo</b> Emil Wiktorski · ceny, stany i składy przykładowe</div>
 
 <nav>
  <div class="w">
-  <a class="logo" href="#">By o la la..!<small>hurt</small></a>
-  <div class="ln"><a href="#looki">Looki</a><a href="#kolekcja">Kolekcja</a><a href="#jak">Jak zamawiać</a><a href="#marka">O marce</a><a href="#konto">Konto hurtowe</a></div>
+  <div class="lf"><button class="burg" id="burg" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button><div class="ln"><a href="#looki">Looki</a><a href="#kolekcja">Kolekcja</a><a href="#jak">Jak zamawiać</a><a href="#marka">O marce</a></div></div>
+  <a class="logo" href="#">BY O LA LA..!</a>
   <div class="rt">
    <span class="who">Butik Maja, Kraków</span>
    <button class="btn l" id="login">Zaloguj się</button>
@@ -279,6 +303,13 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
  </div>
 </nav>
+<aside class="dr" id="menu" aria-hidden="true" style="left:0;right:auto;transform:translateX(-100%)">
+ <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+ <div class="mn">
+  <a href="#looki">Looki</a><a href="#kolekcja">Kolekcja</a><a href="#kategorie">Kategorie</a><a href="#jak">Jak zamawiać</a><a href="#marka">O marce</a><a href="#konto">Konto hurtowe</a>
+  <button class="btn d" data-login style="margin-top:28px;width:100%">Zaloguj się jako butik</button>
+ </div>
+</aside>
 
 <header class="hero">
  <div class="t">
@@ -295,6 +326,15 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
  <div><b>2022</b><span>Kobieca Marka Roku</span></div>
  <div><b>902 tys.</b><span>obserwujących na Facebooku</span></div>
 </div>
+
+<section id="kategorie">
+ <div class="tiles">
+  <button class="tile zi" data-cat="Okrycia"><img src="img/kurtka-3.webp" alt="" loading="lazy"><span>Okrycia</span></button>
+  <button class="tile zi" data-cat="Sukienki"><img src="img/sukienka-c3.webp" alt="" loading="lazy"><span>Sukienki</span></button>
+  <button class="tile zi" data-cat="Komplety"><img src="img/marynarka-e2.webp" alt="" loading="lazy"><span>Komplety</span></button>
+  <button class="tile zi" data-cat="Koszule"><img src="img/koszula-c1.webp" alt="" loading="lazy"><span>Koszule</span></button>
+ </div>
+</section>
 
 <section id="looki">
  <div class="w">
@@ -352,7 +392,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section id="marka">
  <div class="w brand">
-  <div class="im"><img src="img/koszula-c4.webp" alt="Haftowany monogram By o la la..! na koszuli" loading="lazy"></div>
+  <div class="im zi"><img src="img/koszula-c4.webp" alt="Haftowany monogram By o la la..! na koszuli" loading="lazy"></div>
   <div>
    <h2 class="h" style="font-size:clamp(36px,4vw,56px)">Polska marka <em>z historią</em></h2>
    <p>By o la la..! projektuje kobiecą odzież od 14 lat. Od ponad 13 lat sprzedaje przez butiki, ma 39 sklepów firmowych, a w 2022 roku dostała tytuł Kobieca Marka Roku. Kampanie fotografuje na ulicach miasta i w jasnym studiu.</p>
@@ -441,13 +481,13 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
 var C={'biała':'#f4f2ee','kwiatowy żakard':'#7a4e2f',granatowa:'#24345e',czarna:'#141414',espresso:'#3a2620',karmel:'#8a5634',czekolada:'#3f2a22'};
 var P=[
- {id:'kurtka',n:'Kurtka bomber z kwiatowego żakardu',c:'Okrycia',k:['kwiatowy żakard'],im:{'kwiatowy żakard':['kurtka-1','kurtka-2','kurtka-3']},r:279,h:129,nw:1,s:'60% bawełna, 40% poliester',pd:'100% poliester',d:'58 cm',f:'oversize',o:'do pracy i na co dzień',x:'bufiaste rękawy, zamek na całej długości, żakard w jesiennych kolorach'},
- {id:'sukienka',n:'Sukienka jeansowa z bufiastym rękawem',c:'Sukienki',k:['granatowa','czarna'],im:{granatowa:['sukienka-g1','sukienka-g2'],czarna:['sukienka-c1','sukienka-c2','sukienka-c3']},r:379,h:179,nw:1,s:'98% bawełna, 2% elastan',d:'84 cm',f:'dopasowany w talii',o:'do pracy i na co dzień',x:'bufiaste rękawy, stójka, kontrastowe przeszycia'},
- {id:'marynarka',n:'Marynarka oversize z broszką',c:'Marynarki',k:['espresso','czarna'],im:{espresso:['marynarka-e1','marynarka-e2','marynarka-e3'],czarna:['marynarka-c1','marynarka-c2']},r:279,h:129,nw:1,s:'64% poliester, 33% wiskoza, 3% elastan',d:'78 cm',f:'oversize',o:'do pracy i na co dzień',x:'broszka w komplecie, kieszenie z klapką'},
- {id:'spodnie',n:'Spodnie z prostą nogawką',c:'Spodnie i szorty',k:['espresso','czarna'],im:{espresso:['spodnie-e1','marynarka-e1'],czarna:['spodnie-c1','marynarka-c1']},r:159,h:75,s:'64% poliester, 33% wiskoza, 3% elastan',d:'102 cm',f:'prosty',o:'do pracy i na co dzień',x:'wysoki stan, komplet z marynarką oversize'},
- {id:'szorty',n:'Szorty z eko zamszu',c:'Spodnie i szorty',k:['karmel','czekolada'],im:{karmel:['szorty-k1','szorty-k2'],czekolada:['szorty-c1']},r:189,h:85,s:'92% poliester, 8% elastan',d:'40 cm',f:'szeroki',o:'do pracy i na co dzień',x:'zakładki, mankiety, wysoki stan'}
+ {id:'kurtka',n:'Kurtka bomber z kwiatowego żakardu',c:['Okrycia'],k:['kwiatowy żakard'],im:{'kwiatowy żakard':['kurtka-1','kurtka-2','kurtka-3']},r:279,h:129,nw:1,s:'60% bawełna, 40% poliester',pd:'100% poliester',d:'58 cm',f:'oversize',o:'do pracy i na co dzień',x:'bufiaste rękawy, zamek na całej długości, żakard w jesiennych kolorach'},
+ {id:'sukienka',n:'Sukienka jeansowa z bufiastym rękawem',c:['Sukienki'],k:['granatowa','czarna'],im:{granatowa:['sukienka-g1','sukienka-g2'],czarna:['sukienka-c1','sukienka-c2','sukienka-c3']},r:379,h:179,nw:1,s:'98% bawełna, 2% elastan',d:'84 cm',f:'dopasowany w talii',o:'do pracy i na co dzień',x:'bufiaste rękawy, stójka, kontrastowe przeszycia'},
+ {id:'marynarka',n:'Marynarka oversize z broszką',c:['Komplety'],k:['espresso','czarna'],im:{espresso:['marynarka-e1','marynarka-e2','marynarka-e3'],czarna:['marynarka-c1','marynarka-c2']},r:279,h:129,nw:1,s:'64% poliester, 33% wiskoza, 3% elastan',d:'78 cm',f:'oversize',o:'do pracy i na co dzień',x:'broszka w komplecie, kieszenie z klapką'},
+ {id:'spodnie',n:'Spodnie z prostą nogawką',c:['Komplety','Spodnie i szorty'],k:['espresso','czarna'],im:{espresso:['spodnie-e1','marynarka-e1'],czarna:['spodnie-c1','marynarka-c1']},r:159,h:75,s:'64% poliester, 33% wiskoza, 3% elastan',d:'102 cm',f:'prosty',o:'do pracy i na co dzień',x:'wysoki stan, komplet z marynarką oversize'},
+ {id:'szorty',n:'Szorty z eko zamszu',c:['Spodnie i szorty'],k:['karmel','czekolada'],im:{karmel:['szorty-k1','szorty-k2'],czekolada:['szorty-c1']},r:189,h:85,s:'92% poliester, 8% elastan',d:'40 cm',f:'szeroki',o:'do pracy i na co dzień',x:'zakładki, mankiety, wysoki stan'}
 ];
-P.push({id:'koszula',n:'Koszula z haftowanym monogramem',c:'Koszule',k:['czekolada','biała'],im:{czekolada:['koszula-c1','koszula-c2','koszula-c3','koszula-c4'],'biała':['koszula-b1']},r:199,h:92,nw:1,s:'97% bawełna, 3% elastan',d:'72 cm',f:'prosty',o:'do pracy i na co dzień',x:'haftowany monogram B na plecach, szerokie mankiety'});
+P.push({id:'koszula',n:'Koszula z haftowanym monogramem',c:['Koszule'],k:['czekolada','biała'],im:{czekolada:['koszula-c1','koszula-c2','koszula-c3','koszula-c4'],'biała':['koszula-b1']},r:199,h:92,nw:1,s:'97% bawełna, 3% elastan',d:'72 cm',f:'prosty',o:'do pracy i na co dzień',x:'haftowany monogram B na plecach, szerokie mankiety'});
 var SZ=['S','M','L','XL'],STD={S:1,M:2,L:2,XL:1},IN=false,CART=[],cur=null,cK=0,pk='std',Q={};
 function zl(v){return v.toLocaleString('pl-PL',{minimumFractionDigits:0,maximumFractionDigits:2}).replace(/ /g,' ')+' zł'}
 function stock(p,k,s){var h=0,t=p.id+k+s;for(var i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))%997;var v=h%40;return v<4?v:v+4}
@@ -456,8 +496,8 @@ function ph(p,i,k){var a=ims(p,k);return '<img src="img/'+a[Math.min(i,a.length-
 var lockI='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="6" width="9" height="6.5" rx="1"/><path d="M4.5 6V4.5a2.5 2.5 0 015 0V6"/></svg>';
 function price(p){return IN?'<b>'+zl(p.h)+' netto</b> · sugerowana '+zl(p.r):'<span class="lock">'+lockI+'Cena hurtowa po zalogowaniu</span>'}
 var cat='Wszystko';
-function chips(){var cs=['Wszystko'];P.forEach(function(p){if(cs.indexOf(p.c)<0)cs.push(p.c)});$('#chips').innerHTML=cs.map(function(c){return '<button class="'+(c==cat?'on':'')+'">'+c+'</button>'}).join('');$$('#chips button').forEach(function(b){b.onclick=function(){cat=b.textContent;chips();grid()}})}
-function grid(){$('#grid').innerHTML=P.filter(function(p){return cat=='Wszystko'||p.c==cat}).map(function(p){return '<button class="card" data-id="'+p.id+'"><div class="ph">'+ph(p,0)+(ims(p).length>1?'<img class="alt" src="img/'+ims(p)[1]+'.webp" alt="" loading="lazy">':'')+(p.nw?'<span class="tag">Nowość</span>':'')+'<span class="qk">Zobacz pakiety</span></div><h3>'+p.n+'</h3><div class="sw">'+p.k.map(function(k){return '<i style="background:'+(C[k]||'#ccc')+'" title="'+k+'"></i>'}).join('')+'</div><div class="pr">'+price(p)+'</div></button>'}).join('');$$('#grid .card').forEach(function(c){c.onclick=function(){open(c.dataset.id)}})}
+function chips(){var cs=['Wszystko'];P.forEach(function(p){p.c.forEach(function(c){if(cs.indexOf(c)<0)cs.push(c)})});$('#chips').innerHTML=cs.map(function(c){return '<button class="'+(c==cat?'on':'')+'">'+c+'</button>'}).join('');$$('#chips button').forEach(function(b){b.onclick=function(){cat=b.textContent;chips();grid()}})}
+function grid(){$('#grid').innerHTML=P.filter(function(p){return cat=='Wszystko'||p.c.indexOf(cat)>=0}).map(function(p){return '<button class="card" data-id="'+p.id+'"><div class="ph">'+ph(p,0)+(ims(p).length>1?'<img class="alt" src="img/'+ims(p)[1]+'.webp" alt="" loading="lazy">':'')+(p.nw?'<span class="tag">Nowość</span>':'')+'<span class="qk">Zobacz pakiety</span></div><h3>'+p.n+'</h3><div class="sw">'+p.k.map(function(k){return '<i style="background:'+(C[k]||'#ccc')+'" title="'+k+'"></i>'}).join('')+'</div><div class="pr">'+price(p)+'</div></button>'}).join('');$$('#grid .card').forEach(function(c){c.onclick=function(){open(c.dataset.id)}})}
 function desc(p){return p.n+'. Fason '+p.f+', szyty w rozmiarach od S do XL. Wyróżnia go: '+p.x+'. Sprawdzi się '+p.o+'.'+(p.k.length>1?' Kolory: '+p.k.join(', ')+'.':'')}
 function open(id,k){cur=P.filter(function(p){return p.id==id})[0];cK=k||0;pk='std';Q=JSON.parse(JSON.stringify(STD));render();show('#prod')}
 function render(){var p=cur,k=p.k[cK];
@@ -503,7 +543,7 @@ function hide(){$$('.dr,.mod').forEach(function(d){d.classList.remove('on');d.se
 $('#ov').onclick=hide;$$('[data-close]').forEach(function(b){b.onclick=hide});
 document.addEventListener('keydown',function(e){if(e.key=='Escape')hide()});
 $('#cartb').onclick=function(){cartR();show('#cart')};
-function loginOpen(){if($('#prod').classList.contains('on')){$('#prod').classList.remove('on')}show('#mod')}
+function loginOpen(){$('#prod').classList.remove('on');$('#menu').classList.remove('on');show('#mod')}
 $('#login').onclick=loginOpen;
 document.addEventListener('click',function(e){if(e.target.closest('[data-login]'))loginOpen()});
 $('#mGo').onclick=function(){IN=true;document.body.classList.add('in');$('#mod').classList.remove('on');grid();looksR();if(pend!==null){var pi=pend;pend=null;hide();addLook(pi);return}if(cur){render();$('#prod').classList.add('on')}else hide();toast('Zalogowano jako Butik Maja. Widzisz ceny hurtowe.')};
@@ -536,6 +576,10 @@ function addLook(i){var n=0;LOOKS[i].forEach(function(it){var p=byId(it.id),k=p.
  cartR();toast('Dodano cały look: '+n+' szt. w pakietach')}
 function zoom(){var vh=innerHeight;$$('.lk .fr').forEach(function(f){var r=f.getBoundingClientRect(),t=1-Math.min(1,Math.max(0,(r.top+r.height*.3)/vh));f.firstElementChild.style.setProperty('--z',(1.08-.08*t).toFixed(4))})}
 addEventListener('scroll',zoom,{passive:true});addEventListener('resize',zoom);
+$('#burg').onclick=function(){show('#menu')};
+$$('#menu .mn a').forEach(function(a){a.onclick=function(){hide()}});
+$$('[data-cat]').forEach(function(t){t.onclick=function(){cat=t.dataset.cat;chips();grid();$('#kolekcja').scrollIntoView({behavior:'smooth'})}});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});$$('.zi').forEach(function(z){io.observe(z)})}else $$('.zi').forEach(function(z){z.classList.add('in')});
 chips();grid();cartR();looksR();zoom();
 </script>
 </body>
