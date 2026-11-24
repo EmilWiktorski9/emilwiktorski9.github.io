@@ -13,7 +13,7 @@
 @font-face{font-family:Cg;font-weight:600;font-display:swap;src:url(fonts/cormorant-garamond-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:Is;font-weight:400 700;font-display:swap;src:url(fonts/instrument-sans-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Is;font-weight:400 700;font-display:swap;src:url(fonts/instrument-sans-latin-ext-wght-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-:root{--bg:#fff;--bg2:#f4f2ef;--tx:#141210;--tx2:#6b655f;--ln:#e6e2dd;--es:#3a2a22;--ok:#2f6b3f;--r:2px}
+:root{--bg:#fff;--bg2:#f3f3f2;--tx:#141210;--tx2:#6b655f;--ln:#e6e2dd;--es:#3a2a22;--ok:#2f6b3f;--r:2px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{background:var(--bg);color:var(--tx);font:400 16px/1.6 Is,system-ui,sans-serif;overflow-x:hidden}
@@ -30,13 +30,13 @@ p{text-wrap:pretty}
 .btn.l{border:1px solid var(--tx)}.btn.l:hover{background:var(--tx);color:#fff}
 .btn:disabled{opacity:.35;cursor:not-allowed}
 /* demo */
-.demo{background:var(--tx);color:#d9d4ce;font-size:13px;text-align:center;padding:7px 16px}
+.demo{background:var(--tx);color:#d9d4ce;font-size:14px;text-align:center;padding:7px 16px}
 .demo b{color:#fff;font-weight:600}
 /* nav */
 nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
 nav .w{display:flex;align-items:center;height:68px;gap:36px}
 .logo{font-family:Cg,Georgia,serif;font-size:27px;font-weight:600;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
-.logo small{font:600 11px/1 Is;letter-spacing:.04em;color:var(--tx2);margin-left:8px;vertical-align:3px}
+.logo small{font:400 15px/1 Is;color:var(--tx2);margin-left:8px;vertical-align:2px}
 nav .ln{display:flex;gap:28px;font-size:15px}
 nav .ln a{text-decoration:none;color:var(--tx2)}nav .ln a:hover{color:var(--tx)}
 nav .rt{margin-left:auto;display:flex;align-items:center;gap:10px}
@@ -45,7 +45,7 @@ body.in .who{display:block}
 body.in #login{display:none}
 #cartb{position:relative;height:44px;padding:0 16px;border:1px solid var(--ln);border-radius:var(--r);font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
 #cartb:hover{border-color:var(--tx)}
-#cartb i{font-style:normal;background:var(--tx);color:#fff;border-radius:99px;min-width:22px;height:22px;font-size:12px;display:grid;place-items:center;padding:0 6px}
+#cartb i{font-style:normal;background:var(--tx);color:#fff;border-radius:99px;min-width:22px;height:22px;font-size:14px;display:grid;place-items:center;padding:0 6px}
 #login{height:44px;padding:0 18px;font-size:14px}
 /* hero */
 .hero{display:grid;grid-template-columns:1fr 1.05fr;height:min(calc(100vh - 102px),880px);min-height:560px;border-bottom:1px solid var(--ln)}
@@ -76,7 +76,7 @@ section{padding:96px 0}
 .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .card:hover .ph img{transform:scale(1.035)}
 .card .ph .tone{position:absolute;inset:0}
-.card .tag{position:absolute;left:10px;top:10px;background:#fff;font-size:12px;font-weight:600;padding:4px 9px;border-radius:var(--r)}
+.card .tag{position:absolute;left:10px;top:10px;background:#fff;font-size:14px;font-weight:600;padding:4px 9px;border-radius:var(--r)}
 .card .qk{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.96);height:44px;display:grid;place-items:center;font-size:14px;font-weight:600;opacity:0;transform:translateY(6px);transition:.25s}
 .card:hover .qk{opacity:1;transform:none}
 .card h3{font:500 15px/1.35 Is;margin-bottom:6px}
@@ -96,16 +96,16 @@ section{padding:96px 0}
 .pan{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ln)}
 .pan form{padding:36px;border-right:1px solid var(--ln);display:grid;grid-template-columns:1fr 1fr;gap:16px 16px;align-content:start}
 .pan .full{grid-column:1/-1}
-label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
 input,select,textarea{width:100%;height:46px;border:1px solid var(--ln);border-radius:var(--r);padding:0 14px;background:#fff;font-size:15px}
 textarea{height:auto;padding:12px 14px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--tx)}
 .pan .out{padding:36px;background:var(--bg2);display:flex;flex-direction:column}
-.pan .out .lb{font-size:13px;font-weight:600;color:var(--tx2);margin-bottom:12px}
+.pan .out .lb{font-size:14px;font-weight:600;color:var(--tx2);margin-bottom:12px}
 .pan .out h3{font-family:Cg,Georgia,serif;font-weight:500;font-size:32px;line-height:1.1;margin-bottom:14px}
 #ai-txt{font-size:16px;line-height:1.7;white-space:pre-line;min-height:220px}
 #ai-txt.wait{color:var(--tx2)}
-.pan .note{margin-top:auto;padding-top:20px;font-size:13px;color:var(--tx2)}
+.pan .note{margin-top:auto;padding-top:20px;font-size:14px;color:var(--tx2)}
 /* konto */
 .acc{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
 .acc ul{list-style:none;display:grid;gap:14px;margin-top:8px}
@@ -113,7 +113,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--tx)}
 .acc li svg{flex:none;width:20px;height:20px;margin-top:3px}
 .acc form{display:grid;grid-template-columns:1fr 1fr;gap:16px;border:1px solid var(--ln);padding:36px}
 .acc .ok{grid-column:1/-1;display:none;background:#eef5ef;color:var(--ok);padding:14px 16px;font-size:15px;font-weight:500}
-.acc .rodo{grid-column:1/-1;font-size:12px;color:var(--tx2)}
+.acc .rodo{grid-column:1/-1;font-size:14px;color:var(--tx2)}
 footer{border-top:1px solid var(--ln);padding:36px 0;font-size:14px;color:var(--tx2)}
 footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 /* drawers */
@@ -146,7 +146,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .pk{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
 .pk button{border:1px solid var(--ln);padding:12px 14px;text-align:left;border-radius:var(--r)}
 .pk button b{display:block;font-size:14px}
-.pk button span{font-size:13px;color:var(--tx2)}
+.pk button span{font-size:14px;color:var(--tx2)}
 .pk button.on{border-color:var(--tx);box-shadow:inset 0 0 0 1px var(--tx)}
 .sz{width:100%;border-collapse:collapse;font-size:14px}
 .sz td{padding:9px 0;border-bottom:1px solid var(--ln)}
@@ -180,11 +180,11 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .ci .ph img{width:100%;height:100%;object-fit:cover}
 .ci b{font-weight:600;font-size:15px}
 .ci span{color:var(--tx2);display:block}
-.ci .rm{font-size:13px;color:var(--tx2);text-decoration:underline;align-self:start}
+.ci .rm{font-size:14px;color:var(--tx2);text-decoration:underline;align-self:start}
 #cart .ft{padding:20px 24px 24px;border-top:1px solid var(--ln)}
 .bar{height:4px;background:var(--ln);margin:10px 0 6px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--tx);transition:width .4s}
-.mini{font-size:13px;color:var(--tx2)}
+.mini{font-size:14px;color:var(--tx2)}
 .tot{display:flex;justify-content:space-between;font-size:15px;margin:14px 0 4px}
 .tot b{font-size:22px}
 .empty{color:var(--tx2);padding:40px 0;text-align:center}
@@ -235,7 +235,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <nav>
  <div class="w">
-  <a class="logo" href="#">By o la la..!<small>HURT</small></a>
+  <a class="logo" href="#">By o la la..!<small>hurt</small></a>
   <div class="ln"><a href="#kolekcja">Kolekcja</a><a href="#jak">Jak zamawiać</a><a href="#panel">Panel</a><a href="#konto">Konto hurtowe</a></div>
   <div class="rt">
    <span class="who">Butik Maja, Kraków</span>
@@ -297,8 +297,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="full"><button class="btn d" type="submit" style="width:100%">Napisz opis</button></div>
    </form>
    <div class="out">
-    <div class="lb">Opis na kartę produktu</div>
-    <h3 id="ai-h">Sukienka jeansowa z bufiastym rękawem</h3>
+        <h3 id="ai-h">Sukienka jeansowa z bufiastym rękawem</h3>
     <div id="ai-txt" class="wait">Uzupełnij pola po lewej i kliknij „Napisz opis”. Tekst trafi od razu na kartę produktu, do poprawienia jednym kliknięciem.</div>
     <div class="note">W demo opis składa się z gotowego szablonu. W prawdziwym panelu pisze go model AI na podstawie zdjęcia, składu i wymiarów.</div>
    </div>
