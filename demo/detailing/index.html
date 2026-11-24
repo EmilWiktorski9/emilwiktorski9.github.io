@@ -47,6 +47,43 @@ section.sec{padding:120px 0}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px}
 @media(max-width:860px){section.sec{padding:84px 0}.hd{grid-template-columns:1fr;gap:14px;margin-bottom:32px}}
 
+
+/* pakiety */
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pk>div{background:var(--card);border:1px solid var(--ln);border-radius:20px;padding:30px 28px 28px;display:flex;flex-direction:column;position:relative;transition:border-color .3s,transform .3s}
+.pk>div:hover{border-color:#4a4f57;transform:translateY(-4px)}
+.pk>div.top{border-color:var(--si);background:linear-gradient(180deg,#1b1e23,var(--card))}
+.pk .bd{position:absolute;top:-12px;left:28px;background:var(--metal);color:#0b0c0e;font:700 10.5px/1 Ar;font-stretch:115%;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border-radius:20px}
+.pk h3{font-size:24px}
+.pk .for{color:var(--tx2);font-size:14px;margin:8px 0 20px;min-height:44px}
+.pk .pr{font:700 34px/1 Ar;font-stretch:115%;margin-bottom:4px}
+.pk .pr small{font-size:14px;font-weight:600;color:var(--tx2);margin-right:6px}
+.pk .dy{font-size:13px;color:var(--tx2);margin-bottom:22px}
+.pk ul{list-style:none;border-top:1px solid var(--ln);margin-bottom:26px}
+.pk li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--ln);font-size:14px;color:var(--tx2)}
+.pk li.y{color:var(--tx)}
+.pk li i{font-style:normal;width:18px;text-align:center;color:#4a4f57}
+.pk li.y i{color:var(--si)}
+.pk .btn{margin-top:auto;width:100%}
+.pk li::before,.pk li::after{display:none!important;content:none!important}
+.pk li{padding-left:0!important}
+.pk-n{font-size:13px;color:#6c7179;margin-top:16px}
+@media(max-width:860px){.pk{grid-template-columns:1fr;gap:22px}.pk .for{min-height:0}}
+
+/* bon */
+.bon{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.bon canvas{width:100%;height:auto;aspect-ratio:1.6;border-radius:18px;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px #2a2d33;transform:perspective(1200px) rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.bon form{display:grid;gap:22px}
+.bon label{display:block;font-size:13px;color:var(--tx2);margin-bottom:10px}
+.bon .ch2{display:flex;flex-wrap:wrap;gap:8px}
+.bon .ch2 button{height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--ln);background:none;color:var(--tx2);font:600 14px/1 Ar;cursor:pointer;transition:all .2s}
+.bon .ch2 button[aria-pressed="true"]{border-color:var(--si);color:var(--tx);background:#1a1d22}
+.bon input{width:100%;height:50px;background:var(--card);border:1px solid var(--ln);border-radius:12px;color:var(--tx);font:400 16px Ar;padding:0 16px;outline:none}
+.bon input:focus{border-color:var(--si)}
+.bon .r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bon small.n{font-size:13px;color:#6c7179}
+@media(max-width:860px){.bon{grid-template-columns:1fr;gap:34px}.bon .r2{grid-template-columns:1fr}}
+
 /* menu */
 nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px max(20px,calc((100% - 1200px)/2));transition:background .35s,padding .35s,box-shadow .35s}
 nav.s{background:rgba(8,9,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-top:10px;padding-bottom:10px;box-shadow:0 1px 0 var(--ln)}
@@ -313,6 +350,8 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
   <a href="#realizacje">Realizacje</a>
   <a href="#efekt">Przed i po</a>
   <a href="#uslugi">Usługi i ceny</a>
+  <a href="#pakiety">Pakiety</a>
+  <a href="#bon">Bon</a>
   <a href="#opinie">Opinie</a>
   <a href="#kontakt">Kontakt</a>
   <a class="btn a" href="#wycena">Zarezerwuj termin</a>
@@ -370,13 +409,13 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
   <div class="hd rv"><h2 class="h">Od lakieru<br><em>po silnik.</em></h2><p>Ceny dla auta średniej wielkości.</p></div>
   <div class="svpin" id="svpin"><div class="svst"><div class="sv">
    <div><ol id="svl">
-    <li class="on"><div class="t"><small>01</small>Powłoka ceramiczna<em>od 1 500 zł</em></div><p>Głęboki połysk, woda spływa, auto łatwiej umyć.</p></li>
-    <li><div class="t"><small>02</small>Korekta lakieru<em>od 800 zł</em></div><p>Usuwamy rysy i&nbsp;zmatowienia, od jednego do trzech etapów.</p></li>
-    <li><div class="t"><small>03</small>Folie PPF<em>od 900 zł</em></div><p>Bezbarwna ochrona tam, gdzie lakier obrywa najczęściej.</p></li>
-    <li><div class="t"><small>04</small>Wnętrze i&nbsp;skóra<em>od 400 zł</em></div><p>Pranie tapicerki, czyszczenie i&nbsp;konserwacja skóry.</p></li>
-    <li><div class="t"><small>05</small>Szyby<em>od 200 zł</em></div><p>Niewidzialna wycieraczka, lepsza widoczność w&nbsp;deszczu.</p></li>
-    <li><div class="t"><small>06</small>Felgi<em>od 250 zł</em></div><p>Powłoka, do której pył z&nbsp;klocków słabo przywiera.</p></li>
-    <li><div class="t"><small>07</small>Komora silnika<em>od 150 zł</em></div><p>Bezpieczne mycie i&nbsp;zabezpieczenie tworzyw.</p></li>
+    <li class="on"><div class="t">Powłoka ceramiczna<em>od 1 500 zł</em></div><p>Głęboki połysk, woda spływa, auto łatwiej umyć.</p></li>
+    <li><div class="t">Korekta lakieru<em>od 800 zł</em></div><p>Usuwamy rysy i&nbsp;zmatowienia, od jednego do trzech etapów.</p></li>
+    <li><div class="t">Folie PPF<em>od 900 zł</em></div><p>Bezbarwna ochrona tam, gdzie lakier obrywa najczęściej.</p></li>
+    <li><div class="t">Wnętrze i&nbsp;skóra<em>od 400 zł</em></div><p>Pranie tapicerki, czyszczenie i&nbsp;konserwacja skóry.</p></li>
+    <li><div class="t">Szyby<em>od 200 zł</em></div><p>Niewidzialna wycieraczka, lepsza widoczność w&nbsp;deszczu.</p></li>
+    <li><div class="t">Felgi<em>od 250 zł</em></div><p>Powłoka, do której pył z&nbsp;klocków słabo przywiera.</p></li>
+    <li><div class="t">Komora silnika<em>od 150 zł</em></div><p>Bezpieczne mycie i&nbsp;zabezpieczenie tworzyw.</p></li>
    </ol><a class="btn a" href="#wycena">Policz cenę dla swojego auta</a></div>
    <div class="ph" id="svp">
     <img class="on" src="img/krople-s.webp" alt="Krople wody na czarnym lakierze z powłoką ceramiczną">
@@ -388,6 +427,25 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
     <img src="img/sv-engine.webp" alt="Czysta komora silnika" loading="lazy">
    </div>
   </div></div></div>
+ </div>
+</section>
+
+
+<section class="sec" id="pakiety">
+ <div class="wrap">
+  <div class="hd rv"><h2 class="h">Gotowe<br><em>pakiety.</em></h2><p>Nie wiesz, co wybrać? Zacznij od pakietu. Ceny dla auta średniej wielkości.</p></div>
+  <div class="pk">
+   <div class="rv"><h3 class="h">Odświeżenie</h3><p class="for">Auto na co dzień, przed sprzedażą albo po zimie.</p><div class="pr"><small>od</small>1 410 zł</div><p class="dy">Auto u&nbsp;nas: 2 dni</p>
+    <ul><li class="y">Korekta lakieru, 1 etap<i>✓</i></li><li>Powłoka ceramiczna<i>·</i></li><li>Folia PPF na przód<i>·</i></li><li class="y">Wnętrze i&nbsp;skóra<i>✓</i></li><li class="y">Szyby<i>✓</i></li><li>Felgi<i>·</i></li></ul>
+    <button class="btn b" type="button" data-pk="korekta,wnetrze,szyby">Wybierz pakiet</button></div>
+   <div class="rv top"><span class="bd">Najczęściej wybierany</span><h3 class="h">Ochrona</h3><p class="for">Lakier jak nowy i&nbsp;zabezpieczony na lata.</p><div class="pr"><small>od</small>2 760 zł</div><p class="dy">Auto u&nbsp;nas: 3 dni</p>
+    <ul><li class="y">Korekta lakieru<i>✓</i></li><li class="y">Powłoka ceramiczna<i>✓</i></li><li>Folia PPF na przód<i>·</i></li><li>Wnętrze i&nbsp;skóra<i>·</i></li><li class="y">Szyby<i>✓</i></li><li class="y">Felgi<i>✓</i></li></ul>
+    <button class="btn a" type="button" data-pk="korekta,ceramika,szyby,felgi">Wybierz pakiet</button></div>
+   <div class="rv"><h3 class="h">Pełna ochrona</h3><p class="for">Nowe albo wyjątkowe auto. Wszystko, co robimy najlepiej.</p><div class="pr"><small>od</small>4 080 zł</div><p class="dy">Auto u&nbsp;nas: 3 dni</p>
+    <ul><li class="y">Korekta lakieru<i>✓</i></li><li class="y">Powłoka ceramiczna<i>✓</i></li><li class="y">Folia PPF na przód<i>✓</i></li><li class="y">Wnętrze i&nbsp;skóra<i>✓</i></li><li class="y">Szyby<i>✓</i></li><li class="y">Felgi<i>✓</i></li></ul>
+    <button class="btn b" type="button" data-pk="korekta,ceramika,ppf,wnetrze,szyby,felgi">Wybierz pakiet</button></div>
+  </div>
+  <p class="pk-n rv">Przycisk „Wybierz pakiet” od razu zaznacza usługi w&nbsp;kalkulatorze poniżej.</p>
  </div>
 </section>
 
@@ -446,6 +504,28 @@ footer{border-top:1px solid var(--ln);padding:56px 0 calc(30px + env(safe-area-i
    <figure class="rv"><p class="st">★★★★★</p><blockquote>„Termin zarezerwowałam wieczorem przez stronę, rano przyszedł SMS z&nbsp;potwierdzeniem. Wnętrze pachnie jak nowe.”</blockquote><figcaption>Karolina</figcaption></figure>
    <figure class="rv"><p class="st">★★★★★</p><blockquote>„Folia na reflektorach i&nbsp;klamkach, powłoka na lakier. Po pół roku woda dalej spływa jak pierwszego dnia.”</blockquote><figcaption>Michał</figcaption></figure>
    <figure class="rv"><p class="st">★★★★★</p><blockquote>„Konkretna wycena przez stronę, bez dzwonienia i&nbsp;dopytywania. Auto odebrałem dzień wcześniej, niż mówili.”</blockquote><figcaption>Paweł</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+
+<section class="sec" id="bon">
+ <div class="wrap">
+  <div class="hd rv"><h2 class="h">Bon<br><em>podarunkowy.</em></h2><p>Prezent dla kogoś, kto kocha swoje auto. Wybierz kwotę albo usługę, wpisz imię i&nbsp;pobierz gotowy bon.</p></div>
+  <div class="bon">
+   <canvas id="bc" width="1600" height="1000" class="rv" aria-label="Podgląd bonu podarunkowego"></canvas>
+   <form class="rv" id="bf" onsubmit="return false">
+    <div><label>Na co</label><div class="ch2" id="bv">
+     <button type="button" data-v="300 zł" aria-pressed="false">300 zł</button>
+     <button type="button" data-v="500 zł" aria-pressed="true">500 zł</button>
+     <button type="button" data-v="1000 zł" aria-pressed="false">1000 zł</button>
+     <button type="button" data-v="Powłoka ceramiczna" aria-pressed="false">Powłoka ceramiczna</button>
+     <button type="button" data-v="Wnętrze i skóra" aria-pressed="false">Wnętrze i&nbsp;skóra</button>
+    </div></div>
+    <div class="r2"><div><label for="bn">Dla kogo</label><input id="bn" maxlength="22" placeholder="np. Tomasz"></div><div><label for="bo">Od kogo</label><input id="bo" maxlength="22" placeholder="np. Kasia"></div></div>
+    <button class="btn a" type="button" id="bd">Pobierz bon</button>
+    <small class="n">W gotowej stronie bon opłacasz BLIK-iem i&nbsp;dostajesz go mailem z&nbsp;unikalnym kodem.</small>
+   </form>
   </div>
  </div>
 </section>
@@ -588,6 +668,36 @@ $('#again').addEventListener('click',function(){$('#ok').classList.remove('on');
 
 var io='IntersectionObserver' in w?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1}):null;
 $$('.rv').forEach(function(e){io?io.observe(e):e.classList.add('in')});
+})();
+</script>
+
+<script>
+(function(){
+/* pakiety: zaznacz uslugi w kalkulatorze */
+document.querySelectorAll('[data-pk]').forEach(function(b){b.addEventListener('click',function(){var want=b.dataset.pk.split(',');
+ document.querySelectorAll('#svc button').forEach(function(x){var on=x.getAttribute('aria-pressed')==='true';if(on!==(want.indexOf(x.dataset.id)>-1))x.click()});
+ document.getElementById('wycena').scrollIntoView({behavior:'smooth'})})});
+/* bon */
+var cv=document.getElementById('bc'),c=cv.getContext('2d'),val='500 zł',code='LU-'+Math.random().toString(36).slice(2,6).toUpperCase()+'-'+(1000+Math.floor(Math.random()*9000));
+var d=new Date();d.setFullYear(d.getFullYear()+1);var exp=d.toLocaleDateString('pl-PL');
+function metal(x0,y0,x1,y1){var g=c.createLinearGradient(x0,y0,x1,y1);g.addColorStop(0,'#7d848e');g.addColorStop(.42,'#f4f5f7');g.addColorStop(.72,'#a6adb7');g.addColorStop(1,'#dfe2e6');return g}
+function draw(){var W=1600,H=1000,n=document.getElementById('bn').value.trim(),o=document.getElementById('bo').value.trim();
+ var bg=c.createLinearGradient(0,0,W,H);bg.addColorStop(0,'#16181c');bg.addColorStop(.55,'#0b0c0e');bg.addColorStop(1,'#1a1d22');c.fillStyle=bg;c.fillRect(0,0,W,H);
+ c.save();c.globalAlpha=.07;c.strokeStyle='#fff';c.lineWidth=1;for(var i=-H;i<W;i+=6){c.beginPath();c.moveTo(i,0);c.lineTo(i+H*.35,H);c.stroke()}c.restore();
+ var gl=c.createRadialGradient(W*.78,H*.18,10,W*.78,H*.18,700);gl.addColorStop(0,'rgba(255,255,255,.16)');gl.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=gl;c.fillRect(0,0,W,H);
+ c.strokeStyle='rgba(205,209,215,.35)';c.lineWidth=2;c.strokeRect(40,40,W-80,H-80);
+ c.fillStyle=metal(100,100,500,220);c.font='800 64px Ar, Arial';c.letterSpacing='18px';c.fillText('LUSTRO',110,175);c.letterSpacing='8px';
+ c.fillStyle='#a2a7af';c.font='600 22px Ar, Arial';c.fillText('STUDIO DETAILINGU · ŁÓDŹ',112,220);c.textAlign='right';c.fillText('BON PODARUNKOWY',W-110,175);c.textAlign='left';c.letterSpacing='0px';
+ var big=val.length>8,fs=big?118:190;c.font='700 '+fs+'px Ar, Arial';while(c.measureText(val.toUpperCase()).width>W-230&&fs>40){fs-=4;c.font='700 '+fs+'px Ar, Arial'}c.fillStyle=metal(100,H*.4,900,H*.7);c.fillText(val.toUpperCase(),104,big?560:600);
+ c.fillStyle='#f3f4f5';c.font='400 44px Ar, Arial';c.fillText(n?'Dla: '+n:'Dla: ...',110,big?680:700);
+ if(o){c.fillStyle='#a2a7af';c.font='400 34px Ar, Arial';c.fillText('od '+o,110,big?740:760)}
+ c.fillStyle='#a2a7af';c.font='600 24px Ar, Arial';c.letterSpacing='4px';c.fillText('KOD  '+code,110,H-110);c.textAlign='right';c.fillText('WAŻNY DO  '+exp,W-110,H-110);c.textAlign='left';c.letterSpacing='0px'}
+document.querySelectorAll('#bv button').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('#bv button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});val=b.dataset.v;draw()})});
+['bn','bo'].forEach(function(id){document.getElementById(id).addEventListener('input',draw)});
+document.getElementById('bd').addEventListener('click',function(){var a=document.createElement('a');a.download='bon-lustro.png';a.href=cv.toDataURL('image/png');a.click()});
+cv.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;cv.style.setProperty('--ry',(x*10)+'deg');cv.style.setProperty('--rx',(-y*10)+'deg')});
+cv.addEventListener('pointerleave',function(){cv.style.setProperty('--ry','0deg');cv.style.setProperty('--rx','0deg')});
+(document.fonts?document.fonts.ready:Promise.resolve()).then(draw);draw();
 })();
 </script>
 </body>
