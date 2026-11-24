@@ -37,9 +37,10 @@ nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-f
 nav .w{display:flex;align-items:center;height:68px;gap:36px}
 .logo{font-family:Cg,Georgia,serif;font-size:27px;font-weight:600;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
 .logo small{font:400 15px/1 Is;color:var(--tx2);margin-left:8px;vertical-align:2px}
-nav .ln{display:flex;gap:28px;font-size:15px}
+nav .ln{display:flex;gap:28px;font-size:15px;margin-left:auto}
 nav .ln a{text-decoration:none;color:var(--tx2)}nav .ln a:hover{color:var(--tx)}
-nav .rt{margin-left:auto;display:flex;align-items:center;gap:10px}
+nav .rt{display:flex;align-items:center;gap:10px;margin-left:20px}
+@media (max-width:1000px){nav .rt{margin-left:auto}}
 .who{font-size:14px;color:var(--tx2);display:none}
 body.in .who{display:block}
 body.in #login{display:none}
@@ -75,6 +76,8 @@ section{padding:96px 0}
 .card .ph{position:relative;aspect-ratio:3/4;background:var(--bg2);overflow:hidden;margin-bottom:14px}
 .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .card:hover .ph img{transform:scale(1.035)}
+.card .ph .alt{position:absolute;inset:0;opacity:0;transition:opacity .4s}
+.card:hover .ph .alt{opacity:1}
 .card .ph .tone{position:absolute;inset:0}
 .card .tag{position:absolute;left:10px;top:10px;background:#fff;font-size:14px;font-weight:600;padding:4px 9px;border-radius:var(--r)}
 .card .qk{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.96);height:44px;display:grid;place-items:center;font-size:14px;font-weight:600;opacity:0;transform:translateY(6px);transition:.25s}
@@ -386,7 +389,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
 var C={'biała':'#f4f2ee','kwiatowy żakard':'#7a4e2f',granatowa:'#24345e',czarna:'#141414',espresso:'#3a2620',karmel:'#8a5634',czekolada:'#3f2a22'};
 var P=[
- {id:'kurtka',n:'Kurtka bomber z kwiatowego żakardu',c:'Okrycia',k:['kwiatowy żakard'],im:{'kwiatowy żakard':['kurtka-1','kurtka-2','kurtka-3']},r:279,h:129,nw:1,s:'60% bawełna, 40% poliester, podszewka 100% poliester',d:'58 cm',f:'oversize',o:'do pracy i na co dzień',x:'bufiaste rękawy, zamek na całej długości, żakard w jesiennych kolorach'},
+ {id:'kurtka',n:'Kurtka bomber z kwiatowego żakardu',c:'Okrycia',k:['kwiatowy żakard'],im:{'kwiatowy żakard':['kurtka-1','kurtka-2','kurtka-3']},r:279,h:129,nw:1,s:'60% bawełna, 40% poliester',pd:'100% poliester',d:'58 cm',f:'oversize',o:'do pracy i na co dzień',x:'bufiaste rękawy, zamek na całej długości, żakard w jesiennych kolorach'},
  {id:'sukienka',n:'Sukienka jeansowa z bufiastym rękawem',c:'Sukienki',k:['granatowa','czarna'],im:{granatowa:['sukienka-g1','sukienka-g2'],czarna:['sukienka-c1','sukienka-c2','sukienka-c3']},r:379,h:179,nw:1,s:'98% bawełna, 2% elastan',d:'84 cm',f:'dopasowany w talii',o:'do pracy i na co dzień',x:'bufiaste rękawy, stójka, kontrastowe przeszycia'},
  {id:'marynarka',n:'Marynarka oversize z broszką',c:'Marynarki',k:['espresso','czarna'],im:{espresso:['marynarka-e1','marynarka-e2','marynarka-e3'],czarna:['marynarka-c1','marynarka-c2']},r:279,h:129,nw:1,s:'64% poliester, 33% wiskoza, 3% elastan',d:'78 cm',f:'oversize',o:'do pracy i na co dzień',x:'broszka w komplecie, kieszenie z klapką'},
  {id:'spodnie',n:'Spodnie z prostą nogawką',c:'Spodnie i szorty',k:['espresso','czarna'],im:{espresso:['spodnie-e1','marynarka-e1'],czarna:['spodnie-c1','marynarka-c1']},r:159,h:75,s:'64% poliester, 33% wiskoza, 3% elastan',d:'102 cm',f:'prosty',o:'do pracy i na co dzień',x:'wysoki stan, komplet z marynarką oversize'},
@@ -402,8 +405,8 @@ var lockI='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-wid
 function price(p){return IN?'<b>'+zl(p.h)+' netto</b> · sugerowana '+zl(p.r):'<span class="lock">'+lockI+'Cena hurtowa po zalogowaniu</span>'}
 var cat='Wszystko';
 function chips(){var cs=['Wszystko'];P.forEach(function(p){if(cs.indexOf(p.c)<0)cs.push(p.c)});$('#chips').innerHTML=cs.map(function(c){return '<button class="'+(c==cat?'on':'')+'">'+c+'</button>'}).join('');$$('#chips button').forEach(function(b){b.onclick=function(){cat=b.textContent;chips();grid()}})}
-function grid(){$('#grid').innerHTML=P.filter(function(p){return cat=='Wszystko'||p.c==cat}).map(function(p){return '<button class="card" data-id="'+p.id+'"><div class="ph">'+ph(p,0)+(p.nw?'<span class="tag">Nowość</span>':'')+'<span class="qk">Zobacz pakiety</span></div><h3>'+p.n+'</h3><div class="sw">'+p.k.map(function(k){return '<i style="background:'+(C[k]||'#ccc')+'" title="'+k+'"></i>'}).join('')+'</div><div class="pr">'+price(p)+'</div></button>'}).join('');$$('#grid .card').forEach(function(c){c.onclick=function(){open(c.dataset.id)}})}
-function desc(p){return p.n+' w kolorze '+p.k[0]+'. Fason '+p.f+', który dobrze leży w rozmiarach od S do XL. Wyróżnia ją: '+p.x+'. Sprawdzi się '+p.o+'.'}
+function grid(){$('#grid').innerHTML=P.filter(function(p){return cat=='Wszystko'||p.c==cat}).map(function(p){return '<button class="card" data-id="'+p.id+'"><div class="ph">'+ph(p,0)+(ims(p).length>1?'<img class="alt" src="img/'+ims(p)[1]+'.webp" alt="" loading="lazy">':'')+(p.nw?'<span class="tag">Nowość</span>':'')+'<span class="qk">Zobacz pakiety</span></div><h3>'+p.n+'</h3><div class="sw">'+p.k.map(function(k){return '<i style="background:'+(C[k]||'#ccc')+'" title="'+k+'"></i>'}).join('')+'</div><div class="pr">'+price(p)+'</div></button>'}).join('');$$('#grid .card').forEach(function(c){c.onclick=function(){open(c.dataset.id)}})}
+function desc(p){return p.n+'. Fason '+p.f+', szyty w rozmiarach od S do XL. Wyróżnia go: '+p.x+'. Sprawdzi się '+p.o+'.'+(p.k.length>1?' Kolory: '+p.k.join(', ')+'.':'')}
 function open(id){cur=P.filter(function(p){return p.id==id})[0];cK=0;pk='std';Q=JSON.parse(JSON.stringify(STD));render();show('#prod')}
 function render(){var p=cur,k=p.k[cK];
  $('#pMain').innerHTML=ph(p,0,k);
@@ -423,7 +426,7 @@ function render(){var p=cur,k=p.k[cK];
  $('#pV').textContent=zl(n*p.h)+' netto';
  $('#pAdd').disabled=!n;
  $('#pD').textContent=desc(p);
- $('#pW').innerHTML='<dt>Skład</dt><dd>'+p.s+'</dd><dt>Długość (M)</dt><dd>'+p.d+'</dd><dt>Fason</dt><dd>'+p.f+'</dd>';
+ $('#pW').innerHTML='<dt>Materiał</dt><dd>'+p.s+'</dd>'+(p.pd?'<dt>Podszewka</dt><dd>'+p.pd+'</dd>':'')+'<dt>Długość (M)</dt><dd>'+p.d+'</dd><dt>Fason</dt><dd>'+p.f+'</dd><dd style="grid-column:1/-1;font-size:14px;margin-top:6px">Skład i wymiary przykładowe, w sklepie z metki producenta.</dd>';
 }
 $$('.pk button').forEach(function(b){b.onclick=function(){pk=b.dataset.pk;if(pk=='std')Q=JSON.parse(JSON.stringify(STD));render()}});
 $('#pAdd').onclick=function(){var p=cur,k=p.k[cK],q={};SZ.forEach(function(s){q[s]=Q[s]});var n=SZ.reduce(function(a,s){return a+q[s]},0);if(!n)return;
