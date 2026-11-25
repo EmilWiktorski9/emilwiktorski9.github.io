@@ -23,7 +23,6 @@ img{display:block;max-width:100%}
 a{color:inherit}
 .w{max-width:1320px;margin:0 auto;padding:0 32px}
 .h{font-family:Cg,Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.02;text-wrap:balance}
-.h em{font-style:normal;color:#9a928a}
 p{text-wrap:pretty}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 26px;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
 .btn.d{background:var(--tx);color:#fff}.btn.d:hover{background:var(--es)}
@@ -217,6 +216,20 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .sw2{display:flex;border:1px solid var(--ln);border-radius:99px;padding:3px;font-size:14px}
 .sw2 a{padding:6px 14px;border-radius:99px;text-decoration:none;color:var(--tx2)}
 .sw2 a.on{background:var(--tx);color:#fff}
+/* search */
+.sbt{width:44px;height:44px;display:grid;place-items:center;border-radius:50%}.sbt:hover{background:var(--bg2)}
+.srch{position:sticky;top:72px;z-index:19;background:#fff;border-bottom:1px solid var(--ln);box-shadow:0 12px 30px rgba(0,0,0,.06)}
+.sin{display:flex;align-items:center;gap:12px;height:64px}
+.sin input{border:0;height:64px;font-size:18px;padding:0;flex:1}.sin input:focus{outline:none}
+#sx{font-size:14px;color:var(--tx2);text-decoration:underline}
+#sr{max-height:60vh;overflow-y:auto}
+.sin input::-webkit-search-cancel-button{display:none}
+.sri{color:var(--tx);display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:10px 0;border-top:1px solid var(--ln);width:100%;text-align:left}
+.sri:hover,.sri.on{background:var(--bg2)}
+.sri img{width:52px;aspect-ratio:3/4;object-fit:cover}
+.sri b{display:block;font-weight:600;font-size:15px}.sri span{font-size:14px;color:var(--tx2)}
+.sri em{font-style:normal;font-size:14px;color:var(--tx2);text-align:right;padding-right:8px}
+.srn{padding:16px 0;color:var(--tx2);font-size:15px;border-top:1px solid var(--ln)}
 /* matrix */
 .mrg{background:var(--bg2);padding:12px 14px;font-size:14px;color:var(--tx2);margin:-4px 0 14px;line-height:1.55}
 .mrg b{color:var(--tx);font-weight:600}
@@ -348,6 +361,9 @@ body.in .only-out{display:none!important}
  .terms{grid-template-columns:120px 1fr}
  .who{display:none!important}
  nav .sw2{display:none}
+ .srch{top:64px}
+ .sin input{font-size:16px}
+ .sri em{display:none}
  .pill{font-size:13px;left:10px;bottom:10px;padding:6px 12px}
 }
 </style>
@@ -360,6 +376,7 @@ body.in .only-out{display:none!important}
   <div class="lf"><button class="burg" id="burg" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button><div class="ln"><a href="#looki">Looki</a><a href="#kolekcja">Kolekcja</a><a href="#jak">Jak zamawiać</a><a href="#marka">O marce</a></div></div>
   <a class="logo" href="../" aria-label="Strona wejściowa By o la la..!">BY O LA LA..!</a>
   <div class="rt">
+   <button class="sbt" id="sbt" aria-label="Szukaj po nazwie lub kodzie"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></svg></button>
    <div class="sw2" role="navigation" aria-label="Wybór sklepu"><a href="../sklep/">Sklep</a><a href="../hurt/" class="on" aria-current="page">Hurt</a></div>
    <button class="who" data-acc>Moje konto · Butik Maja</button>
    <button class="btn l" id="login">Zaloguj się</button>
@@ -367,6 +384,10 @@ body.in .only-out{display:none!important}
   </div>
  </div>
 </nav>
+<div class="srch" id="srch" hidden>
+ <div class="w"><div class="sin"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></svg><input id="sq" type="search" placeholder="Nazwa albo kod, np. S2604 lub marynarka" aria-label="Szukaj produktu po nazwie lub kodzie" autocomplete="off"><button id="sx" aria-label="Zamknij wyszukiwanie">Zamknij</button></div>
+ <div id="sr" role="listbox"></div></div>
+</div>
 <aside class="dr" id="menu" aria-hidden="true" style="left:0;right:auto;transform:translateX(-100%)">
  <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
  <div class="mn">
@@ -396,7 +417,7 @@ body.in .only-out{display:none!important}
 
 <section id="looki">
  <div class="w">
-  <div class="hd"><h2 class="h">Cały look <em>jednym kliknięciem</em></h2></div>
+  <div class="hd"><h2 class="h">Cały look jednym kliknięciem</h2></div>
   <div class="looks">
    <div class="lk" data-look="0"><div class="fr"><img src="../img/look-1.webp" alt="Kurtka z kwiatowego żakardu i szorty z eko zamszu" loading="lazy"></div><div class="bar2"><div><h3>Żakard i zamsz</h3><p data-sum></p></div><button class="btn d" data-add-look>Dodaj cały look</button></div></div>
    <div class="lk" data-look="1"><div class="fr"><img src="../img/look-2.webp" alt="Marynarka oversize i spodnie w kolorze espresso" loading="lazy"></div><div class="bar2"><div><h3>Komplet espresso</h3><p data-sum></p></div><button class="btn d" data-add-look>Dodaj cały look</button></div></div>
@@ -407,7 +428,7 @@ body.in .only-out{display:none!important}
 <section id="kolekcja">
  <div class="w">
   <div class="hd">
-   <h2 class="h">Kolekcja <em>jesień/zima 2026</em></h2>
+   <h2 class="h">Kolekcja jesień/zima 2026</h2>
    <div class="chips" id="chips"></div>
   </div>
   <div class="tools"><button class="btn l sm" data-quick>Szybkie zamówienie z kodów</button><button class="btn l sm" data-pdf>Katalog PDF z cenami</button></div>
@@ -417,7 +438,7 @@ body.in .only-out{display:none!important}
 
 <section id="jak">
  <div class="w">
-  <div class="hd"><h2 class="h">Jak zamawiać <em>jako butik</em></h2></div>
+  <div class="hd"><h2 class="h">Jak zamawiać jako butik</h2></div>
   <div class="steps">
    <div><h3>Konto hurtowe</h3><p>Zostawiasz NIP i adres butiku. Weryfikujemy go w ciągu jednego dnia roboczego i od razu widzisz ceny hurtowe.</p></div>
    <div><h3>Pakiety rozmiarowe</h3><p>Każdy model zamawiasz gotowym pakietem 1 S, 2 M, 2 L, 1 XL albo układasz własny. Stany widzisz przy każdym rozmiarze.</p></div>
@@ -428,7 +449,7 @@ body.in .only-out{display:none!important}
 
 <section id="panel">
  <div class="w">
-  <div class="hd"><h2 class="h">Panel sprzedawcy <em>z opisami od AI</em></h2></div>
+  <div class="hd"><h2 class="h">Panel sprzedawcy z opisami od AI</h2></div>
   <div class="pan">
    <form id="aiForm">
     <div class="full"><label for="a-n">Nazwa produktu</label><input id="a-n" value="Sukienka jeansowa z bufiastym rękawem"></div>
@@ -453,7 +474,7 @@ body.in .only-out{display:none!important}
  <div class="w brand">
   <div class="im"><img src="../img/koszula-c4.webp" alt="Haftowany monogram By o la la..! na koszuli" loading="lazy"></div>
   <div>
-   <h2 class="h" style="font-size:clamp(36px,4vw,56px)">Polska marka <em>z historią</em></h2>
+   <h2 class="h" style="font-size:clamp(36px,4vw,56px)">Polska marka z historią</h2>
    <p>By o la la..! projektuje kobiecą odzież od 14 lat. Od ponad 13 lat sprzedaje przez butiki, ma 39 sklepów firmowych, a w 2022 roku dostała tytuł Kobieca Marka Roku. Kampanie fotografuje na ulicach miasta i w jasnym studiu.</p>
   </div>
  </div>
@@ -462,7 +483,7 @@ body.in .only-out{display:none!important}
 <section id="konto" style="background:var(--bg2)">
  <div class="w acc">
   <div>
-   <div class="hd" style="margin-bottom:20px"><h2 class="h">Konto <em>dla butiku</em></h2></div>
+   <div class="hd" style="margin-bottom:20px"><h2 class="h">Konto dla butiku</h2></div>
    <ul>
     <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>Ceny hurtowe i sugerowane ceny detaliczne przy każdym modelu.</li>
     <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>Stany magazynowe w każdym rozmiarze, odświeżane na bieżąco.</li>
@@ -550,7 +571,7 @@ P2619-ESP M 5</textarea>
 <aside class="dr" id="acc" aria-hidden="true">
  <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
  <div class="pad">
-  <h2 class="h">Butik Maja <em>Kraków</em></h2>
+  <h2 class="h">Butik Maja, Kraków</h2>
   <h3 class="ah">Warunki współpracy</h3>
   <dl class="terms"><dt>Rabat stały</dt><dd>5% od cen hurtowych</dd><dt>Płatność</dt><dd>przelew, termin 14 dni</dd><dt>Limit kupiecki</dt><dd id="aLim"></dd><dt>Opiekun handlowy</dt><dd>przypisany po weryfikacji konta</dd></dl>
   <h3 class="ah">Zamówienia</h3>
@@ -713,6 +734,20 @@ document.addEventListener('click',function(e){if(!e.target.closest('[data-pdf]')
  h+=P.map(function(p){return '<div class="pp"><img src="../img/'+ims(p)[0]+'.webp" alt=""><div><b>'+p.n+'</b><br>Kody: '+p.k.map(function(k){return sku(p,k)+' ('+k+')'}).join(', ')+'<br>Rozmiary: S, M, L, XL. Pakiet: 1 S, 2 M, 2 L, 1 XL<br>'+(IN?'Cena hurtowa '+zl(p.h)+' netto · ':'')+'Sugerowana cena detaliczna '+zl(p.r)+'<br>Materiał: '+p.s+'</div></div>'}).join('');
  var pr=$('#print');pr.innerHTML=h;var im=$$('img',pr),left=im.length;function go(){setTimeout(function(){window.print()},50)}
  if(!left)go();im.forEach(function(i){if(i.complete){if(!--left)go()}else{i.onload=i.onerror=function(){if(!--left)go()}}})});
+// wyszukiwarka
+var SI=0,SRES=[];
+function sOpen(){var s=$('#srch');s.hidden=false;$('#sq').focus();sRun()}
+function sClose(){$('#srch').hidden=true;$('#sq').value=''}
+function norm(t){return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l')}
+function sRun(){var q=norm($('#sq').value.trim());SI=0;
+ SRES=!q?[]:allCodes().filter(function(o){var hay=norm(o.c+' '+o.p.n+' '+o.k+' '+o.p.c.join(' '));return q.split(/\s+/).every(function(w){return hay.indexOf(w)>=0})}).slice(0,8);
+ $('#sr').innerHTML=!q?'':SRES.length?SRES.map(function(o,i){return '<button class="sri'+(i==SI?' on':'')+'" data-i="'+i+'" role="option"><img src="../img/'+ims(o.p,o.k)[0]+'.webp" alt=""><span><b>'+o.p.n+'</b>'+o.k+' · '+o.c+'</span><em>'+(IN?zl(o.p.h)+' netto':'po zalogowaniu')+'</em></button>'}).join(''):'<div class="srn">Nic nie znaleźliśmy. Spróbuj kodu z faktury albo części nazwy.</div>';
+ $$('#sr .sri').forEach(function(b){b.onclick=function(){sPick(+b.dataset.i)}})}
+function sPick(i){var o=SRES[i];if(!o)return;sClose();open(o.p.id,o.p.k.indexOf(o.k))}
+$('#sbt').onclick=function(){$('#srch').hidden?sOpen():sClose()};$('#sx').onclick=sClose;
+$('#sq').addEventListener('input',sRun);
+$('#sq').addEventListener('keydown',function(e){if(e.key=='ArrowDown'||e.key=='ArrowUp'){e.preventDefault();SI=Math.max(0,Math.min(SRES.length-1,SI+(e.key=='ArrowDown'?1:-1)));$$('#sr .sri').forEach(function(b,i){b.classList.toggle('on',i==SI)})}else if(e.key=='Enter'){e.preventDefault();sPick(SI)}else if(e.key=='Escape')sClose()});
+document.addEventListener('keydown',function(e){if(e.key=='/'&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();sOpen()}});
 chips();grid();cartR();looksR();
 </script>
 </body>

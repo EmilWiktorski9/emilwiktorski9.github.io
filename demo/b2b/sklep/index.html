@@ -87,6 +87,13 @@ footer a{color:var(--tx)}
 #cart{width:min(460px,100vw);display:flex;flex-direction:column}
 .li{display:grid;grid-template-columns:84px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--ln)}
 .li img{width:84px;aspect-ratio:3/4;object-fit:cover}.li b{display:block;font-weight:600}.li .sizes{margin:10px 0 0}.li .sizes button{min-width:46px;height:40px}
+.lbl span{font-weight:400}.lbl span button{text-decoration:underline;color:var(--tx2)}
+.fit{background:var(--bg2);padding:16px;margin:-8px 0 20px}
+.fr{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:10px}
+.fr label{font-size:14px;color:var(--tx2);display:flex;flex-direction:column;gap:4px}
+.fr input,.fr select{height:42px;border:1px solid var(--ln);background:#fff;padding:0 10px;font-size:15px;width:100%}
+.fp{display:flex;gap:6px;margin:12px 0}.fp button{flex:1;height:38px;border:1px solid var(--ln);background:#fff;font-size:14px}.fp button.on{border-color:var(--tx);box-shadow:inset 0 0 0 1px var(--tx)}
+.fo{font-size:15px;line-height:1.5}.fo b{font-weight:600}.fo button{margin-top:10px;height:42px;padding:0 18px;background:var(--tx);color:#fff;font-weight:600;font-size:14px}
 #menu{left:0;right:auto;transform:translateX(-100%);width:min(400px,88vw)}#menu.on{transform:none}
 .mn{padding:84px 28px;display:flex;flex-direction:column}.mn a{font:500 34px/1.2 Cg,Georgia,serif;text-decoration:none;padding:8px 0;border-bottom:1px solid var(--ln)}
 .x{position:absolute;right:14px;top:12px;width:44px;height:44px;display:grid;place-items:center;z-index:3;background:#fff;border-radius:50%}
@@ -136,6 +143,7 @@ footer a{color:var(--tx)}
  .ben{grid-template-columns:1fr}.ben div{border-right:0;border-bottom:1px solid var(--ln);padding:22px 20px}
  .gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.gal img{flex:0 0 86%;scroll-snap-align:start}.gal img+img{margin:0 0 0 4px}
  .inf{padding:26px 20px 40px;position:static}
+ .fr{grid-template-columns:1fr 1fr}.fr label:last-child{grid-column:1/-1}
  .w{padding:0 20px}section{padding:60px 0}
  .hero{height:78svh}.hp{grid-template-columns:1fr}.hp img+img{display:none}.hero .t{bottom:36px}
 }
@@ -183,7 +191,12 @@ footer a{color:var(--tx)}
  <div class="inf">
   <h2 class="h" id="pN"></h2><div class="pr" id="pP"></div>
   <div class="lbl">Kolor: <span id="pKn" style="font-weight:400;margin-right:auto;margin-left:6px"></span></div><div class="cols" id="pK"></div>
-  <div class="lbl">Rozmiar <button id="szb">Tabela rozmiarów</button></div><div class="sizes" id="pS"></div>
+  <div class="lbl">Rozmiar <span><button id="fitb">Dobierz rozmiar</button> · <button id="szb">Tabela</button></span></div><div class="sizes" id="pS"></div>
+  <div class="fit" id="fit" hidden>
+   <div class="fr"><label>Wzrost<input id="fH" type="number" inputmode="numeric" placeholder="cm" min="140" max="200"></label><label>Waga<input id="fW" type="number" inputmode="numeric" placeholder="kg" min="35" max="140"></label><label>Zwykle noszę<select id="fU"><option value="">nie wiem</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select></label></div>
+   <div class="fp" id="fP"><button data-v="-1">Dopasowane</button><button data-v="0" class="on">Normalnie</button><button data-v="1">Luźniej</button></div>
+   <div class="fo" id="fO">Wpisz wzrost i wagę albo swój zwykły rozmiar.</div>
+  </div>
   <button class="btn d add" id="pAdd" disabled>Wybierz rozmiar</button>
   <p class="note">Wysyłka w 24 godziny. Darmowa dostawa od 299 zł.</p>
   <div class="spec">
@@ -221,7 +234,7 @@ function stock(p,k,s){var h=0,t=p.id+k+s;for(var i=0;i<t.length;i++)h=(h*31+t.ch
 function chips(){var cs=['Wszystko'];P.forEach(function(p){p.c.forEach(function(c){if(cs.indexOf(c)<0)cs.push(c)})});$('#chips').innerHTML=cs.map(function(c){return '<button class="'+(c==cat?'on':'')+'">'+c+'</button>'}).join('');$$('#chips button').forEach(function(b){b.onclick=function(){cat=b.textContent;chips();grid()}})}
 function grid(){$('#grid').innerHTML=P.filter(function(p){return cat=='Wszystko'||p.c.indexOf(cat)>=0}).map(function(p){var a=ims(p);return '<button class="card" data-id="'+p.id+'"><div class="ph">'+(p.nw?'<span class="tag">Nowość</span>':'')+'<img src="'+src(a[0])+'" alt="'+p.n+'" loading="lazy">'+(a[1]?'<img class="b" src="'+src(a[1])+'" alt="" loading="lazy">':'')+'</div><h3>'+p.n+'</h3><div class="pr">'+zl(p.r)+'</div><div class="sw">'+p.k.map(function(k){return '<i style="background:'+(C[k]||'#ccc')+'" title="'+k+'"></i>'}).join('')+'</div></button>'}).join('');$$('#grid .card').forEach(function(c){c.onclick=function(){open(c.dataset.id)}})}
 function byId(id){return P.filter(function(p){return p.id==id})[0]}
-function open(id){cur=byId(id);cK=0;sz=null;render();show('#prod');$('#prod').scrollTop=0}
+function open(id){cur=byId(id);cK=0;sz=null;$('#fit').hidden=true;render();show('#prod');$('#prod').scrollTop=0}
 function render(){var p=cur,k=p.k[cK];
  $('#pG').innerHTML=ims(p,k).map(function(n){return '<img src="'+src(n)+'" alt="'+p.n+', '+k+'">'}).join('');
  $('#pN').textContent=p.n;$('#pP').textContent=zl(p.r);$('#pKn').textContent=k;
@@ -232,6 +245,18 @@ function render(){var p=cur,k=p.k[cK];
  $('#pAdd').disabled=!sz;$('#pAdd').textContent=sz?'Dodaj do koszyka':'Wybierz rozmiar';
  $('#pD').textContent=p.n+'. Fason '+p.f+'. '+p.x.charAt(0).toUpperCase()+p.x.slice(1)+'. Sprawdzi się '+p.o+'.';
  $('#pW').textContent='Materiał: '+p.s+(p.pd?'. Podszewka: '+p.pd:'')+'. Prać w 30 stopniach, nie suszyć w suszarce. Skład przykładowy.';}
+var FS=['XS','S','M','L','XL'],fPref=0;
+function fitR(){var p=cur,hgt=+$('#fH').value,w=+$('#fW').value,u=$('#fU').value,est=[];
+ if(hgt>=140&&w>=35){var bmi=w/Math.pow(hgt/100,2);est.push(bmi<18.8?1:bmi<21?1.5:bmi<23.2?2:bmi<25.5?3:4);if(hgt>176)est[0]+=.3}
+ if(u)est.push(FS.indexOf(u));
+ if(!est.length){$('#fO').innerHTML='Wpisz wzrost i wagę albo swój zwykły rozmiar.';return}
+ var v=est.reduce(function(a,b){return a+b},0)/est.length+fPref*.6,os=/oversize|szeroki/.test(p.f);if(os)v-=.4;
+ var r=Math.max(1,Math.min(4,Math.round(v))),s=FS[r],why=os?'Ten model jest szyty '+p.f+', dlatego polecamy rozmiar bliżej Twojego zwykłego albo o jeden mniejszy.':'Model jest '+p.f+', więc trzyma się standardowej tabeli.';
+ $('#fO').innerHTML='Polecamy <b>'+s+'</b>. '+why+(fPref<0?' Wybrałaś dopasowany krój.':fPref>0?' Wybrałaś luźniejszy krój.':'')+'<br><button id="fGo">Wybierz '+s+'</button>';
+ $('#fGo').onclick=function(){var b=$('#pS button[data-s="'+s+'"]');if(b&&!b.disabled){sz=s;render();$('#fit').hidden=false}else $('#fO').innerHTML+='<br>Tego rozmiaru chwilowo brakuje w tym kolorze.'}}
+$('#fitb').onclick=function(){var f=$('#fit');f.hidden=!f.hidden;if(!f.hidden)fitR()};
+['#fH','#fW','#fU'].forEach(function(s){$(s).addEventListener('input',fitR)});
+$$('#fP button').forEach(function(b){b.onclick=function(){fPref=+b.dataset.v;$$('#fP button').forEach(function(x){x.classList.toggle('on',x==b)});fitR()}});
 $('#szb').onclick=function(){$('#szd').open=true;$('#szd').scrollIntoView({behavior:'smooth',block:'center'})};
 $('#pAdd').onclick=function(){var p=cur,k=p.k[cK];var ex=CART.filter(function(c){return c.id==p.id&&c.k==k&&c.s==sz})[0];if(ex)ex.q++;else CART.push({id:p.id,k:k,s:sz,q:1});cartR();hide();setTimeout(function(){show('#cart')},460)};
 function cartR(){var n=0,v=0;CART.forEach(function(c){n+=c.q;v+=c.q*byId(c.id).r});$('#cc').textContent=n;
