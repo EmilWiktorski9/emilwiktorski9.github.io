@@ -767,7 +767,7 @@ cv.addEventListener('pointerleave',function(){cv.style.setProperty('--ry','0deg'
 (function(){var bar=document.getElementById('mbar'),w=document.getElementById('wycena'),sm=document.querySelector('#wycena .sum'),fm=document.getElementById('send');
 function chk(){if(innerWidth>760){bar.classList.remove('on');return}var r=w.getBoundingClientRect(),sr=sm.getBoundingClientRect(),fr=fm.getBoundingClientRect();
  var inW=r.top<innerHeight*.5&&r.bottom>innerHeight*.6,sumVis=sr.top<innerHeight-80&&sr.bottom>90,btnVis=fr.top<innerHeight-40&&fr.bottom>90;
- var on=inW&&!sumVis&&!btnVis&&!document.getElementById('go').disabled;bar.classList.toggle('on',on);bar.setAttribute('aria-hidden',on?'false':'true');
+ var on=inW&&!sumVis&&!btnVis&&!document.getElementById('go').disabled;bar.classList.toggle('on',on);if(on){var f2=document.getElementById('fl');if(f2)f2.classList.remove('on')}bar.setAttribute('aria-hidden',on?'false':'true');
  if(on){document.getElementById('mbp').textContent=document.getElementById('price').textContent;var pk=document.getElementById('pick').textContent.replace('Wybrane: ','');var hasT=/,\s\d{1,2}:\d{2}/.test(pk);
   document.getElementById('mbs').textContent=hasT?pk.split(' · ')[0]:'Szacunkowa cena';var g=document.getElementById('mbg');g.textContent=hasT?'Twoje dane':'Wybierz termin';g.href=hasT?'#dane':'#cal'}}
 addEventListener('scroll',chk,{passive:true});addEventListener('resize',chk);document.addEventListener('click',function(){setTimeout(chk,50)});chk()})();
