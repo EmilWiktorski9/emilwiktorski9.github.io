@@ -35,7 +35,14 @@ p{text-wrap:pretty}
 .pill b{color:var(--tx);font-weight:600;margin-right:4px}
 /* tiles */
 #kategorie{padding:4px 0 0}
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.tw{position:relative}
+.tiles{display:flex;gap:4px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.tiles::-webkit-scrollbar{display:none}
+.tile{flex:0 0 calc((100% - 12px)/4);scroll-snap-align:start}
+.ta{position:absolute;top:50%;margin-top:-26px;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;z-index:3;transition:opacity .25s}
+.ta:disabled{opacity:0;pointer-events:none}
+#tp{left:18px}#tn{right:18px}
+.ex{font-weight:600;color:var(--tx);white-space:nowrap}
 .tile{position:relative;aspect-ratio:3/4;overflow:hidden;color:#fff;background:var(--bg2)}
 .tile img{width:100%;height:100%;object-fit:cover}
 .tile span{position:absolute;inset:auto 0 0;padding:80px 16px 28px;background:linear-gradient(transparent,rgba(0,0,0,.45));font-family:Cg,Georgia,serif;font-size:clamp(34px,3.2vw,52px);line-height:1;text-align:center}
@@ -335,8 +342,8 @@ body.in .only-out{display:none!important}
  .grid{grid-template-columns:1fr 1fr;gap:28px 12px}
  .steps,.pan,.acc,.brand{grid-template-columns:1fr}
  .looks{grid-template-columns:1fr}
- .tiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:4px;scrollbar-width:none}
- .tile{flex:0 0 72vw;scroll-snap-align:start}
+ .tile{flex:0 0 72vw}
+ .ta{width:44px;height:44px;margin-top:-22px}#tp{left:10px}#tn{right:10px}
  .brand{gap:28px}
  .trust{gap:6px 20px}
  .pan form{border-right:0;border-bottom:1px solid var(--ln)}
@@ -366,6 +373,7 @@ body.in .only-out{display:none!important}
  .sri em{display:none}
  .pill{font-size:13px;left:10px;bottom:10px;padding:6px 12px}
 }
+*{font-variant-numeric:lining-nums!important}
 </style>
 </head>
 <body>
@@ -401,12 +409,15 @@ body.in .only-out{display:none!important}
 
 
 <section id="kategorie">
- <div class="tiles">
+ <div class="tw"><div class="tiles" id="tiles">
   <button class="tile" data-cat="Okrycia"><img src="../img/kurtka-3.webp" alt="" loading="lazy"><span>Okrycia</span></button>
   <button class="tile" data-cat="Sukienki"><img src="../img/sukienka-c3.webp" alt="" loading="lazy"><span>Sukienki</span></button>
   <button class="tile" data-cat="Komplety"><img src="../img/marynarka-e2.webp" alt="" loading="lazy"><span>Komplety</span></button>
   <button class="tile" data-cat="Koszule"><img src="../img/koszula-c1.webp" alt="" loading="lazy"><span>Koszule</span></button>
+  <button class="tile" data-cat="Spodnie i szorty"><img src="../img/szorty-c1.webp" alt="" loading="lazy"><span>Spodnie i szorty</span></button>
+  <button class="tile" data-cat="Wszystko"><img src="../img/sukienka-g2.webp" alt="" loading="lazy"><span>Cała kolekcja</span></button>
  </div>
+ <button class="ta" id="tp" aria-label="Poprzednie kategorie"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4l-6 6 6 6"/></svg></button><button class="ta" id="tn" aria-label="Następne kategorie"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 4l6 6-6 6"/></svg></button></div>
 </section>
 <div class="facts">
  <div><b>14 lat</b><span>na rynku</span></div>
@@ -556,7 +567,7 @@ body.in .only-out{display:none!important}
  <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
  <div class="pad">
   <h2 class="h">Szybkie zamówienie</h2>
-  <p class="lead">Wklej kody z katalogu PDF albo z poprzedniego zamówienia. Jedna linia to kod, rozmiar i ilość.</p>
+  <p class="lead">Wklej kody z katalogu PDF albo z poprzedniego zamówienia. Jedna linia to kod, rozmiar i ilość, na przykład <b class="ex">S2604-GRA M 4</b>, czyli sukienka jeansowa granatowa, rozmiar M, 4 sztuki.</p>
   <label for="qT">Kody</label>
   <textarea id="qT" rows="7">S2604-GRA M 4
 S2604-CZA L 3
@@ -734,6 +745,10 @@ document.addEventListener('click',function(e){if(!e.target.closest('[data-pdf]')
  h+=P.map(function(p){return '<div class="pp"><img src="../img/'+ims(p)[0]+'.webp" alt=""><div><b>'+p.n+'</b><br>Kody: '+p.k.map(function(k){return sku(p,k)+' ('+k+')'}).join(', ')+'<br>Rozmiary: S, M, L, XL. Pakiet: 1 S, 2 M, 2 L, 1 XL<br>'+(IN?'Cena hurtowa '+zl(p.h)+' netto · ':'')+'Sugerowana cena detaliczna '+zl(p.r)+'<br>Materiał: '+p.s+'</div></div>'}).join('');
  var pr=$('#print');pr.innerHTML=h;var im=$$('img',pr),left=im.length;function go(){setTimeout(function(){window.print()},50)}
  if(!left)go();im.forEach(function(i){if(i.complete){if(!--left)go()}else{i.onload=i.onerror=function(){if(!--left)go()}}})});
+// kafle kategorii
+(function(){var t=$('#tiles'),p=$('#tp'),n=$('#tn');function st(){p.disabled=t.scrollLeft<8;n.disabled=t.scrollLeft+t.clientWidth>t.scrollWidth-8}
+ function step(d){var w=t.querySelector('.tile').getBoundingClientRect().width+4;t.scrollBy({left:d*w*(innerWidth>1000?2:1),behavior:'smooth'})}
+ p.onclick=function(){step(-1)};n.onclick=function(){step(1)};t.addEventListener('scroll',st,{passive:true});addEventListener('resize',st);st()})();
 // wyszukiwarka
 var SI=0,SRES=[];
 function sOpen(){var s=$('#srch');s.hidden=false;$('#sq').focus();sRun()}
