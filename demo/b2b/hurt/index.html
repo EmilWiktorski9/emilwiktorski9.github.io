@@ -214,7 +214,12 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .spec dt{color:var(--tx)}
 .gate{background:var(--bg2);padding:18px;font-size:15px;margin-bottom:12px}
 .gate button{text-decoration:underline;font-weight:600}
+.sw2{display:flex;border:1px solid var(--ln);border-radius:99px;padding:3px;font-size:14px}
+.sw2 a{padding:6px 14px;border-radius:99px;text-decoration:none;color:var(--tx2)}
+.sw2 a.on{background:var(--tx);color:#fff}
 /* matrix */
+.mrg{background:var(--bg2);padding:12px 14px;font-size:14px;color:var(--tx2);margin:-4px 0 14px;line-height:1.55}
+.mrg b{color:var(--tx);font-weight:600}
 .sku{font-size:14px;color:var(--tx2);margin:-4px 0 14px}
 .mxw{overflow-x:auto}
 .mx{width:100%;border-collapse:collapse;font-size:14px}
@@ -342,6 +347,7 @@ body.in .only-out{display:none!important}
  .pad{padding:56px 20px 40px}
  .terms{grid-template-columns:120px 1fr}
  .who{display:none!important}
+ nav .sw2{display:none}
  .pill{font-size:13px;left:10px;bottom:10px;padding:6px 12px}
 }
 </style>
@@ -354,6 +360,7 @@ body.in .only-out{display:none!important}
   <div class="lf"><button class="burg" id="burg" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button><div class="ln"><a href="#looki">Looki</a><a href="#kolekcja">Kolekcja</a><a href="#jak">Jak zamawiać</a><a href="#marka">O marce</a></div></div>
   <a class="logo" href="../" aria-label="Strona wejściowa By o la la..!">BY O LA LA..!</a>
   <div class="rt">
+   <div class="sw2" role="navigation" aria-label="Wybór sklepu"><a href="../sklep/">Sklep</a><a href="../hurt/" class="on" aria-current="page">Hurt</a></div>
    <button class="who" data-acc>Moje konto · Butik Maja</button>
    <button class="btn l" id="login">Zaloguj się</button>
    <button id="cartb" aria-label="Koszyk"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7.5 7V5.5a2.5 2.5 0 015 0V7"/></svg><span>Koszyk</span><i id="cc">0</i></button>
@@ -364,7 +371,7 @@ body.in .only-out{display:none!important}
  <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
  <div class="mn">
   <a href="#looki">Looki</a><a href="#kolekcja">Kolekcja</a><a href="#kategorie">Kategorie</a><a href="#jak">Jak zamawiać</a><a href="#marka">O marce</a><a href="#konto">Konto hurtowe</a>
-  <a href="#" data-quick>Szybkie zamówienie</a><a href="#" data-acc class="only-in">Moje konto</a>
+  <a href="../sklep/">Sklep dla klientek</a><a href="#" data-quick>Szybkie zamówienie</a><a href="#" data-acc class="only-in">Moje konto</a>
   <button class="btn d only-out" data-login style="margin-top:28px;width:100%">Zaloguj się jako butik</button>
  </div>
 </aside>
@@ -436,7 +443,7 @@ body.in .only-out{display:none!important}
    <div class="out">
         <h3 id="ai-h">Sukienka jeansowa z bufiastym rękawem</h3>
     <div id="ai-txt" class="wait">Uzupełnij pola po lewej i kliknij „Napisz opis”. Tekst trafi od razu na kartę produktu, do poprawienia jednym kliknięciem.</div>
-    <div class="note">W demo opis składa się z gotowego szablonu. W prawdziwym panelu pisze go model AI na podstawie zdjęcia, składu i wymiarów.</div>
+    <div class="note">Opis powstaje ze składu, wymiarów i fasonu. Przed publikacją można go poprawić.</div>
    </div>
   </div>
  </div>
@@ -470,7 +477,7 @@ body.in .only-out{display:none!important}
    <div><label for="f-e">E-mail</label><input id="f-e" type="email" required></div>
    <div><label for="f-t">Telefon</label><input id="f-t" type="tel"></div>
    <button class="btn d" type="submit" style="grid-column:1/-1">Wyślij zgłoszenie</button>
-   <div class="ok" id="accOk">Dziękujemy. To demo, więc zgłoszenie nigdzie nie poszło. W sklepie trafi do weryfikacji, a butik dostanie maila z dostępem.</div>
+   <div class="ok" id="accOk">Dziękujemy. Sprawdzimy zgłoszenie w ciągu jednego dnia roboczego i wyślemy dostęp na podany adres.</div>
    <p class="rodo">Administratorem danych jest właściciel marki By o la la..!. Dane posłużą wyłącznie do założenia konta hurtowego.</p>
   </form>
  </div>
@@ -495,6 +502,7 @@ body.in .only-out{display:none!important}
      <div class="mxa"><button class="lnk" id="pPk">Pakiet 1 S, 2 M, 2 L, 1 XL w każdym kolorze</button><button class="lnk" id="pClr">Wyczyść</button></div>
     </div>
     <div class="sum"><span id="pQ">6 szt.</span><b id="pV"></b></div>
+    <div class="mrg" id="pMg"></div>
     <button class="btn d add" id="pAdd">Dodaj do zamówienia</button>
    </div>
    <div class="gate" id="pGate">Ceny hurtowe i zamawianie są dostępne po zalogowaniu. <button data-login>Zaloguj się jako butik testowy</button></div>
@@ -520,7 +528,7 @@ body.in .only-out{display:none!important}
   <div class="mini" id="cPc" style="margin-bottom:16px"></div>
   <button class="btn d" id="cGo" style="width:100%">Złóż zamówienie</button>
  </div>
- <div class="done" id="cDone"><h3>Zamówienie przyjęte</h3><p>To demo, więc nic nie zostało wysłane. W sklepie zamówienie trafia do działu sprzedaży, a butik dostaje potwierdzenie i fakturę proforma na maila.</p><button class="btn l" data-close style="margin-top:22px">Wróć do kolekcji</button></div>
+ <div class="done" id="cDone"><h3>Zamówienie przyjęte</h3><p>Potwierdzenie i faktura proforma przyjdą na adres butiku. Opiekun handlowy odezwie się, jeśli coś trzeba będzie doprecyzować.</p><button class="btn l" data-close style="margin-top:22px">Wróć do kolekcji</button></div>
 </aside>
 
 <aside class="dr" id="quick" aria-hidden="true">
@@ -557,7 +565,7 @@ P2619-ESP M 5</textarea>
 
 <div class="mod" id="mod" role="dialog" aria-modal="true">
  <h2 class="h">Logowanie</h2>
- <p>W demo nie trzeba hasła. Wchodzisz na konto przykładowego butiku i widzisz ceny hurtowe.</p>
+ <p>Konto testowe butiku. Po zalogowaniu widzisz ceny hurtowe, stany i historię zamówień.</p>
  <label for="m-e">E-mail butiku</label><input id="m-e" value="butik.maja@przyklad.pl" readonly>
  <button class="btn d" id="mGo">Wejdź jako butik testowy</button>
 </div>
@@ -609,7 +617,7 @@ function render(){var p=cur,k=p.k[cK];
  $('#pW').innerHTML='<dt>Materiał</dt><dd>'+p.s+'</dd>'+(p.pd?'<dt>Podszewka</dt><dd>'+p.pd+'</dd>':'')+'<dt>Długość (M)</dt><dd>'+p.d+'</dd><dt>Fason</dt><dd>'+p.f+'</dd><dd style="grid-column:1/-1;font-size:14px;margin-top:6px">Skład i wymiary przykładowe, w sklepie z metki producenta.</dd>';
 }
 function mxSum(){var p=cur,n=0;p.k.forEach(function(c,i){var r=SZ.reduce(function(a,z){return a+(MX[i][z]||0)},0);n+=r;var td=$('[data-rt="'+i+'"]');if(td)td.textContent=r});
- $('#pQ').textContent=n+' szt.';$('#pV').textContent=zl(n*p.h)+' netto';$('#pAdd').disabled=!n}
+ $('#pQ').textContent=n+' szt.';var rn=p.r/1.23,mg=Math.round((rn-p.h)/rn*100);$('#pMg').innerHTML=n?'Sprzedasz po cenie sugerowanej za <b>'+zl(n*p.r)+' brutto</b>. Twój zarobek netto: <b>'+zl(Math.round(n*(rn-p.h)))+'</b>, marża <b>'+mg+'%</b>.':'';$('#pV').textContent=zl(n*p.h)+' netto';$('#pAdd').disabled=!n}
 $('#pPk').onclick=function(){cur.k.forEach(function(c,i){MX[i]=pack(cur,i)});render()};
 $('#pClr').onclick=function(){cur.k.forEach(function(c,i){MX[i]={S:0,M:0,L:0,XL:0}});render()};
 function addLine(id,k,q){var ex=CART.filter(function(c){return c.id==id&&c.k==k})[0];if(ex){SZ.forEach(function(z){ex.q[z]+=q[z]||0})}else{var o={};SZ.forEach(function(z){o[z]=q[z]||0});CART.push({id:id,k:k,q:o})}}
@@ -658,11 +666,11 @@ var plus='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-widt
 function byId(id){return P.filter(function(p){return p.id==id})[0]}
 function pack(p,k){var q={};SZ.forEach(function(s){q[s]=Math.min(STD[s],stock(p,p.k[k],s))});return q}
 function looksR(){$$('.lk').forEach(function(el,i){var L=LOOKS[i],fr=$('.fr',el);$$('.hs',fr).forEach(function(h){h.remove()});
- var n=0,v=0,r=0;L.forEach(function(it){var p=byId(it.id),q=pack(p,it.k),m=SZ.reduce(function(a,s){return a+q[s]},0);n+=m;v+=m*p.h;r+=p.r;
+ var n=0,v=0,r=0,r2=0;L.forEach(function(it){var p=byId(it.id),q=pack(p,it.k),m=SZ.reduce(function(a,s){return a+q[s]},0);n+=m;v+=m*p.h;r+=p.r;r2+=m*p.r;
   var b=document.createElement('button');b.className='hs';b.style.left=it.x+'%';b.style.top=it.y+'%';b.setAttribute('aria-label',p.n);
   b.innerHTML=plus+'<span class="tip"><b>'+p.n+'</b>'+(IN?zl(p.h)+' netto · sugerowana '+zl(p.r):'sugerowana '+zl(p.r))+'</span>';
   b.onclick=function(){open(p.id,it.k)};fr.appendChild(b)});
- $('[data-sum]',el).textContent=L.length+' modele w pakietach, '+n+' szt.'+(IN?', '+zl(v)+' netto':', ceny hurtowe po zalogowaniu')})}
+ $('[data-sum]',el).textContent=L.length+' modele w pakietach, '+n+' szt.'+(IN?', '+zl(v)+' netto, marża ok. '+Math.round((r2/1.23-v)/(r2/1.23)*100)+'%':', ceny hurtowe po zalogowaniu')})}
 var pend=null;
 $$('[data-add-look]').forEach(function(b,i){b.onclick=function(){if(!IN){pend=i;loginOpen();return}addLook(i)}});
 function addLook(i){var n=0;LOOKS[i].forEach(function(it){var p=byId(it.id),k=p.k[it.k],q=pack(p,it.k);n+=SZ.reduce(function(a,s){return a+q[s]},0);

@@ -36,6 +36,9 @@ nav .rt a{text-decoration:none;color:var(--tx2)}
 #cb{display:flex;align-items:center;gap:8px;font-weight:600}
 #cb i{font-style:normal;background:var(--tx);color:#fff;border-radius:99px;min-width:22px;height:22px;font-size:12px;display:grid;place-items:center}
 .burg{display:none;width:44px;height:44px;margin-left:-10px;place-items:center}
+.sw2{display:flex;border:1px solid var(--ln);border-radius:99px;padding:3px;font-size:14px}
+.sw2 a{padding:6px 14px;border-radius:99px;text-decoration:none;color:var(--tx2)}
+.sw2 a.on{background:var(--tx);color:#fff}
 /* hero */
 .hero{position:relative;height:min(calc(100svh - 106px),900px);min-height:520px;overflow:hidden;background:var(--bg2)}
 .hp{display:grid;grid-template-columns:1fr 1fr;gap:4px;height:100%}
@@ -82,6 +85,8 @@ footer a{color:var(--tx)}
 .dr{position:fixed;top:0;right:0;bottom:0;background:#fff;z-index:50;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1);overflow-y:auto;width:min(1000px,100vw)}
 .dr.on{transform:none}
 #cart{width:min(460px,100vw);display:flex;flex-direction:column}
+.li{display:grid;grid-template-columns:84px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--ln)}
+.li img{width:84px;aspect-ratio:3/4;object-fit:cover}.li b{display:block;font-weight:600}.li .sizes{margin:10px 0 0}.li .sizes button{min-width:46px;height:40px}
 #menu{left:0;right:auto;transform:translateX(-100%);width:min(400px,88vw)}#menu.on{transform:none}
 .mn{padding:84px 28px;display:flex;flex-direction:column}.mn a{font:500 34px/1.2 Cg,Georgia,serif;text-decoration:none;padding:8px 0;border-bottom:1px solid var(--ln)}
 .x{position:absolute;right:14px;top:12px;width:44px;height:44px;display:grid;place-items:center;z-index:3;background:#fff;border-radius:50%}
@@ -115,7 +120,7 @@ footer a{color:var(--tx)}
 .ci{display:grid;grid-template-columns:76px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--ln);font-size:14px}
 .ci img{width:76px;aspect-ratio:3/4;object-fit:cover}
 .ci b{font-weight:600;font-size:15px}.ci span{display:block;color:var(--tx2)}
-.qty{display:inline-flex;align-items:center;border:1px solid var(--ln);margin-top:8px}.qty button{width:32px;height:30px}.qty b{min-width:24px;text-align:center}
+.ci .qty{display:inline-flex;width:auto;align-items:center;border:1px solid var(--ln);margin-top:8px}.qty button{width:32px;height:30px}.qty b{min-width:24px;text-align:center}
 .rm{font-size:13px;color:var(--tx2);text-decoration:underline;align-self:start}
 #cart .ft{padding:20px 24px 24px;border-top:1px solid var(--ln)}
 .bar{height:3px;background:var(--ln);margin:10px 0 16px}.bar i{display:block;height:100%;background:var(--tx);transition:width .4s}
@@ -124,7 +129,7 @@ footer a{color:var(--tx)}
 .empty{color:var(--tx2);padding:40px 0;text-align:center}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--tx);color:#fff;padding:12px 20px;font-size:14px;z-index:70;opacity:0;transition:.3s;pointer-events:none}.toast.on{opacity:1;transform:translate(-50%,0)}
 @media (max-width:900px){
- nav .lf>a{display:none}.burg{display:grid}nav .rt a.b2b{display:none}#cb span{display:none}
+ nav .lf>a{display:none}.burg{display:grid}nav .rt .sw2 a{padding:5px 10px}#cb span{display:none}
  .logo{font-size:23px}nav .w{height:60px}
  .grid{grid-template-columns:1fr 1fr;gap:32px 10px}
  .looks,.pd{grid-template-columns:1fr}
@@ -141,7 +146,7 @@ footer a{color:var(--tx)}
 <nav><div class="w">
  <div class="lf"><button class="burg" id="burg" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button><a href="#nowosci">Nowości</a><a href="#stylizacje">Stylizacje</a><a href="#nowosci" data-c="Okrycia">Okrycia</a><a href="#nowosci" data-c="Komplety">Komplety</a></div>
  <a class="logo" href="../">BY O LA LA..!</a>
- <div class="rt"><a class="b2b" href="../hurt/">Dla butików</a><button id="cb" aria-label="Koszyk"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7.5 7V5.5a2.5 2.5 0 015 0V7"/></svg><span>Koszyk</span><i id="cc">0</i></button></div>
+ <div class="rt"><div class="sw2" role="navigation" aria-label="Wybór sklepu"><a href="../sklep/" class="on" aria-current="page">Sklep</a><a href="../hurt/">Hurt</a></div><button id="cb" aria-label="Koszyk"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7.5 7V5.5a2.5 2.5 0 015 0V7"/></svg><span>Koszyk</span><i id="cc">0</i></button></div>
 </div></nav>
 
 <header class="hero">
@@ -157,8 +162,8 @@ footer a{color:var(--tx)}
 <section id="stylizacje" style="padding-top:0"><div class="w">
  <div class="hd"><h2 class="h">Stylizacje</h2></div>
  <div class="looks">
-  <a class="lk" href="#" data-open="kurtka"><img src="../img/look-1.webp" alt="Kurtka z żakardu i szorty z eko zamszu" loading="lazy"><span><b>Żakard i zamsz</b><u>Kup stylizację</u></span></a>
-  <a class="lk" href="#" data-open="marynarka"><img src="../img/look-2.webp" alt="Marynarka oversize i spodnie espresso" loading="lazy"><span><b>Komplet espresso</b><u>Kup stylizację</u></span></a>
+  <a class="lk" href="#" data-look="0"><img src="../img/look-1.webp" alt="Kurtka z żakardu i szorty z eko zamszu" loading="lazy"><span><b>Żakard i zamsz</b><u>Kup stylizację</u></span></a>
+  <a class="lk" href="#" data-look="1"><img src="../img/look-2.webp" alt="Marynarka oversize i spodnie espresso" loading="lazy"><span><b>Komplet espresso</b><u>Kup stylizację</u></span></a>
  </div>
 </div></section>
 
@@ -193,6 +198,9 @@ footer a{color:var(--tx)}
  <div class="hd2"><h2 class="h">Koszyk</h2></div><div class="ls" id="cL"></div>
  <div class="ft" id="cF"><div class="mini" id="cMin"></div><div class="bar"><i id="cBar"></i></div><div class="tot"><span>Razem</span><b id="cT"></b></div><button class="btn d" id="cGo" style="width:100%">Przejdź do kasy</button><p class="mini" style="margin-top:10px;text-align:center">BLIK, karta, przelew, płatność przy odbiorze</p></div>
 </aside>
+<aside class="dr" id="look" aria-hidden="true" style="width:min(520px,100vw)"><button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+ <div style="padding:56px 24px 32px"><h2 class="h" id="lN" style="font-size:36px;margin-bottom:6px"></h2><p class="mini" style="margin-bottom:18px">Wybierz rozmiar przy każdej rzeczy.</p><div id="lL"></div>
+ <div class="tot" style="margin-top:18px"><span>Razem</span><b id="lT"></b></div><button class="btn d" id="lAdd" style="width:100%" disabled>Dodaj stylizację do koszyka</button></div></aside>
 <div class="toast" id="toast"></div>
 <script>
 var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
@@ -238,7 +246,13 @@ $('#ov').onclick=hide;$$('[data-close]').forEach(function(b){b.onclick=hide});do
 $('#cb').onclick=function(){cartR();show('#cart')};$('#burg').onclick=function(){show('#menu')};
 $$('[data-c]').forEach(function(a){a.addEventListener('click',function(){cat=a.dataset.c;chips();grid();hide()})});
 $$('#menu .mn a:not([data-c])').forEach(function(a){a.addEventListener('click',hide)});
-$$('[data-open]').forEach(function(a){a.onclick=function(e){e.preventDefault();open(a.dataset.open)}});
+var LOOKS=[{n:'Żakard i zamsz',l:[['kurtka',0],['szorty',0]]},{n:'Komplet espresso',l:[['marynarka',0],['spodnie',0]]}],LS={},LI=0;
+function lookR(){var L=LOOKS[LI],v=0,ok=true;$('#lN').textContent=L.n;
+ $('#lL').innerHTML=L.l.map(function(x,i){var p=byId(x[0]),k=p.k[x[1]];v+=p.r;if(!LS[i])ok=false;return '<div class="li"><img src="'+src(ims(p,k)[0])+'" alt=""><div><b>'+p.n+'</b><span class="mini">'+k+' · '+zl(p.r)+'</span><div class="sizes">'+SZ.map(function(s){var st=stock(p,k,s);return '<button data-i="'+i+'" data-s="'+s+'"'+(st?'':' disabled style="opacity:.35;text-decoration:line-through"')+' class="'+(LS[i]==s?'on':'')+'">'+s+'</button>'}).join('')+'</div></div></div>'}).join('');
+ $$('#lL .sizes button:not([disabled])').forEach(function(b){b.onclick=function(){LS[b.dataset.i]=b.dataset.s;lookR()}});
+ $('#lT').textContent=zl(v);$('#lAdd').disabled=!ok;$('#lAdd').textContent=ok?'Dodaj stylizację do koszyka':'Wybierz rozmiary'}
+$$('[data-look]').forEach(function(a){a.onclick=function(e){e.preventDefault();LI=+a.dataset.look;LS={};lookR();show('#look')}});
+$('#lAdd').onclick=function(){LOOKS[LI].l.forEach(function(x,i){var p=byId(x[0]),k=p.k[x[1]],s=LS[i];var ex=CART.filter(function(c){return c.id==p.id&&c.k==k&&c.s==s})[0];if(ex)ex.q++;else CART.push({id:p.id,k:k,s:s,q:1})});cartR();hide();setTimeout(function(){show('#cart')},460)};
 var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2600)}
 chips();grid();cartR();
 </script>
