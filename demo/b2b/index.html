@@ -20,7 +20,7 @@ body{font:400 15px/1.5 Is,system-ui,sans-serif;color:#fff}
 h1{position:fixed;top:28px;left:0;right:0;z-index:5;text-align:center;font:600 34px/1 Cg,Georgia,serif;letter-spacing:.04em;pointer-events:none;text-shadow:0 1px 18px rgba(0,0,0,.18)}
 main{display:grid;grid-template-columns:1fr 1fr;gap:4px;height:100svh}
 a{position:relative;overflow:hidden;display:block;color:#fff;text-decoration:none;background:#d9d4cd}
-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .6s}
+video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 4%;transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .6s}
 a::after{content:'';position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,rgba(0,0,0,.45));pointer-events:none}
 a::before{content:'';position:absolute;inset:0 0 auto;height:22%;background:linear-gradient(rgba(0,0,0,.22),transparent);pointer-events:none;z-index:1}
 .cap{position:absolute;left:0;right:0;bottom:56px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:0 16px}
@@ -31,8 +31,7 @@ a::before{content:'';position:absolute;inset:0 0 auto;height:22%;background:line
 @media (max-width:760px){
  main{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
  h1{top:18px;font-size:26px}
- video{object-position:50% 18%}
- a:nth-child(2) video{object-position:50% 78%}
+ video{object-position:50% 10%}
  .cap{bottom:30px;gap:10px}
  .cap b{font-size:34px}
  .demo{bottom:8px;font-size:12px}
@@ -42,12 +41,12 @@ a::before{content:'';position:absolute;inset:0 0 auto;height:22%;background:line
 <body>
 <h1>BY O LA LA..!</h1>
 <main>
- <a href="#" id="b2c">
-  <video src="img/v-ulica.mp4" poster="img/v-ulica-poster.jpg" muted loop playsinline preload="auto" aria-label="Dresowe komplety i kurtka z kolekcji jesień/zima"></video>
+ <a href="sklep/">
+  <video data-t="0.9" src="img/v-ulica.mp4" poster="img/v-ulica-poster.jpg" muted loop playsinline preload="auto" aria-label="Dresowe komplety i kurtka z kolekcji jesień/zima"></video>
   <span class="cap"><b>Sklep dla klientek</b><span>Przejdź do sklepu</span></span>
  </a>
  <a href="hurt/">
-  <video src="img/v-braz.mp4" poster="img/v-braz-poster.jpg" muted loop playsinline preload="auto" aria-label="Brązowy komplet z kolekcji jesień/zima"></video>
+  <video data-t="2.9" src="img/v-braz.mp4" poster="img/v-braz-poster.jpg" muted loop playsinline preload="auto" aria-label="Brązowy komplet z kolekcji jesień/zima"></video>
   <span class="cap"><b>Hurt dla butików</b><span>Wejdź do strefy B2B</span></span>
  </a>
 </main>
@@ -55,9 +54,10 @@ a::before{content:'';position:absolute;inset:0 0 auto;height:22%;background:line
 <script>
 (function(){var as=[].slice.call(document.querySelectorAll('main a')),hov=matchMedia('(hover:hover)').matches;
 function pl(v){var r=v.play();if(r&&r.catch)r.catch(function(){})}
-if(hov){as.forEach(function(a){var v=a.querySelector('video');a.addEventListener('mouseenter',function(){pl(v)});a.addEventListener('mouseleave',function(){v.pause()})})}
-else{as.forEach(function(a){pl(a.querySelector('video'))});document.addEventListener('visibilitychange',function(){if(!document.hidden)as.forEach(function(a){pl(a.querySelector('video'))})})}
-var b2c=document.getElementById('b2c'),sp=b2c.querySelector('.cap span'),t0=sp.textContent,tm;b2c.addEventListener('click',function(e){e.preventDefault();sp.textContent='W demo gotowa jest strefa hurtowa obok';clearTimeout(tm);tm=setTimeout(function(){sp.textContent=t0},2600)});
+function home(v){var t=+v.dataset.t||0;try{v.currentTime=t}catch(e){}}
+if(hov){as.forEach(function(a){var v=a.querySelector('video');if(v.readyState>0)home(v);else v.addEventListener('loadedmetadata',function(){home(v)},{once:true});a.addEventListener('mouseenter',function(){pl(v)});a.addEventListener('mouseleave',function(){v.pause();home(v)})})}
+else{as.forEach(function(a){var v=a.querySelector('video');if(v.readyState>0)home(v);else v.addEventListener('loadedmetadata',function(){home(v)},{once:true});pl(v)});document.addEventListener('visibilitychange',function(){if(!document.hidden)as.forEach(function(a){pl(a.querySelector('video'))})})}
+
 })();
 </script>
 </body>
