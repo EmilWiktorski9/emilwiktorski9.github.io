@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>By o la la..! Hurt dla butików (demo)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111'/%3E%3Ctext x='32' y='43' font-family='Georgia' font-size='30' fill='%23fff' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:Cg;font-weight:500;font-display:swap;src:url(../fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Cg;font-weight:500;font-display:swap;src:url(../fonts/cormorant-garamond-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Cg;font-weight:600;font-display:swap;src:url(../fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Cg;font-weight:600;font-display:swap;src:url(../fonts/cormorant-garamond-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Is;font-weight:400 700;font-display:swap;src:url(../fonts/instrument-sans-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Is;font-weight:400 700;font-display:swap;src:url(../fonts/instrument-sans-latin-ext-wght-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--bg:#fff;--bg2:#f3f3f2;--tx:#141210;--tx2:#6b655f;--ln:#e6e2dd;--es:#3a2a22;--ok:#2f6b3f;--r:2px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.6 Is,system-ui,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+img{display:block;max-width:100%}
+a{color:inherit}
+.w{max-width:1320px;margin:0 auto;padding:0 32px}
+.h{font-family:Cg,Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.02;text-wrap:balance}
+.h em{font-style:normal;color:#9a928a}
+p{text-wrap:pretty}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 26px;border-radius:var(--r);font-weight:600;font-size:15px;text-decoration:none;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.btn.d{background:var(--tx);color:#fff}.btn.d:hover{background:var(--es)}
+.btn.l{border:1px solid var(--tx)}.btn.l:hover{background:var(--tx);color:#fff}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+/* trust + demo */
+.trust{background:var(--tx);color:#e9e5e0;font-size:14px;display:flex;justify-content:center;gap:40px;padding:8px 16px;flex-wrap:wrap}
+.pill{position:fixed;left:16px;bottom:16px;z-index:30;background:rgba(255,255,255,.95);border:1px solid var(--ln);font-size:14px;padding:8px 14px;border-radius:99px;color:var(--tx2)}
+.trust .dm{display:inline}.trust .dm b{color:#fff}
+.pill b{color:var(--tx);font-weight:600;margin-right:4px}
+/* tiles */
+#kategorie{padding:4px 0 0}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.tile{position:relative;aspect-ratio:3/4;overflow:hidden;color:#fff;background:var(--bg2)}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile span{position:absolute;inset:auto 0 0;padding:80px 16px 28px;background:linear-gradient(transparent,rgba(0,0,0,.45));font-family:Cg,Georgia,serif;font-size:clamp(34px,3.2vw,52px);line-height:1;text-align:center}
+/* hover zoom tylko na komputerze */
+.tile img,.lk .fr img,.brand .im img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.tile:hover img,.lk .fr:hover img{transform:scale(1.04)}}
+/* looks */
+#looki{padding-bottom:40px}
+.looks{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.lk .fr{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--bg2)}
+.lk .fr img{width:100%;height:100%;object-fit:cover}
+.hs{position:absolute;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;box-shadow:0 0 0 6px rgba(255,255,255,.28);transition:box-shadow .25s,background .25s}
+.hs svg{width:14px;height:14px;transition:transform .25s}
+.hs:hover,.hs:focus-visible{box-shadow:0 0 0 10px rgba(255,255,255,.35);outline:none}
+.hs:hover svg{transform:rotate(90deg)}
+.hs .tip{position:absolute;left:50%;bottom:calc(100% + 14px);transform:translate(-50%,6px);background:#fff;color:var(--tx);white-space:nowrap;padding:10px 14px;font-size:14px;line-height:1.4;text-align:left;opacity:0;pointer-events:none;transition:.25s}
+.hs .tip b{display:block;font-weight:600}
+.hs:hover .tip,.hs:focus-visible .tip{opacity:1;transform:translate(-50%,0)}
+.lk .bar2{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0 0;flex-wrap:wrap}
+.lk .bar2 h3{font-family:Cg,Georgia,serif;font-weight:500;font-size:28px;line-height:1.1}
+.lk .bar2 p{font-size:14px;color:var(--tx2)}
+/* marka */
+.brand{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.brand .im{aspect-ratio:4/5;overflow:hidden;background:var(--bg2)}
+.brand .im img{width:100%;height:100%;object-fit:cover}
+.brand p{font-size:18px;color:var(--tx2);max-width:520px;margin-top:20px}
+.brand dl{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px;max-width:520px}
+.brand dt{font-family:Cg,Georgia,serif;font-size:40px;line-height:1}
+.brand dd{font-size:14px;color:var(--tx2);margin-top:4px}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+nav .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px;gap:24px}
+nav .lf{display:flex;align-items:center;gap:20px}
+.burg{display:none;width:44px;height:44px;margin-left:-10px;place-items:center}
+.burg svg{width:24px;height:24px}
+.logo{font-family:Cg,Georgia,serif;font-size:30px;font-weight:600;text-decoration:none;letter-spacing:.02em;white-space:nowrap;text-align:center;line-height:1}
+nav .ln{display:flex;gap:26px;font-size:15px}
+nav .ln a{text-decoration:none;color:var(--tx2)}nav .ln a:hover{color:var(--tx)}
+nav .rt{display:flex;align-items:center;justify-content:flex-end;gap:10px}
+.who{font-size:14px;color:var(--tx2);display:none}
+body.in .who{display:block}
+body.in #login{display:none}
+#cartb{position:relative;height:44px;padding:0 16px;border:1px solid var(--ln);border-radius:var(--r);font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+#cartb:hover{border-color:var(--tx)}
+#cartb i{font-style:normal;background:var(--tx);color:#fff;border-radius:99px;min-width:22px;height:22px;font-size:14px;display:grid;place-items:center;padding:0 6px}
+#login{height:44px;padding:0 18px;font-size:14px}
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:6px;height:min(calc(100svh - 110px),940px);min-height:520px;background:#fff}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.half{position:relative;overflow:hidden;background:#d9d4cd;color:#fff;text-decoration:none;display:block}
+.half video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 8%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s}
+.half::after{content:'';position:absolute;inset:auto 0 0;height:38%;background:linear-gradient(transparent,rgba(0,0,0,.42));pointer-events:none}
+.cap{position:absolute;left:0;right:0;bottom:44px;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+.cap b{font-family:Cg,Georgia,serif;font-weight:500;font-size:clamp(34px,3.4vw,54px);line-height:1}
+.cap u{font-size:15px;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.8);padding-bottom:3px}
+@media (hover:hover){.hero:hover .half:not(:hover) video{filter:brightness(.82)}.half:hover video{transform:scale(1.03)}.half:hover .cap u{border-color:#fff}}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--ln)}
+.facts div{padding:26px 32px;border-right:1px solid var(--ln)}
+.facts div:last-child{border:0}
+.facts b{display:block;font-family:Cg,Georgia,serif;font-weight:500;font-size:40px;line-height:1}
+.facts span{font-size:14px;color:var(--tx2)}
+/* sections */
+section{padding:96px 0}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:32px;flex-wrap:wrap}
+.hd h2{font-size:clamp(36px,4vw,56px)}
+/* catalog */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{height:38px;padding:0 16px;border:1px solid var(--ln);border-radius:99px;font-size:14px;color:var(--tx2)}
+.chips button:hover{border-color:var(--tx);color:var(--tx)}
+.chips button.on{background:var(--tx);border-color:var(--tx);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 20px}
+.card{cursor:pointer;text-align:left}
+.card .ph{position:relative;aspect-ratio:3/4;background:var(--bg2);overflow:hidden;margin-bottom:14px}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.card:hover .ph img{transform:scale(1.035)}}
+.card .ph .alt{position:absolute;inset:0;opacity:0;transition:opacity .4s}
+@media (hover:hover){.card:hover .ph .alt{opacity:1}}
+.card .ph .tone{position:absolute;inset:0}
+.card .tag{position:absolute;left:10px;top:10px;background:#fff;font-size:14px;font-weight:600;padding:4px 9px;border-radius:var(--r)}
+.card .qk{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.96);height:44px;display:grid;place-items:center;font-size:14px;font-weight:600;opacity:0;transform:translateY(6px);transition:.25s}
+.card:hover .qk{opacity:1;transform:none}
+.card h3{font:500 15px/1.35 Is;margin-bottom:6px}
+.sw{display:flex;gap:6px;margin-bottom:8px}
+.sw i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.pr{font-size:14px;color:var(--tx2)}
+.pr b{color:var(--tx);font-weight:600;font-size:15px}
+.lock{display:inline-flex;align-items:center;gap:6px;color:var(--tx2)}
+.lock svg{width:13px;height:13px}
+/* how */
+#jak{background:var(--bg2)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.steps div{background:#fff;padding:32px;border:1px solid var(--ln)}
+.steps h3{font-family:Cg,Georgia,serif;font-weight:500;font-size:30px;line-height:1.1;margin-bottom:10px}
+.steps p{color:var(--tx2);font-size:15px}
+/* panel */
+.pan{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ln)}
+.pan form{padding:36px;border-right:1px solid var(--ln);display:grid;grid-template-columns:1fr 1fr;gap:16px 16px;align-content:start}
+.pan .full{grid-column:1/-1}
+label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+input,select,textarea{width:100%;height:46px;border:1px solid var(--ln);border-radius:var(--r);padding:0 14px;background:#fff;font-size:15px}
+textarea{height:auto;padding:12px 14px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--tx)}
+.pan .out{padding:36px;background:var(--bg2);display:flex;flex-direction:column}
+.pan .out .lb{font-size:14px;font-weight:600;color:var(--tx2);margin-bottom:12px}
+.pan .out h3{font-family:Cg,Georgia,serif;font-weight:500;font-size:32px;line-height:1.1;margin-bottom:14px}
+#ai-txt{font-size:16px;line-height:1.7;white-space:pre-line;min-height:220px}
+#ai-txt.wait{color:var(--tx2)}
+.pan .note{margin-top:auto;padding-top:20px;font-size:14px;color:var(--tx2)}
+/* konto */
+.acc{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
+.acc ul{list-style:none;display:grid;gap:14px;margin-top:8px}
+.acc li{display:flex;gap:12px;font-size:16px}
+.acc li svg{flex:none;width:20px;height:20px;margin-top:3px}
+.acc form{display:grid;grid-template-columns:1fr 1fr;gap:16px;border:1px solid var(--ln);padding:36px}
+.acc .ok{grid-column:1/-1;display:none;background:#eef5ef;color:var(--ok);padding:14px 16px;font-size:15px;font-weight:500}
+.acc .rodo{grid-column:1/-1;font-size:14px;color:var(--tx2)}
+footer{border-top:1px solid var(--ln);padding:36px 0;font-size:14px;color:var(--tx2)}
+footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+/* drawers */
+.ov{position:fixed;inset:0;background:rgba(20,18,16,.4);z-index:40;opacity:0;pointer-events:none;transition:opacity .3s}
+.ov.on{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(980px,100vw);background:#fff;z-index:50;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1);overflow-y:auto}
+.dr.on{transform:none}
+#cart{width:min(480px,100vw);display:flex;flex-direction:column}
+#menu{width:min(420px,88vw)}
+#menu.on{transform:none!important}
+.mn{padding:84px 28px 40px;display:flex;flex-direction:column}
+.mn a{font-family:Cg,Georgia,serif;font-size:36px;line-height:1.15;text-decoration:none;padding:8px 0;border-bottom:1px solid var(--ln)}
+.x{position:absolute;right:16px;top:14px;width:44px;height:44px;display:grid;place-items:center;z-index:3;background:#fff;border-radius:50%}
+.x svg{width:20px;height:20px}
+.pd{display:grid;grid-template-columns:1fr 1fr;min-height:100%}
+.pd .gal{background:var(--bg2);position:relative}
+.pd .gal .main{aspect-ratio:3/4;position:relative;overflow:hidden}
+.pd .gal .main img{width:100%;height:100%;object-fit:cover}
+.pd .gal .th{display:flex;gap:8px;padding:8px}
+.pd .gal .th button{width:64px;aspect-ratio:3/4;background:var(--bg2);overflow:hidden;opacity:.55;border:1px solid transparent}
+.pd .gal .th button.on{opacity:1;border-color:var(--tx)}
+.pd .gal .th img{width:100%;height:100%;object-fit:cover}
+.pd .inf{padding:44px 40px 40px}
+.pd h2{font-size:38px;margin-bottom:10px}
+.pd .prc{display:flex;gap:18px;align-items:baseline;margin-bottom:22px;flex-wrap:wrap}
+.pd .prc b{font-size:24px;font-weight:600}
+.pd .prc span{font-size:14px;color:var(--tx2)}
+.row{margin-bottom:22px}
+.row>label{margin-bottom:10px}
+.cols{display:flex;gap:8px;flex-wrap:wrap}
+.cols button{height:38px;padding:0 14px 0 10px;border:1px solid var(--ln);border-radius:99px;font-size:14px;display:flex;align-items:center;gap:8px}
+.cols button i{width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+.cols button.on{border-color:var(--tx);box-shadow:inset 0 0 0 1px var(--tx)}
+.pk{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.pk button{border:1px solid var(--ln);padding:12px 14px;text-align:left;border-radius:var(--r)}
+.pk button b{display:block;font-size:14px}
+.pk button span{font-size:14px;color:var(--tx2)}
+.pk button.on{border-color:var(--tx);box-shadow:inset 0 0 0 1px var(--tx)}
+.sz{width:100%;border-collapse:collapse;font-size:14px}
+.sz td{padding:9px 0;border-bottom:1px solid var(--ln)}
+.sz td:first-child{font-weight:600;width:48px}
+.sz .st{color:var(--tx2)}
+.sz .st.lo{color:#a3541f}
+.stp{display:inline-flex;align-items:center;border:1px solid var(--ln);border-radius:var(--r)}
+.stp button{width:36px;height:34px;font-size:18px}
+.stp button:disabled{opacity:.25;cursor:default}
+.stp b{min-width:28px;text-align:center;font-weight:600}
+.sz td:last-child{text-align:right}
+.sum{display:flex;justify-content:space-between;align-items:center;padding:16px 0;font-size:15px}
+.sum b{font-size:20px}
+.add{width:100%}
+.spec{margin-top:28px;border-top:1px solid var(--ln)}
+.spec details{border-bottom:1px solid var(--ln)}
+.spec summary{padding:16px 0;font-weight:600;font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.spec summary::after{content:'+';font-weight:400;font-size:20px;line-height:1}
+.spec details[open] summary::after{content:'\2212'}
+.spec details p,.spec details dl{padding:0 0 16px;font-size:15px;color:var(--tx2)}
+.spec dl{display:grid;grid-template-columns:120px 1fr;gap:6px}
+.spec dt{color:var(--tx)}
+.gate{background:var(--bg2);padding:18px;font-size:15px;margin-bottom:12px}
+.gate button{text-decoration:underline;font-weight:600}
+/* matrix */
+.sku{font-size:14px;color:var(--tx2);margin:-4px 0 14px}
+.mxw{overflow-x:auto}
+.mx{width:100%;border-collapse:collapse;font-size:14px}
+.mx th{font-weight:600;padding:8px 4px;text-align:center;border-bottom:1px solid var(--ln)}
+.mx th:first-child,.mx td:first-child{text-align:left}
+.mx td{padding:10px 4px;border-bottom:1px solid var(--ln);text-align:center;vertical-align:top}
+.mx td:first-child{white-space:nowrap;padding-top:18px}
+.mx td:first-child i{display:inline-block;width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.15);vertical-align:-2px;margin-right:8px}
+.mx input{width:56px;height:42px;text-align:center;padding:0 4px;font-size:16px}
+.mx input:disabled{background:var(--bg2);color:var(--tx2)}
+.mx small{display:block;font-size:14px;color:var(--tx2);margin-top:4px}
+.mx small.lo{color:#a3541f}
+.mx .rt2{font-weight:600;padding-top:20px}
+.mxa{display:flex;gap:18px;margin-top:10px;flex-wrap:wrap}
+.lnk{font-size:14px;text-decoration:underline;color:var(--tx)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:-12px 0 28px}
+.btn.sm{height:42px;padding:0 18px;font-size:14px}
+.pad{padding:56px 28px 40px}
+.pad h2{font-size:38px;margin-bottom:10px}
+.lead{color:var(--tx2);font-size:15px;margin-bottom:20px}
+#qRes{margin-top:18px;font-size:14px}
+#qRes div{padding:8px 0;border-bottom:1px solid var(--ln)}
+#qRes .bad{color:#a3541f}
+.codes{margin-top:22px;border-top:1px solid var(--ln)}
+.codes summary{padding:14px 0;font-weight:600;cursor:pointer}
+.codes table{width:100%;font-size:14px;border-collapse:collapse}
+.codes td{padding:6px 0;border-bottom:1px solid var(--ln)}
+.codes td:first-child{font-weight:600;width:110px}
+.ah{font-family:Cg,Georgia,serif;font-weight:500;font-size:26px;margin:30px 0 12px}
+.terms{display:grid;grid-template-columns:150px 1fr;gap:8px 12px;font-size:15px}
+.terms dt{color:var(--tx2)}
+.ord{border:1px solid var(--ln);padding:16px;margin-bottom:10px;font-size:14px}
+.ord .t{display:flex;justify-content:space-between;gap:10px;font-size:15px;margin-bottom:4px}
+.ord .t b{font-weight:600}
+.ord .st{color:var(--ok)}
+.ord ul{list-style:none;color:var(--tx2);margin:8px 0 12px}
+.ord .bt{display:flex;gap:16px}
+#quick,#acc{width:min(520px,100vw)}
+.who{font-size:14px;color:var(--tx);text-decoration:underline;text-underline-offset:3px}
+.only-in{display:none!important}
+body.in .only-in{display:block!important}
+body.in .only-out{display:none!important}
+.sub{font-size:14px;color:var(--tx2);display:flex;flex-direction:column;gap:2px;margin-top:10px}
+.sub span{display:flex;justify-content:space-between}
+.pay{margin:10px 0 4px;border-top:1px solid var(--ln)}
+.pay summary{padding:10px 0;font-size:14px;font-weight:600;cursor:pointer}
+.pay select,.pay textarea{font-size:15px}
+#print{display:none}
+@media print{
+ body>*:not(#print){display:none!important}
+ #print{display:block!important;font:12px/1.4 Is,sans-serif;color:#000}
+ #print h1{font:600 26px Cg,serif;margin-bottom:4px}
+ #print .pp{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid #ccc;break-inside:avoid}
+ #print img{width:110px;height:146px;object-fit:cover}
+ #print b{font-size:14px}
+}
+/* cart */
+#cart .hd2{padding:22px 24px;border-bottom:1px solid var(--ln)}
+#cart .hd2 h2{font-size:32px}
+#cart .ls{flex:1;overflow-y:auto;padding:8px 24px}
+.ci{display:grid;grid-template-columns:72px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--ln);font-size:14px}
+.ci .ph{aspect-ratio:3/4;background:var(--bg2);overflow:hidden}
+.ci .ph img{width:100%;height:100%;object-fit:cover}
+.ci b{font-weight:600;font-size:15px}
+.ci span{color:var(--tx2);display:block}
+.ci .rm{font-size:14px;color:var(--tx2);text-decoration:underline;align-self:start}
+#cart .ft{padding:20px 24px 24px;border-top:1px solid var(--ln)}
+.bar{height:4px;background:var(--ln);margin:10px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--tx);transition:width .4s}
+.mini{font-size:14px;color:var(--tx2)}
+.tot{display:flex;justify-content:space-between;font-size:15px;margin:14px 0 4px}
+.tot b{font-size:22px}
+.empty{color:var(--tx2);padding:40px 0;text-align:center}
+.done{display:none;padding:40px 24px}
+.done h3{font-family:Cg,Georgia,serif;font-weight:500;font-size:34px;line-height:1.1;margin-bottom:10px}
+.done p{color:var(--tx2)}
+/* modal */
+.mod{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%);width:min(440px,calc(100vw - 32px));background:#fff;z-index:60;padding:36px;opacity:0;pointer-events:none;transition:.3s}
+.mod.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.mod h2{font-size:34px;margin-bottom:8px}
+.mod p{color:var(--tx2);font-size:15px;margin-bottom:20px}
+.mod .btn{width:100%;margin-top:14px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--tx);color:#fff;padding:12px 20px;font-size:14px;z-index:70;opacity:0;transition:.3s;pointer-events:none;border-radius:var(--r)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:1000px){
+  nav .ln{display:none}
+ .burg{display:grid}
+ nav .w{height:64px;gap:8px}
+ .logo{font-size:24px}
+ #login{display:none}
+ body.in .who{display:none}
+ .hero{height:auto;min-height:0;gap:4px}
+ .half{aspect-ratio:2/3.1}
+ .cap{bottom:18px;gap:8px;padding:0 8px}
+ .cap b{font-size:26px}
+ .cap u{font-size:14px}
+ .facts{grid-template-columns:1fr 1fr}
+ .facts div:nth-child(2){border-right:0}
+ .facts div:nth-child(-n+2){border-bottom:1px solid var(--ln)}
+ .grid{grid-template-columns:1fr 1fr;gap:28px 12px}
+ .steps,.pan,.acc,.brand{grid-template-columns:1fr}
+ .looks{grid-template-columns:1fr}
+ .tiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:4px;scrollbar-width:none}
+ .tile{flex:0 0 72vw;scroll-snap-align:start}
+ .brand{gap:28px}
+ .trust{gap:6px 20px}
+ .pan form{border-right:0;border-bottom:1px solid var(--ln)}
+ .acc{gap:32px}
+ .pd{grid-template-columns:1fr}
+ .pd .inf{padding:28px 20px 40px}
+}
+@media (max-width:640px){
+ .w{padding:0 20px}
+ section{padding:64px 0}
+ #login{padding:0 12px}
+ #cartb span{display:none}
+ .facts div{padding:18px 20px}
+ .facts b{font-size:32px}
+ .pan form,.acc form{grid-template-columns:1fr;padding:22px}
+ .pan .out{padding:22px}
+ .card .qk{display:none}
+ .mx input{width:46px}
+ .mx .sl{display:none}
+ .mx td:first-child{font-size:14px}
+ .pad{padding:56px 20px 40px}
+ .terms{grid-template-columns:120px 1fr}
+ .who{display:none!important}
+ .pill{font-size:13px;left:10px;bottom:10px;padding:6px 12px}
+}
+</style>
+</head>
+<body>
+<div class="pill"><b>Demo</b> Emil Wiktorski · ceny, stany i składy przykładowe</div>
+
+<nav>
+ <div class="w">
+  <div class="lf"><button class="burg" id="burg" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button><div class="ln"><a href="#looki">Looki</a><a href="#kolekcja">Kolekcja</a><a href="#jak">Jak zamawiać</a><a href="#marka">O marce</a></div></div>
+  <a class="logo" href="../" aria-label="Strona wejściowa By o la la..!">BY O LA LA..!</a>
+  <div class="rt">
+   <button class="who" data-acc>Moje konto · Butik Maja</button>
+   <button class="btn l" id="login">Zaloguj się</button>
+   <button id="cartb" aria-label="Koszyk"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h12l-1 10H5L4 7z"/><path d="M7.5 7V5.5a2.5 2.5 0 015 0V7"/></svg><span>Koszyk</span><i id="cc">0</i></button>
+  </div>
+ </div>
+</nav>
+<aside class="dr" id="menu" aria-hidden="true" style="left:0;right:auto;transform:translateX(-100%)">
+ <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+ <div class="mn">
+  <a href="#looki">Looki</a><a href="#kolekcja">Kolekcja</a><a href="#kategorie">Kategorie</a><a href="#jak">Jak zamawiać</a><a href="#marka">O marce</a><a href="#konto">Konto hurtowe</a>
+  <a href="#" data-quick>Szybkie zamówienie</a><a href="#" data-acc class="only-in">Moje konto</a>
+  <button class="btn d only-out" data-login style="margin-top:28px;width:100%">Zaloguj się jako butik</button>
+ </div>
+</aside>
+
+
+
+
+<section id="kategorie">
+ <div class="tiles">
+  <button class="tile" data-cat="Okrycia"><img src="../img/kurtka-3.webp" alt="" loading="lazy"><span>Okrycia</span></button>
+  <button class="tile" data-cat="Sukienki"><img src="../img/sukienka-c3.webp" alt="" loading="lazy"><span>Sukienki</span></button>
+  <button class="tile" data-cat="Komplety"><img src="../img/marynarka-e2.webp" alt="" loading="lazy"><span>Komplety</span></button>
+  <button class="tile" data-cat="Koszule"><img src="../img/koszula-c1.webp" alt="" loading="lazy"><span>Koszule</span></button>
+ </div>
+</section>
+<div class="facts">
+ <div><b>14 lat</b><span>na rynku</span></div>
+ <div><b>39</b><span>sklepów firmowych</span></div>
+ <div><b>2022</b><span>Kobieca Marka Roku</span></div>
+ <div><b>902 tys.</b><span>obserwujących na Facebooku</span></div>
+</div>
+
+<section id="looki">
+ <div class="w">
+  <div class="hd"><h2 class="h">Cały look <em>jednym kliknięciem</em></h2></div>
+  <div class="looks">
+   <div class="lk" data-look="0"><div class="fr"><img src="../img/look-1.webp" alt="Kurtka z kwiatowego żakardu i szorty z eko zamszu" loading="lazy"></div><div class="bar2"><div><h3>Żakard i zamsz</h3><p data-sum></p></div><button class="btn d" data-add-look>Dodaj cały look</button></div></div>
+   <div class="lk" data-look="1"><div class="fr"><img src="../img/look-2.webp" alt="Marynarka oversize i spodnie w kolorze espresso" loading="lazy"></div><div class="bar2"><div><h3>Komplet espresso</h3><p data-sum></p></div><button class="btn d" data-add-look>Dodaj cały look</button></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="kolekcja">
+ <div class="w">
+  <div class="hd">
+   <h2 class="h">Kolekcja <em>jesień/zima 2026</em></h2>
+   <div class="chips" id="chips"></div>
+  </div>
+  <div class="tools"><button class="btn l sm" data-quick>Szybkie zamówienie z kodów</button><button class="btn l sm" data-pdf>Katalog PDF z cenami</button></div>
+  <div class="grid" id="grid"></div>
+ </div>
+</section>
+
+<section id="jak">
+ <div class="w">
+  <div class="hd"><h2 class="h">Jak zamawiać <em>jako butik</em></h2></div>
+  <div class="steps">
+   <div><h3>Konto hurtowe</h3><p>Zostawiasz NIP i adres butiku. Weryfikujemy go w ciągu jednego dnia roboczego i od razu widzisz ceny hurtowe.</p></div>
+   <div><h3>Pakiety rozmiarowe</h3><p>Każdy model zamawiasz gotowym pakietem 1 S, 2 M, 2 L, 1 XL albo układasz własny. Stany widzisz przy każdym rozmiarze.</p></div>
+   <div><h3>Wysyłka i faktura</h3><p>Minimum zamówienia to 1 500 zł netto, od 3 000 zł netto wysyłka jest bezpłatna. Fakturę VAT dostajesz mailem.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="panel">
+ <div class="w">
+  <div class="hd"><h2 class="h">Panel sprzedawcy <em>z opisami od AI</em></h2></div>
+  <div class="pan">
+   <form id="aiForm">
+    <div class="full"><label for="a-n">Nazwa produktu</label><input id="a-n" value="Sukienka jeansowa z bufiastym rękawem"></div>
+    <div><label for="a-k">Kolor</label><input id="a-k" value="czarna"></div>
+    <div><label for="a-f">Fason</label><select id="a-f"><option selected>dopasowany w talii</option><option>rozkloszowany</option><option>prosty</option><option>oversize</option></select></div>
+    <div class="full"><label for="a-s">Skład</label><input id="a-s" value="98% bawełna, 2% elastan"></div>
+    <div><label for="a-d">Długość (rozmiar M)</label><input id="a-d" value="84 cm"></div>
+    <div><label for="a-o">Na jaką okazję</label><select id="a-o"><option selected>do pracy i na co dzień</option><option>na wieczór</option><option>na uroczystość</option></select></div>
+    <div class="full"><label for="a-x">Wyróżnik (opcjonalnie)</label><input id="a-x" value="bufiaste rękawy, stójka, kontrastowe przeszycia"></div>
+    <div class="full"><button class="btn d" type="submit" style="width:100%">Napisz opis</button></div>
+   </form>
+   <div class="out">
+        <h3 id="ai-h">Sukienka jeansowa z bufiastym rękawem</h3>
+    <div id="ai-txt" class="wait">Uzupełnij pola po lewej i kliknij „Napisz opis”. Tekst trafi od razu na kartę produktu, do poprawienia jednym kliknięciem.</div>
+    <div class="note">W demo opis składa się z gotowego szablonu. W prawdziwym panelu pisze go model AI na podstawie zdjęcia, składu i wymiarów.</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="marka">
+ <div class="w brand">
+  <div class="im"><img src="../img/koszula-c4.webp" alt="Haftowany monogram By o la la..! na koszuli" loading="lazy"></div>
+  <div>
+   <h2 class="h" style="font-size:clamp(36px,4vw,56px)">Polska marka <em>z historią</em></h2>
+   <p>By o la la..! projektuje kobiecą odzież od 14 lat. Od ponad 13 lat sprzedaje przez butiki, ma 39 sklepów firmowych, a w 2022 roku dostała tytuł Kobieca Marka Roku. Kampanie fotografuje na ulicach miasta i w jasnym studiu.</p>
+  </div>
+ </div>
+</section>
+
+<section id="konto" style="background:var(--bg2)">
+ <div class="w acc">
+  <div>
+   <div class="hd" style="margin-bottom:20px"><h2 class="h">Konto <em>dla butiku</em></h2></div>
+   <ul>
+    <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>Ceny hurtowe i sugerowane ceny detaliczne przy każdym modelu.</li>
+    <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>Stany magazynowe w każdym rozmiarze, odświeżane na bieżąco.</li>
+    <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>Zdjęcia kampanii do pobrania na Twój Instagram i do sklepu.</li>
+    <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10.5l4 4 8-9"/></svg>Historia zamówień i ponowne zamówienie jednym kliknięciem.</li>
+   </ul>
+  </div>
+  <form id="accForm">
+   <div class="full" style="grid-column:1/-1"><label for="f-b">Nazwa butiku</label><input id="f-b" required></div>
+   <div><label for="f-n">NIP</label><input id="f-n" inputmode="numeric" required></div>
+   <div><label for="f-m">Miasto</label><input id="f-m" required></div>
+   <div><label for="f-e">E-mail</label><input id="f-e" type="email" required></div>
+   <div><label for="f-t">Telefon</label><input id="f-t" type="tel"></div>
+   <button class="btn d" type="submit" style="grid-column:1/-1">Wyślij zgłoszenie</button>
+   <div class="ok" id="accOk">Dziękujemy. To demo, więc zgłoszenie nigdzie nie poszło. W sklepie trafi do weryfikacji, a butik dostanie maila z dostępem.</div>
+   <p class="rodo">Administratorem danych jest właściciel marki By o la la..!. Dane posłużą wyłącznie do założenia konta hurtowego.</p>
+  </form>
+ </div>
+</section>
+
+<footer><div class="w"><span>By o la la..! Hurt · demo sklepu B2B</span><span>Projekt i wykonanie: Emil Wiktorski</span></div></footer>
+
+<div class="ov" id="ov"></div>
+
+<aside class="dr" id="prod" aria-hidden="true">
+ <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+ <div class="pd">
+  <div class="gal"><div class="main" id="pMain"></div><div class="th" id="pTh"></div></div>
+  <div class="inf">
+   <h2 class="h" id="pN"></h2>
+   <div class="sku" id="pSku"></div>
+   <div class="prc" id="pP"></div>
+   <div class="row"><label>Kolor: <span id="pKn" style="font-weight:400"></span></label><div class="cols" id="pK"></div></div>
+   <div id="pBuy">
+    <div class="row"><label>Zamówienie: kolory i rozmiary</label>
+     <div class="mxw"><table class="mx" id="pM"></table></div>
+     <div class="mxa"><button class="lnk" id="pPk">Pakiet 1 S, 2 M, 2 L, 1 XL w każdym kolorze</button><button class="lnk" id="pClr">Wyczyść</button></div>
+    </div>
+    <div class="sum"><span id="pQ">6 szt.</span><b id="pV"></b></div>
+    <button class="btn d add" id="pAdd">Dodaj do zamówienia</button>
+   </div>
+   <div class="gate" id="pGate">Ceny hurtowe i zamawianie są dostępne po zalogowaniu. <button data-login>Zaloguj się jako butik testowy</button></div>
+   <div class="spec">
+    <details open><summary>Opis</summary><p id="pD"></p></details>
+    <details><summary>Skład i wymiary</summary><dl id="pW"></dl></details>
+    <details><summary>Wysyłka i zwroty dla butików</summary><p>Wysyłka w 2 dni robocze od zaksięgowania płatności. Od 3 000 zł netto wysyłka bezpłatna. Wymiana rozmiaru w ciągu 14 dni, jeśli metki są nienaruszone.</p></details>
+   </div>
+  </div>
+ </div>
+</aside>
+
+<aside class="dr" id="cart" aria-hidden="true">
+ <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+ <div class="hd2"><h2 class="h">Zamówienie</h2></div>
+ <div class="ls" id="cL"></div>
+ <div class="ft" id="cF">
+  <div class="mini" id="cMin"></div>
+  <div class="bar"><i id="cBar"></i></div>
+  <div class="sub" id="cSub"></div>
+  <div class="tot"><span>Razem netto</span><b id="cT">0 zł</b></div>
+  <details class="pay only-in"><summary>Płatność i uwagi</summary><label for="cPay">Płatność</label><select id="cPay"><option>Przelew, termin 14 dni</option><option>Proforma, płatność przed wysyłką</option></select><label for="cNote" style="margin-top:10px">Uwagi do zamówienia</label><textarea id="cNote" rows="2"></textarea></details>
+  <div class="mini" id="cPc" style="margin-bottom:16px"></div>
+  <button class="btn d" id="cGo" style="width:100%">Złóż zamówienie</button>
+ </div>
+ <div class="done" id="cDone"><h3>Zamówienie przyjęte</h3><p>To demo, więc nic nie zostało wysłane. W sklepie zamówienie trafia do działu sprzedaży, a butik dostaje potwierdzenie i fakturę proforma na maila.</p><button class="btn l" data-close style="margin-top:22px">Wróć do kolekcji</button></div>
+</aside>
+
+<aside class="dr" id="quick" aria-hidden="true">
+ <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+ <div class="pad">
+  <h2 class="h">Szybkie zamówienie</h2>
+  <p class="lead">Wklej kody z katalogu PDF albo z poprzedniego zamówienia. Jedna linia to kod, rozmiar i ilość.</p>
+  <label for="qT">Kody</label>
+  <textarea id="qT" rows="7">S2604-GRA M 4
+S2604-CZA L 3
+M2618-ESP S 2
+P2619-ESP M 5</textarea>
+  <button class="btn d" id="qGo" style="width:100%;margin-top:14px">Dodaj do zamówienia</button>
+  <div id="qRes"></div>
+  <details class="codes"><summary>Lista kodów</summary><table id="qList"></table></details>
+ </div>
+</aside>
+
+<aside class="dr" id="acc" aria-hidden="true">
+ <button class="x" data-close aria-label="Zamknij"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+ <div class="pad">
+  <h2 class="h">Butik Maja <em>Kraków</em></h2>
+  <h3 class="ah">Warunki współpracy</h3>
+  <dl class="terms"><dt>Rabat stały</dt><dd>5% od cen hurtowych</dd><dt>Płatność</dt><dd>przelew, termin 14 dni</dd><dt>Limit kupiecki</dt><dd id="aLim"></dd><dt>Opiekun handlowy</dt><dd>przypisany po weryfikacji konta</dd></dl>
+  <h3 class="ah">Zamówienia</h3>
+  <div id="aOrd"></div>
+  <h3 class="ah">Dokumenty</h3>
+  <div class="tools" style="margin:0"><button class="btn l sm" data-pdf>Katalog PDF z cenami</button><button class="btn l sm" data-toast="W sklepie tu jest paczka zdjęć kampanii do pobrania na Instagram butiku.">Zdjęcia kampanii (ZIP)</button></div>
+  <p class="mini" style="margin-top:22px">Zamówienia, limit i warunki są przykładowe.</p>
+ </div>
+</aside>
+
+<div id="print" aria-hidden="true"></div>
+
+<div class="mod" id="mod" role="dialog" aria-modal="true">
+ <h2 class="h">Logowanie</h2>
+ <p>W demo nie trzeba hasła. Wchodzisz na konto przykładowego butiku i widzisz ceny hurtowe.</p>
+ <label for="m-e">E-mail butiku</label><input id="m-e" value="butik.maja@przyklad.pl" readonly>
+ <button class="btn d" id="mGo">Wejdź jako butik testowy</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
+var C={'biała':'#f4f2ee','kwiatowy żakard':'#7a4e2f',granatowa:'#24345e',czarna:'#141414',espresso:'#3a2620',karmel:'#8a5634',czekolada:'#3f2a22'};
+var P=[
+ {id:'kurtka',n:'Kurtka bomber z kwiatowego żakardu',c:['Okrycia'],k:['kwiatowy żakard'],im:{'kwiatowy żakard':['kurtka-1','kurtka-2','kurtka-3']},r:279,h:129,nw:1,s:'60% bawełna, 40% poliester',pd:'100% poliester',d:'58 cm',f:'oversize',o:'do pracy i na co dzień',x:'bufiaste rękawy, zamek na całej długości, żakard w jesiennych kolorach'},
+ {id:'sukienka',n:'Sukienka jeansowa z bufiastym rękawem',c:['Sukienki'],k:['granatowa','czarna'],im:{granatowa:['sukienka-g1','sukienka-g2'],czarna:['sukienka-c1','sukienka-c2','sukienka-c3']},r:379,h:179,nw:1,s:'98% bawełna, 2% elastan',d:'84 cm',f:'dopasowany w talii',o:'do pracy i na co dzień',x:'bufiaste rękawy, stójka, kontrastowe przeszycia'},
+ {id:'marynarka',n:'Marynarka oversize z broszką',c:['Komplety'],k:['espresso','czarna'],im:{espresso:['marynarka-e1','marynarka-e2','marynarka-e3'],czarna:['marynarka-c1','marynarka-c2']},r:279,h:129,nw:1,s:'64% poliester, 33% wiskoza, 3% elastan',d:'78 cm',f:'oversize',o:'do pracy i na co dzień',x:'broszka w komplecie, kieszenie z klapką'},
+ {id:'spodnie',n:'Spodnie z prostą nogawką',c:['Komplety','Spodnie i szorty'],k:['espresso','czarna'],im:{espresso:['spodnie-e1','marynarka-e1'],czarna:['spodnie-c1','marynarka-c1']},r:159,h:75,s:'64% poliester, 33% wiskoza, 3% elastan',d:'102 cm',f:'prosty',o:'do pracy i na co dzień',x:'wysoki stan, komplet z marynarką oversize'},
+ {id:'szorty',n:'Szorty z eko zamszu',c:['Spodnie i szorty'],k:['karmel','czekolada'],im:{karmel:['szorty-k1','szorty-k2'],czekolada:['szorty-c1']},r:189,h:85,s:'92% poliester, 8% elastan',d:'40 cm',f:'szeroki',o:'do pracy i na co dzień',x:'zakładki, mankiety, wysoki stan'}
+];
+P.push({id:'koszula',n:'Koszula z haftowanym monogramem',c:['Koszule'],k:['czekolada','biała'],im:{czekolada:['koszula-c1','koszula-c2','koszula-c3','koszula-c4'],'biała':['koszula-b1']},r:199,h:92,nw:1,s:'97% bawełna, 3% elastan',d:'72 cm',f:'prosty',o:'do pracy i na co dzień',x:'haftowany monogram B na plecach, szerokie mankiety'});
+var SKU={kurtka:'K2611',sukienka:'S2604',marynarka:'M2618',spodnie:'P2619',szorty:'Z2622',koszula:'B2630'};
+function cc(k){return k.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l').replace(/[^a-zA-Z]/g,'').slice(0,3).toUpperCase()}
+function sku(p,k){return SKU[p.id]+'-'+cc(k)}
+var SZ=['S','M','L','XL'],STD={S:1,M:2,L:2,XL:1},IN=false,CART=[],cur=null,cK=0;
+function zl(v){v=Math.round(v*100)/100;var d=v%1?2:0;return v.toLocaleString('pl-PL',{minimumFractionDigits:d,maximumFractionDigits:d}).replace(/ /g,' ')+' zł'}
+function stock(p,k,s){var h=0,t=p.id+k+s;for(var i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))%997;var v=h%40;return v<4?v:v+4}
+function ims(p,k){return p.im[k||p.k[0]]}
+function ph(p,i,k){var a=ims(p,k);return '<img src="../img/'+a[Math.min(i,a.length-1)]+'.webp" alt="'+p.n+', '+(k||p.k[0])+'" loading="lazy">'}
+var lockI='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2.5" y="6" width="9" height="6.5" rx="1"/><path d="M4.5 6V4.5a2.5 2.5 0 015 0V6"/></svg>';
+function price(p){return IN?'<b>'+zl(p.h)+' netto</b> · sugerowana '+zl(p.r):'<span class="lock">'+lockI+'Cena hurtowa po zalogowaniu</span>'}
+var cat='Wszystko';
+function chips(){var cs=['Wszystko'];P.forEach(function(p){p.c.forEach(function(c){if(cs.indexOf(c)<0)cs.push(c)})});$('#chips').innerHTML=cs.map(function(c){return '<button class="'+(c==cat?'on':'')+'">'+c+'</button>'}).join('');$$('#chips button').forEach(function(b){b.onclick=function(){cat=b.textContent;chips();grid()}})}
+function grid(){$('#grid').innerHTML=P.filter(function(p){return cat=='Wszystko'||p.c.indexOf(cat)>=0}).map(function(p){return '<button class="card" data-id="'+p.id+'"><div class="ph">'+ph(p,0)+(ims(p).length>1?'<img class="alt" src="../img/'+ims(p)[1]+'.webp" alt="" loading="lazy">':'')+(p.nw?'<span class="tag">Nowość</span>':'')+'<span class="qk">Zobacz pakiety</span></div><h3>'+p.n+'</h3><div class="sw">'+p.k.map(function(k){return '<i style="background:'+(C[k]||'#ccc')+'" title="'+k+'"></i>'}).join('')+'</div><div class="pr">'+price(p)+'</div></button>'}).join('');$$('#grid .card').forEach(function(c){c.onclick=function(){open(c.dataset.id)}})}
+function desc(p){return p.n+'. Fason '+p.f+', szyty w rozmiarach od S do XL. Wyróżnia go: '+p.x+'. Sprawdzi się '+p.o+'.'+(p.k.length>1?' Kolory: '+p.k.join(', ')+'.':'')}
+function open(id,k){cur=P.filter(function(p){return p.id==id})[0];cK=k||0;MX={};cur.k.forEach(function(c,i){MX[i]=i==cK?pack(cur,i):{S:0,M:0,L:0,XL:0}});render();show('#prod')}
+var MX={};
+function render(){var p=cur,k=p.k[cK];
+ $('#pMain').innerHTML=ph(p,0,k);
+ $('#pTh').innerHTML=ims(p,k).map(function(x,i){return '<button class="'+(i?'':'on')+'" data-i="'+i+'">'+ph(p,i,k)+'</button>'}).join('');
+ $$('#pTh button').forEach(function(b){b.onclick=function(){$$('#pTh button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');$('#pMain').innerHTML=ph(p,+b.dataset.i,k)}});
+ $('#pN').textContent=p.n;
+ $('#pP').innerHTML=IN?'<b>'+zl(p.h)+' netto / szt.</b><span>sugerowana cena detaliczna '+zl(p.r)+'</span>':'<span>sugerowana cena detaliczna '+zl(p.r)+'</span>';
+ $('#pKn').textContent=k;
+ $('#pK').innerHTML=p.k.map(function(c,i){return '<button class="'+(i==cK?'on':'')+'" data-i="'+i+'"><i style="background:'+(C[c]||'#ccc')+'"></i>'+c+'</button>'}).join('');
+ $$('#pK button').forEach(function(b){b.onclick=function(){cK=+b.dataset.i;render()}});
+ $('#pBuy').style.display=IN?'':'none';$('#pGate').style.display=IN?'none':'';
+ $('#pSku').textContent='Kod: '+sku(p,k);
+ $('#pM').innerHTML='<tr><th>Kolor</th>'+SZ.map(function(z){return '<th>'+z+'</th>'}).join('')+'<th>Razem</th></tr>'+p.k.map(function(c,i){return '<tr><td><i style="background:'+(C[c]||'#ccc')+'"></i>'+c+'</td>'+SZ.map(function(z){var st=stock(p,c,z);return '<td><input type="number" inputmode="numeric" min="0" max="'+st+'" value="'+(MX[i][z]||0)+'" data-r="'+i+'" data-z="'+z+'" aria-label="'+c+', rozmiar '+z+'"'+(st?'':' disabled')+'><small class="'+(st<6?'lo':'')+'">'+(st?'<span class="sl">stan </span>'+st:'brak')+'</small></td>'}).join('')+'<td class="rt2" data-rt="'+i+'"></td></tr>'}).join('');
+ $$('#pM input').forEach(function(inp){inp.oninput=function(){var v=Math.max(0,Math.min(+inp.max,parseInt(inp.value||0,10)||0));MX[inp.dataset.r][inp.dataset.z]=v;mxSum()};inp.onblur=function(){inp.value=MX[inp.dataset.r][inp.dataset.z]}});
+ mxSum();
+ $('#pD').textContent=desc(p);
+ $('#pW').innerHTML='<dt>Materiał</dt><dd>'+p.s+'</dd>'+(p.pd?'<dt>Podszewka</dt><dd>'+p.pd+'</dd>':'')+'<dt>Długość (M)</dt><dd>'+p.d+'</dd><dt>Fason</dt><dd>'+p.f+'</dd><dd style="grid-column:1/-1;font-size:14px;margin-top:6px">Skład i wymiary przykładowe, w sklepie z metki producenta.</dd>';
+}
+function mxSum(){var p=cur,n=0;p.k.forEach(function(c,i){var r=SZ.reduce(function(a,z){return a+(MX[i][z]||0)},0);n+=r;var td=$('[data-rt="'+i+'"]');if(td)td.textContent=r});
+ $('#pQ').textContent=n+' szt.';$('#pV').textContent=zl(n*p.h)+' netto';$('#pAdd').disabled=!n}
+$('#pPk').onclick=function(){cur.k.forEach(function(c,i){MX[i]=pack(cur,i)});render()};
+$('#pClr').onclick=function(){cur.k.forEach(function(c,i){MX[i]={S:0,M:0,L:0,XL:0}});render()};
+function addLine(id,k,q){var ex=CART.filter(function(c){return c.id==id&&c.k==k})[0];if(ex){SZ.forEach(function(z){ex.q[z]+=q[z]||0})}else{var o={};SZ.forEach(function(z){o[z]=q[z]||0});CART.push({id:id,k:k,q:o})}}
+$('#pAdd').onclick=function(){var p=cur,n=0;p.k.forEach(function(c,i){var m=SZ.reduce(function(a,z){return a+(MX[i][z]||0)},0);if(m){n+=m;addLine(p.id,c,MX[i])}});if(!n)return;
+ cartR();hide();toast(p.n+': dodano '+n+' szt.')};
+var MIN=1500,FREE=3000;
+var RAB=.05;
+function cartR(){var n=0,v=0;CART.forEach(function(c){var p=P.filter(function(x){return x.id==c.id})[0],m=SZ.reduce(function(a,s){return a+c.q[s]},0);n+=m;v+=m*p.h});
+ $('#cc').textContent=n;
+ $('#cL').innerHTML=CART.length?CART.map(function(c,i){var p=P.filter(function(x){return x.id==c.id})[0],m=SZ.reduce(function(a,s){return a+c.q[s]},0);return '<div class="ci"><div class="ph">'+ph(p,0,c.k)+'</div><div><b>'+p.n+'</b><span>'+c.k+'</span><span>'+SZ.filter(function(s){return c.q[s]}).map(function(s){return c.q[s]+' '+s}).join(', ')+'</span><span>'+m+' szt. × '+zl(p.h)+' = <b style="font-size:14px;color:var(--tx)">'+zl(m*p.h)+'</b></span></div><button class="rm" data-i="'+i+'">Usuń</button></div>'}).join(''):'<p class="empty">Zamówienie jest puste. Wybierz model i dodaj pakiet rozmiarowy.</p>';
+ $$('#cL .rm').forEach(function(b){b.onclick=function(){CART.splice(+b.dataset.i,1);cartR()}});
+ var r=IN?Math.round(v*RAB*100)/100:0;
+ $('#cSub').innerHTML=IN&&v?'<span><span>Wartość</span><span>'+zl(v)+'</span></span><span><span>Rabat stały 5%</span><span>minus '+zl(r)+'</span></span>':'';
+ $('#cT').textContent=zl(v-r);
+ $('#cPc').textContent=n+' szt. w '+CART.length+' '+(CART.length==1?'modelu':'modelach')+(v>=FREE?', wysyłka bezpłatna':'');
+ $('#cMin').textContent=v<MIN?'Do minimum zamówienia brakuje '+zl(MIN-v)+' netto':(v<FREE?'Minimum spełnione. Do darmowej wysyłki brakuje '+zl(FREE-v):'Minimum spełnione, wysyłka bezpłatna');
+ $('#cBar').style.width=Math.min(100,v/(v<MIN?MIN:FREE)*100)+'%';
+ $('#cGo').disabled=v<MIN;
+ $('#cF').style.display=CART.length?'':'none';
+}
+$('#cGo').onclick=function(){$('#cL').style.display='none';$('#cF').style.display='none';$('#cDone').style.display='block';CART=[];$('#cc').textContent=0};
+function show(s){$('#ov').classList.add('on');$(s).classList.add('on');$(s).setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function hide(){$$('.dr,.mod').forEach(function(d){d.classList.remove('on');d.setAttribute('aria-hidden','true')});$('#ov').classList.remove('on');document.body.style.overflow='';
+ setTimeout(function(){$('#cL').style.display='';$('#cDone').style.display='none';cartR()},450)}
+$('#ov').onclick=hide;$$('[data-close]').forEach(function(b){b.onclick=hide});
+document.addEventListener('keydown',function(e){if(e.key=='Escape')hide()});
+$('#cartb').onclick=function(){cartR();show('#cart')};
+function loginOpen(){$('#prod').classList.remove('on');$('#menu').classList.remove('on');show('#mod')}
+$('#login').onclick=loginOpen;
+document.addEventListener('click',function(e){if(e.target.closest('[data-login]'))loginOpen()});
+$('#mGo').onclick=function(){IN=true;document.body.classList.add('in');$('#mod').classList.remove('on');grid();looksR();if(pendQ){pendQ=0;hide();setTimeout(function(){show('#quick')},460);return}if(pend!==null){var pi=pend;pend=null;hide();addLook(pi);return}if(cur){render();$('#prod').classList.add('on')}else hide();toast('Zalogowano jako Butik Maja. Widzisz ceny hurtowe.')};
+var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2600)}
+// AI demo
+var typing;
+$('#aiForm').onsubmit=function(e){e.preventDefault();
+ var n=$('#a-n').value.trim(),k=$('#a-k').value.trim(),f=$('#a-f').value,s=$('#a-s').value.trim(),d=$('#a-d').value.trim(),o=$('#a-o').value,x=$('#a-x').value.trim();
+ var skl=/wiskoza/i.test(s)?'Wiskoza sprawia, że materiał jest miękki, przewiewny i ładnie się układa.':/bawełn/i.test(s)?'Bawełna w składzie daje przyjemny w dotyku, oddychający materiał.':'Materiał trzyma kształt i nie gniecie się w ciągu dnia.';
+ var el=/elastan/i.test(s)?' Dodatek elastanu zapewnia swobodę ruchu.':'';
+ var t=n+' w kolorze '+k+' to model, który łatwo wpleść w codzienne stylizacje. Fason '+f+(x?', a do tego '+x:'')+'.\n\n'+skl+el+' Sprawdzi się '+o+': z botkami i marynarką albo z kozakami i krótką kurtką.\n\nSkład: '+s+'\nDługość w rozmiarze M: '+d;
+ $('#ai-h').textContent=n;var el2=$('#ai-txt');el2.classList.remove("wait");el2.textContent='';clearInterval(typing);var i=0;
+ typing=setInterval(function(){i+=3;el2.textContent=t.slice(0,i);if(i>=t.length)clearInterval(typing)},16)};
+$('#accForm').onsubmit=function(e){e.preventDefault();$('#accOk').style.display='block';this.querySelector('button').disabled=true};
+// looki
+var LOOKS=[[{id:'kurtka',k:0,x:36,y:40},{id:'szorty',k:0,x:50,y:53}],[{id:'marynarka',k:0,x:28,y:39},{id:'spodnie',k:0,x:52,y:72}]];
+var plus='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 1v12M1 7h12"/></svg>';
+function byId(id){return P.filter(function(p){return p.id==id})[0]}
+function pack(p,k){var q={};SZ.forEach(function(s){q[s]=Math.min(STD[s],stock(p,p.k[k],s))});return q}
+function looksR(){$$('.lk').forEach(function(el,i){var L=LOOKS[i],fr=$('.fr',el);$$('.hs',fr).forEach(function(h){h.remove()});
+ var n=0,v=0,r=0;L.forEach(function(it){var p=byId(it.id),q=pack(p,it.k),m=SZ.reduce(function(a,s){return a+q[s]},0);n+=m;v+=m*p.h;r+=p.r;
+  var b=document.createElement('button');b.className='hs';b.style.left=it.x+'%';b.style.top=it.y+'%';b.setAttribute('aria-label',p.n);
+  b.innerHTML=plus+'<span class="tip"><b>'+p.n+'</b>'+(IN?zl(p.h)+' netto · sugerowana '+zl(p.r):'sugerowana '+zl(p.r))+'</span>';
+  b.onclick=function(){open(p.id,it.k)};fr.appendChild(b)});
+ $('[data-sum]',el).textContent=L.length+' modele w pakietach, '+n+' szt.'+(IN?', '+zl(v)+' netto':', ceny hurtowe po zalogowaniu')})}
+var pend=null;
+$$('[data-add-look]').forEach(function(b,i){b.onclick=function(){if(!IN){pend=i;loginOpen();return}addLook(i)}});
+function addLook(i){var n=0;LOOKS[i].forEach(function(it){var p=byId(it.id),k=p.k[it.k],q=pack(p,it.k);n+=SZ.reduce(function(a,s){return a+q[s]},0);
+ addLine(p.id,k,q)});
+ cartR();toast('Dodano cały look: '+n+' szt. w pakietach')}
+$('#burg').onclick=function(){show('#menu')};
+$$('#menu .mn a').forEach(function(a){a.onclick=function(){hide()}});
+$$('[data-cat]').forEach(function(t){t.onclick=function(){cat=t.dataset.cat;chips();grid();$('#kolekcja').scrollIntoView({behavior:'smooth'})}});
+(function(){var vs=$$('.half video'),hov=matchMedia('(hover:hover)').matches;
+ function pl(v){var r=v.play();if(r&&r.catch)r.catch(function(){})}
+ if(hov){$$('.half').forEach(function(h){var v=$('video',h);h.addEventListener('mouseenter',function(){pl(v)});h.addEventListener('mouseleave',function(){v.pause()})})}
+ else{vs.forEach(pl);document.addEventListener('visibilitychange',function(){if(!document.hidden)vs.forEach(pl)})}})();
+document.addEventListener('click',function(e){if(e.target.closest('[data-b2c]')){e.preventDefault();toast('W demo ta połowa prowadzi do sklepu dla klientek. Tu robimy strefę hurtową.')}});
+// szybkie zamowienie
+function allCodes(){var L=[];P.forEach(function(p){p.k.forEach(function(k){L.push({c:sku(p,k),p:p,k:k})})});return L}
+$('#qList').innerHTML=allCodes().map(function(o){return '<tr><td>'+o.c+'</td><td>'+o.p.n+', '+o.k+'</td></tr>'}).join('');
+document.addEventListener('click',function(e){var t=e.target.closest('[data-quick]');if(t){e.preventDefault();if(!IN){pendQ=1;loginOpen();return}hide();setTimeout(function(){show('#quick')},10)}});
+var pendQ=0;
+$('#qGo').onclick=function(){var M={};allCodes().forEach(function(o){M[o.c]=o});var out=[],ok=0;
+ $('#qT').value.split(/\n/).forEach(function(l){l=l.trim();if(!l)return;var t=l.split(/[\s;,]+/);var o=M[(t[0]||'').toUpperCase()],z=(t[1]||'').toUpperCase(),q=parseInt(t[2],10);
+  if(!o){out.push('<div class="bad">'+l+': nie ma takiego kodu</div>');return}
+  if(SZ.indexOf(z)<0){out.push('<div class="bad">'+l+': rozmiar musi być S, M, L albo XL</div>');return}
+  if(!(q>0)){out.push('<div class="bad">'+l+': brak ilości</div>');return}
+  var st=stock(o.p,o.k,z),qq=Math.min(q,st);if(!qq){out.push('<div class="bad">'+o.p.n+', '+o.k+', '+z+': brak na stanie</div>');return}
+  var Z={};Z[z]=qq;addLine(o.p.id,o.k,Z);ok+=qq;out.push('<div>'+o.p.n+', '+o.k+', '+z+': '+qq+' szt.'+(qq<q?' (tyle jest na stanie)':'')+'</div>')});
+ $('#qRes').innerHTML=out.join('');cartR();if(ok)toast('Dodano '+ok+' szt. z kodów')};
+// konto
+var ORD=[{n:'ZH/2026/11/0142',d:'18.11.2026',s:'Wysłane',l:[['sukienka','granatowa',{S:1,M:2,L:2,XL:1}],['marynarka','espresso',{S:1,M:2,L:2,XL:1}]]},
+ {n:'ZH/2026/10/0098',d:'21.10.2026',s:'Dostarczone',l:[['kurtka','kwiatowy żakard',{S:2,M:3,L:3,XL:2}],['koszula','czekolada',{S:1,M:2,L:2,XL:1}]]},
+ {n:'ZH/2026/09/0057',d:'12.09.2026',s:'Dostarczone',l:[['spodnie','czarna',{S:2,M:4,L:4,XL:2}]]}];
+function ordV(o){return o.l.reduce(function(a,x){var p=byId(x[0]);return a+SZ.reduce(function(b,z){return b+x[2][z]},0)*p.h},0)*(1-RAB)}
+function accR(){$('#aOrd').innerHTML=ORD.map(function(o,i){return '<div class="ord"><div class="t"><b>'+o.n+'</b><span>'+zl(ordV(o))+' netto</span></div><div class="mini">'+o.d+' · <span class="st">'+o.s+'</span></div><ul>'+o.l.map(function(x){return '<li>'+byId(x[0]).n+', '+x[1]+': '+SZ.map(function(z){return x[2][z]+' '+z}).join(', ')+'</li>'}).join('')+'</ul><div class="bt"><button class="lnk" data-toast="W sklepie tu pobiera się faktura PDF z systemu księgowego.">Faktura PDF</button><button class="lnk" data-re="'+i+'">Zamów ponownie</button></div></div>'}).join('');
+ var used=ordV(ORD[0]);$('#aLim').textContent='20 000 zł, w tym nierozliczone '+zl(used);
+ $$('[data-re]').forEach(function(b){b.onclick=function(){ORD[+b.dataset.re].l.forEach(function(x){addLine(x[0],x[1],x[2])});cartR();hide();toast('Zamówienie '+ORD[+b.dataset.re].n+' dodane do koszyka');setTimeout(function(){show('#cart')},460)}})}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-acc]');if(t){e.preventDefault();hide();setTimeout(function(){accR();show('#acc')},10)}
+ var tt2=e.target.closest('[data-toast]');if(tt2)toast(tt2.dataset.toast)});
+// katalog pdf
+document.addEventListener('click',function(e){if(!e.target.closest('[data-pdf]'))return;
+ var d=new Date(),h='<h1>By o la la..! Katalog hurtowy jesień/zima 2026</h1><p>'+(IN?'Ceny hurtowe netto dla: Butik Maja, rabat stały 5% liczony w koszyku.':'Ceny hurtowe widoczne po zalogowaniu. Tu ceny sugerowane.')+' Stan na '+d.toLocaleDateString('pl-PL')+'. Dane przykładowe.</p>';
+ h+=P.map(function(p){return '<div class="pp"><img src="../img/'+ims(p)[0]+'.webp" alt=""><div><b>'+p.n+'</b><br>Kody: '+p.k.map(function(k){return sku(p,k)+' ('+k+')'}).join(', ')+'<br>Rozmiary: S, M, L, XL. Pakiet: 1 S, 2 M, 2 L, 1 XL<br>'+(IN?'Cena hurtowa '+zl(p.h)+' netto · ':'')+'Sugerowana cena detaliczna '+zl(p.r)+'<br>Materiał: '+p.s+'</div></div>'}).join('');
+ var pr=$('#print');pr.innerHTML=h;var im=$$('img',pr),left=im.length;function go(){setTimeout(function(){window.print()},50)}
+ if(!left)go();im.forEach(function(i){if(i.complete){if(!--left)go()}else{i.onload=i.onerror=function(){if(!--left)go()}}})});
+chips();grid();cartR();looksR();
+</script>
+</body>
+</html>
