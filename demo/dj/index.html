@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>DJ Wojciech · Ideolo Event (demo)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0c'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%23ffb547' stroke-width='5'/%3E%3C/svg%3E">
+<style>
+@font-face{font-family:Sg;font-weight:400 900;font-display:swap;src:url(fonts/schibsted-grotesk-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Sg;font-weight:400 900;font-display:swap;src:url(fonts/schibsted-grotesk-latin-ext-wght-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Is;font-weight:400 700;font-display:swap;src:url(fonts/instrument-sans-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Is;font-weight:400 700;font-display:swap;src:url(fonts/instrument-sans-latin-ext-wght-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--bg:#0b0b0c;--bg2:#141416;--ln:#26262a;--tx:#f3efe8;--tx2:#a39e96;--a:#ffb547;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.6 Is,system-ui,sans-serif;overflow-x:hidden;font-variant-numeric:lining-nums}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0}
+a{color:inherit}
+.w{max-width:1240px;margin:0 auto;padding:0 32px}
+h1,h2,h3,.sg{font-family:Sg,Is,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.98;text-wrap:balance}
+p{text-wrap:pretty}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 28px;border-radius:99px;font-weight:600;font-size:15px;text-decoration:none;transition:background .25s,color .25s,border-color .25s;white-space:nowrap}
+.btn.a{background:var(--a);color:#121212}.btn.a:hover{background:#ffc874}
+.btn.o{border:1px solid #4a4740}.btn.o:hover{border-color:var(--tx)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.demo{font-size:13px;color:var(--tx2);text-align:center;padding:7px 16px;border-bottom:1px solid var(--ln)}
+nav{position:sticky;top:0;z-index:30;background:rgba(11,11,12,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--ln)}
+nav .w{display:flex;align-items:center;height:66px;gap:28px}
+.lg{font:800 20px/1 Sg;letter-spacing:-.02em;text-decoration:none}
+.lg span{color:var(--tx2);font-weight:500;margin-left:8px;font-size:15px;letter-spacing:0}
+nav .ln{margin-left:auto;display:flex;gap:26px;font-size:15px}
+nav .ln a{text-decoration:none;color:var(--tx2)}nav .ln a:hover{color:var(--tx)}
+nav .btn{height:42px;padding:0 20px;font-size:14px}
+/* hero */
+.hero{position:relative;height:calc(100svh - 100px);min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
+#stage{position:absolute;inset:0;width:100%;height:100%}
+.hero::after{content:'';position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+.ht{position:relative;z-index:2;padding-bottom:9vh}
+.ht h1{font-size:clamp(64px,11vw,168px)}
+.rot{display:flex;gap:.3em;font:700 clamp(24px,2.6vw,36px)/1.2 Sg;letter-spacing:-.02em;margin:18px 0 10px;color:var(--tx2)}
+.rot b{color:var(--a);font-weight:700;display:inline-block;min-width:8ch;transition:opacity .35s,transform .35s}
+.rot b.out{opacity:0;transform:translateY(-10px)}
+.ht p{font-size:18px;color:var(--tx2);max-width:520px;margin-bottom:30px}
+.bt{display:flex;gap:12px}.bt .btn{min-width:230px}
+/* sections */
+section{padding:110px 0}
+.hd{margin-bottom:40px}
+.hd h2{font-size:clamp(40px,5.4vw,76px)}
+/* wieczor */
+#wieczor{padding:0}
+.wz{height:430vh;position:relative}
+.wzs{position:sticky;top:66px;height:calc(100svh - 66px);display:flex;flex-direction:column;justify-content:center;padding:28px 0}
+.wzg{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.wzt h2{font-size:clamp(40px,5.4vw,76px);margin-bottom:26px}
+.now{min-height:170px}
+.now .tm{font:800 clamp(44px,5vw,72px)/1 Sg;color:var(--a);letter-spacing:-.03em}
+.now h3{font-size:30px;letter-spacing:-.02em;margin:10px 0 8px}
+.now p{color:var(--tx2);font-size:17px;max-width:440px}
+.now>*{transition:opacity .3s}
+.now.sw>*{opacity:0}
+.cv{position:relative}
+.cv svg{width:100%;height:auto;display:block;overflow:visible}
+.cv .base{fill:none;stroke:#2c2b2e;stroke-width:3}
+.cv .lit{fill:none;stroke:var(--a);stroke-width:3.5;stroke-linecap:round}
+.cv .area{fill:url(#ga)}
+.cv .tick text{fill:#6f6b65;font:500 13px Is}
+.cv .tick line{stroke:#232226}
+.cv .tick.on text{fill:var(--tx)}
+.cv .dot{fill:var(--a)}
+.cv .halo{fill:var(--a);opacity:.18}
+.cvl{display:flex;justify-content:space-between;font-size:13px;color:#6f6b65;margin-top:10px}
+/* oferta */
+.of{border-top:1px solid var(--ln)}
+.or{display:grid;grid-template-columns:1.1fr 1fr auto;gap:40px;align-items:baseline;padding:34px 0;border-bottom:1px solid var(--ln)}
+.or h3{font-size:clamp(32px,3.6vw,52px)}
+.or p{color:var(--tx2)}
+.or .pr{font:700 18px/1.3 Sg;white-space:nowrap;text-align:right}
+.or .pr small{display:block;font:400 13px Is;color:var(--tx2)}
+/* klub */
+.kl{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end}
+.kl h2{font-size:clamp(40px,5.4vw,76px)}
+.kl p{font-size:19px;color:var(--tx2)}
+.kl p+p{margin-top:16px}
+/* termin */
+#termin{background:var(--bg2);border-top:1px solid var(--ln)}
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.pane{background:var(--bg);border:1px solid var(--ln);border-radius:var(--r);padding:28px}
+.ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.ch b{font:700 20px Sg;letter-spacing:-.01em;text-transform:capitalize}
+.ch button{width:40px;height:40px;border-radius:50%;border:1px solid var(--ln);font-size:18px}
+.ch button:hover{border-color:var(--tx)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal .dn{font-size:13px;color:#6f6b65;text-align:center;padding:4px 0}
+.cal button{aspect-ratio:1;border-radius:10px;font-size:15px;font-weight:500;border:1px solid transparent}
+.cal button.free:hover{border-color:var(--tx)}
+.cal button.busy{color:#55524d;text-decoration:line-through;cursor:default}
+.cal button.past{color:#3c3a37;cursor:default}
+.cal button.sel{background:var(--a);color:#121212}
+.leg{display:flex;gap:18px;font-size:13px;color:var(--tx2);margin-top:14px}
+label{display:block;font-size:14px;color:var(--tx2);margin:0 0 7px}
+.f{margin-bottom:16px}
+input,select{width:100%;height:50px;background:var(--bg2);border:1px solid var(--ln);border-radius:10px;padding:0 14px;font-size:16px}
+input:focus,select:focus{outline:none;border-color:var(--tx)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ty{display:flex;gap:6px;flex-wrap:wrap}
+.ty button,.ad button{height:42px;padding:0 15px;border-radius:99px;border:1px solid var(--ln);font-size:14px;color:var(--tx2)}
+.ty button.on,.ad button.on{border-color:var(--a);color:var(--tx);background:rgba(255,181,71,.08)}
+.ad{display:flex;gap:6px;flex-wrap:wrap}
+.ad button i{font-style:normal;color:#6f6b65;margin-left:6px}
+.qt{border-top:1px solid var(--ln);margin-top:6px;padding-top:20px}
+.qt .st{font-size:14px;color:var(--tx2)}
+.qt .st.ok{color:#7fd39a}
+.qt .big{font:800 40px/1.1 Sg;letter-spacing:-.03em;margin:4px 0 2px}
+.qt small{color:var(--tx2);font-size:14px}
+.done{display:none;padding:40px 6px;text-align:center}
+.done h3{font-size:40px;margin-bottom:10px}.done p{color:var(--tx2)}
+footer{padding:44px 0 110px;font-size:14px;color:var(--tx2);border-top:1px solid var(--ln)}
+footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.sticky{display:none}
+@media (prefers-reduced-motion:reduce){.rot b{transition:none}}
+@media (max-width:900px){
+ nav .ln{display:none}nav .btn{margin-left:auto}
+ .lg span{display:none}
+ .qt .big{font-size:34px}
+ .w{padding:0 20px}
+ section{padding:72px 0}
+ .hero{height:calc(100svh - 96px);min-height:540px}
+ .ht h1{font-size:clamp(60px,18vw,110px)}
+ .bt{flex-direction:column}.bt .btn{min-width:0;width:100%}
+ .wz{height:520vh}
+ .wzg{grid-template-columns:1fr;gap:18px}
+ .wzt h2{font-size:36px;margin-bottom:14px}
+ .now{min-height:160px}.now .tm{font-size:44px}.now h3{font-size:24px}.now p{font-size:16px}
+ .cv{order:-1}
+ .or{grid-template-columns:1fr;gap:10px;padding:26px 0}.or .pr{text-align:left}
+ .kl,.tg{grid-template-columns:1fr;gap:20px}
+ .pane{padding:20px}
+ .sticky{display:flex;position:fixed;left:10px;right:10px;bottom:10px;z-index:40;gap:8px;padding:8px;border-radius:99px;background:rgba(20,20,22,.94);backdrop-filter:blur(10px);border:1px solid var(--ln);transform:translateY(140%);transition:transform .35s}
+ .sticky.on{transform:none}
+ .sticky .btn{flex:1;height:48px}
+}
+</style>
+</head>
+<body>
+<div class="demo">Demo strony · ceny, terminy i dodatki są przykładowe</div>
+<nav><div class="w">
+ <a class="lg" href="#">DJ Wojciech<span>Ideolo Event</span></a>
+ <div class="ln"><a href="#wieczor">Przebieg wieczoru</a><a href="#oferta">Oferta</a><a href="#klub">O mnie</a></div>
+ <a class="btn a" href="#termin">Wolny termin?</a>
+</div></nav>
+
+<header class="hero">
+ <canvas id="stage" aria-hidden="true"></canvas>
+ <div class="w ht">
+  <h1>DJ Wojciech</h1>
+  <div class="rot" aria-live="off">Gram na <b id="rw">weselach</b></div>
+  <p>Z klubów na Twoją imprezę. Żyrardów, Warszawa i okolice.</p>
+  <div class="bt"><a class="btn a" href="#termin">Sprawdź wolny termin</a><a class="btn o" href="#wieczor">Zobacz przebieg wieczoru</a></div>
+ </div>
+</header>
+
+<section id="wieczor">
+ <div class="wz" id="wz"><div class="wzs"><div class="w wzg">
+  <div class="wzt">
+   <h2>Tak wygląda wieczór</h2>
+   <div class="now" id="now"><div class="tm" id="nT">16:00</div><h3 id="nH"></h3><p id="nP"></p></div>
+  </div>
+  <div class="cv">
+   <svg id="sv" viewBox="0 0 640 340" role="img" aria-label="Energia na parkiecie w trakcie wesela, od spokojnego obiadu do szczytu po północy">
+    <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb547" stop-opacity=".28"/><stop offset="1" stop-color="#ffb547" stop-opacity="0"/></linearGradient>
+    <clipPath id="cp"><rect id="cr" x="0" y="0" width="0" height="340"/></clipPath></defs>
+    <g id="ticks"></g>
+    <path class="base" id="pb"/>
+    <path class="area" id="pa" clip-path="url(#cp)"/>
+    <path class="lit" id="pl"/>
+    <circle class="halo" id="dh" r="16"/><circle class="dot" id="dd" r="6"/>
+   </svg>
+   <div class="cvl"><span>Spokojnie</span><span>Parkiet pełny</span></div>
+  </div>
+ </div></div></div>
+</section>
+
+<section id="oferta" style="padding-top:40px"><div class="w">
+ <div class="hd"><h2>Na jakie imprezy</h2></div>
+ <div class="of">
+  <div class="or"><h3>Wesela</h3><p>Prowadzenie całego wieczoru, pierwszy taniec, oczepiny i zabawy. Nagłośnienie i oświetlenie sali w cenie.</p><div class="pr">od 4 500 zł<small>cena przykładowa</small></div></div>
+  <div class="or"><h3>Eventy firmowe</h3><p>Muzyka do kolacji, potem set taneczny. Gram do Waszej publiczności, a nie do listy przebojów.</p><div class="pr">od 3 000 zł<small>cena przykładowa</small></div></div>
+  <div class="or"><h3>Imprezy rodzinne i pikniki</h3><p>Osiemnastki, jubileusze, festyny. Muzyka, przy której tańczą i dzieci, i dorośli.</p><div class="pr">od 1 800 zł<small>cena przykładowa</small></div></div>
+ </div>
+</div></section>
+
+<section id="klub" style="padding-top:20px"><div class="w kl">
+ <h2>Z klubu na parkiet weselny</h2>
+ <div><p>Gram w klubach i współtworzę Fabryka Festiwal. Ten sam słuch do sali przenoszę na wesela: wiem, kiedy wejść z hitem, a kiedy dać gościom chwilę oddechu.</p><p>Przed imprezą dostajesz ankietę muzyczną. Wpisujesz pierwszy taniec, ulubione utwory i to, czego ma nie być. Resztą zajmuję się ja.</p></div>
+</div></section>
+
+<section id="termin"><div class="w">
+ <div class="hd"><h2>Sprawdź wolny termin</h2></div>
+ <div class="tg">
+  <div class="pane">
+   <div class="ch"><button id="cp1" aria-label="Poprzedni miesiąc">‹</button><b id="cm"></b><button id="cn1" aria-label="Następny miesiąc">›</button></div>
+   <div class="cal" id="cal"></div>
+   <div class="leg"><span>Przekreślone: zajęte</span><span>Kliknij wolny dzień</span></div>
+  </div>
+  <div class="pane">
+   <form id="fm" novalidate>
+    <div class="f"><label>Rodzaj imprezy</label><div class="ty" id="ty"><button type="button" data-t="wesele" class="on">Wesele</button><button type="button" data-t="firma">Event firmowy</button><button type="button" data-t="rodzina">Rodzinna lub piknik</button></div></div>
+    <div class="f f2"><div><label for="g">Liczba gości</label><input id="g" type="number" inputmode="numeric" value="100" min="10"></div><div><label for="km">Dojazd z Żyrardowa (km)</label><input id="km" type="number" inputmode="numeric" value="30" min="0"></div></div>
+    <div class="f"><label>Dodatki</label><div class="ad" id="ad"><button type="button" data-p="600">Ciężki dym<i>+600 zł</i></button><button type="button" data-p="500">Napis LOVE<i>+500 zł</i></button><button type="button" data-p="700">Oświetlenie sali<i>+700 zł</i></button><button type="button" data-p="400">Fotobudka<i>+400 zł</i></button></div></div>
+    <div class="qt"><div class="st" id="st">Wybierz dzień w kalendarzu</div><div class="big" id="pr">od 4 500 zł</div><small id="pi">Nagłośnienie, oświetlenie i prowadzenie w cenie.</small></div>
+    <div class="f" style="margin-top:20px"><label for="tel">Telefon</label><input id="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="Oddzwonię z dokładną ofertą"></div>
+    <button class="btn a" id="go" type="submit" style="width:100%" disabled>Zarezerwuj wstępnie termin</button>
+   </form>
+   <div class="done" id="done"><h3>Termin wstępnie zarezerwowany</h3><p id="dt"></p></div>
+  </div>
+ </div>
+</div></section>
+
+<footer><div class="w"><span>DJ Wojciech · Ideolo Event · Żyrardów</span><span>Demo przygotował Emil Wiktorski</span></div></footer>
+<div class="sticky" id="stk"><a class="btn a" href="#termin">Sprawdź wolny termin</a></div>
+
+<script>
+var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* światła na starcie */
+(function(){var c=$('#stage'),x=c.getContext('2d'),W,H,dpr=Math.min(2,devicePixelRatio||1),mx=.5,t0=performance.now(),vis=true;
+ function rs(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+ rs();addEventListener('resize',rs);
+ addEventListener('pointermove',function(e){mx=e.clientX/innerWidth});
+ new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(c);
+ var B=[{p:.12,s:.37,ph:0,c:'255,181,71'},{p:.3,s:.29,ph:1.7,c:'255,236,210'},{p:.5,s:.41,ph:3.1,c:'255,181,71'},{p:.7,s:.33,ph:4.4,c:'255,236,210'},{p:.88,s:.27,ph:2.3,c:'255,181,71'}];
+ function cone(px,ang,len,wd,col,al){var g=x.createLinearGradient(px,0,px+Math.sin(ang)*len,Math.cos(ang)*len);g.addColorStop(0,'rgba('+col+','+al+')');g.addColorStop(1,'rgba('+col+',0)');
+  x.save();x.translate(px,-10);x.rotate(-ang);x.beginPath();x.moveTo(-3,0);x.lineTo(3,0);x.lineTo(wd,len);x.lineTo(-wd,len);x.closePath();x.fillStyle=g;x.fill();x.restore()}
+ function fr(now){requestAnimationFrame(fr);if(!vis)return;var t=(now-t0)/1000;
+  x.globalCompositeOperation='source-over';x.fillStyle='#0b0b0c';x.fillRect(0,0,W,H);
+  var beat=RM?0:Math.pow(Math.max(0,Math.cos(t*Math.PI*2*124/60)),18);
+  x.globalCompositeOperation='lighter';
+  B.forEach(function(b,i){var sw=RM?0:Math.sin(t*b.s+b.ph)*.55+(mx-.5)*.35;cone(W*b.p,sw,H*1.25,W*.11+H*.05,b.c,.16+beat*.07*(i%2?1:.5))});
+  var fg=x.createRadialGradient(W/2,H*1.05,10,W/2,H*1.05,W*.6);fg.addColorStop(0,'rgba(255,181,71,'+(.16+beat*.08)+')');fg.addColorStop(1,'rgba(255,181,71,0)');x.fillStyle=fg;x.fillRect(0,0,W,H);
+  x.globalCompositeOperation='source-over';
+  for(var k=0;k<3;k++){var hx=W*(.25+.25*k)+Math.sin(t*.07+k)*W*.08,hy=H*(.45+.08*k),hg=x.createRadialGradient(hx,hy,0,hx,hy,W*.35);hg.addColorStop(0,'rgba(40,38,36,.18)');hg.addColorStop(1,'rgba(40,38,36,0)');x.fillStyle=hg;x.fillRect(0,0,W,H)}
+ }
+ requestAnimationFrame(fr)})();
+/* zmieniające się słowa */
+(function(){var w=['weselach','eventach firmowych','osiemnastkach','piknikach','jubileuszach'],i=0,b=$('#rw');if(RM)return;
+ setInterval(function(){b.classList.add('out');setTimeout(function(){i=(i+1)%w.length;b.textContent=w[i];b.classList.remove('out')},350)},2200)})();
+/* przebieg wieczoru */
+var M=[{t:'16:00',e:.18,h:'Wejście pary i toast',p:'Spokojne wejście, chwila na życzenia. Muzyka nie przeszkadza w rozmowach.'},
+{t:'17:00',e:.12,h:'Obiad',p:'Muzyka w tle, dobrana do sali. Goście mają się najeść i nagadać.'},
+{t:'18:30',e:.42,h:'Pierwszy taniec',p:'Wasz utwór z ankiety, światło i dym ustawione wcześniej na próbie.'},
+{t:'19:30',e:.72,h:'Parkiet się rozkręca',p:'Przeboje, które znają wszyscy. Najpierw ciocie i wujkowie, potem cała sala.'},
+{t:'21:30',e:.38,h:'Tort i oczepiny',p:'Zabawy prowadzone tak, żeby nikt nie czuł się wciągnięty na siłę.'},
+{t:'23:30',e:.92,h:'Klubowy set',p:'Moment, w którym przydaje się doświadczenie z klubów. Parkiet pełny do końca.'},
+{t:'03:00',e:.55,h:'Ostatni numer',p:'Spokojniejsze zakończenie i utwór na pożegnanie, który wybieracie sami.'}];
+(function(){var sv=$('#sv'),Wd=640,Hd=300,top=24,n=M.length,pts=M.map(function(m,i){return [30+i*(Wd-60)/(n-1),top+(1-m.e)*(Hd-top)]});
+ function path(P){var d='M'+P[0][0]+' '+P[0][1];for(var i=1;i<P.length;i++){var a=P[i-1],b=P[i],cx=(a[0]+b[0])/2;d+=' C'+cx+' '+a[1]+' '+cx+' '+b[1]+' '+b[0]+' '+b[1]}return d}
+ var d=path(pts);$('#pb').setAttribute('d',d);$('#pl').setAttribute('d',d);$('#pa').setAttribute('d',d+' L'+pts[n-1][0]+' '+Hd+' L'+pts[0][0]+' '+Hd+' Z');
+ $('#ticks').innerHTML=pts.map(function(p,i){return '<g class="tick" data-i="'+i+'"><line x1="'+p[0]+'" y1="'+Hd+'" x2="'+p[0]+'" y2="'+(p[1]+10)+'"/><text x="'+p[0]+'" y="'+(Hd+30)+'" text-anchor="middle">'+M[i].t+'</text></g>'}).join('');
+ var pl=$('#pl'),L=pl.getTotalLength();pl.style.strokeDasharray=L;
+ var cur=-1,nw=$('#now');
+ function show(i){if(i==cur)return;cur=i;nw.classList.add('sw');setTimeout(function(){$('#nT').textContent=M[i].t;$('#nH').textContent=M[i].h;$('#nP').textContent=M[i].p;nw.classList.remove('sw')},cur<0?0:160);$$('.tick').forEach(function(g){g.classList.toggle('on',+g.dataset.i<=i)})}
+ function xAt(len){return pl.getPointAtLength(len)}
+ function up(){var wz=$('#wz'),r=wz.getBoundingClientRect(),tot=wz.offsetHeight-innerHeight,p=Math.min(1,Math.max(0,-r.top/tot));
+  var len=L*p;pl.style.strokeDashoffset=L-len;var pt=xAt(Math.max(.01,len));$('#dd').setAttribute('cx',pt.x);$('#dd').setAttribute('cy',pt.y);$('#dh').setAttribute('cx',pt.x);$('#dh').setAttribute('cy',pt.y);$('#cr').setAttribute('width',pt.x);
+  var i=0;for(var k=0;k<n;k++)if(pt.x>=pts[k][0]-6)i=k;show(i)}
+ addEventListener('scroll',up,{passive:true});addEventListener('resize',up);show(0);up()})();
+/* kalendarz i wycena */
+var busy={},td=new Date();td.setHours(0,0,0,0);
+(function(){var y=td.getFullYear();[[0,1,14],[0,1,21],[0,2,7],[0,4,9],[0,4,16],[0,4,30],[0,5,6],[0,5,13],[0,5,20],[0,6,4],[0,6,11],[0,6,25],[0,7,8],[0,7,22],[0,8,5],[0,8,12],[0,8,19],[0,9,3]].forEach(function(a){for(var yy=y;yy<=y+1;yy++){var dd=new Date(yy,a[1],a[2]);busy[dd.toDateString()]=1}})})();
+var vy=td.getFullYear(),vm=td.getMonth(),sel=null,typ='wesele';
+var BASE={wesele:4500,firma:3000,rodzina:1800};
+function drawCal(){var c=$('#cal'),d0=new Date(vy,vm,1),off=(d0.getDay()+6)%7,dn=new Date(vy,vm+1,0).getDate();
+ $('#cm').textContent=d0.toLocaleDateString('pl-PL',{month:'long',year:'numeric'});
+ var h=['Pn','Wt','Śr','Cz','Pt','So','Nd'].map(function(x){return '<div class="dn">'+x+'</div>'}).join('');for(var i=0;i<off;i++)h+='<div></div>';
+ for(var d=1;d<=dn;d++){var dt=new Date(vy,vm,d),k=dt.toDateString(),cl=dt<td?'past':busy[k]?'busy':'free';if(sel&&k==sel.toDateString())cl+=' sel';h+='<button type="button" class="'+cl+'" data-d="'+d+'"'+(cl.indexOf('free')<0?' disabled':'')+' aria-label="'+dt.toLocaleDateString('pl-PL',{day:'numeric',month:'long'})+(busy[k]?', zajęty':'')+'">'+d+'</button>'}
+ c.innerHTML=h;$$('#cal button.free').forEach(function(b){b.onclick=function(){sel=new Date(vy,vm,+b.dataset.d);drawCal();calc()}})}
+$('#cp1').onclick=function(){if(vy==td.getFullYear()&&vm==td.getMonth())return;vm--;if(vm<0){vm=11;vy--}drawCal()};
+$('#cn1').onclick=function(){vm++;if(vm>11){vm=0;vy++}drawCal()};
+$$('#ty button').forEach(function(b){b.onclick=function(){typ=b.dataset.t;$$('#ty button').forEach(function(x){x.classList.toggle('on',x==b)});calc()}});
+$$('#ad button').forEach(function(b){b.onclick=function(){b.classList.toggle('on');calc()}});
+['#g','#km'].forEach(function(s){$(s).addEventListener('input',calc)});
+function zl(v){return String(v).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0zł'}
+function calc(){var v=BASE[typ],g=+$('#g').value||0,km=+$('#km').value||0;
+ if(g>120)v+=400;if(g>200)v+=400;if(km>30)v+=Math.round((km-30)*4);
+ if(sel){var m=sel.getMonth()+1;if(sel.getDay()==6&&m>=5&&m<=9)v+=500}
+ $$('#ad button.on').forEach(function(b){v+=+b.dataset.p});
+ var lo=Math.round(v*.95/100)*100,hi=Math.round(v*1.1/100)*100;
+ $('#pr').textContent=sel?zl(lo)+' do '+zl(hi):'od '+zl(lo);
+ $('#st').textContent=sel?'Termin wolny: '+sel.toLocaleDateString('pl-PL',{weekday:'long',day:'numeric',month:'long'}):'Wybierz dzień w kalendarzu';$('#st').classList.toggle('ok',!!sel);
+ $('#go').disabled=!sel}
+$('#fm').onsubmit=function(e){e.preventDefault();if(!sel)return;var t=$('#tel');if(!/\d{9}/.test(t.value.replace(/\D/g,''))){t.focus();t.style.borderColor='#e5735f';return}
+ $('#fm').style.display='none';$('#done').style.display='block';$('#dt').textContent=sel.toLocaleDateString('pl-PL',{weekday:'long',day:'numeric',month:'long'})+' czeka na Ciebie 48 godzin. Oddzwonię z dokładną ofertą, zwykle tego samego dnia.'};
+drawCal();calc();
+/* pasek na telefonie */
+(function(){var s=$('#stk'),h=$('.hero'),tm=$('#termin');function u(){var a=h.getBoundingClientRect().bottom<0,b=tm.getBoundingClientRect().top<innerHeight;s.classList.toggle('on',a&&!b)}addEventListener('scroll',u,{passive:true});u()})();
+</script>
+</body>
+</html>
