@@ -31,8 +31,8 @@ p{text-wrap:pretty}
 .btn:disabled{opacity:.35;cursor:not-allowed}
 /* trust + demo */
 .trust{background:var(--tx);color:#e9e5e0;font-size:14px;display:flex;justify-content:center;gap:40px;padding:8px 16px;flex-wrap:wrap}
-.pill{position:fixed;left:16px;bottom:16px;z-index:30;background:rgba(255,255,255,.95);border:1px solid var(--ln);font-size:14px;padding:8px 14px;border-radius:99px;color:var(--tx2)}
-.trust .dm{display:none}.trust .dm b{color:#fff}
+.pill{display:none!important;position:fixed;left:16px;bottom:16px;z-index:30;background:rgba(255,255,255,.95);border:1px solid var(--ln);font-size:14px;padding:8px 14px;border-radius:99px;color:var(--tx2)}
+.trust .dm{display:inline}.trust .dm b{color:#fff}
 .pill b{color:var(--tx);font-weight:600;margin-right:4px}
 /* tiles */
 #kategorie{padding:20px 0 0}
@@ -84,14 +84,15 @@ body.in #login{display:none}
 #cartb i{font-style:normal;background:var(--tx);color:#fff;border-radius:99px;min-width:22px;height:22px;font-size:14px;display:grid;place-items:center;padding:0 6px}
 #login{height:44px;padding:0 18px;font-size:14px}
 /* hero */
-.hero{display:grid;grid-template-columns:1fr min(46vw,calc((100vh - 110px)*.64));height:min(calc(100vh - 102px),880px);min-height:560px;border-bottom:1px solid var(--ln)}
-.hero .t{padding:64px 56px 56px max(32px,calc((100vw - 1320px)/2 + 32px));display:flex;flex-direction:column;justify-content:center}
-.hero h1{font-size:clamp(46px,5.4vw,84px)}
-.hero p{font-size:18px;color:var(--tx2);max-width:500px;margin:24px 0 34px}
-.hero .bt{display:flex;gap:12px}
-.hero .bt .btn{flex:1;max-width:220px}
-.hero .im{position:relative;background:var(--bg2);overflow:hidden}
-.hero .im video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:6px;height:min(calc(100svh - 110px),940px);min-height:520px;background:#fff}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.half{position:relative;overflow:hidden;background:#d9d4cd;color:#fff;text-decoration:none;display:block}
+.half video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 8%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s}
+.half::after{content:'';position:absolute;inset:auto 0 0;height:38%;background:linear-gradient(transparent,rgba(0,0,0,.42));pointer-events:none}
+.cap{position:absolute;left:0;right:0;bottom:44px;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+.cap b{font-family:Cg,Georgia,serif;font-weight:500;font-size:clamp(34px,3.4vw,54px);line-height:1}
+.cap u{font-size:15px;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.8);padding-bottom:3px}
+@media (hover:hover){.hero:hover .half:not(:hover) video{filter:brightness(.82)}.half:hover video{transform:scale(1.03)}.half:hover .cap u{border-color:#fff}}
 .facts{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--ln)}
 .facts div{padding:26px 32px;border-right:1px solid var(--ln)}
 .facts div:last-child{border:0}
@@ -305,9 +306,11 @@ body.in .only-out{display:none!important}
  .logo{font-size:24px}
  #login{display:none}
  body.in .who{display:none}
- .hero{grid-template-columns:1fr;height:auto;min-height:0}
- .hero .im{aspect-ratio:3/4.6;order:-1}
- .hero .t{padding:40px 20px 48px}
+ .hero{height:auto;min-height:0;gap:4px}
+ .half{aspect-ratio:2/3.1}
+ .cap{bottom:18px;gap:8px;padding:0 8px}
+ .cap b{font-size:26px}
+ .cap u{font-size:14px}
  .facts{grid-template-columns:1fr 1fr}
  .facts div:nth-child(2){border-right:0}
  .facts div:nth-child(-n+2){border-bottom:1px solid var(--ln)}
@@ -328,7 +331,6 @@ body.in .only-out{display:none!important}
  section{padding:64px 0}
  #login{padding:0 12px}
  #cartb span{display:none}
- .hero .bt .btn{max-width:none}
  .facts div{padding:18px 20px}
  .facts b{font-size:32px}
  .pan form,.acc form{grid-template-columns:1fr;padding:22px}
@@ -347,7 +349,7 @@ body.in .only-out{display:none!important}
 </style>
 </head>
 <body>
-<div class="trust"><span class="dm">Sklep hurtowy dla butików · <b>demo</b></span><span>Sklep hurtowy dla butików</span><span>Wysyłka w 2 dni robocze</span><span>Wymiana rozmiaru w 14 dni</span><span>Opiekun handlowy dla każdego butiku</span></div>
+<div class="trust"><span class="dm">Sklep hurtowy dla butików · <b>demo</b>, dane przykładowe</span><span>Wysyłka w 2 dni robocze</span><span>Wymiana rozmiaru w 14 dni</span><span>Opiekun handlowy dla każdego butiku</span></div>
 <div class="pill"><b>Demo</b> Emil Wiktorski · ceny, stany i składy przykładowe</div>
 
 <nav>
@@ -370,13 +372,16 @@ body.in .only-out{display:none!important}
  </div>
 </aside>
 
-<header class="hero">
- <div class="t">
-  <h1 class="h">Kolekcja jesień/zima <em>dla Twojego butiku</em></h1>
-  <p>Zamawiasz pakiety rozmiarowe online, widzisz stany magazynowe na bieżąco i nie musisz dzwonić, żeby sprawdzić, czy jest jeszcze M w espresso.</p>
-  <div class="bt"><a class="btn d" href="#kolekcja">Zobacz kolekcję</a><a class="btn l" href="#konto">Załóż konto</a></div>
- </div>
- <div class="im"><video id="hv" src="img/hero.mp4" poster="img/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Kolekcja By o la la..! jesień/zima, sesja w studiu"></video></div>
+<header class="hero" id="start">
+ <h1 class="vh">By o la la..! Kolekcja jesień/zima 2026</h1>
+ <a class="half" href="#" data-b2c>
+  <video src="img/v-zielony.mp4" poster="img/v-zielony-poster.jpg" muted loop playsinline preload="auto" aria-label="Zielony komplet z kolekcji jesień/zima"></video>
+  <span class="cap"><b>Sklep dla klientek</b><u>Przejdź do sklepu</u></span>
+ </a>
+ <a class="half" href="#looki">
+  <video src="img/v-braz.mp4" poster="img/v-braz-poster.jpg" muted loop playsinline preload="auto" aria-label="Brązowy komplet z kolekcji jesień/zima"></video>
+  <span class="cap"><b>Hurt dla butików</b><u>Wejdź do strefy B2B</u></span>
+ </a>
 </header>
 
 <div class="facts">
@@ -679,7 +684,11 @@ function addLook(i){var n=0;LOOKS[i].forEach(function(it){var p=byId(it.id),k=p.
 $('#burg').onclick=function(){show('#menu')};
 $$('#menu .mn a').forEach(function(a){a.onclick=function(){hide()}});
 $$('[data-cat]').forEach(function(t){t.onclick=function(){cat=t.dataset.cat;chips();grid();$('#kolekcja').scrollIntoView({behavior:'smooth'})}});
-var hv=$('#hv');if(hv){var pl=function(){var r=hv.play();if(r&&r.catch)r.catch(function(){})};pl();document.addEventListener('visibilitychange',function(){if(!document.hidden)pl()})}
+(function(){var vs=$$('.half video'),hov=matchMedia('(hover:hover)').matches;
+ function pl(v){var r=v.play();if(r&&r.catch)r.catch(function(){})}
+ if(hov){$$('.half').forEach(function(h){var v=$('video',h);h.addEventListener('mouseenter',function(){pl(v)});h.addEventListener('mouseleave',function(){v.pause()})})}
+ else{vs.forEach(pl);document.addEventListener('visibilitychange',function(){if(!document.hidden)vs.forEach(pl)})}})();
+document.addEventListener('click',function(e){if(e.target.closest('[data-b2c]')){e.preventDefault();toast('W demo ta połowa prowadzi do sklepu dla klientek. Tu robimy strefę hurtową.')}});
 // szybkie zamowienie
 function allCodes(){var L=[];P.forEach(function(p){p.k.forEach(function(k){L.push({c:sku(p,k),p:p,k:k})})});return L}
 $('#qList').innerHTML=allCodes().map(function(o){return '<tr><td>'+o.c+'</td><td>'+o.p.n+', '+o.k+'</td></tr>'}).join('');
