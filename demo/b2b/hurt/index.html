@@ -237,6 +237,13 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .sri b{display:block;font-weight:600;font-size:15px}.sri span{font-size:14px;color:var(--tx2)}
 .sri em{font-style:normal;font-size:14px;color:var(--tx2);text-align:right;padding-right:8px}
 .srn{padding:16px 0;color:var(--tx2);font-size:15px;border-top:1px solid var(--ln)}
+.r3{position:relative;aspect-ratio:3/4;background:#ececea;cursor:grab;touch-action:pan-y;user-select:none;overflow:hidden}
+.r3:active{cursor:grabbing}
+.r3 img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.r3h{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);padding:8px 14px;border-radius:99px;font-size:14px;white-space:nowrap;transition:opacity .4s}
+.r3.used .r3h{opacity:0}
+.r3t{position:absolute;right:12px;top:12px;font-size:13px;color:var(--tx2);background:rgba(255,255,255,.85);padding:3px 9px}
+.th .t3{display:grid;place-items:center;font:600 13px Is;color:var(--tx)}
 /* matrix */
 .mrg{background:var(--bg2);padding:12px 14px;font-size:14px;color:var(--tx2);margin:-4px 0 14px;line-height:1.55}
 .mrg b{color:var(--tx);font-weight:600}
@@ -469,13 +476,14 @@ body.in .only-out{display:none!important}
     <div class="full"><label for="a-s">Skład</label><input id="a-s" value="98% bawełna, 2% elastan"></div>
     <div><label for="a-d">Długość (rozmiar M)</label><input id="a-d" value="84 cm"></div>
     <div><label for="a-o">Na jaką okazję</label><select id="a-o"><option selected>do pracy i na co dzień</option><option>na wieczór</option><option>na uroczystość</option></select></div>
-    <div class="full"><label for="a-x">Wyróżnik (opcjonalnie)</label><input id="a-x" value="bufiaste rękawy, stójka, kontrastowe przeszycia"></div>
+    <div class="full"><label for="a-x">Wyróżnik (opcjonalnie)</label><input id="a-x" value="bufiaste rękawy, stójka z odpinanym paskiem, kontrastowe przeszycia"></div>
+    <div class="full"><label for="a-e">Styl marki: 2 do 3 Wasze opisy, na których AI się wzoruje</label><textarea id="a-e" rows="3">Zapisane: 3 opisy z kolekcji jesień/zima (sukienka bombka, marynarka oversize, kurtka z żakardu)</textarea></div>
     <div class="full"><button class="btn d" type="submit" style="width:100%">Napisz opis</button></div>
    </form>
    <div class="out">
         <h3 id="ai-h">Sukienka jeansowa z bufiastym rękawem</h3>
     <div id="ai-txt" class="wait">Uzupełnij pola po lewej i kliknij „Napisz opis”. Tekst trafi od razu na kartę produktu, do poprawienia jednym kliknięciem.</div>
-    <div class="note">Opis powstaje ze składu, wymiarów i fasonu. Przed publikacją można go poprawić.</div>
+    <div class="note">W demo opis składa się z szablonu. Po wdrożeniu pisze go model AI na podstawie zdjęcia, składu i wymiarów, w stylu Waszych opisów. Koszt to kilka groszy za opis.</div>
    </div>
   </div>
  </div>
@@ -633,8 +641,9 @@ function open(id,k){cur=P.filter(function(p){return p.id==id})[0];cK=k||0;MX={};
 var MX={};
 function render(){var p=cur,k=p.k[cK];
  $('#pMain').innerHTML=ph(p,0,k);
- $('#pTh').innerHTML=ims(p,k).map(function(x,i){return '<button class="'+(i?'':'on')+'" data-i="'+i+'">'+ph(p,i,k)+'</button>'}).join('');
- $$('#pTh button').forEach(function(b){b.onclick=function(){$$('#pTh button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');$('#pMain').innerHTML=ph(p,+b.dataset.i,k)}});
+ var has3=p.id=='sukienka'&&k=='granatowa';
+ $('#pTh').innerHTML=ims(p,k).map(function(x,i){return '<button class="'+(i?'':'on')+'" data-i="'+i+'">'+ph(p,i,k)+'</button>'}).join('')+(has3?'<button class="t3" data-i="360" aria-label="Obrót 360 stopni">360°</button>':'');
+ $$('#pTh button').forEach(function(b){b.onclick=function(){$$('#pTh button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');if(b.dataset.i=='360'){$('#pMain').innerHTML='<div class="r3" id="r3"><img id="r3i" src="../img/360/00.webp" alt="Sukienka jeansowa granatowa, obrót 360 stopni" draggable="false"><span class="r3h"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10a7 7 0 0112.5-4.3M17 10a7 7 0 01-12.5 4.3"/><path d="M15.5 2.5v3.2h-3.2M4.5 17.5v-3.2h3.2"/></svg>Przeciągnij, aby obrócić</span><span class="r3t">Wizualizacja AI</span></div>';spin360()}else $('#pMain').innerHTML=ph(p,+b.dataset.i,k)}});
  $('#pN').textContent=p.n;
  $('#pP').innerHTML=IN?'<b>'+zl(p.h)+' netto / szt.</b><span>sugerowana cena detaliczna '+zl(p.r)+'</span>':'<span>sugerowana cena detaliczna '+zl(p.r)+'</span>';
  $('#pKn').textContent=k;
@@ -688,7 +697,7 @@ $('#aiForm').onsubmit=function(e){e.preventDefault();
  var n=$('#a-n').value.trim(),k=$('#a-k').value.trim(),f=$('#a-f').value,s=$('#a-s').value.trim(),d=$('#a-d').value.trim(),o=$('#a-o').value,x=$('#a-x').value.trim();
  var skl=/wiskoza/i.test(s)?'Wiskoza sprawia, że materiał jest miękki, przewiewny i ładnie się układa.':/bawełn/i.test(s)?'Bawełna w składzie daje przyjemny w dotyku, oddychający materiał.':'Materiał trzyma kształt i nie gniecie się w ciągu dnia.';
  var el=/elastan/i.test(s)?' Dodatek elastanu zapewnia swobodę ruchu.':'';
- var t=n+' w kolorze '+k+' to model, który łatwo wpleść w codzienne stylizacje. Fason '+f+(x?', a do tego '+x:'')+'.\n\n'+skl+el+' Sprawdzi się '+o+': z botkami i marynarką albo z kozakami i krótką kurtką.\n\nSkład: '+s+'\nDługość w rozmiarze M: '+d;
+ var t=n+' ('+k+') to model, który łatwo wpleść w codzienne stylizacje. Fason '+f+(x?', a do tego '+x:'')+'.\n\n'+skl+el+' Sprawdzi się '+o+': z botkami i marynarką albo z kozakami i krótką kurtką.\n\nSkład: '+s+'\nDługość w rozmiarze M: '+d;
  $('#ai-h').textContent=n;var el2=$('#ai-txt');el2.classList.remove("wait");el2.textContent='';clearInterval(typing);var i=0;
  typing=setInterval(function(){i+=3;el2.textContent=t.slice(0,i);if(i>=t.length)clearInterval(typing)},16)};
 $('#accForm').onsubmit=function(e){e.preventDefault();$('#accOk').style.display='block';this.querySelector('button').disabled=true};
@@ -749,6 +758,15 @@ document.addEventListener('click',function(e){if(!e.target.closest('[data-pdf]')
 (function(){var t=$('#tiles'),p=$('#tp'),n=$('#tn');function st(){p.disabled=t.scrollLeft<8;n.disabled=t.scrollLeft+t.clientWidth>t.scrollWidth-8}
  function step(d){var w=t.querySelector('.tile').getBoundingClientRect().width+4;t.scrollBy({left:d*w*(innerWidth>1000?2:1),behavior:'smooth'})}
  p.onclick=function(){step(-1)};n.onclick=function(){step(1)};t.addEventListener('scroll',st,{passive:true});addEventListener('resize',st);st()})();
+var R3=[];for(var q=0;q<36;q++){R3.push('../img/360/'+(q<10?'0':'')+q+'.webp')}
+var r3t=null;
+function spin360(){var box=$('#r3'),im=$('#r3i'),f=0,auto=true,sx=0,sf=0,drag=false;
+ R3.forEach(function(u){var i=new Image();i.src=u});
+ function set(n){f=((Math.round(n)%36)+36)%36;im.src=R3[f]}
+ clearInterval(r3t);r3t=setInterval(function(){if(!auto||!document.body.contains(box))return;set(f+1)},190);
+ box.addEventListener('pointerdown',function(e){drag=true;auto=false;box.classList.add('used');sx=e.clientX;sf=f;box.setPointerCapture(e.pointerId)});
+ box.addEventListener('pointermove',function(e){if(!drag)return;set(sf+(e.clientX-sx)/(box.clientWidth/36)*1.1)});
+ ['pointerup','pointercancel'].forEach(function(t){box.addEventListener(t,function(){drag=false})});}
 // wyszukiwarka
 var SI=0,SRES=[];
 function sOpen(){var s=$('#srch');s.hidden=false;$('#sq').focus();sRun()}
