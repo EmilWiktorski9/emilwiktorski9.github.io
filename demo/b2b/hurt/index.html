@@ -33,6 +33,8 @@ p{text-wrap:pretty}
 .pill{position:fixed;left:16px;bottom:16px;z-index:30;background:rgba(255,255,255,.95);border:1px solid var(--ln);font-size:14px;padding:8px 14px;border-radius:99px;color:var(--tx2)}
 .trust .dm{display:inline}.trust .dm b{color:#fff}
 .pill b{color:var(--tx);font-weight:600;margin-right:4px}
+.pill button{margin-left:10px;font-weight:600;color:var(--tx);text-decoration:underline;text-underline-offset:3px}
+body.in .pill button{display:none}
 /* tiles */
 #kategorie{padding:4px 0 0}
 .tw{position:relative}
@@ -121,6 +123,7 @@ section{padding:96px 0}
 .card .ph .alt{position:absolute;inset:0;opacity:0;transition:opacity .4s}
 @media (hover:hover){.card:hover .ph .alt{opacity:1}}
 .card .ph .tone{position:absolute;inset:0}
+.card .tag.r{left:auto;right:10px}
 .card .tag{position:absolute;left:10px;top:10px;background:#fff;font-size:14px;font-weight:600;padding:4px 9px;border-radius:var(--r)}
 .card .qk{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(255,255,255,.96);height:44px;display:grid;place-items:center;font-size:14px;font-weight:600;opacity:0;transform:translateY(6px);transition:.25s}
 .card:hover .qk{opacity:1;transform:none}
@@ -386,12 +389,13 @@ body.in .only-out{display:none!important}
  .sin input{font-size:16px}
  .sri em{display:none}
  .pill{font-size:13px;left:10px;bottom:10px;padding:6px 12px}
+ body:not(.in) .pill .pt{display:none}
 }
 *{font-variant-numeric:lining-nums!important}
 </style>
 </head>
 <body>
-<div class="pill"><b>Demo</b> Emil Wiktorski · ceny, stany i składy przykładowe</div>
+<div class="pill"><b>Demo</b> <span class="pt">Emil Wiktorski · ceny, stany i składy przykładowe</span><button data-login>Zaloguj jako butik testowy</button></div>
 
 <nav>
  <div class="w">
@@ -434,7 +438,7 @@ body.in .only-out{display:none!important}
  <button class="ta" id="tp" aria-label="Poprzednie kategorie"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4l-6 6 6 6"/></svg></button><button class="ta" id="tn" aria-label="Następne kategorie"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 4l6 6-6 6"/></svg></button></div>
 </section>
 <div class="facts">
- <div><b>14 lat</b><span>na rynku</span></div>
+ <div><b>2013</b><span>rok założenia marki</span></div>
  <div><b>39</b><span>sklepów firmowych</span></div>
  <div><b>2022</b><span>Kobieca Marka Roku</span></div>
  <div><b>902 tys.</b><span>obserwujących na Facebooku</span></div>
@@ -501,7 +505,7 @@ Nasza ulubiona marynarka na co dzień. Wygodna, nie gniecie się i wygląda świ
   <div class="im"><img src="../img/koszula-c4.webp" alt="Haftowany monogram By o la la..! na koszuli" loading="lazy"></div>
   <div>
    <h2 class="h" style="font-size:clamp(36px,4vw,56px)">Polska marka z historią</h2>
-   <p>By o la la..! projektuje kobiecą odzież od 14 lat. Od ponad 13 lat sprzedaje przez butiki, ma 39 sklepów firmowych, a w 2022 roku dostała tytuł Kobieca Marka Roku. Kampanie fotografuje na ulicach miasta i w jasnym studiu.</p>
+   <p>By o la la..! projektuje kobiecą odzież od 2013 roku i sprzedaje ją przez butiki firmowe w Polsce i za granicą. W 2022 roku dostała tytuł Kobieca Marka Roku. Kampanie fotografuje na ulicach miasta i w jasnym studiu.</p>
   </div>
  </div>
 </section>
@@ -643,7 +647,7 @@ var lockI='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-wid
 function price(p){return IN?'<b>'+zl(p.h)+' netto</b> · sugerowana '+zl(p.r):'<span class="lock">'+lockI+'Cena hurtowa po zalogowaniu</span>'}
 var cat='Wszystko';
 function chips(){var cs=['Wszystko'];P.forEach(function(p){p.c.forEach(function(c){if(cs.indexOf(c)<0)cs.push(c)})});$('#chips').innerHTML=cs.map(function(c){return '<button class="'+(c==cat?'on':'')+'">'+c+'</button>'}).join('');$$('#chips button').forEach(function(b){b.onclick=function(){cat=b.textContent;chips();grid()}})}
-function grid(){$('#grid').innerHTML=P.filter(function(p){return cat=='Wszystko'||p.c.indexOf(cat)>=0}).map(function(p){return '<button class="card" data-id="'+p.id+'"><div class="ph">'+ph(p,0)+(ims(p).length>1?'<img class="alt" src="../img/'+ims(p)[1]+'.webp" alt="" loading="lazy">':'')+(p.nw?'<span class="tag">Nowość</span>':'')+'<span class="qk">Zobacz pakiety</span></div><h3>'+p.n+'</h3><div class="sw">'+p.k.map(function(k){return '<i style="background:'+(C[k]||'#ccc')+'" title="'+k+'"></i>'}).join('')+'</div><div class="pr">'+price(p)+'</div></button>'}).join('');$$('#grid .card').forEach(function(c){c.onclick=function(){open(c.dataset.id)}})}
+function grid(){$('#grid').innerHTML=P.filter(function(p){return cat=='Wszystko'||p.c.indexOf(cat)>=0}).map(function(p){return '<button class="card" data-id="'+p.id+'"><div class="ph">'+ph(p,0)+(ims(p).length>1?'<img class="alt" src="../img/'+ims(p)[1]+'.webp" alt="" loading="lazy">':'')+(p.nw?'<span class="tag">Nowość</span>':'')+(p.id=='sukienka'?'<span class="tag r">360°</span>':'')+'<span class="qk">Zobacz pakiety</span></div><h3>'+p.n+'</h3><div class="sw">'+p.k.map(function(k){return '<i style="background:'+(C[k]||'#ccc')+'" title="'+k+'"></i>'}).join('')+'</div><div class="pr">'+price(p)+'</div></button>'}).join('');$$('#grid .card').forEach(function(c){c.onclick=function(){open(c.dataset.id)}})}
 function desc(p){if(p.ds)return p.ds;return p.n+'. Fason '+p.f+', szyty w rozmiarach od S do XL. Wyróżnia go: '+p.x+'. Sprawdzi się '+p.o+'.'+(p.k.length>1?' Kolory: '+p.k.join(', ')+'.':'')}
 function open(id,k){cur=P.filter(function(p){return p.id==id})[0];cK=k||0;MX={};cur.k.forEach(function(c,i){MX[i]=i==cK?pack(cur,i):{S:0,M:0,L:0,XL:0}});render();show('#prod')}
 var MX={};
@@ -775,11 +779,7 @@ function accR(){$('#aOrd').innerHTML=ORD.map(function(o,i){return '<div class="o
 document.addEventListener('click',function(e){var t=e.target.closest('[data-acc]');if(t){e.preventDefault();hide();setTimeout(function(){accR();show('#acc')},10)}
  var tt2=e.target.closest('[data-toast]');if(tt2)toast(tt2.dataset.toast)});
 // katalog pdf
-document.addEventListener('click',function(e){if(!e.target.closest('[data-pdf]'))return;
- var d=new Date(),h='<h1>By o la la..! Katalog hurtowy jesień/zima 2026</h1><p>'+(IN?'Ceny hurtowe netto dla: Butik Maja, rabat stały 5% liczony w koszyku.':'Ceny hurtowe widoczne po zalogowaniu. Tu ceny sugerowane.')+' Stan na '+d.toLocaleDateString('pl-PL')+'. Dane przykładowe.</p>';
- h+=P.map(function(p){return '<div class="pp"><img src="../img/'+ims(p)[0]+'.webp" alt=""><div><b>'+p.n+'</b><br>Kody: '+p.k.map(function(k){return sku(p,k)+' ('+k+')'}).join(', ')+'<br>Rozmiary: S, M, L, XL. Pakiet: 1 S, 2 M, 2 L, 1 XL<br>'+(IN?'Cena hurtowa '+zl(p.h)+' netto · ':'')+'Sugerowana cena detaliczna '+zl(p.r)+'<br>Materiał: '+p.s+'</div></div>'}).join('');
- var pr=$('#print');pr.innerHTML=h;var im=$$('img',pr),left=im.length;function go(){setTimeout(function(){window.print()},50)}
- if(!left)go();im.forEach(function(i){if(i.complete){if(!--left)go()}else{i.onload=i.onerror=function(){if(!--left)go()}}})});
+document.addEventListener('click',function(e){if(!e.target.closest('[data-pdf]'))return;var a=document.createElement('a');a.href='../katalog-hurtowy.pdf';a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()});
 // kafle kategorii
 (function(){var t=$('#tiles'),p=$('#tp'),n=$('#tn');function st(){p.disabled=t.scrollLeft<8;n.disabled=t.scrollLeft+t.clientWidth>t.scrollWidth-8}
  function step(d){var w=t.querySelector('.tile').getBoundingClientRect().width+4;t.scrollBy({left:d*w*(innerWidth>1000?2:1),behavior:'smooth'})}
