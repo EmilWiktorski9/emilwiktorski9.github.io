@@ -34,21 +34,14 @@ nav .ln a{text-decoration:none;color:var(--tx2)}nav .ln a:hover{color:var(--tx)}
 nav .btn{height:42px;padding:0 20px;font-size:14px}
 /* hero */
 .hero{position:relative;height:calc(100svh - 100px);min-height:620px;overflow:hidden}
-.hero .ph{position:absolute;top:0;bottom:0;right:4%;aspect-ratio:1/1;max-width:72%}
+.hbg{position:absolute;inset:-80px;background:url(img/wojciech.webp) 70% 40%/cover;filter:blur(60px) saturate(1.4) brightness(.6);transform:scale(1.1)}
+.hero::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(11,11,12,.92) 0,rgba(11,11,12,.7) 35%,rgba(11,11,12,.15) 65%,rgba(11,11,12,0)),linear-gradient(0deg,var(--bg) 0,rgba(11,11,12,0) 30%)}
+.hero .ph{position:absolute;z-index:1;top:0;bottom:0;right:max(240px,14vw);aspect-ratio:1/1;max-width:72%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28%,#000 80%,transparent 100%),linear-gradient(0deg,transparent 0,#000 30%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 28%,#000 80%,transparent 100%),linear-gradient(0deg,transparent 0,#000 30%);mask-composite:intersect}
+#smk{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;mix-blend-mode:screen}
 .hero .ph img{position:relative;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.smk{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.smk i{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(236,214,255,.55),rgba(214,180,255,.22) 55%,rgba(214,180,255,0));filter:blur(14px);mix-blend-mode:screen;animation:sm 9s ease-in-out infinite alternate}
-.smk i:nth-child(1){left:28%;top:62%;width:34%;height:22%;animation-duration:7s}
-.smk i:nth-child(2){left:42%;top:56%;width:44%;height:30%;animation-duration:10s;animation-delay:-3s}
-.smk i:nth-child(3){left:60%;top:60%;width:42%;height:34%;animation-duration:12s;animation-delay:-6s}
-.smk i:nth-child(4){left:36%;top:70%;width:50%;height:26%;animation-duration:9s;animation-delay:-2s;opacity:.7}
-.smk i:nth-child(5){left:70%;top:52%;width:32%;height:26%;animation-duration:11s;animation-delay:-8s;opacity:.6}
-@keyframes sm{0%{transform:translate(-4%,2%) scale(.92);opacity:.35}50%{opacity:.85}100%{transform:translate(9%,-6%) scale(1.18);opacity:.5}}
-@media (prefers-reduced-motion:reduce){.smk{display:none}}
-.hero .ph::after{z-index:2;content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0,rgba(11,11,12,0) 30%,rgba(11,11,12,0) 78%,var(--bg) 100%),linear-gradient(0deg,var(--bg) 0,rgba(11,11,12,0) 38%),linear-gradient(180deg,var(--bg) 0,rgba(11,11,12,0) 12%)}
-.hin{position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding-bottom:7vh}
+.hin{position:relative;z-index:3;height:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding-bottom:7vh}
 .ht{max-width:620px}
-.hv{flex:none;width:clamp(170px,14vw,230px);text-align:left}
+.hv{position:absolute;right:min(0px,calc(652px - 50vw));bottom:7vh;z-index:4;width:clamp(170px,13vw,220px);text-align:left}
 .hv .t{display:block;position:relative;aspect-ratio:9/16;overflow:hidden;border-radius:12px;box-shadow:0 30px 70px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.12)}
 .hv video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
 .hv:hover video{transform:scale(1.04)}
@@ -62,7 +55,7 @@ nav .btn{height:42px;padding:0 20px;font-size:14px}
 .vc .t{display:block;position:relative;aspect-ratio:9/16;overflow:hidden;border-radius:var(--r);background:var(--bg2)}
 .vc video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .vc:hover video{transform:scale(1.04)}
-.vc h3{font-size:24px;letter-spacing:-.02em;margin:16px 0 4px}
+.vc h3{font-size:24px;letter-spacing:-.02em;margin:16px 0 0;text-align:center}
 .vc p{color:var(--tx2);font-size:15px}
 dialog{margin:auto;background:transparent;border:0;padding:0;max-width:min(96vw,520px);color:var(--tx)}
 dialog::backdrop{background:rgba(5,5,6,.9);backdrop-filter:blur(6px)}
@@ -94,7 +87,7 @@ section{padding:110px 0}
 .or .pr span{display:block;font-size:13px;color:var(--tx2);margin:8px 0 14px}
 .or .pr .btn{height:44px;padding:0 20px;font-size:14px}
 .or .th{display:none}
-#pv{position:fixed;left:0;top:0;width:210px;aspect-ratio:9/16;border-radius:12px;overflow:hidden;pointer-events:none;z-index:25;opacity:0;transform:translate(-50%,-50%) scale(.8) rotate(-4deg);transition:opacity .3s,transform .35s;box-shadow:0 30px 70px rgba(0,0,0,.65)}
+#pv{position:fixed;left:0;top:0;width:110px;border-radius:9px!important;aspect-ratio:9/16;border-radius:12px;overflow:hidden;pointer-events:none;z-index:25;opacity:0;transform:translate(-50%,-50%) scale(.8) rotate(-4deg);transition:opacity .3s,transform .35s;box-shadow:0 30px 70px rgba(0,0,0,.65)}
 #pv.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-4deg)}
 #pv video{width:100%;height:100%;object-fit:cover}
 @media (hover:none),(max-width:900px){#pv{display:none}}
@@ -105,15 +98,16 @@ section{padding:110px 0}
 .kl p+p{margin-top:16px}
 /* termin */
 #termin{background:var(--bg2);border-top:1px solid var(--ln)}
-.tg{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.tg>.pane:first-child{display:flex;flex-direction:column}
 .pane{background:var(--bg);border:1px solid var(--ln);border-radius:var(--r);padding:28px}
 .ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .ch b{font:700 20px Sg;letter-spacing:-.01em;text-transform:capitalize}
 .ch button{width:40px;height:40px;border-radius:50%;border:1px solid var(--ln);font-size:18px}
 .ch button:hover{border-color:var(--tx)}
-.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.cal .dn{font-size:13px;color:#6f6b65;text-align:center;padding:4px 0}
-.cal button{aspect-ratio:1;border-radius:10px;font-size:15px;font-weight:500;border:1px solid transparent}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;flex:1;align-content:space-evenly}
+.cal .dn{font-size:13px;color:#6f6b65;text-align:center;padding:4px 0;align-self:end}
+.cal button{min-height:44px;border-radius:10px;font-size:15px;font-weight:500;border:1px solid transparent}
 .cal button.free:hover{border-color:var(--tx)}
 .cal button.busy{color:#55524d;text-decoration:line-through;cursor:default}
 .cal button.past{color:#3c3a37;cursor:default}
@@ -148,17 +142,18 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
  section{padding:72px 0}
  .hero{height:auto;min-height:0}
  .hero .ph{position:relative;right:auto;width:100%;max-width:none;aspect-ratio:1/1.05}
- .hero .ph::after{background:linear-gradient(0deg,var(--bg) 0,rgba(11,11,12,0) 40%)}
+ .hero .ph{-webkit-mask-image:linear-gradient(0deg,transparent 0,#000 40%);mask-image:linear-gradient(0deg,transparent 0,#000 40%)}
+ .hbg,.hero::before{display:none}
  .hin{display:block;position:static;margin-top:-34vw;padding-bottom:40px}
  .ht{position:relative;z-index:2}
- .hv{position:absolute;right:16px;top:calc(105vw - 250px);width:92px;z-index:3}
+ .hv{position:absolute;right:16px;bottom:auto;top:calc(105vw - 250px);width:92px;z-index:3}
  .hv .t{border-radius:10px}
  .hv>span{display:none}.hv .pl{left:6px;bottom:6px;padding:6px;font-size:0;gap:0}
  .vr{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:70%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;margin:0 -20px;padding:0 20px}
  .vc{scroll-snap-align:start}
  .ht h1{font-size:clamp(60px,18vw,110px)}
  .bt{flex-direction:column}.bt .btn{min-width:0;width:100%}
- .or{grid-template-columns:84px 1fr;gap:6px 16px;padding:26px 0;align-items:start}
+ .or{grid-template-columns:56px 1fr;gap:6px 16px;padding:26px 0;align-items:start}
  .or .th{display:block;grid-row:1/span 4;aspect-ratio:9/16;border-radius:10px;overflow:hidden}.or .th video{width:100%;height:100%;object-fit:cover;display:block}
  .or h3,.or .ds,.or ul,.or .pr{grid-column:2}.or .pr{grid-row:auto;text-align:left}.or .pr span{margin:6px 0 12px}
  .or:hover h3{transform:none}
@@ -180,7 +175,8 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </div></nav>
 
 <header class="hero">
- <div class="ph"><div class="smk" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><img src="img/wojciech.webp" alt="DJ Wojciech z armatką CO2" width="950" height="960" fetchpriority="high"></div>
+ <div class="hbg" aria-hidden="true"></div>
+ <div class="ph"><canvas id="smk" aria-hidden="true"></canvas><img src="img/wojciech.webp" alt="DJ Wojciech z armatką CO2" width="950" height="960" fetchpriority="high"></div>
  <div class="w hin">
   <div class="ht">
    <h1>DJ Wojciech</h1>
@@ -188,9 +184,8 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
    <p>Żyrardowski DJ z klubów. Wesela, studniówki, osiemnastki i eventy firmowe.</p>
    <div class="bt"><a class="btn a" href="#termin">Sprawdź wolny termin</a><a class="btn o" href="tel:+48606859057">Zadzwoń: 606 859 057</a></div>
   </div>
-  <button class="hv" data-video="img/film-pelny.mp4" data-cap="Z imprez DJ Wojciecha, 50 sekund" aria-label="Obejrzyj film z imprez z dźwiękiem">
+  <button class="hv" data-video="img/film-pelny.mp4" data-cap="Z imprez DJ Wojciecha" aria-label="Obejrzyj film z imprez z dźwiękiem">
    <span class="t"><video src="img/film.mp4" poster="img/film.webp" autoplay muted loop playsinline preload="metadata"></video><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Z dźwiękiem</span></span>
-   <span><b>Tak wygląda parkiet</b><br>50 sekund z ostatnich imprez</span>
   </button>
  </div>
 </header>
@@ -198,10 +193,10 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="filmy"><div class="w">
  <div class="hd"><h2>Z ostatnich imprez</h2></div>
  <div class="vr">
-  <button class="vc" data-video="img/wesele-pelny.mp4" data-cap="Wesele"><span class="t"><video src="img/wesele.mp4" poster="img/wesele.webp" muted loop playsinline preload="none"></video></span><h3>Wesele</h3><p>Pełna sala, światła i parkiet do ostatniego numeru. 33 sekundy.</p></button>
-  <button class="vc" data-video="img/bogato-pelny.mp4" data-cap="Studniówka"><span class="t"><video src="img/bogato.mp4" poster="img/bogato.webp" muted loop playsinline preload="none"></video></span><h3>Studniówka</h3><p>Sala z kolumnami i świecące pałeczki dla gości. 16 sekund.</p></button>
-  <button class="vc" data-video="img/osiemnastka-pelny.mp4" data-cap="Osiemnastka"><span class="t"><video src="img/osiemnastka.mp4" poster="img/osiemnastka.webp" muted loop playsinline preload="none"></video></span><h3>Osiemnastka</h3><p>Balony, lasery i pełny parkiet. 52 sekundy.</p></button>
-  <button class="vc" data-video="img/parkiet-pelny.mp4" data-cap="Urodziny"><span class="t"><video src="img/parkiet.mp4" poster="img/parkiet.webp" muted loop playsinline preload="none"></video></span><h3>Urodziny</h3><p>Lasery, dym i goście, którzy nie schodzą z parkietu. 37 sekund.</p></button>
+  <button class="vc" data-video="img/bogato-pelny.mp4" data-cap="Studniówka"><span class="t"><video src="img/bogato.mp4" poster="img/bogato.webp" muted loop playsinline preload="none"></video></span><h3>Studniówka</h3></button>
+  <button class="vc" data-video="img/osiemnastka-pelny.mp4" data-cap="Osiemnastka"><span class="t"><video src="img/osiemnastka.mp4" poster="img/osiemnastka.webp" muted loop playsinline preload="none"></video></span><h3>Osiemnastka</h3></button>
+  <button class="vc" data-video="img/parkiet-pelny.mp4" data-cap="Urodziny"><span class="t"><video src="img/parkiet.mp4" poster="img/parkiet.webp" muted loop playsinline preload="none"></video></span><h3>Urodziny</h3></button>
+  <button class="vc" data-video="img/wesele-pelny.mp4" data-cap="Wesele"><span class="t"><video src="img/wesele.mp4" poster="img/wesele.webp" muted loop playsinline preload="none"></video></span><h3>Wesele</h3></button>
  </div>
 </div></section>
 
@@ -250,8 +245,24 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <script>
 var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
 var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+/* dym z armatki */
+(function(){var c=$('#smk'),x=c.getContext('2d'),W,H,dpr=Math.min(2,devicePixelRatio||1),P=[],last=performance.now(),acc=0,vis=true;
+ var sp=document.createElement('canvas');sp.width=sp.height=128;var g=sp.getContext('2d'),rg=g.createRadialGradient(64,64,0,64,64,64);rg.addColorStop(0,'rgba(238,220,255,1)');rg.addColorStop(.45,'rgba(220,190,255,.45)');rg.addColorStop(1,'rgba(210,180,255,0)');g.fillStyle=rg;g.fillRect(0,0,128,128);
+ function rs(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}rs();addEventListener('resize',rs);
+ new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(c);
+ function add(){var a=(Math.random()-.5)*.5-.08;P.push({x:W*.3,y:H*.635,vx:Math.cos(a)*W*(.1+Math.random()*.09),vy:Math.sin(a)*W*(.05+Math.random()*.05),r:W*.035,gr:W*(.05+Math.random()*.04),t:0,l:4+Math.random()*2.5,rot:Math.random()*6})}
+ for(var k=0;k<60;k++){add();var p=P[P.length-1],tt=Math.random()*p.l;p.x+=p.vx*tt;p.y+=p.vy*tt;p.r+=p.gr*tt;p.t=tt}
+ function fr(now){requestAnimationFrame(fr);var dt=Math.min(.05,(now-last)/1000);last=now;if(!vis)return;
+  acc+=dt*14;while(acc>1){add();acc--}
+  x.clearRect(0,0,W,H);x.globalCompositeOperation='lighter';
+  for(var i=P.length-1;i>=0;i--){var p=P[i];p.t+=dt;if(p.t>p.l){P.splice(i,1);continue}
+   p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=.995;p.vy-=H*.004*dt;p.r+=p.gr*dt;
+   var k2=p.t/p.l,al=Math.sin(Math.PI*Math.min(1,k2*1.15))*.075;
+   x.globalAlpha=al;x.drawImage(sp,p.x-p.r,p.y-p.r,p.r*2,p.r*2)}
+  x.globalAlpha=1}
+ requestAnimationFrame(fr)})();
 /* zmieniające się słowa */
-(function(){var w=['weselach','studniówkach','osiemnastkach','eventach firmowych','urodzinach'],i=0,b=$('#rw');if(RM)return;
+(function(){var w=['weselach','studniówkach','osiemnastkach','eventach firmowych','urodzinach'],i=0,b=$('#rw');
  setInterval(function(){b.classList.add('out');setTimeout(function(){i=(i+1)%w.length;b.textContent=w[i];b.classList.remove('out')},350)},2200)})();
 /* kalendarz i wycena */
 var busy={},td=new Date();td.setHours(0,0,0,0);
@@ -291,7 +302,7 @@ $$('.vr video').forEach(function(v){new IntersectionObserver(function(es){es[0].
  if(matchMedia('(hover:hover) and (min-width:901px)').matches){
   $$('.or').forEach(function(r){r.addEventListener('mouseenter',function(){if(v.getAttribute('src')!=r.dataset.v){v.src=r.dataset.v}v.play().catch(function(){});pv.classList.add('on');on=true});
    r.addEventListener('mouseleave',function(){pv.classList.remove('on');on=false})});
-  addEventListener('mousemove',function(e){tx=e.clientX+150;ty=e.clientY});
+  addEventListener('mousemove',function(e){tx=e.clientX+90;ty=e.clientY});
   (function lp(){requestAnimationFrame(lp);if(!on&&!pv.classList.contains('on'))return;x+=(tx-x)*.12;y+=(ty-y)*.12;pv.style.left=x+'px';pv.style.top=y+'px'})();
  } else {
   $$('.or .th video').forEach(function(vv){new IntersectionObserver(function(es){es[0].isIntersecting?vv.play().catch(function(){}):vv.pause()},{threshold:.3}).observe(vv)});
