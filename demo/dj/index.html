@@ -53,12 +53,12 @@ nav .btn{height:42px;padding:0 20px;font-size:14px}
 .hv>span{display:block;font-size:13px;color:var(--tx2);margin-top:11px;line-height:1.45}
 .hv>span b{color:var(--tx);font-weight:600}
 /* filmy */
-.vr{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vr{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .vc{text-align:left;display:block;align-self:start}
 .vc .t{display:block;position:relative;aspect-ratio:9/16;overflow:hidden;border-radius:var(--r);background:var(--bg2)}
 .vc video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .vc:hover video{transform:scale(1.04)}
-.vc h3{font-size:24px;letter-spacing:-.02em;margin:16px 0 0;text-align:center}
+.vc h3{font-size:22px;letter-spacing:-.02em;margin:16px 0 0;text-align:center}
 .vc p{color:var(--tx2);font-size:15px}
 dialog{margin:auto;background:transparent;border:0;padding:0;max-width:min(96vw,520px);color:var(--tx)}
 dialog::backdrop{background:rgba(5,5,6,.9);backdrop-filter:blur(6px)}
@@ -241,6 +241,7 @@ body.go .ht>*:nth-child(2){transition-delay:.1s}body.go .ht>*:nth-child(3){trans
   <button class="vc" data-video="img/bogato-pelny.mp4" data-cap="Studniówka"><span class="t"><video src="img/bogato.mp4" poster="img/bogato.webp" muted loop playsinline preload="none"></video></span><h3>Studniówka</h3></button>
   <button class="vc" data-video="img/osiemnastka-pelny.mp4" data-cap="Osiemnastka"><span class="t"><video src="img/osiemnastka.mp4" poster="img/osiemnastka.webp" muted loop playsinline preload="none"></video></span><h3>Osiemnastka</h3></button>
   <button class="vc" data-video="img/parkiet-pelny.mp4" data-cap="Urodziny"><span class="t"><video src="img/parkiet.mp4" poster="img/parkiet.webp" muted loop playsinline preload="none"></video></span><h3>Urodziny</h3></button>
+  <button class="vc" data-video="img/dozynki-pelny.mp4" data-cap="Dożynki"><span class="t"><video src="img/dozynki.mp4" poster="img/dozynki.webp" muted loop playsinline preload="none"></video></span><h3>Dożynki</h3></button>
   <button class="vc" data-video="img/wesele-pelny.mp4" data-cap="Wesele"><span class="t"><video src="img/wesele.mp4" poster="img/wesele.webp" muted loop playsinline preload="none"></video></span><h3>Wesele</h3></button>
  </div>
 </div></section>
@@ -250,7 +251,7 @@ body.go .ht>*:nth-child(2){transition-delay:.1s}body.go .ht>*:nth-child(3){trans
  <div class="of">
   <div class="or" data-v="img/wesele.mp4"><span class="th"><video src="img/wesele.mp4" muted loop playsinline preload="none"></video></span><h3>Wesela</h3><p class="ds">Prowadzenie całego wieczoru, pierwszy taniec, oczepiny i zabawy.</p><ul><li>Nagłośnienie i oświetlenie</li><li>Prowadzenie wieczoru</li><li>Ankieta muzyczna</li></ul><div class="pr"><b><small>od</small>4 500 zł</b><span>cena przykładowa</span><a class="btn o" href="#termin" data-pick="wesele">Sprawdź termin</a></div></div>
   <div class="or" data-v="img/bogato.mp4"><span class="th"><video src="img/bogato.mp4" muted loop playsinline preload="none"></video></span><h3>Studniówki i osiemnastki</h3><p class="ds">Polonez, potem impreza do rana.</p><ul><li>Lasery i ciężki dym</li><li>Świecące pałeczki</li><li>Hity, które zna cała klasa</li></ul><div class="pr"><b><small>od</small>2 500 zł</b><span>cena przykładowa</span><a class="btn o" href="#termin" data-pick="studniowka">Sprawdź termin</a></div></div>
-  <div class="or" data-v="img/parkiet.mp4"><span class="th"><video src="img/parkiet.mp4" muted loop playsinline preload="none"></video></span><h3>Eventy i konferencje</h3><p class="ds">Nagłośnienie wystąpień, muzyka do kolacji, potem set taneczny.</p><ul><li>Mikrofony dla prelegentów</li><li>Muzyka do kolacji</li><li>Set taneczny</li></ul><div class="pr"><b><small>od</small>3 000 zł</b><span>cena przykładowa</span><a class="btn o" href="#termin" data-pick="firma">Sprawdź termin</a></div></div>
+  <div class="or" data-v="img/dozynki.mp4"><span class="th"><video src="img/dozynki.mp4" muted loop playsinline preload="none"></video></span><h3>Eventy i plenery</h3><p class="ds">Dożynki, festyny, eventy firmowe. Scena, nagłośnienie wystąpień i set taneczny.</p><ul><li>Nagłośnienie plenerowe</li><li>Oświetlenie sceny</li><li>Mikrofony dla prowadzących</li></ul><div class="pr"><b><small>od</small>3 000 zł</b><span>cena przykładowa</span><a class="btn o" href="#termin" data-pick="firma">Sprawdź termin</a></div></div>
   <div class="or" data-v="img/osiemnastka.mp4"><span class="th"><video src="img/osiemnastka.mp4" muted loop playsinline preload="none"></video></span><h3>Urodziny i chrzciny</h3><p class="ds">Muzyka, przy której tańczą i dzieci, i dziadkowie.</p><ul><li>Nagłośnienie i oświetlenie</li><li>Muzyka dla każdego wieku</li><li>Zabawy dla dzieci</li></ul><div class="pr"><b><small>od</small>1 800 zł</b><span>cena przykładowa</span><a class="btn o" href="#termin" data-pick="rodzina">Sprawdź termin</a></div></div>
  </div>
 </div></section>
@@ -271,7 +272,7 @@ body.go .ht>*:nth-child(2){transition-delay:.1s}body.go .ht>*:nth-child(3){trans
   </div>
   <div class="pane">
    <form id="fm" novalidate>
-    <div class="f"><label>Rodzaj imprezy</label><div class="ty" id="ty"><button type="button" data-t="wesele" class="on">Wesele</button><button type="button" data-t="studniowka">Studniówka lub osiemnastka</button><button type="button" data-t="firma">Event firmowy</button><button type="button" data-t="rodzina">Urodziny lub chrzciny</button></div></div>
+    <div class="f"><label>Rodzaj imprezy</label><div class="ty" id="ty"><button type="button" data-t="wesele" class="on">Wesele</button><button type="button" data-t="studniowka">Studniówka lub osiemnastka</button><button type="button" data-t="firma">Event lub plener</button><button type="button" data-t="rodzina">Urodziny lub chrzciny</button></div></div>
     <div class="f f2"><div><label for="g">Liczba gości</label><input id="g" type="number" inputmode="numeric" value="100" min="10"></div><div><label for="km">Dojazd z Żyrardowa (km)</label><input id="km" type="number" inputmode="numeric" value="30" min="0"></div></div>
     <div class="f"><label>Dodatki</label><div class="ad" id="ad"><button type="button" data-p="600">Ciężki dym<i>+600 zł</i></button><button type="button" data-p="500">Napis LOVE<i>+500 zł</i></button><button type="button" data-p="700">Oświetlenie sali<i>+700 zł</i></button><button type="button" data-p="400">Fotobudka<i>+400 zł</i></button></div></div>
     <div class="qt"><div class="st" id="st">Wybierz dzień w kalendarzu</div><div class="big" id="pr">od 4 500 zł</div><small id="pi">Nagłośnienie, oświetlenie i prowadzenie w cenie.</small></div>
@@ -344,7 +345,7 @@ var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
  $('#start').addEventListener('click',function(){I.classList.add('go');document.body.classList.remove('lock');setTimeout(function(){document.body.classList.add('go')},350);setTimeout(function(){run=false;I.remove()},1700)});
 })();
 /* zmieniające się słowa */
-(function(){var w=['weselach','studniówkach','osiemnastkach','eventach firmowych','urodzinach'],i=0,b=$('#rw');
+(function(){var w=['weselach','studniówkach','osiemnastkach','dożynkach','eventach firmowych','urodzinach'],i=0,b=$('#rw');
  setInterval(function(){b.classList.add('out');setTimeout(function(){i=(i+1)%w.length;b.textContent=w[i];b.classList.remove('out')},350)},2200)})();
 /* kalendarz i wycena */
 var busy={},td=new Date();td.setHours(0,0,0,0);
