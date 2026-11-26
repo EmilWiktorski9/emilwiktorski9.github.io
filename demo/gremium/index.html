@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Gremium Kredyty · pośrednictwo kredytowe w Łodzi (demo)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1a2b'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-size='34' text-anchor='middle' fill='%23c9a86a'%3EG%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:Nr;font-weight:400;font-display:swap;src:url(fonts/newsreader-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122}
+@font-face{font-family:Nr;font-weight:400;font-display:swap;src:url(fonts/newsreader-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+1E00-1EFF}
+@font-face{font-family:It;font-weight:400;font-display:swap;src:url(fonts/inter-tight-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:It;font-weight:400;font-display:swap;src:url(fonts/inter-tight-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+1E00-1EFF}
+@font-face{font-family:It;font-weight:500;font-display:swap;src:url(fonts/inter-tight-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:It;font-weight:500;font-display:swap;src:url(fonts/inter-tight-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+1E00-1EFF}
+@font-face{font-family:It;font-weight:600;font-display:swap;src:url(fonts/inter-tight-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:It;font-weight:600;font-display:swap;src:url(fonts/inter-tight-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+1E00-1EFF}
+:root{--ink:#0e1a2b;--ink2:#15253a;--ln:rgba(255,255,255,.12);--cr:#f3efe7;--cr2:#e9e3d7;--tx:#14202f;--tx2:#5f6672;--g:#c9a86a;--g2:#e2c992;--r:6px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--cr);color:var(--tx);font:400 17px/1.6 It,system-ui,sans-serif;font-variant-numeric:lining-nums tabular-nums;overflow-x:hidden}
+a{color:inherit}button,input,select{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}
+.w{max-width:1240px;margin:0 auto;padding:0 40px}
+h1,h2,h3{font-family:Nr,Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1.02;text-wrap:balance}
+p{text-wrap:pretty}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:99px;font-weight:500;font-size:16px;text-decoration:none;transition:background .3s,color .3s,border-color .3s,transform .3s;white-space:nowrap}
+.btn.g{background:var(--g);color:var(--ink)}.btn.g:hover{background:var(--g2)}
+.btn.o{border:1px solid rgba(255,255,255,.3);color:#fff}.btn.o:hover{border-color:#fff}
+.btn.d{background:var(--ink);color:#fff}.btn.d:hover{background:#23344c}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:40;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.s{background:rgba(14,26,43,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-color:var(--ln)}
+nav .w{display:flex;align-items:center;height:76px;gap:36px;color:#fff}
+.lg{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.lg b{font:400 27px/1 Nr,serif;letter-spacing:-.01em}
+.lg span{font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.02em}
+nav .ln{margin-left:auto;display:flex;gap:30px;font-size:15px}
+nav .ln a{text-decoration:none;color:rgba(255,255,255,.75);transition:color .2s}nav .ln a:hover{color:#fff}
+nav .btn{height:44px;padding:0 20px;font-size:15px}
+/* hero */
+.hero{position:relative;background:var(--ink);color:#fff;padding:150px 0 110px;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.hg{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.hero h1{font-size:clamp(46px,5vw,76px)}
+.hero .lead{font-size:20px;color:rgba(255,255,255,.72);max-width:520px;margin:28px 0 38px}
+.bt{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:flex;gap:34px;margin-top:54px;padding-top:28px;border-top:1px solid var(--ln);font-size:14px;color:rgba(255,255,255,.6)}
+.trust b{display:block;font:400 34px/1 Nr,serif;color:#fff;margin-bottom:6px}
+/* kalkulator */
+.calc{background:var(--cr);color:var(--tx);border-radius:14px;padding:34px;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+.calc h2{font-size:28px;margin-bottom:4px}
+.calc .sub{font-size:14px;color:var(--tx2);margin-bottom:26px}
+.fld{margin-bottom:22px}
+.fld .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;font-size:15px;color:var(--tx2)}
+.fld .row b{font:500 19px It;color:var(--tx)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--ink) var(--p,50%),#d6cfc2 var(--p,50%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--ink);border:4px solid var(--cr);box-shadow:0 0 0 1px var(--ink);cursor:grab}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--ink);border:4px solid var(--cr);box-shadow:0 0 0 1px var(--ink);cursor:grab}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid #d6cfc2;padding-top:22px;margin-top:6px}
+.res span{display:block;font-size:14px;color:var(--tx2)}
+.res b{display:block;font:400 42px/1.1 Nr,serif;letter-spacing:-.02em}
+.res .sm b{font-size:26px;margin-top:8px}
+.calc .note{font-size:13px;color:var(--tx2);margin-top:18px}
+.calc .btn{width:100%;margin-top:20px}
+/* sekcje */
+section{padding:130px 0}
+.hd{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:60px}
+.hd h2{font-size:clamp(40px,4.6vw,66px)}
+.hd p{color:var(--tx2);font-size:18px;max-width:480px}
+/* porownanie */
+#porownanie{background:var(--cr)}
+.cmp{border-top:1px solid #d6cfc2}
+.bk{display:grid;grid-template-columns:120px 1fr 150px 170px;gap:24px;align-items:center;padding:20px 0;border-bottom:1px solid #d6cfc2}
+.bk .nm{font-weight:500}
+.bk .nm small{display:block;font-size:13px;color:var(--tx2);font-weight:400}
+.bar{height:10px;background:#e3dccf;border-radius:9px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:#9aa3ae;border-radius:9px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.bk .v{text-align:right;font-size:15px;color:var(--tx2)}.bk .v b{display:block;font:500 19px It;color:var(--tx)}
+.bk.best .bar i{background:var(--ink)}
+.bk.best .nm::after{content:'Najtańsza';display:inline-block;margin-top:6px;font-size:12px;font-weight:600;background:var(--g);color:var(--ink);padding:2px 9px;border-radius:99px}
+.diff{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;margin-top:50px;background:var(--ink);color:#fff;border-radius:14px;padding:40px 44px}
+.diff b{font:400 clamp(44px,5vw,72px)/1 Nr,serif;color:var(--g2);letter-spacing:-.02em}
+.diff p{font-size:19px;color:rgba(255,255,255,.8);max-width:560px}
+.cmp-n{font-size:13px;color:var(--tx2);margin-top:16px}
+/* kredyty */
+#kredyty{background:var(--ink);color:#fff}
+#kredyty .hd p{color:rgba(255,255,255,.65)}
+.kr{border-top:1px solid var(--ln)}
+.ki{display:grid;grid-template-columns:1fr 1.1fr 40px;gap:40px;align-items:center;padding:34px 0;border-bottom:1px solid var(--ln);text-decoration:none;transition:padding .4s}
+.ki h3{font-size:clamp(32px,3.4vw,48px);transition:color .3s}
+.ki p{color:rgba(255,255,255,.65)}
+.ki .ar{width:40px;height:40px;border-radius:50%;border:1px solid var(--ln);display:grid;place-items:center;transition:background .3s,border-color .3s,transform .3s}
+.ki:hover{padding-left:16px}.ki:hover h3{color:var(--g2)}.ki:hover .ar{background:var(--g);border-color:var(--g);transform:rotate(-45deg)}
+.ki:hover .ar svg{stroke:var(--ink)}
+/* proces */
+.pr{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:28px;padding-top:42px}
+.pr::before{content:'';position:absolute;left:0;right:0;top:12px;height:1px;background:#d6cfc2}
+.pr .ln2{position:absolute;left:0;top:12px;height:1px;width:0;background:var(--ink);transition:width 1.8s cubic-bezier(.2,.8,.2,1)}
+.st{position:relative;opacity:.35;transition:opacity .6s}
+.st::before{content:'';position:absolute;top:-37px;left:0;width:11px;height:11px;border-radius:50%;background:var(--cr);border:1px solid var(--ink)}
+.st.on{opacity:1}.st.on::before{background:var(--ink)}
+.st h3{font-size:24px;margin-bottom:10px}
+.st p{font-size:15px;color:var(--tx2)}
+/* zespol */
+#zespol{background:var(--cr2)}
+.tm{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pp{background:var(--cr);border-radius:14px;padding:28px;display:flex;flex-direction:column;min-height:330px;transition:transform .4s,box-shadow .4s}
+.pp:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(14,26,43,.12)}
+.pp .av{width:64px;height:64px;border-radius:50%;background:var(--ink);color:var(--g2);display:grid;place-items:center;font:400 24px Nr,serif;margin-bottom:24px}
+.pp h3{font-size:26px;margin-bottom:6px}
+.pp .rl{font-size:14px;color:var(--g);font-weight:600;margin-bottom:12px;color:#94743c}
+.pp p{font-size:15px;color:var(--tx2)}
+.pp a{margin-top:auto;padding-top:20px;font-size:14px;color:var(--tx);text-decoration:none;border-top:1px solid #d6cfc2;word-break:break-all}
+.pp a:hover{color:#94743c}
+/* kontakt */
+#kontakt{background:var(--ink);color:#fff}
+.kt{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.kt h2{font-size:clamp(44px,5vw,72px);margin-bottom:26px}
+.kt .ph{display:block;font:400 clamp(34px,3.4vw,48px)/1 Nr,serif;color:var(--g2);text-decoration:none;margin-bottom:30px}
+.kt dl{display:grid;grid-template-columns:auto 1fr;gap:12px 28px;font-size:16px}
+.kt dt{color:rgba(255,255,255,.5)}
+.kt dd a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+form{background:var(--ink2);border:1px solid var(--ln);border-radius:14px;padding:34px}
+form h3{font-size:28px;margin-bottom:22px}
+label{display:block;font-size:14px;color:rgba(255,255,255,.6);margin-bottom:7px}
+.fi{margin-bottom:16px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input[type=text],input[type=tel],select{width:100%;height:52px;border-radius:var(--r);border:1px solid var(--ln);background:rgba(255,255,255,.04);padding:0 16px;font-size:16px;color:#fff}
+select option{color:#000}
+input:focus,select:focus{outline:none;border-color:var(--g)}
+form .btn{width:100%;margin-top:8px}
+form small{display:block;font-size:13px;color:rgba(255,255,255,.45);margin-top:14px}
+.ok{display:none;padding:30px 0;text-align:center}.ok h3{margin-bottom:8px}
+footer{background:#0a1320;color:rgba(255,255,255,.55);font-size:14px;padding:36px 0}
+footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+/* wejscia */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.mb{display:none}
+@media (max-width:980px){
+ .w{padding:0 22px}
+ nav .ln{display:none}nav .w{height:66px}
+ .lg span{display:none}
+ .hero{padding:110px 0 70px}
+ .hg,.hd,.kt{grid-template-columns:1fr;gap:34px}
+ .hero .lead{font-size:18px}
+ .trust{gap:22px}.trust b{font-size:28px}
+ .calc{padding:24px}.res b{font-size:34px}
+ section{padding:84px 0}
+ .hd{margin-bottom:36px}
+ .bk{grid-template-columns:1fr auto;gap:8px 16px;padding:18px 0}
+ .bk .bar{grid-column:1/-1;order:3}.bk .v.t{display:none}
+ .diff{grid-template-columns:1fr;gap:12px;padding:28px}
+ .ki{grid-template-columns:1fr 40px;gap:8px 16px;padding:26px 0}.ki p{grid-column:1;font-size:15px}.ki .ar{grid-row:1/span 2;grid-column:2}
+ .pr{grid-template-columns:1fr;gap:26px;padding:0 0 0 34px}
+ .pr::before{left:5px;right:auto;top:0;bottom:0;width:1px;height:auto}
+ .pr .ln2{left:5px;top:0;width:1px!important;height:0;transition:height 1.8s cubic-bezier(.2,.8,.2,1)}
+ .st::before{top:6px;left:-34px}
+ .tm{grid-template-columns:1fr 1fr;gap:12px}.pp{padding:20px;min-height:0}.pp h3{font-size:22px}
+ form{padding:24px}.f2{grid-template-columns:1fr}
+ .mb{display:flex;position:fixed;left:10px;right:10px;bottom:10px;z-index:40;gap:8px;padding:8px;border-radius:99px;background:rgba(14,26,43,.95);backdrop-filter:blur(10px);transform:translateY(140%);transition:transform .35s}
+ .mb.on{transform:none}.mb .btn{flex:1;height:48px;font-size:15px}
+ footer{padding-bottom:90px}
+}
+@media (max-width:560px){.tm{grid-template-columns:1fr}.trust{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<nav id="nv"><div class="w">
+ <a class="lg" href="#"><b>Gremium</b><span>Kredyty</span></a>
+ <div class="ln"><a href="#porownanie">Porównanie</a><a href="#kredyty">Kredyty</a><a href="#proces">Jak pracujemy</a><a href="#zespol">Zespół</a><a href="#kontakt">Kontakt</a></div>
+ <a class="btn g" href="tel:+48603751281">603 751 281</a>
+</div></nav>
+
+<header class="hero">
+ <canvas id="cv" aria-hidden="true"></canvas>
+ <div class="w hg">
+  <div>
+   <h1 class="rv">Kredyt dopasowany do Ciebie, nie do jednego banku</h1>
+   <p class="lead rv">Porównujemy oferty kilku banków, liczymy ratę i prowadzimy wniosek aż do podpisania umowy. Pośrednictwo kredytowe w Łodzi, ul. Dowborczyków 30/34.</p>
+   <div class="bt rv"><a class="btn g" href="#kontakt">Umów bezpłatną rozmowę</a><a class="btn o" href="#porownanie">Zobacz, ile można zyskać</a></div>
+   <div class="trust rv"><div><b>15+ lat</b>doświadczenia zespołu</div><div><b>Kilka banków</b>w jednym porównaniu</div><div><b>0 zł</b>za analizę ofert</div></div>
+  </div>
+  <div class="calc rv" id="calc">
+   <h2>Policz ratę</h2>
+   <p class="sub">Kredyt hipoteczny, rata równa</p>
+   <div class="fld"><div class="row"><span>Kwota kredytu</span><b id="oK"></b></div><input id="iK" type="range" min="100000" max="1500000" step="10000" value="450000" aria-label="Kwota kredytu"></div>
+   <div class="fld"><div class="row"><span>Okres spłaty</span><b id="oO"></b></div><input id="iO" type="range" min="5" max="35" step="1" value="25" aria-label="Okres spłaty w latach"></div>
+   <div class="fld"><div class="row"><span>Oprocentowanie</span><b id="oP"></b></div><input id="iP" type="range" min="5" max="9.5" step="0.05" value="7.2" aria-label="Oprocentowanie roczne"></div>
+   <div class="res"><div><span>Miesięczna rata</span><b id="oR"></b></div><div class="sm"><span>Odsetki przez cały okres</span><b id="oS"></b></div></div>
+   <p class="note">Wyliczenie poglądowe. Dokładną ofertę z RRSO przygotujemy po rozmowie.</p>
+   <a class="btn d" href="#kontakt">Chcę dokładną ofertę</a>
+  </div>
+ </div>
+</header>
+
+<section id="porownanie"><div class="w">
+ <div class="hd"><h2 class="rv">Ta sama kwota, różne banki</h2><p class="rv">Dla kwoty i okresu z kalkulatora sprawdzamy oferty kilku banków. Różnice w oprocentowaniu wyglądają na małe, ale przez lata spłaty składają się na duże pieniądze.</p></div>
+ <div class="cmp" id="cmp"></div>
+ <div class="diff rv"><b id="dB"></b><p id="dP"></p></div>
+ <p class="cmp-n">Oferty przykładowe, banki oznaczone literami. Prawdziwe porównanie robimy dla Twojej sytuacji: dochodów, wkładu własnego i nieruchomości.</p>
+</div></section>
+
+<section id="kredyty"><div class="w">
+ <div class="hd"><h2 class="rv">W czym pomagamy</h2><p class="rv">Od mieszkania na start po finansowanie firmy. Za każdym razem zaczynamy od rozmowy o Twoich potrzebach.</p></div>
+ <div class="kr">
+  <a class="ki rv" href="#kontakt"><h3>Kredyty hipoteczne</h3><p>Zakup lub budowa domu, mieszkania albo działki.</p><span class="ar"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+  <a class="ki rv" href="#kontakt"><h3>Kredyty mieszkaniowe</h3><p>Zakup lub budowa nieruchomości, w której będziesz mieszkać.</p><span class="ar"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+  <a class="ki rv" href="#kontakt"><h3>Kredyty inwestycyjne</h3><p>Finansowanie rozwoju działalności.</p><span class="ar"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+  <a class="ki rv" href="#kontakt"><h3>Kredyty dla firm</h3><p>Środki trwałe, bieżące koszty i wsparcie działalności.</p><span class="ar"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+  <a class="ki rv" href="#kontakt"><h3>Konsolidacja kredytów</h3><p>Kilka zobowiązań w jednym kredycie i jednej racie.</p><span class="ar"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+ </div>
+</div></section>
+
+<section id="proces"><div class="w">
+ <div class="hd"><h2 class="rv">Jak pracujemy</h2><p class="rv">Pięć kroków od pierwszej rozmowy do podpisanej umowy. Na każdym etapie wiesz, co się dzieje.</p></div>
+ <div class="pr" id="pr"><span class="ln2" id="ln2"></span>
+  <div class="st"><h3>Spotkanie</h3><p>Poznajemy Twoją sytuację i sprawdzamy, czego potrzebujesz.</p></div>
+  <div class="st"><h3>Analiza ofert</h3><p>Porównujemy propozycje kilku banków, bez zobowiązań.</p></div>
+  <div class="st"><h3>Dopasowanie</h3><p>Wybieramy kredyt, który pasuje do Twoich możliwości.</p></div>
+  <div class="st"><h3>Dokumenty</h3><p>Pomagamy skompletować wszystko, czego wymaga bank.</p></div>
+  <div class="st"><h3>Opieka</h3><p>Jesteśmy przy Tobie aż do podpisania umowy.</p></div>
+ </div>
+</div></section>
+
+<section id="zespol"><div class="w">
+ <div class="hd"><h2 class="rv">Zespół</h2><p class="rv">Rozmawiasz z ludźmi, którzy znają rynek kredytów od lat i odpowiadają za Twój wniosek.</p></div>
+ <div class="tm">
+  <div class="pp rv"><div class="av">MC</div><h3>Michał Chrakowiecki</h3><div class="rl">Ekspert kredytowy</div><p>Kredyty hipoteczne, mieszkaniowe i dla firm.</p><a href="mailto:m.chrakowiecki@gremiumkredyty.pl">m.chrakowiecki@gremiumkredyty.pl</a></div>
+  <div class="pp rv"><div class="av">SK</div><h3>Seweryn Kaniewski</h3><div class="rl">Planowanie finansowe</div><p>Ubezpieczenia, zabezpieczenie emerytury, plany kapitałowe i inwestycje.</p><a href="mailto:s.kaniewski@gremiumkredyty.pl">s.kaniewski@gremiumkredyty.pl</a></div>
+  <div class="pp rv"><div class="av">ST</div><h3>Sylwia Trębska</h3><div class="rl">Nieruchomości i dokumenty</div><p>Zarządzanie inwestycjami, wycena nieruchomości, dokumentacja do wniosków kredytowych.</p><a href="mailto:s.trebska@gremiumkredyty.pl">s.trebska@gremiumkredyty.pl</a></div>
+  <div class="pp rv"><div class="av">PK</div><h3>Przemysław Kaczmarek</h3><div class="rl">Gremium Ubezpieczenia</div><p>Ubezpieczenia w grupie Gremium.</p><a href="mailto:p.kaczmarek@gremium.info.pl">p.kaczmarek@gremium.info.pl</a></div>
+ </div>
+</div></section>
+
+<section id="kontakt"><div class="w kt">
+ <div>
+  <h2 class="rv">Porozmawiajmy o Twoim kredycie</h2>
+  <a class="ph rv" href="tel:+48603751281">+48 603 751 281</a>
+  <dl class="rv">
+   <dt>Adres</dt><dd><a href="https://maps.google.com/?q=Dowborczyk%C3%B3w+30%2F34+%C5%81%C3%B3d%C5%BA">ul. Dowborczyków 30/34, lok. 1A (I piętro), 90-019 Łódź</a></dd>
+   <dt>Godziny</dt><dd>poniedziałek do piątku, 9:00 do 17:00</dd>
+   <dt>E-mail</dt><dd><a href="mailto:m.chrakowiecki@gremiumkredyty.pl">m.chrakowiecki@gremiumkredyty.pl</a></dd>
+   <dt>Facebook</dt><dd><a href="https://www.facebook.com/gremiumkredyty">facebook.com/gremiumkredyty</a></dd>
+  </dl>
+ </div>
+ <div class="rv">
+  <form id="fm" novalidate>
+   <h3>Oddzwonimy z propozycją</h3>
+   <div class="fi"><label for="fC">Cel kredytu</label><select id="fC"><option>Kredyt hipoteczny</option><option>Kredyt mieszkaniowy</option><option>Kredyt inwestycyjny</option><option>Kredyt dla firmy</option><option>Konsolidacja kredytów</option></select></div>
+   <div class="f2"><div class="fi"><label for="fK">Kwota (orientacyjnie)</label><input id="fK" type="text" inputmode="numeric" placeholder="np. 450 000 zł"></div><div class="fi"><label for="fT">Telefon</label><input id="fT" type="tel" autocomplete="tel" placeholder="9 cyfr"></div></div>
+   <div class="fi"><label for="fN">Imię</label><input id="fN" type="text" autocomplete="given-name"></div>
+   <button class="btn g" type="submit">Proszę o kontakt</button>
+   <small>Twoje dane posłużą tylko do kontaktu w sprawie kredytu. Analiza ofert jest bezpłatna i do niczego nie zobowiązuje.</small>
+  </form>
+  <div class="ok" id="ok"><h3>Dziękujemy</h3><p>Oddzwonimy w godzinach pracy biura, zwykle tego samego dnia.</p></div>
+ </div>
+</div></section>
+
+<footer><div class="w"><span>© 2026 Gremium Kredyty · ul. Dowborczyków 30/34, Łódź</span><span>Demo przygotował Emil Wiktorski · oferty i wyliczenia przykładowe</span></div></footer>
+<div class="mb" id="mb"><a class="btn o" href="tel:+48603751281">Zadzwoń</a><a class="btn g" href="#kontakt">Umów rozmowę</a></div>
+
+<script>
+var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+function zl(v){return Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' zł'}
+function rata(K,lat,p){var n=lat*12,r=p/100/12;return K*r/(1-Math.pow(1+r,-n))}
+/* nawigacja */
+(function(){var n=$('#nv');function u(){n.classList.toggle('s',scrollY>40)}addEventListener('scroll',u,{passive:true});u()})();
+/* kalkulator i porownanie */
+var OF=[['Bank A',6.95],['Bank B',7.15],['Bank C',7.3],['Bank D',7.45],['Bank E',7.7],['Bank F',7.95]];
+var cmpShown=false;
+function fill(el){var p=(el.value-el.min)/(el.max-el.min)*100;el.style.setProperty('--p',p+'%')}
+function calc(){var K=+$('#iK').value,O=+$('#iO').value,P=+$('#iP').value,R=rata(K,O,P);
+ $('#oK').textContent=zl(K);$('#oO').textContent=O+(O==1?' rok':(O%10>=2&&O%10<=4&&(O%100<10||O%100>=20))?' lata':' lat');$('#oP').textContent=P.toFixed(2).replace('.',',')+'%';
+ $('#oR').textContent=zl(R);$('#oS').textContent=zl(R*O*12-K);
+ ['#iK','#iO','#iP'].forEach(function(s){fill($(s))});
+ var rows=OF.map(function(o){var r=rata(K,O,o[1]);return {n:o[0],p:o[1],r:r,t:r*O*12-K}}),mx=Math.max.apply(null,rows.map(function(x){return x.t})),mn=Math.min.apply(null,rows.map(function(x){return x.t}));
+ $('#cmp').innerHTML=rows.map(function(x,i){return '<div class="bk'+(i==0?' best':'')+'"><div class="nm">'+x.n+'<small>'+x.p.toFixed(2).replace('.',',')+'%</small></div><div class="bar"><i data-w="'+(x.t/mx*100).toFixed(1)+'"'+(cmpShown?' style="width:'+(x.t/mx*100).toFixed(1)+'%"':'')+'></i></div><div class="v t">rata<b>'+zl(x.r)+'</b></div><div class="v">odsetki<b>'+zl(x.t)+'</b></div></div>'}).join('');
+ $('#dB').textContent=zl(mx-mn);
+ $('#dP').textContent='Tyle wynosi różnica w odsetkach między najdroższą a najtańszą ofertą dla '+zl(K)+' na '+$('#oO').textContent+'. To przykład, ile może dać porównanie ofert, zanim podpiszesz umowę.'}
+['#iK','#iO','#iP'].forEach(function(s){$(s).addEventListener('input',calc)});calc();
+new IntersectionObserver(function(es){if(es[0].isIntersecting&&!cmpShown){cmpShown=true;$$('.bar i').forEach(function(b,i){setTimeout(function(){b.style.width=b.dataset.w+'%'},i*120)})}},{threshold:.3}).observe($('#cmp'));
+/* wejscia */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+$$('.rv').forEach(function(el,i){el.style.transitionDelay=(el.closest('.hg')?(i*.08):0)+'s';io.observe(el)});
+/* proces */
+(function(){var pr=$('#pr'),st=$$('.st'),ln=$('#ln2');new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;
+ if(innerWidth<=980)ln.style.height='100%';else ln.style.width='100%';st.forEach(function(s,i){setTimeout(function(){s.classList.add('on')},250+i*330)})},{threshold:.35}).observe(pr)})();
+/* tlo: linie jak wykres */
+(function(){var c=$('#cv'),x=c.getContext('2d'),W,H,d=Math.min(2,devicePixelRatio||1),t0=performance.now(),vis=true;
+ function rs(){W=c.clientWidth;H=c.clientHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0)}rs();addEventListener('resize',rs);
+ new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(c);
+ function fr(now){requestAnimationFrame(fr);if(!vis)return;var t=(now-t0)/1000;x.clearRect(0,0,W,H);
+  for(var k=0;k<14;k++){x.beginPath();var base=H*(.25+k*.05);for(var i=0;i<=60;i++){var px=i/60*W,py=base+Math.sin(i*.18+t*.25+k*.5)*18*(1+k*.08)-i/60*H*.12;i?x.lineTo(px,py):x.moveTo(px,py)}
+   x.strokeStyle='rgba(201,168,106,'+(.05+k*.012)+')';x.lineWidth=1;x.stroke()}}
+ requestAnimationFrame(fr)})();
+/* formularz */
+$('#fm').addEventListener('submit',function(e){e.preventDefault();var t=$('#fT');if(!/^\d{9}$/.test(t.value.replace(/\D/g,'').slice(-9))){t.focus();t.style.borderColor='#e0826b';return}this.style.display='none';$('#ok').style.display='block'});
+/* pasek na telefonie */
+(function(){var m=$('#mb'),k=$('#kontakt');function u(){m.classList.toggle('on',scrollY>innerHeight*.8&&k.getBoundingClientRect().top>innerHeight)}addEventListener('scroll',u,{passive:true});u()})();
+</script>
+</body>
+</html>
