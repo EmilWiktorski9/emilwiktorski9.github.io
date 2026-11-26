@@ -227,6 +227,13 @@ var P=[
  {id:'szorty',n:'Szorty z eko zamszu',c:['Spodnie i szorty'],k:['karmel','czekolada'],im:{karmel:['szorty-k1','szorty-k2'],czekolada:['szorty-c1']},r:189,h:85,s:'92% poliester, 8% elastan',d:'40 cm',f:'szeroki',o:'do pracy i na co dzień',x:'zakładki, mankiety, wysoki stan'}
 ];
 P.push({id:'koszula',n:'Koszula z haftowanym monogramem',c:['Koszule'],k:['czekolada','biała'],im:{czekolada:['koszula-c1','koszula-c2','koszula-c3','koszula-c4'],'biała':['koszula-b1']},r:199,h:92,nw:1,s:'97% bawełna, 3% elastan',d:'72 cm',f:'prosty',o:'do pracy i na co dzień',x:'haftowany monogram B na plecach, szerokie mankiety'});
+var OP={
+sukienka:{c:'Surowy jeans skrojony jak koktajlowa mini. Pod biustem marszczenie, niżej dopasowana talia, a całą uwagę zabierają duże, bufiaste rękawy. Stójkę zapinają perłowe guziki, a od kołnierza opada pasek jak wąski krawat. Z kozakami do kolan idzie do biura, z botkami na kolację.',h:'Model dla klientki, która chce jeansu, ale nie na co dzień. Dobrze sprzedaje się w zestawie z wysokimi kozakami i dużą skórzaną torbą, a czarna wersja wydłuża sezon do zimy.'},
+marynarka:{c:'Szeroki krój z opuszczonymi ramionami, skrojony tak, żeby leżał swobodnie, a nie za duże. Broszka jest w komplecie, więc stylizacja jest gotowa od razu. Do pary są spodnie z prostą nogawką w tym samym kolorze, ale marynarka sama też dobrze wygląda z jeansami i białym t-shirtem.',h:'Najłatwiejszy komplet do sprzedania w dwóch rachunkach: klientka bierze marynarkę, a spodnie dobiera przy przymiarce. Espresso to kolor sezonu, czarna wersja sprzedaje się przez cały rok.'},
+kurtka:{c:'Bomber oversize z grubego żakardu w ciepłych, jesiennych kolorach. Bufiaste rękawy nadają mu miękki, kobiecy kształt, a zamek na całej długości pozwala nosić go zapiętego pod szyję albo rozpiętego na białą koszulę. To kurtka, która robi całą stylizację, więc resztę trzymaj prostą: czerń, brąz, biel.',h:'Mocny wzór, który przyciąga wzrok na wieszaku i na zdjęciach. Sprzedaje się z szortami z eko zamszu i białą koszulą, czyli stylizacją z kampanii, którą butik może pokazać jeden do jednego.'},
+spodnie:{c:'Spodnie z wysokim stanem i prostą, długą nogawką, która optycznie wydłuża sylwetkę. Uszyte z tej samej tkaniny co marynarka oversize, więc razem tworzą komplet, a osobno pasują do swetra i botków.',h:'Dokładka do marynarki, która podnosi wartość paragonu. Warto mieć je zawsze obok marynarki na wieszaku.'},
+szorty:{c:'Szorty z eko zamszu z wysokim stanem, zakładkami i mankietami. Z kryjącymi rajstopami i botkami noszą się także jesienią, a z białą koszulą i bomberem tworzą stylizację z kampanii.',h:'Nietypowy model na jesień, który dobrze wygląda na zdjęciach. Najlepiej sprzedaje się wystawiony razem z kurtką z żakardu.'},
+koszula:{c:'Koszula o prostym kroju z szerokimi mankietami i haftowanym monogramem na plecach. Wpuszczona w jeansy wygląda klasycznie, rozpięta na top bardziej na luzie. Detal na plecach widać dopiero wtedy, gdy się odwrócisz.',h:'Bezpieczny model na cały rok, który łatwo dobrać do reszty kolekcji. Monogram na plecach daje butikowi gotowy pomysł na rolkę na Instagram.'}};
 var SZ=['S','M','L','XL'],CART=[],cur=null,cK=0,sz=null,FREE=299,cat='Wszystko';
 function zl(v){return v.toLocaleString('pl-PL').replace(/ /g,' ')+' zł'}
 function ims(p,k){return p.im[k||p.k[0]]}
@@ -244,7 +251,7 @@ function render(){var p=cur,k=p.k[cK];
  $('#pS').innerHTML=SZ.map(function(s){var st=stock(p,k,s);return '<button data-s="'+s+'"'+(st?'':' disabled style="opacity:.35;text-decoration:line-through" aria-label="'+s+', brak"')+' class="'+(s==sz?'on ':'')+(st&&st<3?'lo':'')+'">'+s+'</button>'}).join('');
  $$('#pS button:not([disabled])').forEach(function(b){b.onclick=function(){sz=b.dataset.s;render()}});
  $('#pAdd').disabled=!sz;$('#pAdd').textContent=sz?'Dodaj do koszyka':'Wybierz rozmiar';
- $('#pD').textContent=p.n+'. Fason '+p.f+'. '+p.x.charAt(0).toUpperCase()+p.x.slice(1)+'. Sprawdzi się '+p.o+'.';
+ $('#pD').textContent=OP[p.id]?OP[p.id].c:p.n+'.';
  $('#pW').textContent='Materiał: '+p.s+(p.pd?'. Podszewka: '+p.pd:'')+'. Prać w 30 stopniach, nie suszyć w suszarce. Skład przykładowy.';}
 var FS=['XS','S','M','L','XL'],fPref=0;
 function fitR(){var p=cur,hgt=+$('#fH').value,w=+$('#fW').value,u=$('#fU').value,est=[];
