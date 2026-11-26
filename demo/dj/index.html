@@ -211,8 +211,7 @@ body.go .ht>*{opacity:1;transform:none;transition:opacity .8s,transform .8s cubi
 body.go .ht>*:nth-child(2){transition-delay:.1s}body.go .ht>*:nth-child(3){transition-delay:.2s}body.go .ht>*:nth-child(4){transition-delay:.3s}
 </style>
 </head>
-<body class="lock">
-<div id="intro" aria-label="Wejście na stronę"><canvas id="rf"></canvas><canvas class="hf l" id="bl"></canvas><canvas class="hf r" id="br"></canvas><div id="fl"></div><button id="start">ZACZNIJ IMPREZĘ</button></div>
+<body class="go">
 <canvas id="bk" aria-hidden="true"></canvas>
 <nav><div class="w">
  <a class="lg" href="#">DJ Wojciech<span>Ideolo Event</span></a>
@@ -315,7 +314,7 @@ var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
  requestAnimationFrame(fr)})();
 
 /* kula dyskotekowa na wejściu */
-(function(){var I=$('#intro'),rf=$('#rf'),bl=$('#bl'),br=$('#br'),dpr=Math.min(2,devicePixelRatio||1),W,H,R,cx,cy,rot=0,run=true,last=performance.now();
+(function(){var I=$('#intro');if(!I)return;var rf=$('#rf'),bl=$('#bl'),br=$('#br'),dpr=Math.min(2,devicePixelRatio||1),W,H,R,cx,cy,rot=0,run=true,last=performance.now();
  var off=document.createElement('canvas'),o=off.getContext('2d'),xr=rf.getContext('2d'),xl=bl.getContext('2d'),xb=br.getContext('2d');
  var COL=[[255,255,255],[214,170,255],[255,150,220],[140,190,255],[255,230,160]];
  var T=[],nb=18;for(var b=0;b<nb;b++){var la=-Math.PI/2+(b+.5)*Math.PI/nb,n=Math.max(6,Math.round(36*Math.cos(la)));for(var k=0;k<n;k++)T.push({la:la,lo:k*2*Math.PI/n,dla:Math.PI/nb,dlo:2*Math.PI/n,ph:Math.random()*6.28,c:COL[Math.random()<.78?0:1+Math.floor(Math.random()*4)],b:.55+Math.random()*.5})}
