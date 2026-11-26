@@ -94,6 +94,13 @@ footer a{color:var(--tx)}
 .fr input,.fr select{height:42px;border:1px solid var(--ln);background:#fff;padding:0 10px;font-size:15px;width:100%}
 .fp{display:flex;gap:6px;margin:12px 0}.fp button{flex:1;height:38px;border:1px solid var(--ln);background:#fff;font-size:14px}.fp button.on{border-color:var(--tx);box-shadow:inset 0 0 0 1px var(--tx)}
 .fo{font-size:15px;line-height:1.5}.fo b{font-weight:600}.fo button{margin-top:10px;height:42px;padding:0 18px;background:var(--tx);color:#fff;font-weight:600;font-size:14px}
+.r3{position:relative;aspect-ratio:3/4;background:#ececea;cursor:grab;touch-action:pan-y;user-select:none;overflow:hidden}
+.r3:active{cursor:grabbing}
+.r3 img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.r3h{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);padding:8px 14px;border-radius:99px;font-size:14px;white-space:nowrap;transition:opacity .4s}
+.r3.used .r3h{opacity:0}
+.r3t{position:absolute;right:12px;top:12px;font-size:13px;color:var(--tx2);background:rgba(255,255,255,.85);padding:3px 9px}
+@media (max-width:900px){.gal .r3{flex:0 0 86%;margin-left:4px}}
 #menu{left:0;right:auto;transform:translateX(-100%);width:min(400px,88vw)}#menu.on{transform:none}
 .mn{padding:84px 28px;display:flex;flex-direction:column}.mn a{font:500 34px/1.2 Cg,Georgia,serif;text-decoration:none;padding:8px 0;border-bottom:1px solid var(--ln)}
 .x{position:absolute;right:14px;top:12px;width:44px;height:44px;display:grid;place-items:center;z-index:3;background:#fff;border-radius:50%}
@@ -221,7 +228,7 @@ var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){retur
 var C={'biała':'#f4f2ee','kwiatowy żakard':'#7a4e2f',granatowa:'#24345e',czarna:'#141414',espresso:'#3a2620',karmel:'#8a5634',czekolada:'#3f2a22'};
 var P=[
  {id:'kurtka',n:'Kurtka bomber z kwiatowego żakardu',c:['Okrycia'],k:['kwiatowy żakard'],im:{'kwiatowy żakard':['kurtka-1','kurtka-2','kurtka-3']},r:279,h:129,nw:1,s:'60% bawełna, 40% poliester',pd:'100% poliester',d:'58 cm',f:'oversize',o:'do pracy i na co dzień',x:'bufiaste rękawy, zamek na całej długości, żakard w jesiennych kolorach'},
- {id:'sukienka',n:'Sukienka jeansowa z bufiastym rękawem',c:['Sukienki'],k:['granatowa','czarna'],im:{granatowa:['sukienka-g1','sukienka-g-ai','sukienka-g-pack','sukienka-g2'],czarna:['sukienka-c1','sukienka-c2','sukienka-c3']},r:379,h:179,nw:1,s:'98% bawełna, 2% elastan',d:'84 cm',f:'dopasowany w talii',o:'do pracy i na co dzień',x:'bufiaste rękawy, stójka, kontrastowe przeszycia'},
+ {id:'sukienka',n:'Sukienka jeansowa z bufiastym rękawem',c:['Sukienki'],k:['granatowa','czarna'],im:{granatowa:['sukienka-g1','sukienka-g-ai','sukienka-g-pack','sukienka-g2'],czarna:['sukienka-c1','sukienka-c2','sukienka-c3']},r:519,h:245,nw:1,s:'98% bawełna, 2% elastan',d:'84 cm',f:'dopasowany w talii',o:'do pracy i na co dzień',x:'bufiaste rękawy, stójka, kontrastowe przeszycia'},
  {id:'marynarka',n:'Marynarka oversize z broszką',c:['Komplety'],k:['espresso','czarna'],im:{espresso:['marynarka-e1','marynarka-e2','marynarka-e3'],czarna:['marynarka-c1','marynarka-c2']},r:279,h:129,nw:1,s:'64% poliester, 33% wiskoza, 3% elastan',d:'78 cm',f:'oversize',o:'do pracy i na co dzień',x:'broszka w komplecie, kieszenie z klapką'},
  {id:'spodnie',n:'Spodnie z prostą nogawką',c:['Komplety','Spodnie i szorty'],k:['espresso','czarna'],im:{espresso:['spodnie-e1','marynarka-e1'],czarna:['spodnie-c1','marynarka-c1']},r:159,h:75,s:'64% poliester, 33% wiskoza, 3% elastan',d:'102 cm',f:'prosty',o:'do pracy i na co dzień',x:'wysoki stan, komplet z marynarką oversize'},
  {id:'szorty',n:'Szorty z eko zamszu',c:['Spodnie i szorty'],k:['karmel','czekolada'],im:{karmel:['szorty-k1','szorty-k2'],czekolada:['szorty-c1']},r:189,h:85,s:'92% poliester, 8% elastan',d:'40 cm',f:'szeroki',o:'do pracy i na co dzień',x:'zakładki, mankiety, wysoki stan'}
@@ -237,7 +244,9 @@ function grid(){$('#grid').innerHTML=P.filter(function(p){return cat=='Wszystko'
 function byId(id){return P.filter(function(p){return p.id==id})[0]}
 function open(id){cur=byId(id);cK=0;sz=null;$('#fit').hidden=true;render();show('#prod');$('#prod').scrollTop=0}
 function render(){var p=cur,k=p.k[cK];
- $('#pG').innerHTML=ims(p,k).map(function(n){return '<img src="'+src(n)+'" alt="'+p.n+', '+k+'">'}).join('');
+ var gi=ims(p,k).map(function(n){return '<img src="'+src(n)+'" alt="'+p.n+', '+k+'">'});
+ if(p.id=='sukienka'&&k=='granatowa')gi.splice(1,0,'<div class="r3" id="r3"><img id="r3i" src="../img/360/00.webp" alt="Sukienka jeansowa granatowa, obrót 360 stopni" draggable="false"><span class="r3h"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10a7 7 0 0112.5-4.3M17 10a7 7 0 01-12.5 4.3"/><path d="M15.5 2.5v3.2h-3.2M4.5 17.5v-3.2h3.2"/></svg>Przeciągnij, aby obrócić</span><span class="r3t">Wizualizacja AI</span></div>');
+ $('#pG').innerHTML=gi.join('');if($('#r3'))spin360();
  $('#pN').textContent=p.n;$('#pP').textContent=zl(p.r);$('#pKn').textContent=k;
  $('#pK').innerHTML=p.k.map(function(c,i){return '<button class="'+(i==cK?'on':'')+'" data-i="'+i+'" aria-label="'+c+'"><i style="background:'+(C[c]||'#ccc')+'"></i></button>'}).join('');
  $$('#pK button').forEach(function(b){b.onclick=function(){cK=+b.dataset.i;sz=null;render()}});
@@ -258,6 +267,15 @@ function fitR(){var p=cur,hgt=+$('#fH').value,w=+$('#fW').value,u=$('#fU').value
 $('#fitb').onclick=function(){var f=$('#fit');f.hidden=!f.hidden;if(!f.hidden)fitR()};
 ['#fH','#fW','#fU'].forEach(function(s){$(s).addEventListener('input',fitR)});
 $$('#fP button').forEach(function(b){b.onclick=function(){fPref=+b.dataset.v;$$('#fP button').forEach(function(x){x.classList.toggle('on',x==b)});fitR()}});
+var R3=[];for(var q=0;q<36;q++){R3.push('../img/360/'+(q<10?'0':'')+q+'.webp')}
+var r3t=null;
+function spin360(){var box=$('#r3'),im=$('#r3i'),f=0,auto=true,sx=0,sf=0,drag=false;
+ R3.forEach(function(u){var i=new Image();i.src=u});
+ function set(n){f=((Math.round(n)%36)+36)%36;im.src=R3[f]}
+ clearInterval(r3t);r3t=setInterval(function(){if(!auto||!document.body.contains(box)){return}set(f+1)},110);
+ box.addEventListener('pointerdown',function(e){drag=true;auto=false;box.classList.add('used');sx=e.clientX;sf=f;box.setPointerCapture(e.pointerId)});
+ box.addEventListener('pointermove',function(e){if(!drag)return;set(sf-(e.clientX-sx)/(box.clientWidth/36)*1.2)});
+ ['pointerup','pointercancel'].forEach(function(t){box.addEventListener(t,function(){drag=false})});}
 $('#szb').onclick=function(){$('#szd').open=true;$('#szd').scrollIntoView({behavior:'smooth',block:'center'})};
 $('#pAdd').onclick=function(){var p=cur,k=p.k[cK];var ex=CART.filter(function(c){return c.id==p.id&&c.k==k&&c.s==sz})[0];if(ex)ex.q++;else CART.push({id:p.id,k:k,s:sz,q:1});cartR();hide();setTimeout(function(){show('#cart')},460)};
 function cartR(){var n=0,v=0;CART.forEach(function(c){n+=c.q;v+=c.q*byId(c.id).r});$('#cc').textContent=n;
