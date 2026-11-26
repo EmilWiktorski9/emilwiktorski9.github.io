@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>DJ Wojciech · Ideolo Event (demo)</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0c'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%23ffb547' stroke-width='5'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0c'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%23c77dff' stroke-width='5'/%3E%3C/svg%3E">
 <style>
 @font-face{font-family:Sg;font-weight:400 900;font-display:swap;src:url(fonts/schibsted-grotesk-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Sg;font-weight:400 900;font-display:swap;src:url(fonts/schibsted-grotesk-latin-ext-wght-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:Is;font-weight:400 700;font-display:swap;src:url(fonts/instrument-sans-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Is;font-weight:400 700;font-display:swap;src:url(fonts/instrument-sans-latin-ext-wght-normal.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-:root{--bg:#0b0b0c;--bg2:#141416;--ln:#26262a;--tx:#f3efe8;--tx2:#a39e96;--a:#ffb547;--r:14px}
+:root{--bg:#0b0b0c;--bg2:#141416;--ln:#26262a;--tx:#f3efe8;--tx2:#a39e96;--a:#c77dff;--r:14px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{background:var(--bg);color:var(--tx);font:400 16px/1.6 Is,system-ui,sans-serif;overflow-x:hidden;font-variant-numeric:lining-nums}
@@ -21,7 +21,7 @@ a{color:inherit}
 h1,h2,h3,.sg{font-family:Sg,Is,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.98;text-wrap:balance}
 p{text-wrap:pretty}
 .btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 28px;border-radius:99px;font-weight:600;font-size:15px;text-decoration:none;transition:background .25s,color .25s,border-color .25s;white-space:nowrap}
-.btn.a{background:var(--a);color:#121212}.btn.a:hover{background:#ffc874}
+.btn.a{background:var(--a);color:#121212}.btn.a:hover{background:#d9a6ff}
 .btn.o{border:1px solid #4a4740}.btn.o:hover{border-color:var(--tx)}
 .btn:disabled{opacity:.4;cursor:not-allowed}
 .demo{font-size:13px;color:var(--tx2);text-align:center;padding:7px 16px;border-bottom:1px solid var(--ln)}
@@ -33,10 +33,34 @@ nav .ln{margin-left:auto;display:flex;gap:26px;font-size:15px}
 nav .ln a{text-decoration:none;color:var(--tx2)}nav .ln a:hover{color:var(--tx)}
 nav .btn{height:42px;padding:0 20px;font-size:14px}
 /* hero */
-.hero{position:relative;height:calc(100svh - 100px);min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
-#stage{position:absolute;inset:0;width:100%;height:100%}
-.hero::after{content:'';position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,var(--bg));pointer-events:none}
-.ht{position:relative;z-index:2;padding-bottom:9vh}
+.hero{position:relative;height:calc(100svh - 100px);min-height:620px;overflow:hidden}
+.hero .ph{position:absolute;top:0;bottom:0;right:4%;aspect-ratio:1/1;max-width:72%}
+.hero .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero .ph::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0,rgba(11,11,12,0) 30%,rgba(11,11,12,0) 78%,var(--bg) 100%),linear-gradient(0deg,var(--bg) 0,rgba(11,11,12,0) 38%),linear-gradient(180deg,var(--bg) 0,rgba(11,11,12,0) 12%)}
+.hin{position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding-bottom:7vh}
+.ht{max-width:620px}
+.hv{flex:none;width:clamp(170px,14vw,230px);text-align:left}
+.hv .t{display:block;position:relative;aspect-ratio:9/16;overflow:hidden;border-radius:12px;box-shadow:0 30px 70px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.12)}
+.hv video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.hv:hover video{transform:scale(1.04)}
+.hv .pl{position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;background:rgba(11,11,12,.72);backdrop-filter:blur(6px);padding:7px 11px 7px 9px;border-radius:99px}
+.hv .pl svg{width:14px;height:14px}
+.hv>span{display:block;font-size:13px;color:var(--tx2);margin-top:11px;line-height:1.45}
+.hv>span b{color:var(--tx);font-weight:600}
+/* filmy */
+.vr{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.vc{text-align:left;display:block;align-self:start}
+.vc .t{display:block;position:relative;aspect-ratio:9/16;overflow:hidden;border-radius:var(--r);background:var(--bg2)}
+.vc video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.vc:hover video{transform:scale(1.04)}
+.vc h3{font-size:26px;letter-spacing:-.02em;margin:16px 0 4px}
+.vc p{color:var(--tx2);font-size:15px}
+dialog{margin:auto;background:transparent;border:0;padding:0;max-width:min(96vw,520px);color:var(--tx)}
+dialog::backdrop{background:rgba(5,5,6,.9);backdrop-filter:blur(6px)}
+dialog video{width:100%;max-height:86vh;border-radius:12px;background:#000;display:block}
+dialog p{font-size:14px;color:var(--tx2);margin-top:10px;text-align:center}
+dialog .x{position:fixed;top:14px;right:18px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);font-size:26px;line-height:1}
+.so{display:flex;gap:18px}.so a{color:var(--tx2);text-decoration:none}.so a:hover{color:var(--tx)}
 .ht h1{font-size:clamp(64px,11vw,168px)}
 .rot{display:flex;gap:.3em;font:700 clamp(24px,2.6vw,36px)/1.2 Sg;letter-spacing:-.02em;margin:18px 0 10px;color:var(--tx2)}
 .rot b{color:var(--a);font-weight:700;display:inline-block;min-width:8ch;transition:opacity .35s,transform .35s}
@@ -105,7 +129,7 @@ input:focus,select:focus{outline:none;border-color:var(--tx)}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .ty{display:flex;gap:6px;flex-wrap:wrap}
 .ty button,.ad button{height:42px;padding:0 15px;border-radius:99px;border:1px solid var(--ln);font-size:14px;color:var(--tx2)}
-.ty button.on,.ad button.on{border-color:var(--a);color:var(--tx);background:rgba(255,181,71,.08)}
+.ty button.on,.ad button.on{border-color:var(--a);color:var(--tx);background:rgba(199,125,255,.1)}
 .ad{display:flex;gap:6px;flex-wrap:wrap}
 .ad button i{font-style:normal;color:#6f6b65;margin-left:6px}
 .qt{border-top:1px solid var(--ln);margin-top:6px;padding-top:20px}
@@ -125,7 +149,16 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
  .qt .big{font-size:34px}
  .w{padding:0 20px}
  section{padding:72px 0}
- .hero{height:calc(100svh - 96px);min-height:540px}
+ .hero{height:auto;min-height:0}
+ .hero .ph{position:relative;right:auto;width:100%;max-width:none;aspect-ratio:1/1.05}
+ .hero .ph::after{background:linear-gradient(0deg,var(--bg) 0,rgba(11,11,12,0) 40%)}
+ .hin{display:block;position:static;margin-top:-34vw;padding-bottom:40px}
+ .ht{position:relative;z-index:2}
+ .hv{position:absolute;right:16px;top:16px;width:92px;z-index:3}
+ .hv .t{border-radius:10px}
+ .hv>span{display:none}.hv .pl{left:6px;bottom:6px;padding:6px;font-size:0;gap:0}
+ .vr{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:70%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;margin:0 -20px;padding:0 20px}
+ .vc{scroll-snap-align:start}
  .ht h1{font-size:clamp(60px,18vw,110px)}
  .bt{flex-direction:column}.bt .btn{min-width:0;width:100%}
  .wz{height:520vh}
@@ -146,19 +179,34 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <div class="demo">Demo strony · ceny, terminy i dodatki są przykładowe</div>
 <nav><div class="w">
  <a class="lg" href="#">DJ Wojciech<span>Ideolo Event</span></a>
- <div class="ln"><a href="#wieczor">Przebieg wieczoru</a><a href="#oferta">Oferta</a><a href="#klub">O mnie</a></div>
+ <div class="ln"><a href="#filmy">Filmy</a><a href="#wieczor">Przebieg wieczoru</a><a href="#oferta">Oferta</a><a href="#klub">O mnie</a></div>
  <a class="btn a" href="#termin">Wolny termin?</a>
 </div></nav>
 
 <header class="hero">
- <canvas id="stage" aria-hidden="true"></canvas>
- <div class="w ht">
-  <h1>DJ Wojciech</h1>
-  <div class="rot" aria-live="off">Gram na <b id="rw">weselach</b></div>
-  <p>Z klubów na Twoją imprezę. Żyrardów, Warszawa i okolice.</p>
-  <div class="bt"><a class="btn a" href="#termin">Sprawdź wolny termin</a><a class="btn o" href="#wieczor">Zobacz przebieg wieczoru</a></div>
+ <div class="ph"><img src="img/wojciech.webp" alt="DJ Wojciech z armatką CO2" width="950" height="960" fetchpriority="high"></div>
+ <div class="w hin">
+  <div class="ht">
+   <h1>DJ Wojciech</h1>
+   <div class="rot" aria-live="off">Gram na <b id="rw">weselach</b></div>
+   <p>Żyrardowski DJ z klubów. Wesela, studniówki, osiemnastki i eventy firmowe. Przyjmuję rezerwacje na 2027.</p>
+   <div class="bt"><a class="btn a" href="#termin">Sprawdź wolny termin</a><a class="btn o" href="tel:+48606859057">Zadzwoń: 606 859 057</a></div>
+  </div>
+  <button class="hv" data-video="img/film-pelny.mp4" data-cap="Z imprez DJ Wojciecha, 50 sekund" aria-label="Obejrzyj film z imprez z dźwiękiem">
+   <span class="t"><video src="img/film.mp4" poster="img/film.webp" autoplay muted loop playsinline preload="metadata"></video><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Z dźwiękiem</span></span>
+   <span><b>Tak wygląda parkiet</b><br>50 sekund z ostatnich imprez</span>
+  </button>
  </div>
 </header>
+
+<section id="filmy"><div class="w">
+ <div class="hd"><h2>Z ostatnich imprez</h2></div>
+ <div class="vr">
+  <button class="vc" data-video="img/bogato-pelny.mp4" data-cap="Na bogato"><span class="t"><video src="img/bogato.mp4" poster="img/bogato.webp" muted loop playsinline preload="none"></video></span><h3>Na bogato</h3><p>Sala z kolumnami, świecące pałeczki dla gości. 16 sekund.</p></button>
+  <button class="vc" data-video="img/parkiet-pelny.mp4" data-cap="Parkiet do końca"><span class="t"><video src="img/parkiet.mp4" poster="img/parkiet.webp" muted loop playsinline preload="none"></video></span><h3>Parkiet do końca</h3><p>Lasery, dym i sala, która nie schodzi z parkietu. 37 sekund.</p></button>
+  <button class="vc" data-video="img/osiemnastka-pelny.mp4" data-cap="Osiemnastka"><span class="t"><video src="img/osiemnastka.mp4" poster="img/osiemnastka.webp" muted loop playsinline preload="none"></video></span><h3>Osiemnastka</h3><p>Balony, lasery i pełny parkiet. 52 sekundy.</p></button>
+ </div>
+</div></section>
 
 <section id="wieczor">
  <div class="wz" id="wz"><div class="wzs"><div class="w wzg">
@@ -168,7 +216,7 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
   <div class="cv">
    <svg id="sv" viewBox="0 0 640 340" role="img" aria-label="Energia na parkiecie w trakcie wesela, od spokojnego obiadu do szczytu po północy">
-    <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb547" stop-opacity=".28"/><stop offset="1" stop-color="#ffb547" stop-opacity="0"/></linearGradient>
+    <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c77dff" stop-opacity=".28"/><stop offset="1" stop-color="#c77dff" stop-opacity="0"/></linearGradient>
     <clipPath id="cp"><rect id="cr" x="0" y="0" width="0" height="340"/></clipPath></defs>
     <g id="ticks"></g>
     <path class="base" id="pb"/>
@@ -181,18 +229,19 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
  </div></div></div>
 </section>
 
-<section id="oferta" style="padding-top:40px"><div class="w">
+<section id="oferta"><div class="w">
  <div class="hd"><h2>Na jakie imprezy</h2></div>
  <div class="of">
   <div class="or"><h3>Wesela</h3><p>Prowadzenie całego wieczoru, pierwszy taniec, oczepiny i zabawy. Nagłośnienie i oświetlenie sali w cenie.</p><div class="pr">od 4 500 zł<small>cena przykładowa</small></div></div>
-  <div class="or"><h3>Eventy firmowe</h3><p>Muzyka do kolacji, potem set taneczny. Gram do Waszej publiczności, a nie do listy przebojów.</p><div class="pr">od 3 000 zł<small>cena przykładowa</small></div></div>
-  <div class="or"><h3>Imprezy rodzinne i pikniki</h3><p>Osiemnastki, jubileusze, festyny. Muzyka, przy której tańczą i dzieci, i dorośli.</p><div class="pr">od 1 800 zł<small>cena przykładowa</small></div></div>
+  <div class="or"><h3>Studniówki i osiemnastki</h3><p>Polonez, potem impreza do rana. Lasery, dym i muzyka, którą zna cała klasa.</p><div class="pr">od 2 500 zł<small>cena przykładowa</small></div></div>
+  <div class="or"><h3>Eventy i konferencje</h3><p>Nagłośnienie wystąpień, muzyka do kolacji, potem set taneczny.</p><div class="pr">od 3 000 zł<small>cena przykładowa</small></div></div>
+  <div class="or"><h3>Urodziny i chrzciny</h3><p>Muzyka, przy której tańczą i dzieci, i dziadkowie.</p><div class="pr">od 1 800 zł<small>cena przykładowa</small></div></div>
  </div>
 </div></section>
 
 <section id="klub" style="padding-top:20px"><div class="w kl">
  <h2>Z klubu na parkiet weselny</h2>
- <div><p>Gram w klubach i współtworzę Fabryka Festiwal. Ten sam słuch do sali przenoszę na wesela: wiem, kiedy wejść z hitem, a kiedy dać gościom chwilę oddechu.</p><p>Przed imprezą dostajesz ankietę muzyczną. Wpisujesz pierwszy taniec, ulubione utwory i to, czego ma nie być. Resztą zajmuję się ja.</p></div>
+ <div><p>Grałem w 3ART, Chillout, Performer, Ładownia, Antidotum i The Spirit. Organizuję Fabryka Festiwal. Razem z Ideolo Event robię oprawę imprez w Żyrardowie i okolicach.</p><p> Ten sam słuch do sali przenoszę na wesela: wiem, kiedy wejść z hitem, a kiedy dać gościom chwilę oddechu.</p><p>Przed imprezą dostajesz ankietę muzyczną. Wpisujesz pierwszy taniec, ulubione utwory i to, czego ma nie być. Resztą zajmuję się ja.</p></div>
 </div></section>
 
 <section id="termin"><div class="w">
@@ -217,33 +266,15 @@ footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
  </div>
 </div></section>
 
-<footer><div class="w"><span>DJ Wojciech · Ideolo Event · Żyrardów</span><span>Demo przygotował Emil Wiktorski</span></div></footer>
-<div class="sticky" id="stk"><a class="btn a" href="#termin">Sprawdź wolny termin</a></div>
+<footer><div class="w"><span>DJ Wojciech · Ideolo Event · Żyrardów · <a href="tel:+48606859057">606 859 057</a></span><span class="so"><a href="https://www.facebook.com/djWojciechTeam">Facebook</a><a href="https://www.instagram.com/djwojciech.team/">Instagram</a><a href="https://www.tiktok.com/@djwojciech">TikTok</a></span><span>Demo przygotował Emil Wiktorski</span></div></footer>
+<dialog id="dv"><button class="x" aria-label="Zamknij">×</button><video playsinline controls></video><p></p></dialog>
+<div class="sticky" id="stk"><a class="btn o" href="tel:+48606859057">Zadzwoń</a><a class="btn a" href="#termin">Wolny termin?</a></div>
 
 <script>
 var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
 var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
-/* światła na starcie */
-(function(){var c=$('#stage'),x=c.getContext('2d'),W,H,dpr=Math.min(2,devicePixelRatio||1),mx=.5,t0=performance.now(),vis=true;
- function rs(){W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
- rs();addEventListener('resize',rs);
- addEventListener('pointermove',function(e){mx=e.clientX/innerWidth});
- new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(c);
- var B=[{p:.12,s:.37,ph:0,c:'255,181,71'},{p:.3,s:.29,ph:1.7,c:'255,236,210'},{p:.5,s:.41,ph:3.1,c:'255,181,71'},{p:.7,s:.33,ph:4.4,c:'255,236,210'},{p:.88,s:.27,ph:2.3,c:'255,181,71'}];
- function cone(px,ang,len,wd,col,al){var g=x.createLinearGradient(px,0,px+Math.sin(ang)*len,Math.cos(ang)*len);g.addColorStop(0,'rgba('+col+','+al+')');g.addColorStop(1,'rgba('+col+',0)');
-  x.save();x.translate(px,-10);x.rotate(-ang);x.beginPath();x.moveTo(-3,0);x.lineTo(3,0);x.lineTo(wd,len);x.lineTo(-wd,len);x.closePath();x.fillStyle=g;x.fill();x.restore()}
- function fr(now){requestAnimationFrame(fr);if(!vis)return;var t=(now-t0)/1000;
-  x.globalCompositeOperation='source-over';x.fillStyle='#0b0b0c';x.fillRect(0,0,W,H);
-  var beat=RM?0:Math.pow(Math.max(0,Math.cos(t*Math.PI*2*124/60)),18);
-  x.globalCompositeOperation='lighter';
-  B.forEach(function(b,i){var sw=RM?0:Math.sin(t*b.s+b.ph)*.55+(mx-.5)*.35;cone(W*b.p,sw,H*1.25,W*.11+H*.05,b.c,.16+beat*.07*(i%2?1:.5))});
-  var fg=x.createRadialGradient(W/2,H*1.05,10,W/2,H*1.05,W*.6);fg.addColorStop(0,'rgba(255,181,71,'+(.16+beat*.08)+')');fg.addColorStop(1,'rgba(255,181,71,0)');x.fillStyle=fg;x.fillRect(0,0,W,H);
-  x.globalCompositeOperation='source-over';
-  for(var k=0;k<3;k++){var hx=W*(.25+.25*k)+Math.sin(t*.07+k)*W*.08,hy=H*(.45+.08*k),hg=x.createRadialGradient(hx,hy,0,hx,hy,W*.35);hg.addColorStop(0,'rgba(40,38,36,.18)');hg.addColorStop(1,'rgba(40,38,36,0)');x.fillStyle=hg;x.fillRect(0,0,W,H)}
- }
- requestAnimationFrame(fr)})();
 /* zmieniające się słowa */
-(function(){var w=['weselach','eventach firmowych','osiemnastkach','piknikach','jubileuszach'],i=0,b=$('#rw');if(RM)return;
+(function(){var w=['weselach','studniówkach','osiemnastkach','eventach firmowych','urodzinach'],i=0,b=$('#rw');if(RM)return;
  setInterval(function(){b.classList.add('out');setTimeout(function(){i=(i+1)%w.length;b.textContent=w[i];b.classList.remove('out')},350)},2200)})();
 /* przebieg wieczoru */
 var M=[{t:'16:00',e:.18,h:'Wejście pary i toast',p:'Spokojne wejście, chwila na życzenia. Muzyka nie przeszkadza w rozmowach.'},
@@ -292,6 +323,12 @@ function calc(){var v=BASE[typ],g=+$('#g').value||0,km=+$('#km').value||0;
 $('#fm').onsubmit=function(e){e.preventDefault();if(!sel)return;var t=$('#tel');if(!/\d{9}/.test(t.value.replace(/\D/g,''))){t.focus();t.style.borderColor='#e5735f';return}
  $('#fm').style.display='none';$('#done').style.display='block';$('#dt').textContent=sel.toLocaleDateString('pl-PL',{weekday:'long',day:'numeric',month:'long'})+' czeka na Ciebie 48 godzin. Oddzwonię z dokładną ofertą, zwykle tego samego dnia.'};
 drawCal();calc();
+/* filmy */
+var dv=$('#dv');
+$$('[data-video]').forEach(function(b){b.addEventListener('click',function(){var v=dv.querySelector('video');v.src=b.dataset.video;v.muted=false;dv.querySelector('p').textContent=b.dataset.cap||'';dv.showModal();v.play().catch(function(){})})});
+dv.addEventListener('click',function(e){if(e.target===dv||e.target.classList.contains('x'))dv.close()});
+dv.addEventListener('close',function(){var v=dv.querySelector('video');v.pause();v.removeAttribute('src');v.load()});
+$$('.vr video').forEach(function(v){new IntersectionObserver(function(es){es[0].isIntersecting?v.play().catch(function(){}):v.pause()},{threshold:.3}).observe(v)});
 /* pasek na telefonie */
 (function(){var s=$('#stk'),h=$('.hero'),tm=$('#termin');function u(){var a=h.getBoundingClientRect().bottom<0,b=tm.getBoundingClientRect().top<innerHeight;s.classList.toggle('on',a&&!b)}addEventListener('scroll',u,{passive:true});u()})();
 </script>
