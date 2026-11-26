@@ -151,6 +151,13 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--tx)}
 #ai-txt{font-size:16px;line-height:1.7;white-space:pre-line;min-height:220px}
 #ai-txt.wait{color:var(--tx2)}
 .pan .note{margin-top:auto;padding-top:20px;font-size:14px;color:var(--tx2)}
+.hd .sub{color:var(--tx2);font-size:17px;max-width:620px;margin-top:12px}
+.spec{display:grid;grid-template-columns:84px 1fr;gap:16px;border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg2)}
+.spec img{width:84px;aspect-ratio:3/4;object-fit:cover}
+.spec b{display:block;font-size:15px;margin-bottom:6px}
+.spec dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px}
+.spec dt{color:var(--tx2)}
+#a-c.bad{border-color:#c0392b}
 /* konto */
 .acc{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
 .acc ul{list-style:none;display:grid;gap:14px;margin-top:8px}
@@ -467,23 +474,23 @@ body.in .only-out{display:none!important}
 
 <section id="panel">
  <div class="w">
-  <div class="hd"><h2 class="h">Panel sprzedawcy z opisami od AI</h2></div>
+  <div class="hd"><h2 class="h">Opisy od AI w stylu Twojego butiku</h2><p class="sub">Wybierasz produkt, wklejasz 2 do 3 opisów ze swojego sklepu, a AI pisze opis tego produktu tak, jakbyś napisała go sama.</p></div>
   <div class="pan">
    <form id="aiForm">
-    <div class="full"><label for="a-n">Nazwa produktu</label><input id="a-n" value="Sukienka jeansowa z bufiastym rękawem"></div>
-    <div><label for="a-k">Kolor</label><input id="a-k" value="czarna"></div>
-    <div><label for="a-f">Fason</label><select id="a-f"><option selected>dopasowany w talii</option><option>rozkloszowany</option><option>prosty</option><option>oversize</option></select></div>
-    <div class="full"><label for="a-s">Skład</label><input id="a-s" value="98% bawełna, 2% elastan"></div>
-    <div><label for="a-d">Długość (rozmiar M)</label><input id="a-d" value="84 cm"></div>
-    <div><label for="a-o">Na jaką okazję</label><select id="a-o"><option selected>do pracy i na co dzień</option><option>na wieczór</option><option>na uroczystość</option></select></div>
-    <div class="full"><label for="a-x">Wyróżnik (opcjonalnie)</label><input id="a-x" value="bufiaste rękawy, stójka z odpinanym paskiem, kontrastowe przeszycia"></div>
-    <div class="full"><label for="a-e">Styl marki: 2 do 3 Wasze opisy, na których AI się wzoruje</label><textarea id="a-e" rows="3">Zapisane: 3 opisy z kolekcji jesień/zima (sukienka bombka, marynarka oversize, kurtka z żakardu)</textarea></div>
-    <div class="full"><button class="btn d" type="submit" style="width:100%">Napisz opis</button></div>
+    <div><label for="a-p">Produkt</label><select id="a-p"></select></div>
+    <div><label for="a-c">albo wpisz kod</label><input id="a-c" placeholder="np. S2604-GRA" autocomplete="off" spellcheck="false"></div>
+    <div class="full spec" id="a-spec"></div>
+    <div class="full"><label for="a-e">Twój styl: wklej 2 do 3 opisów ze swojego sklepu</label><textarea id="a-e" rows="6">Dziewczyny, to jest hit tej jesieni! Miękki sweterek, który pasuje do wszystkiego: do jeansów, do spódnicy, do kozaków. Mamy już tylko kilka sztuk, więc nie czekajcie!
+
+Nasza ulubiona marynarka na co dzień. Wygodna, nie gniecie się i wygląda świetnie z białym t-shirtem. Polecamy z całego serca!</textarea></div>
+    <div><label for="a-w">Gdzie opublikujesz</label><select id="a-w"><option value="s">W sklepie internetowym</option><option value="i">Na Instagramie</option></select></div>
+    <div style="align-self:end"><button class="btn d" type="submit" style="width:100%">Napisz opis</button></div>
    </form>
    <div class="out">
-        <h3 id="ai-h">Sukienka jeansowa z bufiastym rękawem</h3>
-    <div id="ai-txt" class="wait">Uzupełnij pola po lewej i kliknij „Napisz opis”. Tekst trafi od razu na kartę produktu, do poprawienia jednym kliknięciem.</div>
-    <div class="note">W demo opis składa się z szablonu. Po wdrożeniu pisze go model AI na podstawie zdjęcia, składu i wymiarów, w stylu Waszych opisów. Koszt to kilka groszy za opis.</div>
+    <h3 id="ai-h"></h3>
+    <div id="ai-txt" class="wait">Wybierz produkt, wklej swoje opisy i kliknij „Napisz opis”.</div>
+    <button class="btn l sm" id="ai-cp" type="button" style="align-self:flex-start;margin-top:16px;display:none">Kopiuj opis</button>
+    <div class="note">W demo opis składa się z szablonu, który rozpoznaje tylko ton Twoich przykładów. Po podpięciu AI opis powstaje ze zdjęcia i specyfikacji produktu, w stylu Twoich opisów. Koszt to kilka groszy za opis.</div>
    </div>
   </div>
  </div>
@@ -693,13 +700,31 @@ $('#mGo').onclick=function(){IN=true;document.body.classList.add('in');$('#mod')
 var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2600)}
 // AI demo
 var typing;
+var AIL=[];P.forEach(function(p){p.k.forEach(function(k){AIL.push({p:p,k:k,c:sku(p,k)})})});
+$('#a-p').innerHTML=AIL.map(function(o,i){return '<option value="'+i+'">'+o.c+' · '+o.p.n+', '+o.k+'</option>'}).join('');
+var aiI=AIL.findIndex(function(o){return o.c=='S2604-GRA'});$('#a-p').value=aiI;
+function aiSpec(){var o=AIL[aiI],p=o.p,im=(p.im[o.k]||[])[0];
+ $('#a-spec').innerHTML=(im?'<img src="../img/'+im+'.webp" alt="">':'<span></span>')+'<div><b>'+p.n+', '+o.k+'</b><dl><dt>Kod</dt><dd>'+o.c+'</dd><dt>Skład</dt><dd>'+p.s+'</dd><dt>Długość</dt><dd>'+p.d+'</dd><dt>Fason</dt><dd>'+p.f+'</dd>'+(p.x?'<dt>Detale</dt><dd>'+p.x+'</dd>':'')+'<dt>Cena hurtowa</dt><dd>'+zl(p.h)+' netto</dd><dt>Sugerowana</dt><dd>'+zl(p.r)+'</dd></dl></div>';
+ $('#a-c').value=o.c;$('#a-c').classList.remove('bad')}
+aiSpec();
+$('#a-p').onchange=function(){aiI=+this.value;aiSpec()};
+$('#a-c').oninput=function(){var v=this.value.trim().toUpperCase(),i=AIL.findIndex(function(o){return o.c==v||o.c.split('-')[0]==v});if(i>=0){aiI=i;$('#a-p').value=i;var keep=this.value;aiSpec();this.value=keep}else this.classList.toggle('bad',v.length>=5)};
+$('#a-c').onblur=function(){if(!this.classList.contains('bad'))this.value=AIL[aiI].c};
 $('#aiForm').onsubmit=function(e){e.preventDefault();
- var n=$('#a-n').value.trim(),k=$('#a-k').value.trim(),f=$('#a-f').value,s=$('#a-s').value.trim(),d=$('#a-d').value.trim(),o=$('#a-o').value,x=$('#a-x').value.trim();
- var skl=/wiskoza/i.test(s)?'Wiskoza sprawia, że materiał jest miękki, przewiewny i ładnie się układa.':/bawełn/i.test(s)?'Bawełna w składzie daje przyjemny w dotyku, oddychający materiał.':'Materiał trzyma kształt i nie gniecie się w ciągu dnia.';
- var el=/elastan/i.test(s)?' Dodatek elastanu zapewnia swobodę ruchu.':'';
- var t=n+' ('+k+') to model, który łatwo wpleść w codzienne stylizacje. Fason '+f+(x?', a do tego '+x:'')+'.\n\n'+skl+el+' Sprawdzi się '+o+': z botkami i marynarką albo z kozakami i krótką kurtką.\n\nSkład: '+s+'\nDługość w rozmiarze M: '+d;
- $('#ai-h').textContent=n;var el2=$('#ai-txt');el2.classList.remove("wait");el2.textContent='';clearInterval(typing);var i=0;
- typing=setInterval(function(){i+=3;el2.textContent=t.slice(0,i);if(i>=t.length)clearInterval(typing)},16)};
+ var o=AIL[aiI],p=o.p,k=o.k,ex=$('#a-e').value,ig=$('#a-w').value=='i';
+ var casual=/!|dziewczyny|kochane|wy |nie czekajcie/i.test(ex),emo=/[\u{1F300}-\u{1FAFF}❤]/u.test(ex);
+ var KC={czarna:'w czerni',granatowa:'w granacie','biała':'w bieli',espresso:'w kolorze espresso',karmel:'w kolorze karmelu',czekolada:'w kolorze czekolady','kwiatowy żakard':''};
+ var n=p.n.charAt(0).toLowerCase()+p.n.slice(1),kc=KC[k]!==undefined?KC[k]:'w kolorze '+k,nm=n+(kc?' '+kc:''),det=(p.x||'').split(',')[0],pl=/spodnie|szorty/.test(p.id);
+ var skl=/bawełn/i.test(p.s)?'bawełna w składzie':/wiskoz/i.test(p.s)?'miękka wiskoza w składzie':'materiał, który się nie gniecie';
+ var t;
+ if(casual){t='Dziewczyny, właśnie dotarła do nas nowość: '+nm+'. Już wiemy, że to będzie hit! '+(det?'Do tego '+det+'. ':'')+'Fason '+p.f+', '+skl+', nosi się wygodnie cały dzień. Pasuje do botków, kozaków i sneakersów.'+(ig?'':' Rozmiary szybko znikają, więc nie czekajcie!')}
+ else{t=nm.charAt(0).toUpperCase()+nm.slice(1)+'. '+(det?'W detalach: '+det+'. ':'')+'Fason '+p.f+', '+skl+'. '+(pl?'Sprawdzą':'Sprawdzi')+' się na co dzień i do pracy, z botkami albo z kozakami.'}
+ if(emo)t+=' ✨';
+ if(ig)t+='\n\nCena: '+zl(p.r)+'. Pytajcie w wiadomości.\n\n#nowosc #moda #butik #stylizacja';
+ else t+='\n\nSkład: '+p.s+'\nDługość: '+p.d;
+ $('#ai-h').textContent=p.n+', '+k;var el2=$('#ai-txt');el2.classList.remove('wait');el2.textContent='';clearInterval(typing);var i=0;$('#ai-cp').style.display='none';
+ typing=setInterval(function(){i+=3;el2.textContent=t.slice(0,i);if(i>=t.length){clearInterval(typing);$('#ai-cp').style.display=''}},16)};
+$('#ai-cp').onclick=function(){var b=this;(navigator.clipboard?navigator.clipboard.writeText($('#ai-txt').textContent):Promise.reject()).then(function(){b.textContent='Skopiowano'},function(){b.textContent='Zaznacz i skopiuj'});setTimeout(function(){b.textContent='Kopiuj opis'},1800)};
 $('#accForm').onsubmit=function(e){e.preventDefault();$('#accOk').style.display='block';this.querySelector('button').disabled=true};
 // looki
 var LOOKS=[[{id:'kurtka',k:0,x:36,y:40},{id:'szorty',k:0,x:50,y:53}],[{id:'marynarka',k:0,x:28,y:39},{id:'spodnie',k:0,x:52,y:72}]];
