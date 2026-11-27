@@ -406,6 +406,7 @@ $('#mX').onclick=function(){$('#mn').classList.remove('open');$('#mX').style.dis
 /* start, mozna wejsc z linku ?typ=sklep */
 var q=new URLSearchParams(location.search),st=0;if(q.get('typ')=='sklep'){$$('#cTyp button').forEach(function(x){x.classList.toggle('on',x.dataset.v=='sklep')});S.typ='sklep';S.br='moda'}
 if(q.get('branza')&&NI[S.typ][q.get('branza')]){S.br=q.get('branza');st=2}
+if(q.get('nazwa'))$('#fN').value=q.get('nazwa').slice(0,80);
 if(q.get('wersja')&&/^(podstawowa|premium)$/.test(q.get('wersja'))){S.wer=q.get('wersja');$$('#cWer button').forEach(function(x){x.classList.toggle('on',x.dataset.v==S.wer)})}
 niches();applyNiche();render();go(st);
 </script>
