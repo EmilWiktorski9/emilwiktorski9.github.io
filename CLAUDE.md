@@ -42,6 +42,7 @@ kontakt.html              przekierowanie starego adresu /kontakt/ na główną
 _layouts/ _includes/      szablony i powtarzalne kawałki (zapis.html = newsletter, nieużywany)
 assets/styl.css           cały wygląd, zmienne kolorów i krojów na górze pliku
 assets/projekty/          logo i zrzuty ekranu projektów
+kreator/                  kreator stron i sklepów (bez Jekylla, czysty HTML) i poradnik wdrożenia
 SZABLON-WPISU-BLOG.txt    układ wpisu na bloga, na przyszłość
 INSTRUKCJA.md             instrukcja obsługi strony, aktualizuj przy zmianach
 ```
@@ -55,7 +56,7 @@ Prosta wizytówka: im mniej, tym lepiej.
 
 - Tło `#F7F7F4`, karty białe z cienką ramką, tekst `#12141A`, akcent niebieski `#2448D8`.
 - Kroje: nagłówki Bricolage Grotesque, tekst Inter.
-- Jedna strona, kolejno: start (nagłówek, wstęp, dwa przyciski tej samej szerokości
+- Strona główna, kolejno: start (nagłówek, wstęp, dwa przyciski tej samej szerokości
   obok siebie), "Co zrobiłem", "Co mogę dla Ciebie zrobić", kontakt, stopka.
 - Nagłówek: nazwa po lewej, zakładki "Co zrobiłem" i "Co mogę zrobić", przycisk
   Kontakt. Na telefonie zakładki znikają, zostaje nazwa i Kontakt w jednej linii.

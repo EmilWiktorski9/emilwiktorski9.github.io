@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kreator strony i sklepu: zobacz swoją firmę w 2 minuty · Emil Wiktorski</title>
+<meta name="description" content="Wybierz branżę, wpisz dane i wrzuć zdjęcia. Od razu zobaczysz swoją stronę albo sklep internetowy w wersji podstawowej i premium.">
+<meta property="og:title" content="Zobacz swoją stronę albo sklep w 2 minuty">
+<meta property="og:description" content="Kreator Emila Wiktorskiego: wersja podstawowa do pobrania za darmo, premium do wdrożenia.">
+<meta property="og:image" content="https://emilwiktorski.pl/assets/og.jpg">
+<link rel="icon" href="/assets/projekty/favicon.png">
+<style>
+@font-face{font-family:Sg;font-weight:400;font-display:swap;src:url(/assets/fonty/schibsted-grotesk-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Sg;font-weight:400;font-display:swap;src:url(/assets/fonty/schibsted-grotesk-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF}
+@font-face{font-family:Sg;font-weight:500;font-display:swap;src:url(/assets/fonty/schibsted-grotesk-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Sg;font-weight:500;font-display:swap;src:url(/assets/fonty/schibsted-grotesk-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02AF}
+@font-face{font-family:Sg;font-weight:600;font-display:swap;src:url(/assets/fonty/schibsted-grotesk-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Sg;font-weight:600;font-display:swap;src:url(/assets/fonty/schibsted-grotesk-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF}
+@font-face{font-family:Is;font-weight:400;font-display:swap;src:url(/assets/fonty/instrument-serif-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Is;font-weight:400;font-display:swap;src:url(/assets/fonty/instrument-serif-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF}
+:root{--bg:#f7f7f4;--pn:#fff;--ln:#e4e2dc;--tx:#12141a;--tx2:#676a72;--a:#2448d8;--r:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.5 Sg,system-ui,sans-serif}
+a{color:inherit}button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}
+.app{display:grid;grid-template-columns:420px 1fr;height:100vh}
+aside{background:var(--pn);border-right:1px solid var(--ln);display:flex;flex-direction:column;min-height:0}
+.top{display:flex;align-items:center;gap:16px;padding:16px 30px;border-bottom:1px solid var(--ln)}
+.top .home{font-weight:600;text-decoration:none;white-space:nowrap}
+.pg{flex:1;display:flex;align-items:center;gap:12px;font-size:13px;color:var(--tx2);font-weight:500}
+.pb{flex:1;height:4px;background:#ebe9e4;border-radius:4px;overflow:hidden}.pb i{display:block;height:100%;width:10%;background:var(--tx);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.steps{flex:1;overflow-y:auto;padding:34px 30px}
+.step{display:none}.step.on{display:block;animation:su .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes su{from{opacity:0;transform:translateY(12px)}}
+.step h1{font:400 38px/1.02 Is,serif;letter-spacing:-.01em}
+.step .ld{color:var(--tx2);margin:12px 0 26px;font-size:15.5px}
+.ch{display:grid;gap:10px}
+.ch.two{grid-template-columns:1fr 1fr}
+.ch button{border:1.5px solid var(--ln);border-radius:var(--r);padding:16px 18px;text-align:left;transition:border-color .2s,background .2s,transform .2s;background:#fff}
+.ch button:hover{border-color:#bdbab2}
+.ch button.on{border-color:var(--tx);background:#fafaf8}
+.ch b{display:block;font-size:16px;font-weight:600}
+.ch span{display:block;font-size:13.5px;color:var(--tx2);margin-top:3px}
+.ch .big{padding:22px 20px}.ch .big b{font:400 28px/1 Is,serif}
+.ch i{display:inline-block;font-style:normal;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:99px;margin-bottom:8px;background:#eef0fb;color:var(--a)}
+.ch i.g{background:#e7f2ec;color:#1f7a4d}.ch i.d{background:#f1eee8;color:#6b5b3a}
+label{display:block;font-size:13px;color:var(--tx2);margin:16px 0 6px}
+.step>label:first-of-type,.step .ld+label{margin-top:0}
+input[type=text],input[type=tel],input[type=url],input[type=email],textarea{width:100%;border:1px solid var(--ln);border-radius:9px;padding:11px 13px;font-size:15px;background:#fff}
+textarea{resize:vertical;min-height:120px;line-height:1.5}
+input:focus,textarea:focus{outline:none;border-color:var(--tx)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sw{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sw button{width:34px;height:34px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--ln)}
+.sw button.on{box-shadow:0 0 0 2px var(--tx)}
+.sw input{width:38px;height:38px;border:0;background:none;padding:0}
+.drop{border:1.5px dashed #c9c6bf;border-radius:var(--r);padding:20px;text-align:center;color:var(--tx2);font-size:14px;cursor:pointer;transition:border-color .2s,background .2s}
+.drop:hover,.drop.ov{border-color:var(--tx);background:#fafaf8}.drop b{color:var(--tx)}
+.th{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.th div{position:relative;aspect-ratio:1;border-radius:7px;overflow:hidden;background:#eee}
+.th img{width:100%;height:100%;object-fit:cover}
+.th div:first-child::after{content:attr(data-l);position:absolute;left:4px;top:4px;font-size:10px;font-weight:600;background:#fff;padding:1px 6px;border-radius:9px}
+.th button{position:absolute;right:3px;top:3px;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;font-size:13px;line-height:1}
+.hint{font-size:12.5px;color:var(--tx2);margin-top:8px}
+.lgp{display:flex;align-items:center;gap:10px;margin-top:8px}.lgp[hidden]{display:none}
+.lgp img{height:36px;max-width:120px;object-fit:contain;background:#222;border-radius:6px;padding:4px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:50px;border-radius:99px;font-weight:600;font-size:15px;text-decoration:none;transition:background .2s,opacity .2s}
+.btn.d{background:var(--tx);color:#fff}.btn.d:hover{background:#000}
+.btn.o{border:1.5px solid var(--tx);color:var(--tx)}
+.btn.a{background:var(--a);color:#fff}.btn.a:hover{background:#1b39b4}
+.btn.l{color:var(--tx2);font-weight:500;font-size:14px;height:40px;text-decoration:underline;text-underline-offset:3px}
+.btn.sm{height:32px;width:auto;padding:0 12px;font-size:13px}
+.fin .btn+.btn{margin-top:10px}
+.or{display:flex;align-items:center;gap:12px;color:var(--tx2);font-size:13px;margin:18px 0}.or::before,.or::after{content:'';flex:1;height:1px;background:var(--ln)}
+.inc{list-style:none;margin:0 0 24px}.inc li{position:relative;padding:9px 0 9px 26px;border-bottom:1px solid var(--ln);font-size:15px}
+.inc li::before{content:'';position:absolute;left:2px;top:15px;width:12px;height:7px;border-left:2px solid var(--a);border-bottom:2px solid var(--a);transform:rotate(-45deg)}
+.nav{display:flex;gap:10px;padding:16px 30px;border-top:1px solid var(--ln);background:var(--pn)}
+.nav #bB{width:40%}
+main{display:flex;flex-direction:column;min-width:0}
+.bar{display:flex;align-items:center;gap:12px;padding:12px 20px;border-bottom:1px solid var(--ln)}
+.bar .t{font-size:14px;color:var(--tx2)}
+.dev{margin-left:auto;display:flex;background:#e7e5e0;border-radius:99px;padding:3px}
+.dev button{padding:6px 14px;border-radius:99px;font-size:13px;font-weight:500;color:var(--tx2)}
+.dev button.on{background:#fff;color:var(--tx);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.stage{flex:1;display:flex;justify-content:center;padding:20px;overflow:hidden}
+.fr{width:100%;height:100%;border:0;border-radius:12px;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.12);transition:width .4s cubic-bezier(.2,.8,.2,1)}
+.fr.ph{width:390px;max-width:100%}
+.mtab{display:none}
+@media (max-width:900px){
+ .app{grid-template-columns:1fr;height:auto;min-height:100%}
+ aside{border:0;min-height:100vh}
+ .steps{padding:28px 22px 30px}.top,.nav{padding-left:22px;padding-right:22px}
+ .nav{position:sticky;bottom:0}
+ main{position:fixed;inset:0;z-index:20;background:var(--bg);transform:translateY(100%);transition:transform .35s}
+ main.open{transform:none}
+ .dev{display:none}.stage{padding:0}.fr{border-radius:0;box-shadow:none}
+ .mtab{display:flex;position:fixed;left:14px;right:14px;bottom:86px;z-index:30;height:48px;border-radius:99px;background:var(--a);color:#fff;font-weight:600;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(36,72,216,.35)}
+ .step h1{font-size:34px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+ <div class="top"><a class="home" href="/">Emil Wiktorski</a><div class="pg"><span id="pgT"></span><div class="pb"><i id="pgB"></i></div></div></div>
+ <div class="steps">
+
+ <div class="step" data-k="typ"><h1>Co chcesz zobaczyć?</h1><p class="ld">Kilka prostych kroków, a obok od razu widzisz efekt na swoich danych. Zdjęcia nie wychodzą z Twojego komputera.</p>
+  <div class="ch" id="cTyp"><button class="big on" data-v="strona"><b>Strona firmowa</b><span>Wizytówka firmy: oferta, realizacje, opinie i kontakt</span></button><button class="big" data-v="sklep"><b>Sklep internetowy</b><span>Produkty z cenami, koszyk i zamówienia</span></button></div>
+ </div>
+
+ <div class="step" data-k="branza"><h1>Jaka branża?</h1><p class="ld">Dobiorę teksty i układ do Twojej branży. Wszystko zmienisz w kolejnych krokach.</p>
+  <div class="ch" id="cBr"></div>
+ </div>
+
+ <div class="step" data-k="wersja"><h1>Którą wersję?</h1><p class="ld">Możesz je potem przełączać i porównać na podglądzie.</p>
+  <div class="ch" id="cWer">
+   <button class="on" data-v="podstawowa"><i class="g">Za darmo</i><b>Podstawowa</b><span>Gotowy kod do pobrania i poradnik, jak wstawić go do internetu</span></button>
+   <button data-v="premium"><i>Wdrażam ja</i><b>Premium</b><span>Wyrazisty wygląd i animacje. Podgląd od razu, wdrożenie po rozmowie</span></button>
+   <button data-v="personalizowana"><i class="d">Od zera</i><b>Personalizowana</b><span>Projekt od pierwszej rozmowy, z funkcjami pod Twoją firmę</span></button>
+  </div>
+ </div>
+
+ <div class="step" data-k="nazwa"><h1 id="hNazwa">Jak nazywa się Twoja firma?</h1><p class="ld">Nazwa pojawi się na górze strony i w wynikach Google.</p>
+  <label for="fN">Nazwa</label><input id="fN" type="text" autocomplete="organization">
+  <label for="fC">Miasto</label><input id="fC" type="text" placeholder="np. Łódź">
+ </div>
+
+ <div class="step" data-k="kontakt"><h1>Jak klienci mają się z Tobą skontaktować?</h1><p class="ld" id="lKon">Telefon będzie widoczny na każdym ekranie, bo to on przynosi zlecenia.</p>
+  <label for="fT">Telefon</label><input id="fT" type="tel" placeholder="np. 600 000 000" autocomplete="tel">
+  <label for="fE">E-mail</label><input id="fE" type="email" placeholder="np. kontakt@twojafirma.pl" autocomplete="email">
+  <label for="fA">Adres</label><input id="fA" type="text" placeholder="np. ul. Długa 12">
+  <label for="fH">Godziny otwarcia</label><input id="fH" type="text" placeholder="np. pon. do pt. 9:00 do 17:00">
+  <label for="fF">Facebook lub Instagram (link, opcjonalnie)</label><input id="fF" type="url" placeholder="https://facebook.com/...">
+ </div>
+
+ <div class="step" data-k="oferta"><h1 id="hOf">Co oferujesz?</h1><p class="ld" id="lOf"></p>
+  <div class="row2" id="rOc"><div><label for="fR">Ocena Google</label><input id="fR" type="text" placeholder="np. 4,9" inputmode="decimal"></div><div><label for="fO">Liczba opinii</label><input id="fO" type="text" placeholder="np. 87" inputmode="numeric"></div></div>
+  <label for="fS" id="lS">Usługi, każda w nowej linii</label><textarea id="fS"></textarea>
+ </div>
+
+ <div class="step" data-k="zdjecia"><h1 id="hZd">Pokaż swoje realizacje</h1><p class="ld" id="lZd"></p>
+  <div class="drop" id="dP"><b>Wybierz zdjęcia</b> albo przeciągnij je tutaj</div>
+  <input type="file" id="iP" accept="image/*" multiple hidden>
+  <div class="th" id="th"></div>
+  <p class="hint" id="pH"></p>
+ </div>
+
+ <div class="step" data-k="wyglad"><h1>Kolor i logo</h1><p class="ld">Wybierz kolor przycisków. Logo możesz pominąć.</p>
+  <label>Kolor przewodni</label><div class="sw" id="sw"></div>
+  <label style="margin-top:20px">Logo (opcjonalnie)</label>
+  <div class="drop" id="dL"><b>Wybierz logo</b> albo przeciągnij tutaj</div>
+  <div class="lgp" id="lgP" hidden><img alt=""><button class="btn o sm" id="lgX" type="button">Usuń</button></div>
+  <input type="file" id="iL" accept="image/*" hidden>
+ </div>
+
+ <div class="step" data-k="gotowe"><h1 id="fH1"></h1><p class="ld" id="fLd"></p>
+  <div class="fin" id="finA">
+   <button class="btn d" id="bD" type="button">Pobierz kod za darmo</button>
+   <a class="btn o" href="poradnik/" target="_blank">Jak wstawić go do internetu (poradnik)</a>
+   <div class="or"><span>albo</span></div>
+   <a class="btn a" id="bP" href="#">Chcę wersję premium z wdrożeniem</a>
+   <button class="btn l" id="bSw" type="button"></button>
+  </div>
+ </div>
+
+ <div class="step" data-k="osobna"><h1>Personalizowana strona zaczyna się od rozmowy</h1><p class="ld">Tu nie ma szablonu. Projektuję wszystko od zera pod Twoją firmę i Twoich klientów. Obok widzisz wersję premium, żeby było wiadomo, od jakiego poziomu zaczynam.</p>
+  <ul class="inc" id="incL"></ul>
+  <a class="btn a" id="bK" href="/#kontakt">Napisz do mnie</a>
+  <a class="btn o" id="bKm" href="#" style="margin-top:10px">Wyślij maila</a>
+  <button class="btn l" id="bBack" type="button">Wolę zobaczyć wersję podstawową lub premium</button>
+ </div>
+
+ </div>
+ <div class="nav"><button class="btn o" id="bB" type="button">Wstecz</button><button class="btn d" id="bN" type="button">Dalej</button></div>
+</aside>
+<main id="mn">
+ <div class="bar"><span class="t" id="bT"></span><div class="dev"><button data-d="pc" class="on">Komputer</button><button data-d="ph">Telefon</button></div><button class="btn o sm" id="mX" style="display:none;margin-left:auto;white-space:nowrap">Edytuj</button></div>
+ <div class="stage"><iframe class="fr" id="fr" title="Podgląd"></iframe></div>
+</main>
+</div>
+<button class="mtab" id="mT">Zobacz podgląd</button>
+
+<script>
+var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+var IMG=new URL('img/',location.href).href,FB=new URL('fonts/',location.href).href;
+var MAIL='emil@emilwiktorski.pl';
+var NI={
+ strona:{
+  detailing:{l:'Detailing samochodowy',d:'korekta lakieru, powłoki, PPF',tag:'Detailing samochodowy',cta:'Umów termin',name:'Lustro Detailing',svcT:'Usługi',galT:'Realizacje',galP:'Każde auto oddajemy z dokumentacją zdjęciową.',svc:['Korekta lakieru','Powłoka ceramiczna','Folia PPF','Detailing wnętrza','Mycie detailingowe'],img:['hero-poster.jpg','m5.webp','p911-bok.webp','felga.webp','fotel.webp','krople.webp','ba-po.webp','bmw-przod.webp','cay-przod.webp']},
+  beauty:{l:'Beauty i fryzjer',d:'salon urody, paznokcie, włosy',tag:'Salon urody',cta:'Zarezerwuj wizytę',name:'Studio Urody Aura',svcT:'Zabiegi',galT:'Nasze prace',galP:'Zdjęcia prosto z salonu, bez filtrów.',svc:['Manicure hybrydowy','Stylizacja brwi i rzęs','Strzyżenie i koloryzacja','Zabiegi na twarz','Makijaż okolicznościowy'],hue:330},
+  gastro:{l:'Restauracja i kawiarnia',d:'menu, rezerwacje, godziny',tag:'Restauracja',cta:'Zarezerwuj stolik',name:'Bistro Pod Lipami',svcT:'Menu',galT:'U nas',galP:'Zajrzyj do środka, zanim przyjdziesz.',svc:['Śniadania do 12:00','Lunch dnia','Kawa speciality','Domowe desery','Przyjęcia okolicznościowe'],hue:28},
+  remonty:{l:'Remonty i budowa',d:'wykończenia, łazienki, wyceny',tag:'Remonty i wykończenia',cta:'Zamów wycenę',name:'Remonty Nowak',svcT:'Zakres prac',galT:'Realizacje',galP:'Mieszkania i łazienki, które oddaliśmy w ostatnich miesiącach.',svc:['Remonty mieszkań','Łazienki pod klucz','Gładzie i malowanie','Układanie płytek','Zabudowy z płyt GK'],hue:205},
+  inna:{l:'Inna branża',d:'uniwersalny układ dla każdej firmy',tag:'Twoja firma',cta:'Skontaktuj się',name:'Twoja Firma',svcT:'Oferta',galT:'Realizacje',galP:'Wybrane projekty z ostatnich miesięcy.',svc:['Pierwsza usługa','Druga usługa','Trzecia usługa'],hue:240}
+ },
+ sklep:{
+  moda:{l:'Odzież i moda',d:'kolekcje, rozmiary, stylizacje',tag:'Sklep z odzieżą',name:'Atelier Nova',prod:'Sukienka midi, 249\nMarynarka oversize, 329\nSpodnie z prostą nogawką, 199\nKoszula lniana, 179\nSweter z wełną, 229\nTorebka skórzana, 289',hue:20},
+  kosmetyki:{l:'Kosmetyki',d:'pielęgnacja, zestawy, prezenty',tag:'Kosmetyki naturalne',name:'Ziołowa Apteczka',prod:'Krem nawilżający 50 ml, 89\nSerum z witaminą C, 119\nOlejek do ciała, 69\nPeeling cukrowy, 49\nMaska do włosów, 59\nZestaw prezentowy, 189',hue:140},
+  rekodzielo:{l:'Rękodzieło i prezenty',d:'ręcznie robione, personalizacja',tag:'Rękodzieło',name:'Pracownia Glina',prod:'Świeca sojowa, 59\nKubek ceramiczny, 79\nMisa na owoce, 129\nRamka z drewna, 99\nMydło naturalne, 29\nZestaw prezentowy, 149',hue:35},
+  inne:{l:'Inne produkty',d:'uniwersalny sklep',tag:'Sklep internetowy',name:'Twój Sklep',prod:'Produkt pierwszy, 99\nProdukt drugi, 149\nProdukt trzeci, 199\nProdukt czwarty, 249',hue:230}
+ }
+};
+var S={typ:'strona',br:'detailing',wer:'podstawowa',color:'#c8102e',logo:null,photos:[],dev:'pc'};
+var COLORS=['#c8102e','#e0a526','#1f8a5b','#2448d8','#7a3cf0','#111111'];
+function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function val(id){return $('#'+id).value.trim()}
+function N(){return NI[S.typ][S.br]}
+function tel(t){return 'tel:+48'+t.replace(/\D/g,'').slice(-9)}
+function rgb(h){var n=parseInt(h.slice(1),16);return [(n>>16)&255,(n>>8)&255,n&255]}
+function onCol(h){var c=rgb(h);return (c[0]*299+c[1]*587+c[2]*114)/1000>150?'#111':'#fff'}
+function zl(v){return (Math.round(v*100)/100).toFixed(v%1?2:0).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' zł'}
+/* zdjecie zastepcze, gdy branza nie ma przykladow */
+function ph(i,lab,h){var a=(h+i*23)%360,b=(a+40)%360,s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl('+a+',22%,'+(62+i%3*6)+'%)"/><stop offset="1" stop-color="hsl('+b+',26%,'+(78+i%2*6)+'%)"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><circle cx="'+(200+i*90%400)+'" cy="'+(180+i*70%260)+'" r="'+(140+i*17%90)+'" fill="#fff" opacity=".22"/><text x="400" y="312" font-family="system-ui,sans-serif" font-size="26" fill="#000" opacity=".4" text-anchor="middle">'+lab+'</text></svg>';return 'data:image/svg+xml,'+encodeURIComponent(s)}
+function photos(){if(S.photos.length)return S.photos;var n=N();if(n.img)return n.img.map(function(f){return IMG+f});var o=[];for(var i=0;i<9;i++)o.push(ph(i,i==0?'Tu będzie Twoje zdjęcie':'Twoje zdjęcie',n.hue||220));return o}
+function products(){var n=N(),lines=(val('fS')||n.prod).split('\n').map(function(x){return x.trim()}).filter(Boolean).slice(0,12);
+ return lines.map(function(l,i){var m=l.match(/^(.*?)[,;]\s*([\d\s]+(?:[.,]\d+)?)\s*(zł)?\s*$/),name=m?m[1].trim():l,pr=m?parseFloat(m[2].replace(/\s/g,'').replace(',','.')):0;
+  return {n:name,p:pr,img:S.photos[i]||ph(i,'Zdjęcie produktu',n.hue||220)}})}
+function data(){var n=N();return {typ:S.typ,n:val('fN')||n.name,c:val('fC'),t:val('fT')||'600 000 000',e:val('fE'),a:val('fA'),r:val('fR'),o:val('fO'),h:val('fH'),f:val('fF'),
+ s:S.typ=='strona'?(val('fS')?val('fS').split('\n'):n.svc).map(function(x){return x.trim()}).filter(Boolean).slice(0,8):[],
+ pr:S.typ=='sklep'?products():[],col:S.color,logo:S.logo,ph:photos(),ni:n}}
+
+/* ===================== STRONA: podstawowa ===================== */
+function tSiteBasic(d,dl){var oc=onCol(d.col),rest=d.ph.slice(1,9),n=d.ni;
+ return '<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(d.n)+(d.c?' · '+esc(n.tag.toLowerCase())+' '+esc(d.c):'')+'</title><meta name="description" content="'+esc(d.n)+': '+esc(d.s.slice(0,3).join(', ').toLowerCase())+(d.c?'. '+esc(d.c):'')+'.">'+
+ '<style>*{box-sizing:border-box;margin:0;padding:0}body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1a1a1a;background:#fff}a{color:inherit}.w{max-width:1100px;margin:0 auto;padding:0 22px}'+
+ 'header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:5}header .w{display:flex;align-items:center;justify-content:space-between;height:64px}.lg{font-weight:700;font-size:19px;text-decoration:none;display:flex;align-items:center;gap:10px}.lg img{height:36px}'+
+ '.b{display:inline-block;background:'+d.col+';color:'+oc+';padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,.15)}'+
+ '.hero{position:relative;height:78vh;min-height:440px;background:#222 url("'+d.ph[0]+'") center/cover}.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.75),rgba(0,0,0,.25))}'+
+ '.hero .w{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff}.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.08}.hero p{margin:14px 0 26px;font-size:18px;opacity:.9}.pill{display:inline-block;background:rgba(255,255,255,.15);padding:6px 14px;border-radius:999px;font-size:14px;margin-bottom:16px}'+
+ 'section{padding:72px 0}h2{font-size:32px;margin-bottom:28px;text-align:center}.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}.g img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.08)}'+
+ '.sv{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;list-style:none}.sv li{background:#fff;border-radius:16px;padding:24px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.07);display:flex;align-items:center;gap:12px}.sv li::before{content:"✓";display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:'+d.col+';color:'+oc+';font-size:15px;flex:none}'+
+ '.alt{background:#f5f6f8}.k dl{max-width:560px;margin:0 auto;background:#fff;border-radius:16px;padding:28px;box-shadow:0 8px 24px rgba(0,0,0,.07);display:grid;grid-template-columns:auto 1fr;gap:12px 24px}.k dt{color:#777}footer{padding:24px 0;font-size:13px;color:#888;text-align:center}</style></head><body>'+
+ '<header><div class="w"><a class="lg" href="#">'+(d.logo?'<img src="'+d.logo+'" alt="">':'')+esc(d.n)+'</a><a class="b" href="'+tel(d.t)+'">'+esc(d.t)+'</a></div></header>'+
+ '<div class="hero"><div class="w">'+(d.r?'<span class="pill">★ '+esc(d.r)+' w Google'+(d.o?' · '+esc(d.o)+' opinii':'')+'</span>':'')+'<h1>'+esc(d.n)+'</h1><p>'+esc(n.tag)+(d.c?' · '+esc(d.c):'')+'</p><div><a class="b" href="#kontakt">'+esc(n.cta)+'</a></div></div></div>'+
+ (rest.length?'<section><div class="w"><h2>'+esc(n.galT)+'</h2><div class="g">'+rest.map(function(u){return '<img src="'+u+'" alt="" loading="lazy">'}).join('')+'</div></div></section>':'')+
+ '<section class="alt"><div class="w"><h2>'+esc(n.svcT)+'</h2><ul class="sv">'+d.s.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div></section>'+
+ '<section class="k" id="kontakt"><div class="w"><h2>Kontakt</h2><dl><dt>Telefon</dt><dd><a href="'+tel(d.t)+'">'+esc(d.t)+'</a></dd>'+(d.e?'<dt>E-mail</dt><dd><a href="mailto:'+esc(d.e)+'">'+esc(d.e)+'</a></dd>':'')+(d.a?'<dt>Adres</dt><dd>'+esc(d.a)+(d.c?', '+esc(d.c):'')+'</dd>':'')+(d.h?'<dt>Godziny</dt><dd>'+esc(d.h)+'</dd>':'')+(d.f?'<dt>Social media</dt><dd><a href="'+esc(d.f)+'">'+esc(d.f.replace(/^https?:\/\/(www\.)?/,''))+'</a></dd>':'')+'</dl></div></section>'+
+ '<footer>© '+new Date().getFullYear()+' '+esc(d.n)+(dl?' · szablon: emilwiktorski.pl':'')+'</footer></body></html>'}
+
+/* ===================== wspolne dla premium ===================== */
+function premHead(d,title,extra){var ff='@font-face{font-family:Ar;font-weight:100 900;font-stretch:62% 125%;src:url('+FB+'archivo-latin-wdth-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}@font-face{font-family:Ar;font-weight:100 900;font-stretch:62% 125%;src:url('+FB+'archivo-latin-ext-wdth-normal.woff2) format("woff2");unicode-range:U+0100-02AF}';
+ var oc=onCol(d.col);
+ return '<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(title)+'</title><style>'+ff+
+ '*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:#0b0b0c;color:#eeebe6;font:16px/1.6 Ar,system-ui,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}'+
+ '.w{max-width:1240px;margin:0 auto;padding:0 32px}h1,h2,h3{font-family:Ar;font-weight:800;font-stretch:118%;letter-spacing:-.02em;line-height:.95;text-transform:uppercase}'+
+ 'nav{position:fixed;inset:0 0 auto;z-index:9;transition:background .4s}nav.s{background:rgba(11,11,12,.9);backdrop-filter:blur(12px)}nav .w{display:flex;align-items:center;height:72px;gap:24px}.lg{font:800 18px Ar;font-stretch:120%;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:10px}.lg img{height:34px}'+
+ 'nav .l{margin-left:auto;display:flex;gap:26px;font-size:14px;color:#b9b5ae}.b{display:inline-flex;align-items:center;white-space:nowrap;height:48px;padding:0 24px;border-radius:99px;background:'+d.col+';color:'+oc+';font-weight:700;font-size:15px;transition:transform .3s}.b:hover{transform:translateY(-2px)}.b.o{background:none;border:1px solid rgba(255,255,255,.35);color:#fff}'+
+ '.hero{position:relative;height:100vh;min-height:560px;overflow:hidden}.hero .im{position:absolute;inset:-4%;background:url("'+d.ph[0]+'") center/cover;animation:kb 22s ease-in-out infinite alternate}@keyframes kb{to{transform:scale(1.12) translate(-2%,-2%)}}'+
+ '.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#0b0b0c 0,rgba(11,11,12,.25) 55%,rgba(11,11,12,.55) 100%)}.hero .w{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:9vh}'+
+ '.hero h1{font-size:clamp(38px,10.5vw,170px);max-width:12ch;overflow-wrap:anywhere}.hero .ln{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin:24px 0 30px;color:#cfcac2;font-size:17px}.st{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:7px 14px;border-radius:99px;font-weight:600;color:#fff}.st i{color:'+d.col+';font-style:normal;letter-spacing:2px}.bt{display:flex;gap:10px;flex-wrap:wrap}'+
+ '.mq{overflow:hidden;border-block:1px solid #222;padding:22px 0;background:#0e0e10}.mq div{display:flex;gap:46px;width:max-content;animation:mq 28s linear infinite;font:800 clamp(26px,3.6vw,46px) Ar;font-stretch:120%;text-transform:uppercase;color:#2a2a2e}.mq span:nth-child(4n+1){color:#eeebe6}.mq b{color:'+d.col+'}@keyframes mq{to{transform:translateX(-50%)}}'+
+ 'section{padding:120px 0}.hd{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:46px}.hd h2{font-size:clamp(40px,6vw,88px)}.hd p{color:#9c978f;max-width:380px}'+
+ '.ct{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end}.ct h2{font-size:clamp(46px,7vw,110px)}.ct .tl{display:block;font:800 clamp(30px,4vw,52px) Ar;font-stretch:115%;color:'+d.col+';margin:26px 0 10px}.ct dl{display:grid;grid-template-columns:auto 1fr;gap:12px 26px;color:#cfcac2}.ct dt{color:#6d6a65}'+
+ 'footer{border-top:1px solid #1f1f22;padding:26px 0;color:#6d6a65;font-size:13px}footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}'+
+ '.rv{opacity:0;transform:translateY(34px);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}'+
+ '.wm{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;background:rgba(255,255,255,.92);color:#111;font:600 13px system-ui;padding:9px 16px;border-radius:99px;box-shadow:0 8px 30px rgba(0,0,0,.4);white-space:nowrap}'+
+ extra+'@media (max-width:800px){.w{padding:0 20px}nav .l,nav .b{display:none}.hd{display:block}.hd p{margin-top:14px}section{padding:80px 0}.ct{grid-template-columns:1fr;gap:30px}}</style></head><body>'}
+function premTail(d){return '<footer><div class="w"><span>© '+new Date().getFullYear()+' '+esc(d.n)+'</span><span>Projekt: Emil Wiktorski</span></div></footer><div class="wm">Podgląd wersji premium · emilwiktorski.pl</div>'}
+var premJs='var n=document.getElementById("nv");addEventListener("scroll",function(){n.classList.toggle("s",scrollY>40)});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll(".rv").forEach(function(el,i){if(el.closest(".hero"))el.style.transitionDelay=(i*.12)+"s";io.observe(el)});var im=document.querySelector(".hero .im");addEventListener("scroll",function(){if(scrollY<innerHeight)im.style.translate="0 "+scrollY*.3+"px"},{passive:true});document.querySelectorAll("a[href=\'#\']").forEach(function(a){if(!a.dataset.im)a.onclick=function(e){e.preventDefault();scrollTo({top:0,behavior:"smooth"})}});';
+function mq(items){var it=items.map(function(x){return '<span>'+esc(x)+'</span><b>✦</b>'}).join('');return '<div class="mq" aria-hidden="true"><div>'+it+it+it+it+'</div></div>'}
+function heroP(d,line,cta,sec){return '<header class="hero"><div class="im"></div><div class="w"><h1 class="rv">'+esc(d.n)+'</h1><div class="ln rv">'+(d.r?'<span class="st"><i>★★★★★</i>'+esc(d.r)+' Google'+(d.o?' · '+esc(d.o)+' opinii':'')+'</span>':'')+'<span>'+esc(line)+(d.c?' · '+esc(d.c):'')+'</span></div><div class="bt rv"><a class="b" href="#kontakt">'+esc(cta)+'</a><a class="b o" href="#'+sec[0]+'">'+esc(sec[1])+'</a></div></div></header>'}
+function contactP(d,h){return '<section id="kontakt" style="padding-top:40px"><div class="w ct"><div><h2 class="rv">'+esc(h)+'</h2><a class="tl rv" href="'+tel(d.t)+'">'+esc(d.t)+'</a></div><dl class="rv">'+(d.e?'<dt>E-mail</dt><dd><a href="mailto:'+esc(d.e)+'">'+esc(d.e)+'</a></dd>':'')+(d.a?'<dt>Adres</dt><dd>'+esc(d.a)+(d.c?', '+esc(d.c):'')+'</dd>':'')+(d.h?'<dt>Godziny</dt><dd>'+esc(d.h)+'</dd>':'')+(d.f?'<dt>Social media</dt><dd><a href="'+esc(d.f)+'" target="_blank">'+esc(d.f.replace(/^https?:\/\/(www\.)?/,''))+'</a></dd>':'')+'</dl></div></section>'}
+
+/* ===================== STRONA: premium ===================== */
+function tSitePrem(d){var n=d.ni,gal=d.ph.slice(1,9);
+ var css='.gl{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:180px;gap:10px}.gl a{position:relative;overflow:hidden;border-radius:6px;grid-column:span 2;grid-row:span 2}.gl a:nth-child(1){grid-column:span 4}.gl a:nth-child(4),.gl a:nth-child(5){grid-column:span 3}.gl a:nth-child(n+6){grid-row:span 1}.gl img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.8,.2,1)}.gl a:hover img{transform:scale(1.07)}'+
+ '.sv{border-top:1px solid #26262a}.si{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:30px 0;border-bottom:1px solid #26262a;transition:padding .4s}.si h3{font-size:clamp(28px,4vw,54px);transition:color .3s}.si .ar{width:46px;height:46px;border-radius:50%;border:1px solid #333;display:grid;place-items:center;transition:background .3s,transform .3s}.si:hover{padding-left:14px}.si:hover h3{color:'+d.col+'}.si:hover .ar{background:'+d.col+';border-color:'+d.col+';transform:rotate(-45deg)}'+
+ '#lb{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:4vw;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:100%;max-height:100%;border-radius:6px}@media (max-width:800px){.gl{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gl a,.gl a:nth-child(n){grid-column:span 1;grid-row:span 1}.gl a:nth-child(1){grid-column:span 2;grid-row:span 2}}';
+ return premHead(d,d.n,css)+
+ '<nav id="nv"><div class="w"><a class="lg" href="#">'+(d.logo?'<img src="'+d.logo+'" alt="">':esc(d.n))+'</a><div class="l"><a href="#galeria">'+esc(n.galT)+'</a><a href="#oferta">'+esc(n.svcT)+'</a><a href="#kontakt">Kontakt</a></div><a class="b" href="'+tel(d.t)+'" style="height:42px;padding:0 18px;font-size:14px">'+esc(d.t)+'</a></div></nav>'+
+ heroP(d,n.tag,n.cta,['galeria','Zobacz '+n.galT.toLowerCase()])+mq(d.s)+
+ '<section id="galeria"><div class="w"><div class="hd"><h2 class="rv">'+esc(n.galT)+'</h2><p class="rv">'+esc(n.galP)+' Kliknij, żeby powiększyć.</p></div><div class="gl">'+gal.map(function(u){return '<a class="rv" href="#" data-im="'+u+'"><img src="'+u+'" alt="" loading="lazy"></a>'}).join('')+'</div></div></section>'+
+ '<section id="oferta" style="padding-top:0"><div class="w"><div class="hd"><h2 class="rv">'+esc(n.svcT)+'</h2><p class="rv">Zakres i cenę ustalamy po rozmowie. Zadzwoń albo napisz.</p></div><div class="sv">'+d.s.map(function(x){return '<a class="si rv" href="#kontakt"><h3>'+esc(x)+'</h3><span class="ar"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>'}).join('')+'</div></div></section>'+
+ contactP(d,n.cta)+premTail(d)+'<div id="lb"><img alt=""></div>'+
+ '<scr'+'ipt>'+premJs+'var lb=document.getElementById("lb");document.querySelectorAll("[data-im]").forEach(function(a){a.onclick=function(e){e.preventDefault();lb.querySelector("img").src=a.dataset.im;lb.classList.add("on")}});lb.onclick=function(){lb.classList.remove("on")};</scr'+'ipt></body></html>'}
+
+/* ===================== SKLEP: koszyk wspolny ===================== */
+function cartJs(d){return 'var P='+JSON.stringify(d.pr.map(function(p){return {n:p.n,p:p.p}}))+',C={},SH='+JSON.stringify({n:d.n,e:d.e,t:d.t})+';'+
+ 'function zl(v){return (Math.round(v*100)/100).toFixed(v%1?2:0).replace(".",",").replace(/\\B(?=(\\d{3})+(?!\\d))/g," ")+" zł"}'+
+ 'function upd(){var q=0,s=0,h="";for(var i in C){q+=C[i];s+=C[i]*P[i].p;h+="<li><span>"+P[i].n+"</span><span class=\\"qt\\"><button data-m=\\""+i+"\\">−</button>"+C[i]+"<button data-pl=\\""+i+"\\">+</button></span><b>"+zl(C[i]*P[i].p)+"</b></li>"}'+
+ 'document.querySelectorAll(".cq").forEach(function(e){e.textContent=q;e.style.display=q?"":"none"});document.getElementById("cl").innerHTML=h||"<li class=\\"em\\">Koszyk jest pusty</li>";document.getElementById("cs").textContent=zl(s);document.getElementById("co").style.display=q?"":"none";'+
+ 'document.querySelectorAll("[data-m]").forEach(function(b){b.onclick=function(){var i=b.dataset.m;if(--C[i]<=0)delete C[i];upd()}});document.querySelectorAll("[data-pl]").forEach(function(b){b.onclick=function(){C[b.dataset.pl]++;upd()}})}'+
+ 'document.querySelectorAll("[data-add]").forEach(function(b){b.onclick=function(e){e.preventDefault();var i=b.dataset.add;C[i]=(C[i]||0)+1;upd();var t=b.textContent;b.textContent="Dodano";setTimeout(function(){b.textContent=t},900);document.getElementById("cb").classList.add("bump");setTimeout(function(){document.getElementById("cb").classList.remove("bump")},400)}});'+
+ 'var dr=document.getElementById("dr");document.querySelectorAll("[data-cart]").forEach(function(b){b.onclick=function(e){e.preventDefault();dr.classList.add("on")}});document.getElementById("dx").onclick=function(){dr.classList.remove("on")};dr.onclick=function(e){if(e.target==dr)dr.classList.remove("on")};'+
+ 'document.getElementById("co").onclick=function(){var t="Dzień dobry, chcę zamówić:\\n",s=0;for(var i in C){t+="- "+P[i].n+" x"+C[i]+" = "+zl(C[i]*P[i].p)+"\\n";s+=C[i]*P[i].p}t+="Razem: "+zl(s)+"\\n\\nImię i nazwisko:\\nAdres dostawy:\\nTelefon:";'+
+ 'if(SH.e){location.href="mailto:"+SH.e+"?subject="+encodeURIComponent("Zamówienie: "+SH.n)+"&body="+encodeURIComponent(t)}else{alert("Zadzwoń, żeby złożyć zamówienie: "+SH.t)}};upd();'}
+var cartCss=function(col,oc,dark){var bg=dark?'#121214':'#fff',ln=dark?'#26262a':'#eee',tx=dark?'#eeebe6':'#1a1a1a';
+ return '#dr{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .3s}#dr.on{opacity:1;pointer-events:auto}#dr .pn{position:absolute;right:0;top:0;bottom:0;width:min(420px,100%);background:'+bg+';color:'+tx+';padding:28px;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}#dr.on .pn{transform:none}'+
+ '#dr h3{font-size:24px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}#dx{font-size:28px;line-height:1}#cl{list-style:none;flex:1;overflow:auto}#cl li{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid '+ln+'}#cl .em{display:block;color:#888;border:0}.qt{display:flex;align-items:center;gap:10px}.qt button{width:28px;height:28px;border-radius:50%;border:1px solid '+ln+'}'+
+ '.tot{display:flex;justify-content:space-between;font-size:20px;font-weight:700;padding:18px 0}#co{width:100%;height:52px;border-radius:99px;background:'+col+';color:'+oc+';font-weight:700;font-size:16px}.nt{font-size:12.5px;color:#888;margin-top:10px;text-align:center}'+
+ '.cq{position:absolute;top:-4px;right:-6px;min-width:20px;height:20px;border-radius:99px;background:'+col+';color:'+oc+';font-size:12px;font-weight:700;display:grid;place-items:center;padding:0 5px}#cb{position:relative;transition:transform .2s}#cb.bump{transform:scale(1.18)}'}
+function drawer(){return '<div id="dr"><div class="pn"><h3>Koszyk <button id="dx" aria-label="Zamknij">×</button></h3><ul id="cl"></ul><div class="tot"><span>Razem</span><span id="cs"></span></div><button id="co">Zamów</button><p class="nt">Zamówienie wyślesz mailem albo telefonicznie. Płatność ustalisz ze sklepem.</p></div></div>'}
+var bagSvg='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>';
+
+/* ===================== SKLEP: podstawowy ===================== */
+function tShopBasic(d,dl){var oc=onCol(d.col),n=d.ni;
+ return '<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(d.n)+' · sklep internetowy</title><meta name="description" content="'+esc(d.n)+': '+esc(d.pr.slice(0,3).map(function(p){return p.n}).join(', ').toLowerCase())+'.">'+
+ '<style>*{box-sizing:border-box;margin:0;padding:0}body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1a1a1a;background:#fafafa}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}.w{max-width:1160px;margin:0 auto;padding:0 22px}'+
+ 'header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:5}header .w{display:flex;align-items:center;justify-content:space-between;height:66px}.lg{font-weight:700;font-size:20px;display:flex;align-items:center;gap:10px}.lg img{height:36px}'+
+ '.hero{margin:22px auto 0;max-width:1160px;padding:0 22px}.hero div{position:relative;border-radius:22px;overflow:hidden;height:46vh;min-height:300px;background:#ddd url("'+d.ph[0]+'") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}.hero div::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.6),rgba(0,0,0,.15))}'+
+ '.hero h1,.hero p,.hero a{position:relative;z-index:1}.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.1}.hero p{opacity:.9;margin:8px 0 20px}.b{display:inline-block;background:'+d.col+';color:'+oc+';padding:12px 26px;border-radius:999px;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,.15)}'+
+ 'section{padding:56px 0}h2{font-size:28px;margin-bottom:24px;text-align:center}.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}.pc{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.06);display:flex;flex-direction:column}.pc img{width:100%;aspect-ratio:1;object-fit:cover}'+
+ '.pc div{padding:16px;display:flex;flex-direction:column;gap:4px;flex:1}.pc h3{font-size:16px;font-weight:600}.pc .pr{font-weight:700;font-size:18px;color:'+d.col+'}.pc button{margin-top:auto;height:42px;border-radius:999px;background:#f1f1f1;font-weight:600;transition:background .2s}.pc button:hover{background:'+d.col+';color:'+oc+'}'+
+ '.k{background:#fff}.k dl{max-width:560px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:12px 24px}.k dt{color:#777}footer{padding:24px 0;font-size:13px;color:#888;text-align:center}'+cartCss(d.col,oc,false)+'</style></head><body>'+
+ '<header><div class="w"><a class="lg" href="#">'+(d.logo?'<img src="'+d.logo+'" alt="">':'')+esc(d.n)+'</a><a id="cb" href="#" data-cart aria-label="Koszyk">'+bagSvg+'<span class="cq" style="display:none">0</span></a></div></header>'+
+ '<div class="hero"><div><div style="position:relative;z-index:1"><h1>'+esc(d.n)+'</h1><p>'+esc(n.tag)+(d.c?' · '+esc(d.c):'')+' · wysyłka w całej Polsce</p><a class="b" href="#produkty">Zobacz produkty</a></div></div></div>'+
+ '<section id="produkty"><div class="w"><h2>Nasze produkty</h2><div class="gr">'+d.pr.map(function(p,i){return '<div class="pc"><img src="'+p.img+'" alt="'+esc(p.n)+'" loading="lazy"><div><h3>'+esc(p.n)+'</h3><span class="pr">'+zl(p.p)+'</span><button data-add="'+i+'">Dodaj do koszyka</button></div></div>'}).join('')+'</div></div></section>'+
+ '<section class="k"><div class="w"><h2>Kontakt</h2><dl><dt>Telefon</dt><dd><a href="'+tel(d.t)+'">'+esc(d.t)+'</a></dd>'+(d.e?'<dt>E-mail</dt><dd><a href="mailto:'+esc(d.e)+'">'+esc(d.e)+'</a></dd>':'')+(d.a?'<dt>Adres</dt><dd>'+esc(d.a)+(d.c?', '+esc(d.c):'')+'</dd>':'')+(d.f?'<dt>Social media</dt><dd><a href="'+esc(d.f)+'">'+esc(d.f.replace(/^https?:\/\/(www\.)?/,''))+'</a></dd>':'')+'</dl></div></section>'+
+ '<footer>© '+new Date().getFullYear()+' '+esc(d.n)+(dl?' · szablon: emilwiktorski.pl':'')+'</footer>'+drawer()+'<scr'+'ipt>'+cartJs(d)+'</scr'+'ipt></body></html>'}
+
+/* ===================== SKLEP: premium ===================== */
+function tShopPrem(d){var n=d.ni,oc=onCol(d.col);
+ var css='.gr{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 18px}.pc{display:block}.pc .im{position:relative;overflow:hidden;aspect-ratio:3/4;background:#151517;border-radius:4px}.pc img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}.pc:hover img{transform:scale(1.06)}'+
+ '.pc .qa{position:absolute;left:12px;right:12px;bottom:12px;height:46px;border-radius:99px;background:'+d.col+';color:'+oc+';font-weight:700;transform:translateY(140%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}.pc:hover .qa{transform:none}'+
+ '.pc .tx{display:flex;justify-content:space-between;gap:14px;margin-top:14px;font-size:15px}.pc .tx b{font-weight:700;white-space:nowrap}.pc .tx span{color:#cfcac2}.pc:nth-child(3n+2){margin-top:60px}'+
+ 'nav .cb{margin-left:14px;position:relative;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center}'+
+ '@media (max-width:800px){.gr{grid-template-columns:1fr 1fr;gap:22px 12px}.pc:nth-child(3n+2){margin-top:0}.pc .qa{transform:none;height:38px;font-size:13px}nav .cb{display:grid!important;margin-left:auto}}'+cartCss(d.col,oc,true);
+ return premHead(d,d.n+' · sklep',css)+
+ '<nav id="nv"><div class="w"><a class="lg" href="#">'+(d.logo?'<img src="'+d.logo+'" alt="">':esc(d.n))+'</a><div class="l"><a href="#produkty">Produkty</a><a href="#kontakt">Kontakt</a></div><a class="cb" id="cb" href="#" data-cart aria-label="Koszyk">'+bagSvg+'<span class="cq" style="display:none">0</span></a></div></nav>'+
+ heroP(d,n.tag,'Zobacz produkty',['produkty','Nowości']).replace('href="#kontakt">Zobacz produkty','href="#produkty">Zobacz produkty')+mq(d.pr.map(function(p){return p.n}))+
+ '<section id="produkty"><div class="w"><div class="hd"><h2 class="rv">Produkty</h2><p class="rv">Dodaj do koszyka jednym kliknięciem. Wysyłka w całej Polsce.</p></div><div class="gr">'+d.pr.map(function(p,i){return '<div class="pc rv"><div class="im"><img src="'+p.img+'" alt="'+esc(p.n)+'" loading="lazy"><button class="qa" data-add="'+i+'">Dodaj do koszyka</button></div><div class="tx"><span>'+esc(p.n)+'</span><b>'+zl(p.p)+'</b></div></div>'}).join('')+'</div></div></section>'+
+ contactP(d,'Kontakt')+premTail(d)+drawer()+'<scr'+'ipt>'+premJs+cartJs(d)+'</scr'+'ipt></body></html>'}
+
+/* ===================== podglad ===================== */
+var fr=$('#fr'),tmr;
+function html(dl){var d=data(),prem=S.wer!='podstawowa';if(S.typ=='sklep')return prem?tShopPrem(d):tShopBasic(d,dl);return prem?tSitePrem(d):tSiteBasic(d,dl)}
+function render(){clearTimeout(tmr);tmr=setTimeout(function(){var y=0;try{y=fr.contentWindow.scrollY}catch(e){}
+ fr.srcdoc=html(false);fr.onload=function(){try{fr.contentWindow.scrollTo(0,y)}catch(e){}};
+ var d=data(),P=S.wer!='podstawowa',sk=S.typ=='sklep',co=sk?'sklep':'strona';
+ $('#bT').textContent='Podgląd: '+(sk?'sklep':'strona')+', wersja '+(S.wer=='podstawowa'?'podstawowa':'premium');
+ $('#fH1').textContent=P?'Tak może wyglądać Twój'+(sk?' sklep':'a strona')+' premium':'Twój'+(sk?' sklep jest gotowy':'a strona jest gotowa');
+ $('#fLd').textContent=P?'Tę wersję wdrażam dla Ciebie: Twoje zdjęcia, domena i wizytówka Google'+(sk?', a do tego płatności online i dostawa.':'.')+' Napisz, a odezwę się z wyceną.':'Pobierz kod i wstaw go do internetu według poradnika. Zajmie to około 15 minut.'+(sk?' Zamówienia będą przychodzić na Twój e-mail.':'');
+ ['#bD','.fin a[href="poradnik/"]','.fin .or'].forEach(function(s){$(s).style.display=P?'none':''});
+ $('#bSw').textContent=P?'Wolę wersję podstawową za darmo':'Zobacz jeszcze, jak wygląda wersja premium';
+ var body='Dzień dobry,\nchcę '+(S.wer=='personalizowana'?'personalizowany ':'')+(sk?'sklep':'stronę')+(S.wer=='premium'?' w wersji premium':'')+'.\nFirma: '+d.n+(d.c?' ('+d.c+')':'')+'\nBranża: '+N().l+'\nTelefon: '+(val('fT')||'');
+ var mh='mailto:'+MAIL+'?subject='+encodeURIComponent((sk?'Sklep':'Strona')+' '+(S.wer=='personalizowana'?'personalizowana':'premium')+': '+d.n)+'&body='+encodeURIComponent(body);
+ $('#bP').href=mh;$('#bKm').href=mh;
+},120)}
+
+/* ===================== kroki ===================== */
+var FLOW_A=['typ','branza','wersja','nazwa','kontakt','oferta','zdjecia','wyglad','gotowe'],FLOW_P=['typ','branza','wersja','osobna'];
+function flow(){return S.wer=='personalizowana'?FLOW_P:FLOW_A}
+var cur=0;
+function go(i){var f=flow();cur=Math.max(0,Math.min(f.length-1,i));var k=f[cur];
+ $$('.step').forEach(function(st){st.classList.toggle('on',st.dataset.k==k)});
+ var last=cur==f.length-1;$('#pgT').textContent=last?'Gotowe':'Krok '+(cur+1)+' z '+(f.length-1);$('#pgB').style.width=((cur+1)/f.length*100)+'%';
+ $('#bB').style.visibility=cur==0?'hidden':'visible';$('#bN').style.display=last?'none':'';
+ $('#bN').textContent=cur==f.length-2?(S.wer=='personalizowana'?'Dalej':'Zobacz gotow'+(S.typ=='sklep'?'y sklep':'ą stronę')):'Dalej';
+ $('.steps').scrollTop=0;var fi=$('.step.on input:not([type=file]),.step.on textarea');if(fi&&innerWidth>900)fi.focus({preventScroll:true})}
+$('#bN').onclick=function(){go(cur+1)};$('#bB').onclick=function(){go(cur-1)};
+$$('.step input').forEach(function(i){i.addEventListener('keydown',function(e){if(e.key=='Enter'){e.preventDefault();go(cur+1)}})});
+
+/* wybory */
+function pick(box,fn){$$(box+' button').forEach(function(b){b.onclick=function(){$$(box+' button').forEach(function(x){x.classList.toggle('on',x==b)});fn(b.dataset.v)}})}
+function niches(){$('#cBr').innerHTML=Object.keys(NI[S.typ]).map(function(k){var n=NI[S.typ][k];return '<button data-v="'+k+'"'+(k==S.br?' class="on"':'')+'><b>'+n.l+'</b><span>'+n.d+'</span></button>'}).join('');
+ pick('#cBr',function(v){S.br=v;applyNiche();render()})}
+function applyNiche(){var n=N(),sk=S.typ=='sklep';
+ $('#fN').placeholder='np. '+n.name;
+ $('#hNazwa').textContent=sk?'Jak nazywa się Twój sklep?':'Jak nazywa się Twoja firma?';
+ $('#lKon').textContent=sk?'Na e-mail będą przychodzić zamówienia z koszyka. Telefon będzie widoczny dla klientów.':'Telefon będzie widoczny na każdym ekranie, bo to on przynosi zlecenia.';
+ $('#hOf').textContent=sk?'Jakie produkty sprzedajesz?':'Co oferujesz?';
+ $('#lOf').textContent=sk?'Każdy produkt w nowej linii: nazwa, przecinek i cena. Możesz dopisać do 12 produktów.':'Ocenę i liczbę opinii przepisz z wizytówki Google. Pod spodem wpisz swoje '+n.svcT.toLowerCase()+'.';
+ $('#rOc').style.display=sk?'none':'';
+ $('#lS').textContent=sk?'Produkty (nazwa, cena)':n.svcT+', każda pozycja w nowej linii';
+ var ta=$('#fS');if(!ta.dataset.ed){ta.value=sk?n.prod:n.svc.join('\n')}
+ $('#hZd').textContent=sk?'Zdjęcia produktów':'Pokaż swoje realizacje';
+ $('#lZd').textContent=sk?'Wrzuć zdjęcia w tej samej kolejności co produkty. Pierwsze trafi też na start sklepu.':'Wrzuć do 12 zdjęć. Pierwsze trafi na start strony, więc wybierz najlepsze.';
+ thumbs()}
+$('#fS').addEventListener('input',function(){this.dataset.ed=1});
+pick('#cTyp',function(v){S.typ=v;S.br=Object.keys(NI[v])[0];$('#fS').dataset.ed='';niches();applyNiche();render();go(cur)});
+pick('#cWer',function(v){S.wer=v;render();go(cur)});
+function setWer(v){S.wer=v;$$('#cWer button').forEach(function(x){x.classList.toggle('on',x.dataset.v==v)});render()}
+$('#bSw').onclick=function(){setWer(S.wer=='podstawowa'?'premium':'podstawowa')};
+$('#bBack').onclick=function(){setWer('podstawowa');go(2)};
+$('#incL').innerHTML=['Projekt od zera, bez szablonu','Twoje zdjęcia i filmy, w razie potrzeby nagrania na miejscu','Funkcje pod Twoją firmę: wycena, rezerwacje, panel klienta, płatności','Wizytówka Google i podstawy SEO lokalnego','Opieka po starcie i zmiany, kiedy ich potrzebujesz'].map(function(x){return '<li>'+x+'</li>'}).join('');
+$$('aside input[type=text],aside input[type=tel],aside input[type=url],aside input[type=email],aside textarea').forEach(function(el){el.addEventListener('input',render)});
+$$('.dev button').forEach(function(b){b.onclick=function(){$$('.dev button').forEach(function(x){x.classList.toggle('on',x==b)});fr.classList.toggle('ph',b.dataset.d=='ph')}});
+/* kolory */
+$('#sw').innerHTML=COLORS.map(function(c,i){return '<button style="background:'+c+'" data-c="'+c+'"'+(i==0?' class="on"':'')+' aria-label="Kolor"></button>'}).join('')+'<input type="color" id="cc" value="#c8102e" aria-label="Własny kolor">';
+function setCol(c){S.color=c;$$('#sw button').forEach(function(b){b.classList.toggle('on',b.dataset.c==c)});render()}
+$$('#sw button').forEach(function(b){b.onclick=function(){setCol(b.dataset.c)}});$('#cc').oninput=function(){setCol(this.value)};
+/* zdjecia */
+function shrink(file,max,type){return new Promise(function(res,rej){var u=URL.createObjectURL(file),im=new Image();im.onload=function(){var k=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL(type||'image/jpeg',.82))};im.onerror=rej;im.src=u})}
+function addPhotos(files){files=[].slice.call(files).filter(function(f){return /^image\//.test(f.type)}).slice(0,12-S.photos.length);
+ Promise.all(files.map(function(f){return shrink(f,1600)})).then(function(a){S.photos=S.photos.concat(a);thumbs();render()})}
+function thumbs(){var sk=S.typ=='sklep';$('#th').innerHTML=S.photos.map(function(u,i){return '<div data-l="'+(sk?'1':'Start')+'"><img src="'+u+'" alt=""><button data-i="'+i+'" aria-label="Usuń">×</button></div>'}).join('');
+ $('#pH').textContent=S.photos.length?S.photos.length+' z 12 zdjęć.':(N().img?'Na razie widzisz zdjęcia przykładowe. ':'Na razie w podglądzie są puste pola na zdjęcia. ')+'Najlepiej wyglądają zdjęcia w dobrym świetle'+(sk?', na jasnym tle.':', w poziomie.');
+ $$('#th button').forEach(function(b){b.onclick=function(){S.photos.splice(+b.dataset.i,1);thumbs();render()}})}
+function drop(el,inp,fn){el.onclick=function(){inp.click()};inp.onchange=function(){fn(inp.files);inp.value=''};
+ ['dragenter','dragover'].forEach(function(t){el.addEventListener(t,function(e){e.preventDefault();el.classList.add('ov')})});
+ ['dragleave','drop'].forEach(function(t){el.addEventListener(t,function(e){e.preventDefault();el.classList.remove('ov')})});
+ el.addEventListener('drop',function(e){fn(e.dataTransfer.files)})}
+drop($('#dP'),$('#iP'),addPhotos);
+drop($('#dL'),$('#iL'),function(fs){if(!fs[0])return;shrink(fs[0],400,'image/png').then(function(u){S.logo=u;$('#lgP').hidden=false;$('#lgP img').src=u;render()})});
+$('#lgX').onclick=function(){S.logo=null;$('#lgP').hidden=true;render()};
+/* pobieranie wersji podstawowej */
+function toData(u){if(u.indexOf('data:')==0)return Promise.resolve(u);return fetch(u).then(function(r){return r.blob()}).then(function(b){return shrink(b,1400)})}
+$('#bD').onclick=function(){var b=this,d=data();b.disabled=true;b.textContent='Przygotowuję plik…';
+ Promise.all(d.ph.map(toData)).then(function(ph){d.ph=ph;var h=S.typ=='sklep'?tShopBasic(d,true):tSiteBasic(d,true);
+  h+='\n<!--\nJAK WSTAWIĆ TĘ STRONĘ DO INTERNETU\nPoradnik krok po kroku: https://emilwiktorski.pl/kreator/poradnik/\nWersja premium i pomoc: '+MAIL+'\n-->\n';
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h],{type:'text/html'}));a.download='index.html';document.body.appendChild(a);a.click();a.remove();
+  b.textContent='Pobrano. Teraz otwórz poradnik';setTimeout(function(){b.disabled=false;b.textContent='Pobierz kod za darmo'},4000)}).catch(function(){b.disabled=false;b.textContent='Nie udało się, spróbuj jeszcze raz'})};
+/* telefon */
+$('#mT').onclick=function(){$('#mn').classList.add('open');$('#mX').style.display='flex';this.style.display='none'};
+$('#mX').onclick=function(){$('#mn').classList.remove('open');$('#mX').style.display='none';$('#mT').style.display=''};
+/* start, mozna wejsc z linku ?typ=sklep */
+var q=new URLSearchParams(location.search);if(q.get('typ')=='sklep'){$$('#cTyp button').forEach(function(x){x.classList.toggle('on',x.dataset.v=='sklep')});S.typ='sklep';S.br='moda'}
+niches();applyNiche();render();go(0);
+</script>
+</body>
+</html>
