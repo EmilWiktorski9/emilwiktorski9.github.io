@@ -31,10 +31,10 @@ email: "emil@emilwiktorski.pl"
 # --- GÓRA STRONY GŁÓWNEJ ---
 # Nagłówek jest w trzech kawałkach: środkowe słowo pisze się kursywą
 # i podkreśla kreską. Spacje na końcu i na początku kawałków zostają.
-naglowek_przed: "Buduję strony i aplikacje "
-naglowek_wyroznienie: "dopasowane"
-naglowek_po: " do Twojej firmy."
-wstep: "Strony, które nie wyglądają jak z szablonu. Aplikacje i automatyzacje, które zdejmują z Ciebie ręczną robotę. Wszystko robię sam, od pierwszej rozmowy do wdrożenia."
+naglowek_przed: "Buduję strony i sklepy "
+naglowek_wyroznienie: "premium"
+naglowek_po: ", aplikacje i automatyzacje."
+wstep: "Strony i sklepy internetowe, które nie wyglądają jak z szablonu. W kreatorze zobaczysz swoją firmę na gotowej stronie w 2 minuty, zanim cokolwiek zapłacisz. Do tego aplikacje i automatyzacje, które zdejmują z Ciebie ręczną robotę."
 miasto: "Łódź"
 
 # --- KONTAKT ---

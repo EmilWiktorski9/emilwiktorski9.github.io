@@ -5,8 +5,16 @@
 # =====================================================================
 
 - nazwa: "Strony premium"
-  opis: "Strona, która nie wygląda jak z szablonu. Twoje zdjęcia i Twój język, a klient od razu wie, czym się zajmujesz i jak się z Tobą skontaktować."
-  przyklady: "Na przykład: strona firmy usługowej, strona produktu, strona z wyceną i rezerwacją terminu."
+  opis: "Strona, która nie wygląda jak z szablonu. Twoje zdjęcia i Twój język, a klient w 5 sekund wie, czym się zajmujesz i jak do Ciebie zadzwonić."
+  przyklady: "Na przykład: studio detailingu, salon urody, restauracja, firma remontowa. Wersję podstawową z kreatora pobierasz za darmo."
+  kreator: "/kreator/"
+  kreator_tekst: "Zobacz swoją stronę w kreatorze"
+
+- nazwa: "Sklepy internetowe"
+  opis: "Sklep z Twoimi produktami, cenami i koszykiem. Zaczynasz od prostej wersji z zamówieniami na maila, a płatności online i dostawę dokładam, kiedy sprzedaż ruszy."
+  przyklady: "Na przykład: odzież, kosmetyki, rękodzieło, katalog dla klientów hurtowych."
+  kreator: "/kreator/?typ=sklep"
+  kreator_tekst: "Zobacz swój sklep w kreatorze"
 
 - nazwa: "Aplikacje"
   opis: "Masz w firmie coś, co robicie ręcznie albo w trzech programach naraz? Zbuduję jedną aplikację, która ogarnie to za Was."

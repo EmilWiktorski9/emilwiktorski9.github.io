@@ -11,8 +11,8 @@ layout: default
   <div class="start-dol">
     <p class="start-wstep pojaw" style="--o:.55s">{{ site.wstep }}</p>
     <div class="guziki pojaw" style="--o:.7s">
-      <a class="guzik" href="#kontakt">Napisz do mnie <span class="strzalka" aria-hidden="true">→</span></a>
-      <a class="guzik guzik-obrys" href="#oferta">Co robię</a>
+      <a class="guzik" href="{{ '/kreator/' | relative_url }}">Zobacz swoją stronę <span class="strzalka" aria-hidden="true">→</span></a>
+      <a class="guzik guzik-obrys" href="#kontakt">Napisz do mnie</a>
     </div>
   </div>
 </section>
@@ -48,6 +48,9 @@ layout: default
         <div class="oferta-tresc">
           <p>{{ o.opis }}</p>
           {% if o.przyklady %}<p class="oferta-przyklady">{{ o.przyklady }}</p>{% endif %}
+          {%- if o.kreator %}
+          <p class="oferta-linki"><a href="{{ o.kreator | relative_url }}">{{ o.kreator_tekst }}<span aria-hidden="true"> →</span></a></p>
+          {%- endif %}
           {%- if o.linki %}
           <p class="oferta-linki">{{ o.linki_tytul }} {% for l in o.linki %}<a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.nazwa }}<span aria-hidden="true"> ↗</span></a>{% unless forloop.last %}<span class="przecinek">,</span> {% endunless %}{% endfor %}</p>
           {%- endif %}
