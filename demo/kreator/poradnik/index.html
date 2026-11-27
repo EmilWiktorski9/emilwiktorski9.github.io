@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Jak wstawić stronę do internetu · poradnik krok po kroku</title>
+<style>
+@font-face{font-family:It;font-weight:400;font-display:swap;src:url(../fonts/inter-tight-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:It;font-weight:400;font-display:swap;src:url(../fonts/inter-tight-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF}
+@font-face{font-family:It;font-weight:600;font-display:swap;src:url(../fonts/inter-tight-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:It;font-weight:600;font-display:swap;src:url(../fonts/inter-tight-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF}
+@font-face{font-family:Ar;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(../fonts/archivo-latin-wdth-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Ar;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(../fonts/archivo-latin-ext-wdth-normal.woff2) format('woff2');unicode-range:U+0100-02AF}
+:root{--bg:#f4f3f0;--pn:#fff;--ln:#e3e1dc;--tx:#16171a;--tx2:#6b6d72;--a:#2448d8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font:400 17px/1.6 It,system-ui,sans-serif}
+a{color:inherit}
+.w{max-width:760px;margin:0 auto;padding:0 22px}
+header{padding:70px 0 30px}
+h1{font:700 clamp(34px,5vw,52px)/1.05 Ar,sans-serif;font-stretch:108%;letter-spacing:-.02em}
+.ld{color:var(--tx2);font-size:19px;margin-top:16px}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:34px 0 10px}
+.tabs button{font:inherit;text-align:left;border:1.5px solid var(--ln);background:var(--pn);border-radius:12px;padding:18px;cursor:pointer;transition:border-color .2s}
+.tabs button.on{border-color:var(--tx)}
+.tabs b{display:block;font-size:17px}.tabs span{display:block;font-size:14px;color:var(--tx2);margin-top:4px}
+.tabs i{display:inline-block;font-style:normal;font-size:12px;font-weight:600;background:#e7efe9;color:#1f7a4d;padding:2px 9px;border-radius:99px;margin-bottom:8px}
+.path{display:none}.path.on{display:block}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--tx2);margin:22px 0 8px}
+.meta b{color:var(--tx)}
+ol{list-style:none;counter-reset:k;margin-top:18px}
+ol>li{counter-increment:k;position:relative;background:var(--pn);border:1px solid var(--ln);border-radius:14px;padding:22px 22px 22px 70px;margin-bottom:12px}
+ol>li::before{content:counter(k);position:absolute;left:22px;top:20px;width:32px;height:32px;border-radius:50%;background:var(--tx);color:#fff;display:grid;place-items:center;font-weight:600;font-size:15px}
+li h3{font-size:18px;font-weight:600;margin-bottom:6px}
+li p{color:#3c3e43;font-size:16px}
+li p+p{margin-top:8px}
+code{font:500 14px ui-monospace,Menlo,monospace;background:#f1efea;padding:2px 7px;border-radius:5px;white-space:nowrap}
+.rec{margin-top:10px;background:#f7f6f3;border-radius:10px;padding:14px 16px;font-size:15px}
+.rec table{width:100%;border-collapse:collapse}
+.rec td,.rec th{text-align:left;padding:5px 10px 5px 0;font-size:14px}
+.rec th{color:var(--tx2);font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 22px;border-radius:99px;background:var(--a);color:#fff;font-weight:600;font-size:15px;text-decoration:none;margin-top:12px}
+.tip{border-left:3px solid var(--a);padding:2px 0 2px 14px;color:var(--tx2);font-size:15px;margin-top:10px}
+.help{margin:46px 0 30px;background:var(--tx);color:#fff;border-radius:16px;padding:30px}
+.help h2{font:700 26px/1.15 Ar,sans-serif;font-stretch:108%}
+.help p{color:rgba(255,255,255,.75);margin-top:8px}
+.help .btn{background:#fff;color:var(--tx)}
+.disc{font-size:13px;color:var(--tx2);padding-bottom:50px}
+@media (max-width:600px){.tabs{grid-template-columns:1fr}ol>li{padding:62px 18px 20px}ol>li::before{left:18px;top:18px}header{padding-top:44px}}
+</style>
+</head>
+<body>
+<div class="w">
+<header>
+ <h1>Jak wstawić stronę do internetu</h1>
+ <p class="ld">Masz już plik <code>index.html</code> z kreatora. Teraz wystarczy go wrzucić na serwer i podpiąć adres. Wybierz jedną z dwóch dróg.</p>
+ <div class="tabs">
+  <button class="on" data-p="a"><i>Najprościej</i><b>Hosting SEOHOST</b><span>Domena i serwer w jednym miejscu. Nic nie trzeba łączyć.</span></button>
+  <button data-p="b"><i style="background:#eef0fb;color:#2448d8">Bez opłaty za serwer</i><b>GitHub Pages</b><span>Serwer za darmo, płacisz tylko za domenę. Trochę więcej klikania.</span></button>
+ </div>
+</header>
+
+<section class="path on" id="pa">
+ <div class="meta"><span>Czas: <b>około 15 minut</b></span><span>Koszt: <b>hosting i domena, płatne rocznie</b></span><span>Trudność: <b>łatwa</b></span></div>
+ <ol>
+  <li><h3>Załóż konto w SEOHOST</h3><p>Wejdź na stronę SEOHOST i zarejestruj się. To zwykły formularz: e-mail i hasło.</p><a class="btn aff" href="https://seohost.pl/" target="_blank" rel="sponsored noopener">Przejdź do SEOHOST</a></li>
+  <li><h3>Zamów hosting razem z domeną</h3><p>Wybierz najtańszy pakiet hostingu. W tym samym zamówieniu wpisz adres, który chcesz mieć, na przykład <code>lustrodetailing.pl</code>, i dodaj go do koszyka.</p><p class="tip">Domena i hosting kupione razem łączą się same. Nie musisz ustawiać żadnych rekordów DNS.</p></li>
+  <li><h3>Otwórz menedżer plików</h3><p>Po opłaceniu zaloguj się do panelu hostingu i znajdź <b>Menedżer plików</b>.</p></li>
+  <li><h3>Wejdź do folderu strony</h3><p>Otwórz folder swojej domeny, a w nim <code>public_html</code>. Jeśli jest tam plik powitalny od hostingu, na przykład <code>index.html</code> albo <code>index.php</code>, usuń go.</p></li>
+  <li><h3>Wgraj swój plik</h3><p>Kliknij <b>Wgraj</b> i wybierz plik <code>index.html</code> pobrany z kreatora.</p></li>
+  <li><h3>Włącz kłódkę (SSL)</h3><p>W panelu znajdź <b>SSL</b> i włącz darmowy certyfikat dla swojej domeny. Dzięki temu przeglądarka nie pokaże ostrzeżenia, a strona będzie pod adresem z <code>https://</code>.</p></li>
+  <li><h3>Sprawdź stronę</h3><p>Wpisz swój adres w przeglądarce. Nowa domena czasem potrzebuje kilku godzin, zanim zacznie działać wszędzie. Jeśli widzisz stary ekran, odśwież stronę albo sprawdź na telefonie.</p></li>
+ </ol>
+ <p class="tip">Nazwy przycisków w panelu mogą się trochę różnić od tych w poradniku. Szukaj słów: menedżer plików, public_html, wgraj, SSL.</p>
+</section>
+
+<section class="path" id="pb">
+ <div class="meta"><span>Czas: <b>około 30 minut</b></span><span>Koszt: <b>tylko domena, płatna rocznie</b></span><span>Trudność: <b>średnia</b></span></div>
+ <ol>
+  <li><h3>Załóż konto na GitHubie</h3><p>Wejdź na <code>github.com</code> i zarejestruj się. Konto jest darmowe.</p></li>
+  <li><h3>Utwórz repozytorium</h3><p>Kliknij <b>New repository</b>. Nazwij je na przykład <code>moja-strona</code>, zostaw zaznaczone <b>Public</b> i kliknij <b>Create repository</b>.</p></li>
+  <li><h3>Wgraj plik</h3><p>Kliknij <b>uploading an existing file</b> (albo <b>Add file</b>, potem <b>Upload files</b>), przeciągnij <code>index.html</code> i na dole kliknij <b>Commit changes</b>.</p></li>
+  <li><h3>Włącz stronę</h3><p>Wejdź w <b>Settings</b>, potem <b>Pages</b>. W polu <b>Branch</b> wybierz <code>main</code> i kliknij <b>Save</b>. Po minucie strona działa pod adresem <code>twojanazwa.github.io/moja-strona</code>.</p></li>
+  <li><h3>Kup domenę</h3><p>Kup adres u dowolnego rejestratora, na przykład w <a class="aff" href="https://seohost.pl/" target="_blank" rel="sponsored noopener">SEOHOST</a>. Sam hosting nie jest tu potrzebny.</p></li>
+  <li><h3>Najpierw wpisz domenę na GitHubie</h3><p>W <b>Settings</b>, <b>Pages</b>, w polu <b>Custom domain</b> wpisz swój adres i kliknij <b>Save</b>. Zrób to przed zmianą DNS, tak zaleca GitHub ze względów bezpieczeństwa.</p></li>
+  <li><h3>Ustaw DNS u rejestratora domeny</h3><p>W panelu domeny znajdź <b>strefę DNS</b> i dodaj te rekordy:</p>
+   <div class="rec"><table><tr><th>Typ</th><th>Nazwa</th><th>Wartość</th></tr>
+   <tr><td>A</td><td>@</td><td><code>185.199.108.153</code></td></tr>
+   <tr><td>A</td><td>@</td><td><code>185.199.109.153</code></td></tr>
+   <tr><td>A</td><td>@</td><td><code>185.199.110.153</code></td></tr>
+   <tr><td>A</td><td>@</td><td><code>185.199.111.153</code></td></tr>
+   <tr><td>CNAME</td><td>www</td><td><code>twojanazwa.github.io</code></td></tr></table></div>
+   <p class="tip">Jeśli w strefie są już inne rekordy A dla <code>@</code>, usuń je. Zmiany mogą potrzebować do 24 godzin.</p></li>
+  <li><h3>Włącz HTTPS</h3><p>Wróć do <b>Settings</b>, <b>Pages</b> i zaznacz <b>Enforce HTTPS</b>, gdy tylko pole będzie aktywne. Certyfikat GitHub wystawia sam.</p></li>
+ </ol>
+</section>
+
+<div class="help"><h2>Nie chcesz tego robić sam?</h2><p>Wstawię stronę za Ciebie, podepnę domenę i dodam ją do wizytówki Google. Mogę też przygotować wersję premium na Twoich zdjęciach.</p><a class="btn" href="mailto:emil@emilwiktorski.pl?subject=Pomoc%20ze%20stron%C4%85">Napisz do mnie</a></div>
+<p class="disc">Linki do SEOHOST to linki partnerskie. Jeśli kupisz hosting przez nie, dostanę niewielką prowizję, a Ty nie płacisz nic więcej. Poradnik: Emil Wiktorski, emilwiktorski.pl</p>
+</div>
+<script>
+/* Tu wklej swój link partnerski z panelu SEOHOST: */
+var AFF='https://seohost.pl/';
+document.querySelectorAll('a.aff').forEach(function(a){a.href=AFF});
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('on',x==b)});document.querySelectorAll('.path').forEach(function(p){p.classList.toggle('on',p.id=='p'+b.dataset.p)})}});
+</script>
+</body>
+</html>
