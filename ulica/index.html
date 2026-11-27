@@ -114,7 +114,7 @@ dialog::backdrop{background:rgba(22,20,16,.55);backdrop-filter:blur(6px)}
  .rows{gap:64px}
  .lok,.lok.r{width:100%;justify-self:stretch}
  .lb h2{font-size:28px}
- .end{margin-top:70px}
+ .end{margin-top:150px}
  .srch{flex-direction:column}.srch button{width:100%}
  .top .kt{height:38px;padding:0 16px}
 }
@@ -223,7 +223,7 @@ function build(){svg.innerHTML='';spurs=[];var mr=map.getBoundingClientRect(),W=
  car.innerHTML='<ellipse cx="'+(CL*.04)+'" cy="'+(CH*.12)+'" rx="'+(CL*.5)+'" ry="'+(CH*.55)+'" fill="rgba(0,0,0,.42)" filter="url(#sh)"/>'+
  '<path d="M'+(CL*.42)+' '+(-CH*.28)+' L'+(CL*2.1)+' '+(-CH*1.9)+' L'+(CL*2.1)+' '+(CH*1.9)+' L'+(CL*.42)+' '+(CH*.28)+' Z" fill="url(#beam)" opacity=".75"/>'+
  '<image style="filter:brightness(1.75) saturate(1.25) contrast(1.05)" href="img/auto.webp" x="'+(-CL/2)+'" y="'+(-CH/2)+'" width="'+CL+'" height="'+CH+'"/>';
- g.appendChild(car);svg.setAttribute('viewBox','0 0 '+W+' '+mr.height);cur=goal=target();place(cur)}
+ lights(g,RW,mr,W,CL);g.appendChild(car);svg.setAttribute('viewBox','0 0 '+W+' '+mr.height);cur=goal=target();place(cur)}
 var lamps=[];
 function deco(g,d,RW,mr,W){lamps=[];if(mob)return;var rects=loks.map(function(l){var r=l.getBoundingClientRect();return [r.left-mr.left-30,r.top-mr.top-60,r.right-mr.left+30,r.bottom-mr.top+30]});
  var e=document.getElementById('end').getBoundingClientRect();rects.push([e.left-mr.left-30,e.top-mr.top-40,e.right-mr.left+30,e.bottom-mr.top+30]);
@@ -242,11 +242,35 @@ function deco(g,d,RW,mr,W){lamps=[];if(mob)return;var rects=loks.map(function(l)
   var li=el('image',{href:'img/lampa.webp',x:bx,y:by-LH/2,width:LW,height:LH,transform:'rotate('+rot+' '+bx+' '+by+')'});li.style.filter='drop-shadow(4px 7px 4px rgba(0,0,0,.35))';lg.appendChild(li);
   lamps.push({s:t2,glow:glow})}
  g.removeChild(tmp);g.appendChild(tg);g.appendChild(lg)}
+/* sygnalizacja przed banerem: czerwone, STOP, po 2 s zolte i zielone, JEDZ */
+var stopS=1e9,TL={st:'red'},tlT=[];
+function lights(g,RW,mr,W,CL){var l4=loks[loks.length-1].getBoundingClientRect(),e=document.getElementById('end').getBoundingClientRect(),y4=l4.top-mr.top+l4.height*(mob?.45:.5),ye=e.top-mr.top,yS=mob?(l4.bottom-mr.top+(ye-(l4.bottom-mr.top))*.5):y4+(ye-y4)*.55;
+ var lo=0,hi=L;for(var i=0;i<30;i++){var m=(lo+hi)/2;if(road.getPointAtLength(m).y<yS)lo=m;else hi=m}var sS=lo;stopS=sS-CL*.62;
+ var p=road.getPointAtLength(sS),q=road.getPointAtLength(sS+2),a=Math.atan2(q.y-p.y,q.x-p.x),nx=Math.cos(a+Math.PI/2),ny=Math.sin(a+Math.PI/2),hw=RW/2-(mob?3:6);
+ g.appendChild(el('path',{d:'M'+(p.x-nx*hw)+' '+(p.y-ny*hw)+' L'+(p.x+nx*hw)+' '+(p.y+ny*hw),stroke:'#f4f1ea',"stroke-width":mob?4:7}));
+ var side=mob?1:(p.x<W/2?1:-1),k=mob?.62:1,lx=p.x+side*(RW/2+(mob?30:52)),ly=p.y-(mob?6:10);
+ var t=el('g',{transform:'translate('+lx+' '+ly+') scale('+k+')'});
+ t.innerHTML='<ellipse cx="4" cy="44" rx="20" ry="7" fill="rgba(0,0,0,.25)" filter="url(#sh)"/><rect x="-2.5" y="20" width="5" height="26" rx="2" fill="#2b2d33"/>'+
+  '<rect x="-17" y="-52" width="34" height="80" rx="10" fill="#1d1f24"/><rect x="-17" y="-52" width="34" height="80" rx="10" fill="none" stroke="#3a3d45" stroke-width="1.5"/>'+
+  '<circle class="L r" cx="0" cy="-32" r="9.5"/><circle class="L y" cx="0" cy="-8" r="9.5"/><circle class="L gr" cx="0" cy="16" r="9.5"/>'+
+  '<g class="sg" transform="translate('+(side*58)+' -36)"><g class="stop"><path d="M-12 -29 L12 -29 L29 -12 L29 12 L12 29 L-12 29 L-29 12 L-29 -12 Z" fill="#d7262b" stroke="#fff" stroke-width="3.5"/><text y="6" text-anchor="middle" font-family="Sg,system-ui" font-weight="700" font-size="17" fill="#fff">STOP</text></g>'+
+  '<g class="go2"><circle r="29" fill="#1f9d55" stroke="#fff" stroke-width="3.5"/><text y="6" text-anchor="middle" font-family="Sg,system-ui" font-weight="700" font-size="15" fill="#fff">JEDŹ</text></g></g>';
+ g.appendChild(t);TL.g=t;[].slice.call(g.querySelectorAll('image')).forEach(function(im){if(im.getAttribute('href').indexOf('drzewo')<0)return;var x=+im.getAttribute('x')+im.getAttribute('width')/2,y=+im.getAttribute('y')+im.getAttribute('height')/2;if(Math.abs(x-lx-side*30)<110&&Math.abs(y-ly)<100)im.remove()});setTL(TL.st=='green'?'green':'red',false)}
+function setTL(st,sign){TL.st=st;if(!TL.g)return;var c={r:'#3a1416',y:'#3a3014',gr:'#123222'};
+ TL.g.querySelector('.r').setAttribute('fill',st=='red'?'#ff3b3b':c.r);TL.g.querySelector('.y').setAttribute('fill',st=='yellow'?'#ffc43b':c.y);TL.g.querySelector('.gr').setAttribute('fill',st=='green'?'#2bd46c':c.gr);
+ ['r','y','gr'].forEach(function(n){var on=(n=='r'&&st=='red')||(n=='y'&&st=='yellow')||(n=='gr'&&st=='green');TL.g.querySelector('.'+n).style.filter=on?'drop-shadow(0 0 8px '+(n=='r'?'#ff3b3b':n=='y'?'#ffc43b':'#2bd46c')+')':'none'});
+ var stp=TL.g.querySelector('.stop'),go=TL.g.querySelector('.go2');
+ [stp,go].forEach(function(x){x.style.transition='transform .45s cubic-bezier(.3,1.6,.4,1),opacity .3s';x.style.transformBox='fill-box';x.style.transformOrigin='center'});
+ var showStop=sign&&st!='green',showGo=st=='green'&&sign!==false&&TL.wait;
+ stp.style.opacity=showStop?1:0;stp.style.transform=showStop?'scale(1)':'scale(.3)';go.style.opacity=showGo?1:0;go.style.transform=showGo?'scale(1)':'scale(.3)'}
+function arrive(){if(TL.st!='red'||TL.wait)return;TL.wait=1;setTL('red',true);
+ tlT.push(setTimeout(function(){setTL('yellow',true)},2000));
+ tlT.push(setTimeout(function(){setTL('green',true);tick()},2700))}
 function target(){var mr=map.getBoundingClientRect(),prog=Math.max(0,Math.min(1,(innerHeight*.6-mr.top)/(mr.height-innerHeight*.2)));return L*prog}
 function place(len){lamps.forEach(function(o){o.glow.setAttribute('opacity',len>o.s-60?1:0)});var p=road.getPointAtLength(Math.max(.1,len)),q=road.getPointAtLength(Math.max(0,len-4)),ang=len<5?90:Math.atan2(p.y-q.y,p.x-q.x)*180/Math.PI;
  car.setAttribute('transform','translate('+p.x+' '+p.y+') rotate('+ang+')')}
-function loop(){cur+=(goal-cur)*.12;if(Math.abs(goal-cur)<.3)cur=goal;place(cur);raf=cur==goal?0:requestAnimationFrame(loop)}
-function tick(){if(!road)return;goal=target();if(!raf)raf=requestAnimationFrame(loop);
+function loop(){cur+=(goal-cur)*.12;if(Math.abs(goal-cur)<.3)cur=goal;place(cur);raf=cur==goal?0:requestAnimationFrame(loop);if(TL.st=='red'&&cur>=stopS-1)arrive()}
+function tick(){if(!road)return;goal=target();if(TL.st!='green'&&goal>stopS)goal=stopS;if(TL.st=='green'&&goal<stopS-500){tlT.forEach(clearTimeout);tlT=[];TL.wait=0;setTL('red',false)}if(!raf)raf=requestAnimationFrame(loop);
  spurs.forEach(function(s,i){var r=loks[i].getBoundingClientRect();loks[i].style.opacity=r.top<innerHeight*.8||loks[i].classList.contains('dim')?'':'.55'});
  document.getElementById('tp').classList.toggle('s',scrollY>30)}
 addEventListener('scroll',tick,{passive:true});addEventListener('resize',build);
