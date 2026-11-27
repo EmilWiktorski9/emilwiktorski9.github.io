@@ -30,7 +30,7 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit;color:in
 .top .nm{font-weight:600;font-size:17px}
 .top .kt{height:42px;padding:0 20px;border-radius:99px;background:var(--tx);color:#fff;font-weight:600;font-size:14px;display:inline-flex;align-items:center}
 .hero{position:relative;max-width:1180px;margin:0 auto;padding:110px clamp(18px,4vw,48px) 70px;text-align:center}
-.rot{position:relative;display:inline-block;vertical-align:bottom;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em;transition:width .55s cubic-bezier(.6,0,.2,1);text-align:left}.rot .w{display:inline-block;white-space:nowrap}.rot .w.out{position:absolute;left:0;top:0;transition:transform .55s cubic-bezier(.6,0,.2,1),opacity .55s;transform:translateY(-105%);opacity:0}.rot .w.in{transform:translateY(105%);opacity:0}.rot .w.go{transition:transform .55s cubic-bezier(.6,0,.2,1),opacity .55s;transform:none;opacity:1}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.rot{position:relative;display:inline-block;vertical-align:bottom;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em;transition:width .35s cubic-bezier(.6,0,.2,1);text-align:left}.rot .w{display:inline-block;white-space:nowrap}.rot .w.out{position:absolute;left:0;top:0;transition:transform .35s cubic-bezier(.6,0,.2,1),opacity .35s;transform:translateY(-105%);opacity:0}.rot .w.in{transform:translateY(105%);opacity:0}.rot .w.go{transition:transform .35s cubic-bezier(.6,0,.2,1),opacity .35s;transform:none;opacity:1}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .hero h1{font:800 clamp(44px,8.4vw,124px)/.92 Ar,system-ui,sans-serif;font-stretch:108%;letter-spacing:-.045em;color:var(--tx)}
 .hero h1 em{color:var(--a)}
 .hero p{max-width:560px;margin:22px auto 0;color:var(--tx2);font-size:18px}
@@ -61,7 +61,7 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit;color:in
 .lok.dim{opacity:.35}
 .lok{transition:opacity .3s}
 /* koniec ulicy */
-.end{opacity:0;transform:translateY(50px) scale(.96);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1);z-index:1;position:relative;margin-top:120px;justify-self:center;width:min(620px,100%);text-align:center;background:var(--card);border-radius:22px;padding:38px clamp(20px,4vw,44px) 34px;box-shadow:0 20px 50px -20px rgba(0,0,0,.3)}
+.end{opacity:0;transform:translateY(60px) scale(.94);transition:opacity .15s linear,transform .15s linear;z-index:1;position:relative;margin-top:max(120px,88vh);justify-self:center;width:min(700px,100%);text-align:center;background:var(--card);border-radius:22px;padding:38px clamp(20px,4vw,44px) 34px;box-shadow:0 20px 50px -20px rgba(0,0,0,.3)}
 .end .lot{position:absolute;left:50%;top:-18px;transform:translateX(-50%);background:#f3c623;color:#111;font-weight:700;font-size:12.5px;padding:6px 14px;border-radius:5px;white-space:nowrap;box-shadow:0 0 0 2px #fff inset,0 0 0 3px #d9ab00}
 .end h2{font:800 clamp(30px,4vw,46px)/1 Ar,system-ui,sans-serif;font-stretch:104%;letter-spacing:-.035em}
 .end p{color:var(--tx2);margin:12px auto 22px;max-width:440px}
@@ -69,7 +69,18 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit;color:in
 .srch input{flex:1;min-width:0;height:52px;border:1.5px solid #dcd7cc;border-radius:99px;padding:0 20px;font-size:16px;background:#faf8f4}
 .srch input:focus{outline:none;border-color:var(--tx)}
 .srch button{height:52px;padding:0 22px;border-radius:99px;background:var(--tx);color:#fff;font-weight:600;white-space:nowrap}
-.res{min-height:28px;margin-top:14px;font-size:15px;color:var(--tx2)}
+.res{margin-top:18px;font-size:15px;color:var(--tx2)}.res:empty{display:none}
+.lnk{font:inherit;color:var(--a);font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.hit1{display:grid;grid-template-columns:180px 1fr;gap:16px;align-items:center;text-align:left;background:#f6f3ec;border-radius:16px;padding:10px}
+.hit1 img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:10px;display:block}
+.hit1 small{display:block;color:var(--tx2);font-size:13px}.hit1 b{display:block;font:700 20px/1.15 Ar,system-ui,sans-serif;color:var(--tx);margin:2px 0 10px}
+.btn2{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:99px;background:var(--a);color:#fff!important;font-weight:600;font-size:14.5px;text-decoration:none!important;border:0;cursor:pointer}
+.no1{background:#f6f3ec;border-radius:16px;padding:20px}.no1 p{margin:0 0 12px;color:var(--tx)}
+.rlz{margin-top:30px;padding-top:24px;border-top:1px solid #ece7dd;text-align:left}.rlz h3{font:800 22px/1 Ar,system-ui,sans-serif;letter-spacing:-.02em;margin-bottom:14px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.rg a{display:block}.rg img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:10px;display:block;box-shadow:0 10px 24px -14px rgba(0,0,0,.4);transition:transform .3s}.rg a:hover img{transform:translateY(-3px)}
+.rg small{display:block;font-size:12px;color:var(--tx2);margin-top:7px}.rg b{display:block;font:700 15px/1.2 Ar,system-ui,sans-serif}
+.all{display:inline-block;margin-top:16px;font-weight:600;color:var(--a)}
+@media (max-width:800px){.hit1{grid-template-columns:1fr}.rg{grid-template-columns:1fr 1fr}}
 .res a{color:var(--a);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .res button{color:var(--a);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .ft{max-width:1180px;margin:40px auto 0;padding:56px clamp(18px,4vw,48px) 34px;border-top:1px solid #dcd6c9;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;font-size:15px}.fc b{display:block;font-weight:600;margin-bottom:10px}.fc span{color:var(--tx2);display:block;max-width:26ch}.fc a{display:block;color:var(--tx2);margin-bottom:6px;transition:color .2s}.fc a:hover{color:var(--tx)}.so{display:flex;gap:8px}.so a{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#fff;color:var(--tx);margin:0;transition:background .2s,color .2s}.so a:hover{background:var(--a);color:#fff}.cp{grid-column:1/-1;padding-top:22px;border-top:1px solid #e3ddd1;color:var(--tx2);font-size:13px}.cp a{text-decoration:underline;text-underline-offset:3px}@media (max-width:800px){.ft{grid-template-columns:1fr 1fr;padding-left:22px}}
@@ -83,7 +94,7 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit;color:in
 .rs img,.rs video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}.rs video{opacity:0;transition:opacity .35s}.rc.pl .rs video{opacity:1}
 .rc span{display:block;font-size:13px;color:#6b6a66;margin-top:12px}.rc b{display:block;font:400 26px/1.1 Is,serif;margin-top:3px}
 @media (max-width:800px){.rlg{grid-template-columns:1fr}.rl{padding-left:58px}}
-.end.show{opacity:1;transform:none}
+.map{padding-bottom:22vh}
 /* formularz */
 dialog{margin:auto;border:0;border-radius:26px;padding:0;width:min(560px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:auto;box-shadow:0 50px 120px rgba(20,18,12,.45);background:#fff;color:#14161b}
 dialog[open]{animation:dIn .45s cubic-bezier(.2,.9,.2,1)}@keyframes dIn{from{opacity:0;transform:translateY(18px) scale(.97)}}
@@ -118,8 +129,8 @@ dialog::backdrop{background:rgba(22,20,16,.55);backdrop-filter:blur(6px)}
  .rows{gap:120px}
  .lok{width:calc(100% - 78px)}
  .lb h2{font-size:22px}
- .end{margin-top:170px}
- .srch{flex-direction:column}.srch button{width:100%}
+ .end{margin-top:88vh}
+ .srch{flex-direction:column}.srch input{flex:none;width:100%}.srch button{width:100%}
  .top .kt{height:38px;padding:0 16px}
 }
 </style>
@@ -135,10 +146,11 @@ dialog::backdrop{background:rgba(22,20,16,.55);backdrop-filter:blur(6px)}
  <div class="rows" id="rows"></div>
  <div class="rows"><div class="end" id="end">
   <span class="lot">Wolny lokal</span>
-  <h2>Nie ma tu Twojej branży?</h2>
-  <p>Wpisz, czym się zajmujesz. Jeśli mam pasujący szablon, od razu Cię do niego zaprowadzę. Jeśli nie, napiszesz do mnie w 30 sekund.</p>
+  <h2>Z jakiej jesteś branży?</h2>
+  <p>Jeśli mam coś, co może Cię zainteresować, zobaczysz to od razu. Jeśli nie, <button type="button" class="lnk" id="wF">napisz do mnie</button>.</p>
   <form class="srch" id="sF"><input id="sQ" type="text" placeholder="np. fryzjer, pizzeria, fotograf" aria-label="Twoja branża" autocomplete="off"><button type="submit">Szukaj</button></form>
   <div class="res" id="sR" aria-live="polite"></div>
+  <div class="rlz" id="rlz" hidden><h3>Moje realizacje</h3><div class="rg" id="rg"></div><a class="all" href="/realizacje/">Zobacz wszystkie realizacje →</a></div>
  </div></div>
 </section>
 
@@ -239,7 +251,7 @@ function deco(g,d,RW,mr,W){lamps=[];if(mob)return;var rects=loks.map(function(l)
  g.removeChild(tmp);g.appendChild(tg);g.appendChild(lg)}
 /* sygnalizacja przed banerem: czerwone, STOP, po 2 s zolte i zielone, JEDZ */
 var stopS=1e9,TL={st:'red'},tlT=[];
-function lights(g,RW,mr,W,CL){var l4=loks[loks.length-1].getBoundingClientRect(),e=document.getElementById('end').getBoundingClientRect(),y4=l4.top-mr.top+l4.height*(mob?.45:.5),ye=e.top-mr.top,yS=mob?(l4.bottom-mr.top+(ye-(l4.bottom-mr.top))*.5):y4+(ye-y4)*.55;
+function lights(g,RW,mr,W,CL){var l4=loks[loks.length-1].getBoundingClientRect(),e=document.getElementById('end').getBoundingClientRect(),y4=l4.top-mr.top+l4.height*(mob?.45:.5),ye=e.top-mr.top,yS=l4.bottom-mr.top+(mob?110:150);
  var lo=0,hi=L;for(var i=0;i<30;i++){var m=(lo+hi)/2;if(road.getPointAtLength(m).y<yS)lo=m;else hi=m}var sS=lo;stopS=sS-CL*.62;
  var p=road.getPointAtLength(sS),q=road.getPointAtLength(sS+2),a=Math.atan2(q.y-p.y,q.x-p.x),nx=Math.cos(a+Math.PI/2),ny=Math.sin(a+Math.PI/2),hw=RW/2-(mob?3:6);
  g.appendChild(el('path',{d:'M'+(p.x-nx*hw)+' '+(p.y-ny*hw)+' L'+(p.x+nx*hw)+' '+(p.y+ny*hw),stroke:'#f4f1ea',"stroke-width":mob?4:7}));
@@ -252,7 +264,8 @@ function lights(g,RW,mr,W,CL){var l4=loks[loks.length-1].getBoundingClientRect()
   '<g class="go2"><circle r="29" fill="#1f9d55" stroke="#fff" stroke-width="3.5"/><text y="6" text-anchor="middle" font-family="Sg,system-ui" font-weight="700" font-size="15" fill="#fff">JEDŹ</text></g></g>';
  g.appendChild(t);TL.g=t;[].slice.call(g.querySelectorAll('image')).forEach(function(im){if(im.getAttribute('href').indexOf('drzewo')<0)return;var x=+im.getAttribute('x')+im.getAttribute('width')/2,y=+im.getAttribute('y')+im.getAttribute('height')/2;if(Math.abs(x-lx-side*30)<110&&Math.abs(y-ly)<100)im.remove()});setTL(TL.st=='green'?'green':'red',false)}
 var Lcar=0,ROADG=null,lockY=1e9,shown=false;
-function endState(){var e=document.getElementById('end');e.classList.toggle('show',shown);if(ROADG){if(shown)ROADG.removeAttribute('mask');else ROADG.setAttribute('mask','url(#rm)')}}
+var REV=0;function endState(){var e=document.getElementById('end'),r=REV;e.style.opacity=r;e.style.transform=r>=1?'none':'translateY('+((1-r)*60)+'px) scale('+(.94+.06*r)+')';
+ if(ROADG){if(r>=.98)ROADG.removeAttribute('mask');else{ROADG.setAttribute('mask','url(#rm)');var f=document.getElementById('fade');if(f){if(f.dataset.y1==null){f.dataset.y1=f.getAttribute('y1');f.dataset.y2=f.getAttribute('y2')}var sh=r*420;f.setAttribute('y1',+f.dataset.y1+sh);f.setAttribute('y2',+f.dataset.y2+sh)}}}}
 function calcLock(){var m=map.getBoundingClientRect(),top=m.top+scrollY;lockY=top-innerHeight*.6+(stopS/Lcar)*(m.height-innerHeight*.2)}
 function setTL(st,sign){TL.st=st;if(!TL.g)return;var c={r:'#3a1416',y:'#3a3014',gr:'#123222'};
  var R=st=='red'||st=='ry',Y=st=='ry';TL.g.querySelector('.r').setAttribute('fill',R?'#ff3b3b':c.r);TL.g.querySelector('.y').setAttribute('fill',Y?'#ffc43b':c.y);TL.g.querySelector('.gr').setAttribute('fill',st=='green'?'#2bd46c':c.gr);
@@ -269,7 +282,7 @@ function place(len){lamps.forEach(function(o){o.glow.setAttribute('opacity',len>
  car.setAttribute('transform','translate('+p.x+' '+p.y+') rotate('+ang+')')}
 function loop(){cur+=(goal-cur)*.12;if(Math.abs(goal-cur)<.3)cur=goal;place(cur);raf=cur==goal?0:requestAnimationFrame(loop);if(TL.st=='red'&&cur>=stopS-1)arrive()}
 function tick(){if(!road)return;if(TL.st!='green'&&scrollY>lockY+2){scrollTo(0,lockY)}
- if(TL.st=='green'&&!shown&&scrollY>lockY+30){shown=true;endState()}
+ if(TL.st=='green'){var en=document.getElementById('end'),et=en.parentNode.getBoundingClientRect().top+en.offsetTop,nr=Math.max(0,Math.min(1,(innerHeight-et)/(innerHeight*.5)));if(scrollY<lockY+5)nr=0;if(Math.abs(nr-REV)>.004){REV=nr;endState()}}
  goal=target();if(TL.st!='green'&&goal>stopS)goal=stopS;if(!raf)raf=requestAnimationFrame(loop);
  spurs.forEach(function(s,i){var r=loks[i].getBoundingClientRect();loks[i].style.opacity=r.top<innerHeight*.8||loks[i].classList.contains('dim')?'':'.55'});
  }
@@ -279,7 +292,7 @@ addEventListener('load',build);document.fonts&&document.fonts.ready.then(build);
 (function(){var W=['żyją.','sprzedają.','pracują.'],i=0,r=document.getElementById('rot');if(!r)return;r.querySelector('.w').setAttribute('aria-hidden','true');r.style.width=r.querySelector('.w').offsetWidth+'px';
  setInterval(function(){i=(i+1)%W.length;var old=r.querySelector('.w.on'),n=document.createElement('span');n.className='w in';n.setAttribute('aria-hidden','true');n.textContent=W[i];r.appendChild(n);
   old.classList.remove('on');old.classList.add('out');r.style.width=n.offsetWidth+'px';n.getBoundingClientRect();n.classList.add('go');n.classList.remove('in');
-  setTimeout(function(){old.remove();n.className='w on'},600)},2400)})();
+  setTimeout(function(){old.remove();n.className='w on'},400)},1800)})();
 /* realizacje: film po najechaniu, na telefonie w polu widzenia */
 (function(){var cs=[].slice.call(document.querySelectorAll('.rc')),t=matchMedia('(hover:none)').matches;function pl(c,on){var v=c.querySelector('video');c.classList.toggle('pl',on);if(on){v.preload='auto';var p=v.play();if(p)p.catch(function(){})}else{v.pause();v.currentTime=0}}
  if(t){var o=new IntersectionObserver(function(es){es.forEach(function(e){pl(e.target,e.isIntersecting)})},{rootMargin:'-30% 0px -30% 0px'});cs.forEach(function(c){o.observe(c)})}else cs.forEach(function(c){c.addEventListener('mouseenter',function(){pl(c,true)});c.addEventListener('mouseleave',function(){pl(c,false)})})})();
@@ -287,15 +300,17 @@ addEventListener('load',build);document.fonts&&document.fonts.ready.then(build);
 var sQ=document.getElementById('sQ'),sR=document.getElementById('sR');
 function find(q){q=norm(q);if(q.length<3)return null;var w=q.split(/\s+/);
  for(var i=0;i<B.length;i++){var s=norm(B[i].syn+' '+B[i].h);for(var j=0;j<w.length;j++){var t=w[j];if(t.length<3)continue;var root=t.slice(0,Math.max(4,t.length-2));if(s.indexOf(root)>-1)return B[i]}}return null}
-sQ.addEventListener('input',function(){var b=find(sQ.value);loks.forEach(function(l){l.classList.toggle('hit',!!b&&l.dataset.k==b.k);l.classList.toggle('dim',!!b&&l.dataset.k!=b.k)});
- if(!sQ.value.trim()){sR.textContent='';return}
- if(b)sR.innerHTML='Pasuje <b>'+b.h+'</b>. <a href="/kreator/?branza='+b.k+'">Wstaw swoją firmę w ten szablon</a>';
- else sR.innerHTML=sQ.value.trim().length<3?'':'Na tej ulicy jeszcze tego nie ma. <button type="button" id="oF">Zgłoś branżę, zrobię stronę od zera</button>';
- var o=document.getElementById('oF');if(o)o.onclick=function(){openForm(sQ.value.trim())}});
-document.getElementById('sF').onsubmit=function(e){e.preventDefault();var b=find(sQ.value);if(b)location.href='/kreator/?branza='+b.k;else if(sQ.value.trim())openForm(sQ.value.trim());else sQ.focus()};
+var RL=[['/demo/detailing/','detailing','Strona www · Detailing','Lustro'],['/demo/linia-wody/','linia-wody','Strona www · Łodzie','Linia Wody'],['https://wystarczyzaprosic.pl/','wz','Aplikacja · Zaproszenia','Wystarczy Zaprosić'],['/demo/kawa/','kawa','Strona www · Palarnia kawy','Ranek'],['/demo/kawiarnia/','kawiarnia','Strona www · Kawiarnia','Pierwszy Łyk'],['https://korektorlektorski.pl/','','Aplikacja · Studia nagrań','Korektor Lektorski']];
+document.getElementById('rg').innerHTML=RL.map(function(r){var ext=/^https/.test(r[0]);return '<a href="'+r[0]+'"'+(ext?' target="_blank" rel="noopener"':'')+'><img src="/realizacje/vid/'+(r[1]?r[1]+'.jpg':'korektor-lektorski.webp')+'" alt="'+r[3]+'" loading="lazy"'+(r[1]?'':' style="object-fit:contain;background:#f4f1ea"')+'><small>'+r[2]+'</small><b>'+r[3]+'</b></a>'}).join('');
+sQ.addEventListener('input',function(){var b=find(sQ.value);loks.forEach(function(l){l.classList.toggle('hit',!!b&&l.dataset.k==b.k);l.classList.toggle('dim',!!b&&l.dataset.k!=b.k)})});
+document.getElementById('sF').onsubmit=function(e){e.preventDefault();var q=sQ.value.trim();if(!q){sQ.focus();return}var b=find(q);
+ if(b)sR.innerHTML='<div class="hit1"><img src="vid/'+b.k+'.jpg" alt=""><div><small>Mam szablon dla tej branży</small><b>'+b.h+'</b><a class="btn2" href="/kreator/?branza='+b.k+'">Wstaw w niego swoją firmę →</a></div></div>';
+ else sR.innerHTML='<div class="no1"><p>Dla branży <b>'+q.replace(/[<>&"]/g,'')+'</b> nie mam jeszcze gotowego szablonu. Zrobię stronę od zera.</p><button type="button" class="btn2" id="oF">Skontaktuj się ze mną →</button></div>';
+ var o=document.getElementById('oF');if(o)o.onclick=function(){openForm(q)};document.getElementById('rlz').hidden=false};
+document.getElementById('wF').onclick=function(){openForm(sQ.value.trim())};
 /* formularz */
 var dlg=document.getElementById('dlg'),fF=document.getElementById('fF'),fBody=document.getElementById('fBody').innerHTML;
-function openForm(br){document.getElementById('fBody').innerHTML=fBody;bindForm();document.getElementById('fBr').textContent=br;document.getElementById('fT').value='Potrzebuję strony dla branży: '+br;dlg.showModal();setTimeout(function(){document.getElementById('fI').focus()},50)}
+function openForm(br){document.getElementById('fBody').innerHTML=fBody;bindForm();if(br){document.getElementById('fBr').textContent=br;document.getElementById('fT').value='Potrzebuję strony dla branży: '+br}else{document.querySelector('#fBody h3').textContent='Napisz do mnie';document.getElementById('fT').value='Wiadomość ze strony'}dlg.showModal();setTimeout(function(){document.getElementById('fI').focus()},50)}
 document.getElementById('fX').onclick=function(){dlg.close()};
 dlg.addEventListener('click',function(e){if(e.target==dlg)dlg.close()});
 function bindForm(){}
