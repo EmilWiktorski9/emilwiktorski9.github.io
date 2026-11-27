@@ -70,21 +70,43 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit;color:in
 .res a{color:var(--a);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .res button{color:var(--a);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .ft{max-width:1180px;margin:0 auto;padding:40px clamp(18px,4vw,48px);display:flex;justify-content:space-between;gap:20px;color:var(--tx2);font-size:14px;flex-wrap:wrap}
+.rl{position:relative;z-index:2;max-width:1220px;margin:0 auto;padding:30px clamp(18px,4vw,48px) 60px}
+.rlh{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:24px;border-top:1px solid #dcd6c9;padding-top:50px}
+.rlh h2{font:400 clamp(36px,5vw,64px)/1 Is,serif}.rlh h2 em{color:#2448d8}
+.rlh a{font-weight:600;color:#2448d8;white-space:nowrap}
+.rlg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rc{display:block}.rs{position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:#111;box-shadow:0 20px 50px -26px rgba(20,22,27,.5);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.rc:hover .rs{transform:translateY(-5px)}
+.rs img,.rs video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}.rs video{opacity:0;transition:opacity .35s}.rc.pl .rs video{opacity:1}
+.rc span{display:block;font-size:13px;color:#6b6a66;margin-top:12px}.rc b{display:block;font:400 26px/1.1 Is,serif;margin-top:3px}
+@media (max-width:800px){.rlg{grid-template-columns:1fr}.rl{padding-left:58px}}
 /* formularz */
-dialog{margin:auto;border:0;border-radius:22px;padding:0;width:min(520px,calc(100% - 28px));box-shadow:0 40px 100px rgba(0,0,0,.35);background:#fff;color:var(--tx)}
-dialog::backdrop{background:rgba(20,20,24,.55);backdrop-filter:blur(4px)}
-.fm{padding:30px clamp(20px,4vw,34px) 26px;position:relative}
-.fm .x{position:absolute;right:16px;top:14px;font-size:28px;line-height:1;color:var(--tx2)}
-.fm h3{font:400 30px/1.05 Is,serif;padding-right:30px}
-.fm .ld{color:var(--tx2);font-size:14.5px;margin:8px 0 18px}
-.fm label{display:block;font-size:13px;color:var(--tx2);margin:12px 0 5px}
-.fm input,.fm textarea{width:100%;border:1px solid #dcd7cc;border-radius:10px;padding:11px 13px;font-size:15.5px;background:#fff}
-.fm textarea{min-height:110px;resize:vertical}
-.fm input:focus,.fm textarea:focus{outline:none;border-color:var(--tx)}
-.fm .sb{width:100%;height:52px;margin-top:18px;border-radius:99px;background:var(--a);color:#fff;font-weight:600;font-size:16px}
-.fm .sb:disabled{opacity:.6}
-.fm .rodo{font-size:12px;color:var(--tx2);margin-top:12px;line-height:1.45}
-.fm .ok{text-align:center;padding:20px 0 6px}
+dialog{margin:auto;border:0;border-radius:26px;padding:0;width:min(560px,calc(100% - 24px));max-height:calc(100% - 24px);overflow:auto;box-shadow:0 50px 120px rgba(20,18,12,.45);background:#fff;color:#14161b}
+dialog[open]{animation:dIn .45s cubic-bezier(.2,.9,.2,1)}@keyframes dIn{from{opacity:0;transform:translateY(18px) scale(.97)}}
+dialog::backdrop{background:rgba(22,20,16,.55);backdrop-filter:blur(6px)}
+.fm{position:relative}
+.fm .hdr{position:relative;background:#16171b;color:#fff;padding:30px clamp(22px,4vw,36px) 28px;overflow:hidden}
+.fm .hdr::after{content:"";position:absolute;right:-60px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,191,71,.35),transparent 65%)}
+.fm .pill{display:inline-block;background:#f3c623;color:#111;font-weight:700;font-size:12px;padding:5px 12px;border-radius:5px;margin-bottom:16px}
+.fm h3{position:relative;z-index:1;font:400 clamp(30px,5vw,42px)/1 Is,serif;padding-right:34px}
+.fm h3 em{color:#ffc35c;display:block}
+.fm .ld{position:relative;z-index:1;color:#b8b4ac;font-size:15px;margin-top:12px;max-width:40ch}
+.fm .x{position:absolute;right:16px;top:14px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:22px;line-height:1;display:grid;place-items:center}
+.fm .x:hover{background:rgba(255,255,255,.2)}
+.fm .bdy{padding:24px clamp(22px,4vw,36px) 26px}
+.fm .r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fm label{display:block;font-size:13px;font-weight:600;color:#3b3d44;margin:0 0 6px}
+.fm .f{margin-bottom:14px}
+.fm input,.fm textarea{width:100%;border:1.5px solid #e4e0d8;border-radius:12px;padding:13px 14px;font-size:15.5px;background:#faf9f6;color:#14161b;transition:border-color .2s,background .2s}
+.fm textarea{min-height:120px;resize:vertical;line-height:1.5}
+.fm input:focus,.fm textarea:focus{outline:none;border-color:#2448d8;background:#fff}
+.fm .sb{width:100%;height:56px;margin-top:6px;border-radius:99px;background:#2448d8;color:#fff;font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .2s}
+.fm .sb:hover{background:#1b39b4}.fm .sb:disabled{opacity:.6}
+.fm .rodo{font-size:12px;color:#8a877f;margin-top:12px;line-height:1.45;text-align:center}
+.fm .ok{text-align:center;padding:40px clamp(22px,4vw,36px) 34px}
+.fm .ok i{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:#e7f2ec;color:#1f7a4d;font-style:normal;font-size:30px}
+.fm .ok h3{color:#14161b;padding:0}.fm .ok p{color:#6b6a66;margin:10px 0 22px}
+@media (max-width:520px){.fm .r2{grid-template-columns:1fr;gap:0}}
 .hp{position:absolute;left:-9999px}
 @media (max-width:800px){
  .hero{padding-top:120px;text-align:left}.hero p{margin-left:0}
@@ -119,21 +141,30 @@ dialog::backdrop{background:rgba(20,20,24,.55);backdrop-filter:blur(4px)}
  </div></div>
 </section>
 
+<section class="rl" id="realizacje">
+ <div class="rlh"><h2>Moje <em>realizacje</em></h2><a href="/realizacje/">Zobacz wszystkie <span aria-hidden="true">→</span></a></div>
+ <div class="rlg">
+  <a class="rc" href="/demo/detailing/"><div class="rs"><img src="/realizacje/vid/detailing.jpg" alt="Lustro" loading="lazy"><video muted loop playsinline preload="none" src="/realizacje/vid/detailing.mp4"></video></div><span>Strona www · Detailing</span><b>Lustro</b></a>
+  <a class="rc" href="/demo/linia-wody/"><div class="rs"><img src="/realizacje/vid/linia-wody.jpg" alt="Linia Wody" loading="lazy"><video muted loop playsinline preload="none" src="/realizacje/vid/linia-wody.mp4"></video></div><span>Strona www · Łodzie</span><b>Linia Wody</b></a>
+  <a class="rc" href="https://wystarczyzaprosic.pl/" target="_blank" rel="noopener"><div class="rs"><img src="/realizacje/vid/wz.jpg" alt="Wystarczy Zaprosić" loading="lazy"><video muted loop playsinline preload="none" src="/realizacje/vid/wz.mp4"></video></div><span>Aplikacja · Zaproszenia online</span><b>Wystarczy Zaprosić</b></a>
+ </div>
+</section>
+
 <footer class="ft"><span>© 2026 Emil Wiktorski</span><a href="/kreator/">Kreator stron i sklepów</a></footer>
 
 <dialog id="dlg">
  <form class="fm" id="fF">
   <button class="x" type="button" id="fX" aria-label="Zamknij">×</button>
   <div id="fBody">
-   <h3 id="fH">Potrzebuję strony dla branży</h3>
-   <p class="ld">Napisz kilka zdań o firmie. Odpiszę w ciągu 1 dnia roboczego z propozycją.</p>
-   <label for="fT">Temat</label><input id="fT" name="temat" type="text" required>
-   <label for="fI">Imię</label><input id="fI" name="imie" type="text" autocomplete="given-name" required>
-   <label for="fE">E-mail</label><input id="fE" name="email" type="email" autocomplete="email" required>
-   <label for="fO">Opis</label><textarea id="fO" name="opis" placeholder="Czym się zajmujesz, gdzie działasz, czy masz już stronę"></textarea>
-   <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-   <button class="sb" type="submit" id="fS">Wyślij zgłoszenie</button>
-   <p class="rodo">Wysyłając formularz, zgadzasz się na przetwarzanie danych w celu odpowiedzi na wiadomość. Szczegóły w <a href="/polityka-prywatnosci/" style="text-decoration:underline">polityce prywatności</a>.</p>
+   <div class="hdr"><span class="pill">Wolny lokal</span><h3>Zrobię stronę dla branży<em id="fBr"></em></h3><p class="ld">Opisz firmę w kilku zdaniach. Odpiszę w ciągu 1 dnia roboczego z propozycją.</p></div>
+   <div class="bdy">
+    <input type="hidden" id="fT" name="temat">
+    <div class="r2"><div class="f"><label for="fI">Imię</label><input id="fI" name="imie" type="text" autocomplete="given-name" required></div><div class="f"><label for="fE">E-mail</label><input id="fE" name="email" type="email" autocomplete="email" required></div></div>
+    <div class="f"><label for="fO">O firmie</label><textarea id="fO" name="opis" placeholder="Czym się zajmujesz, gdzie działasz, czy masz już stronę"></textarea></div>
+    <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+    <button class="sb" type="submit" id="fS">Wyślij zgłoszenie <span aria-hidden="true">→</span></button>
+    <p class="rodo">Wysyłając formularz, zgadzasz się na przetwarzanie danych w celu odpowiedzi na wiadomość. Szczegóły w <a href="/polityka-prywatnosci/" style="text-decoration:underline">polityce prywatności</a>.</p>
+   </div>
   </div>
  </form>
 </dialog>
@@ -220,6 +251,9 @@ function tick(){if(!road)return;goal=target();if(!raf)raf=requestAnimationFrame(
  document.getElementById('tp').classList.toggle('s',scrollY>30)}
 addEventListener('scroll',tick,{passive:true});addEventListener('resize',build);
 addEventListener('load',build);document.fonts&&document.fonts.ready.then(build);build();
+/* realizacje: film po najechaniu, na telefonie w polu widzenia */
+(function(){var cs=[].slice.call(document.querySelectorAll('.rc')),t=matchMedia('(hover:none)').matches;function pl(c,on){var v=c.querySelector('video');c.classList.toggle('pl',on);if(on){v.preload='auto';var p=v.play();if(p)p.catch(function(){})}else{v.pause();v.currentTime=0}}
+ if(t){var o=new IntersectionObserver(function(es){es.forEach(function(e){pl(e.target,e.isIntersecting)})},{rootMargin:'-30% 0px -30% 0px'});cs.forEach(function(c){o.observe(c)})}else cs.forEach(function(c){c.addEventListener('mouseenter',function(){pl(c,true)});c.addEventListener('mouseleave',function(){pl(c,false)})})})();
 /* wyszukiwarka branz */
 var sQ=document.getElementById('sQ'),sR=document.getElementById('sR');
 function find(q){q=norm(q);if(q.length<3)return null;var w=q.split(/\s+/);
@@ -232,14 +266,14 @@ sQ.addEventListener('input',function(){var b=find(sQ.value);loks.forEach(functio
 document.getElementById('sF').onsubmit=function(e){e.preventDefault();var b=find(sQ.value);if(b)location.href='/kreator/?branza='+b.k;else if(sQ.value.trim())openForm(sQ.value.trim());else sQ.focus()};
 /* formularz */
 var dlg=document.getElementById('dlg'),fF=document.getElementById('fF'),fBody=document.getElementById('fBody').innerHTML;
-function openForm(br){document.getElementById('fBody').innerHTML=fBody;bindForm();document.getElementById('fH').textContent='Potrzebuję strony dla branży: '+br;document.getElementById('fT').value='Potrzebuję strony dla branży: '+br;dlg.showModal();setTimeout(function(){document.getElementById('fI').focus()},50)}
+function openForm(br){document.getElementById('fBody').innerHTML=fBody;bindForm();document.getElementById('fBr').textContent=br;document.getElementById('fT').value='Potrzebuję strony dla branży: '+br;dlg.showModal();setTimeout(function(){document.getElementById('fI').focus()},50)}
 document.getElementById('fX').onclick=function(){dlg.close()};
 dlg.addEventListener('click',function(e){if(e.target==dlg)dlg.close()});
 function bindForm(){}
 fF.onsubmit=function(e){e.preventDefault();var b=document.getElementById('fS');b.disabled=true;b.textContent='Wysyłam…';
  var fd=new FormData(fF);fd.append('_subject',document.getElementById('fT').value);fd.append('zrodlo','ulica, wyszukiwarka branż');
  fetch(FORM,{method:'POST',body:fd,headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw 0;
-  document.getElementById('fBody').innerHTML='<div class="ok"><h3>Dzięki, mam to.</h3><p class="ld">Odpiszę na podany e-mail w ciągu 1 dnia roboczego.</p><button class="sb" type="button" onclick="document.getElementById(\'dlg\').close()">Zamknij</button></div>'})
+  document.getElementById('fBody').innerHTML='<div class="ok"><i>✓</i><h3>Dzięki, mam to.</h3><p>Odpiszę na podany e-mail w ciągu 1 dnia roboczego.</p><button class="sb" type="button" onclick="document.getElementById(\'dlg\').close()">Zamknij</button></div>'})
  .catch(function(){b.disabled=false;b.textContent='Nie wyszło, spróbuj jeszcze raz'})};
 </script>
 </body>
