@@ -30,6 +30,7 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit;color:in
 .top .nm{font-weight:600;font-size:17px}
 .top .kt{height:42px;padding:0 20px;border-radius:99px;background:var(--tx);color:#fff;font-weight:600;font-size:14px;display:inline-flex;align-items:center}
 .hero{position:relative;max-width:1180px;margin:0 auto;padding:110px clamp(18px,4vw,48px) 70px;text-align:center}
+.rot{position:relative;display:inline-block;vertical-align:bottom;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em;transition:width .55s cubic-bezier(.6,0,.2,1);text-align:left}.rot .w{display:inline-block;white-space:nowrap}.rot .w.out{position:absolute;left:0;top:0;transition:transform .55s cubic-bezier(.6,0,.2,1),opacity .55s;transform:translateY(-105%);opacity:0}.rot .w.in{transform:translateY(105%);opacity:0}.rot .w.go{transition:transform .55s cubic-bezier(.6,0,.2,1),opacity .55s;transform:none;opacity:1}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .hero h1{font:800 clamp(44px,8.4vw,124px)/.92 Ar,system-ui,sans-serif;font-stretch:108%;letter-spacing:-.045em;color:var(--tx)}
 .hero h1 em{color:var(--a)}
 .hero p{max-width:560px;margin:22px auto 0;color:var(--tx2);font-size:18px}
@@ -126,7 +127,7 @@ dialog::backdrop{background:rgba(22,20,16,.55);backdrop-filter:blur(6px)}
 <body>
 
 <section class="hero">
- <h1>Tworzę strony,<br>które żyją.</h1>
+ <h1>Tworzę strony,<br>które <span class="rot" id="rot" aria-live="off"><span class="w on">żyją.</span></span><span class="sr">żyją, sprzedają i pracują.</span></h1>
 </section>
 
 <section class="map" id="map">
@@ -274,6 +275,11 @@ function tick(){if(!road)return;if(TL.st!='green'&&scrollY>lockY+2){scrollTo(0,l
  }
 addEventListener('scroll',tick,{passive:true});addEventListener('resize',build);
 addEventListener('load',build);document.fonts&&document.fonts.ready.then(build);build();
+/* haslo: zmieniajace sie slowo */
+(function(){var W=['żyją.','sprzedają.','pracują.'],i=0,r=document.getElementById('rot');if(!r)return;r.querySelector('.w').setAttribute('aria-hidden','true');r.style.width=r.querySelector('.w').offsetWidth+'px';
+ setInterval(function(){i=(i+1)%W.length;var old=r.querySelector('.w.on'),n=document.createElement('span');n.className='w in';n.setAttribute('aria-hidden','true');n.textContent=W[i];r.appendChild(n);
+  old.classList.remove('on');old.classList.add('out');r.style.width=n.offsetWidth+'px';n.getBoundingClientRect();n.classList.add('go');n.classList.remove('in');
+  setTimeout(function(){old.remove();n.className='w on'},600)},2400)})();
 /* realizacje: film po najechaniu, na telefonie w polu widzenia */
 (function(){var cs=[].slice.call(document.querySelectorAll('.rc')),t=matchMedia('(hover:none)').matches;function pl(c,on){var v=c.querySelector('video');c.classList.toggle('pl',on);if(on){v.preload='auto';var p=v.play();if(p)p.catch(function(){})}else{v.pause();v.currentTime=0}}
  if(t){var o=new IntersectionObserver(function(es){es.forEach(function(e){pl(e.target,e.isIntersecting)})},{rootMargin:'-30% 0px -30% 0px'});cs.forEach(function(c){o.observe(c)})}else cs.forEach(function(c){c.addEventListener('mouseenter',function(){pl(c,true)});c.addEventListener('mouseleave',function(){pl(c,false)})})})();
