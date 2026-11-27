@@ -103,7 +103,7 @@ dialog::backdrop{background:rgba(20,20,24,.55);backdrop-filter:blur(4px)}
 
 <section class="hero">
  <h1>Przejdź się po <em>ulicy</em><br>moich stron.</h1>
- <p>Każdy lokal to inna branża. Najedź na witrynę, żeby zobaczyć stronę w ruchu. Kliknij, a wstawisz w nią swoją firmę w kreatorze.</p>
+ <p>Każdy lokal to inna branża. Przewijaj, a strony same się odpalą. Kliknij, a wstawisz w nią swoją firmę w kreatorze.</p>
  <span class="sign">Strony www &nbsp;↓</span>
 </section>
 
@@ -149,11 +149,10 @@ var B=[
 function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ł/g,'l').trim()}
 /* lokale */
 var rows=document.getElementById('rows');
-rows.innerHTML=B.map(function(b,i){return '<div class="lok'+(i%2?' r':'')+'" data-k="'+b.k+'"><span class="st">'+b.st+'</span><a class="cd" href="/kreator/?branza='+b.k+'"><div class="sc"><img src="vid/'+b.k+'.jpg" alt="Przykładowa strona: '+b.h+'" loading="lazy"><video muted loop playsinline preload="none" src="vid/'+b.k+'.mp4"></video><span class="bw"><i></i><i></i><i></i></span><span class="hn">Najedź, żeby zobaczyć</span></div><div class="lb"><div><h2>'+b.h+'</h2><p>'+b.p+'</p></div><span class="go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div></a></div>'}).join('');
+rows.innerHTML=B.map(function(b,i){return '<div class="lok'+(i%2?' r':'')+'" data-k="'+b.k+'"><span class="st">'+b.st+'</span><a class="cd" href="/kreator/?branza='+b.k+'"><div class="sc"><img src="vid/'+b.k+'.jpg" alt="Przykładowa strona: '+b.h+'" loading="lazy"><video muted loop playsinline preload="metadata" src="vid/'+b.k+'.mp4"></video><span class="bw"><i></i><i></i><i></i></span></div><div class="lb"><div><h2>'+b.h+'</h2><p>'+b.p+'</p></div><span class="go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div></a></div>'}).join('');
 var loks=[].slice.call(document.querySelectorAll('.lok')),touch=matchMedia('(hover:none)').matches;
-function play(l,on){var v=l.querySelector('video');l.classList.toggle('pl',on);if(on){v.currentTime=0;var p=v.play();if(p)p.catch(function(){})}else v.pause()}
-loks.forEach(function(l){if(!touch){l.addEventListener('mouseenter',function(){play(l,true)});l.addEventListener('mouseleave',function(){play(l,false)})}});
-if(touch){var io=new IntersectionObserver(function(es){es.forEach(function(e){play(e.target,e.isIntersecting)})},{rootMargin:'-35% 0px -35% 0px'});loks.forEach(function(l){io.observe(l)})}
+function play(l,on){var v=l.querySelector('video');if(on&&!v.paused)return;l.classList.toggle('pl',on);if(on){v.preload='auto';v.currentTime=0;var p=v.play();if(p)p.catch(function(){})}else v.pause()}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){play(e.target,e.isIntersecting)})},{rootMargin:'-20% 0px -20% 0px'});loks.forEach(function(l){io.observe(l)});
 /* droga */
 var svg=document.getElementById('rd'),map=document.getElementById('map'),NS='http://www.w3.org/2000/svg',road,mid,car,spurs=[],L=0;
 function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e}
