@@ -401,7 +401,7 @@ function renderProd(id){var p=byId(id)||P[0],s=defSz(p),u=0;SEL[p.id]=s;
  $$('#pwrap [data-u]').forEach(function(b){b.onclick=function(){u=b.dataset.u=='10';$$('#pwrap [data-u]').forEach(function(x){x.classList.toggle('on',x==b)});price()}});
  $('#pwrap [data-m]').onclick=function(){$('#pq').value=Math.max(1,+$('#pq').value-1)};$('#pwrap [data-p]').onclick=function(){$('#pq').value=+$('#pq').value+1};
  $('#padd').onclick=function(){addCart(p,s,+$('#pq').value*(u?10:1))};
- $('#szh').onclick=function(e){e.preventDefault();toast('Zmierz obwód dłoni: S 17–19 cm, M 19–21 cm, L 21–23 cm (przykład)')};
+ $('#szh').onclick=function(e){e.preventDefault();toast('Zmierz obwód dłoni: S 17 do 19 cm, M 19 do 21 cm, L 21 do 23 cm (przykład)')};
  $$('#pwrap .tabs button').forEach(function(b){b.onclick=function(){$$('#pwrap .tabs button').forEach(function(x){x.classList.toggle('on',x==b)});$$('#pwrap .tp').forEach(function(t,i){t.classList.toggle('on',i==b.dataset.t)})}});
  price();var g=$('#simg');if(g)bindCards(g)}
 
