@@ -300,6 +300,10 @@ $$('[data-look]').forEach(function(a){a.onclick=function(e){e.preventDefault();L
 $('#lAdd').onclick=function(){LOOKS[LI].l.forEach(function(x,i){var p=byId(x[0]),k=p.k[x[1]],s=LS[i];var ex=CART.filter(function(c){return c.id==p.id&&c.k==k&&c.s==s})[0];if(ex)ex.q++;else CART.push({id:p.id,k:k,s:s,q:1})});cartR();hide();setTimeout(function(){show('#cart')},460)};
 var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2600)}
 chips();grid();cartR();
+/* link prosto do produktu: #360 albo #p=id */
+(function(){var h=location.hash.slice(1),id=h=='360'?'sukienka':(h.indexOf('p=')==0?h.slice(2):'');if(!id||!byId(id))return;
+ function go(){var r=$('#r3');if(!r)return;var g=r.parentNode;if(g.scrollWidth>g.clientWidth+5){g.style.scrollSnapType='none';g.scrollLeft=r.offsetLeft-g.firstElementChild.offsetLeft;g.addEventListener('touchstart',function(){g.style.scrollSnapType=''},{once:true})}else r.scrollIntoView({block:'center'})}
+ setTimeout(function(){open(id);if(h=='360'){[500,1000,1600].forEach(function(t){setTimeout(go,t)})}},300)})();
 </script>
 </body>
 </html>
