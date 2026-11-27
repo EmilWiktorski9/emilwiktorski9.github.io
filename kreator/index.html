@@ -86,7 +86,10 @@ main{display:flex;flex-direction:column;min-width:0}
 .fr{width:100%;height:100%;border:0;border-radius:12px;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.12);transition:width .4s cubic-bezier(.2,.8,.2,1)}
 .fr.ph{width:390px;max-width:100%}
 .mtab{display:none}
-@media (max-width:900px){
+main.fs{position:fixed;inset:0;z-index:50;background:var(--bg)}main.fs .stage{padding:0}main.fs .fr{border-radius:0;box-shadow:none}
+dialog{margin:auto;border:0;border-radius:20px;padding:0;width:min(500px,calc(100% - 28px));box-shadow:0 40px 100px rgba(0,0,0,.35)}dialog::backdrop{background:rgba(20,20,24,.55)}
+.fm{padding:28px clamp(20px,4vw,32px) 24px;position:relative}.fm .x{position:absolute;right:14px;top:10px;font-size:28px;color:var(--tx2)}.fm h3{font:400 30px/1.05 Is,serif;padding-right:30px}.fm .ld{margin:8px 0 14px}.fm label{margin:12px 0 5px}.fm .rodo{font-size:12px;color:var(--tx2);margin-top:12px;line-height:1.45}.fm .hp{position:absolute;left:-9999px}.fm .alt{display:block;text-align:center;font-size:13.5px;color:var(--tx2);margin-top:10px;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:900px){#fsB{display:none}
  .app{grid-template-columns:1fr;height:auto;min-height:100%}
  aside{border:0;min-height:100vh}
  .steps{padding:28px 22px 30px}.top,.nav{padding-left:22px;padding-right:22px}
@@ -166,8 +169,7 @@ main{display:flex;flex-direction:column;min-width:0}
 
  <div class="step" data-k="osobna"><h1>Personalizowana strona zaczyna się od rozmowy</h1><p class="ld">Tu nie ma szablonu. Projektuję wszystko od zera pod Twoją firmę i Twoich klientów. Obok widzisz wersję premium, żeby było wiadomo, od jakiego poziomu zaczynam.</p>
   <ul class="inc" id="incL"></ul>
-  <a class="btn a" id="bK" href="/#kontakt">Napisz do mnie</a>
-  <a class="btn o" id="bKm" href="#" style="margin-top:10px">Wyślij maila</a>
+  <button class="btn a" id="bK" type="button">Napisz do mnie</button>
   <button class="btn l" id="bBack" type="button">Wolę zobaczyć wersję podstawową lub premium</button>
  </div>
 
@@ -175,11 +177,22 @@ main{display:flex;flex-direction:column;min-width:0}
  <div class="nav"><button class="btn o" id="bB" type="button">Wstecz</button><button class="btn d" id="bN" type="button">Dalej</button></div>
 </aside>
 <main id="mn">
- <div class="bar"><span class="t" id="bT"></span><div class="dev"><button data-d="pc" class="on">Komputer</button><button data-d="ph">Telefon</button></div><button class="btn o sm" id="mX" style="display:none;margin-left:auto;white-space:nowrap">Edytuj</button></div>
+ <div class="bar"><span class="t" id="bT"></span><button class="btn o sm" id="fsB" type="button" style="margin-left:auto">Pełny ekran</button><div class="dev" style="margin-left:0"><button data-d="pc" class="on">Komputer</button><button data-d="ph">Telefon</button></div><button class="btn o sm" id="mX" style="display:none;margin-left:auto;white-space:nowrap">Edytuj</button></div>
  <div class="stage"><iframe class="fr" id="fr" title="Podgląd"></iframe></div>
 </main>
 </div>
 <button class="mtab" id="mT">Zobacz podgląd</button>
+<dialog id="dlg"><form class="fm" id="fF"><button class="x" type="button" id="fX" aria-label="Zamknij">×</button><div id="fBody">
+ <h3 id="dH"></h3><p class="ld">Odpiszę na e-mail w ciągu 1 dnia roboczego. Dane z kreatora dopisałem do wiadomości.</p>
+ <label for="dT">Temat</label><input id="dT" name="temat" type="text" required>
+ <div class="row2"><div><label for="dI">Imię</label><input id="dI" name="imie" type="text" autocomplete="given-name" required></div><div><label for="dPh">Telefon</label><input id="dPh" name="telefon" type="tel" autocomplete="tel"></div></div>
+ <label for="dE">E-mail</label><input id="dE" name="email" type="email" autocomplete="email" required>
+ <label for="dO">Wiadomość</label><textarea id="dO" name="opis"></textarea>
+ <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+ <button class="btn a" type="submit" id="dS" style="margin-top:16px">Wyślij</button>
+ <a class="alt" id="dM" href="#">albo napisz zwykłego maila</a>
+ <p class="rodo">Wysyłając formularz, zgadzasz się na przetwarzanie danych w celu odpowiedzi na wiadomość. Szczegóły w <a href="/polityka-prywatnosci/" style="text-decoration:underline">polityce prywatności</a>.</p>
+</div></form></dialog>
 
 <script>
 var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
@@ -187,11 +200,11 @@ var IMG=new URL('img/',location.href).href,FB=new URL('fonts/',location.href).hr
 var MAIL='emil@emilwiktorski.pl';
 var NI={
  strona:{
-  detailing:{l:'Detailing samochodowy',d:'korekta lakieru, powłoki, PPF',tag:'Detailing samochodowy',cta:'Umów termin',name:'Lustro Detailing',svcT:'Usługi',galT:'Realizacje',galP:'Każde auto oddajemy z dokumentacją zdjęciową.',svc:['Korekta lakieru','Powłoka ceramiczna','Folia PPF','Detailing wnętrza','Mycie detailingowe'],img:['hero-poster.jpg','m5.webp','p911-bok.webp','felga.webp','fotel.webp','krople.webp','ba-po.webp','bmw-przod.webp','cay-przod.webp']},
-  beauty:{l:'Beauty i fryzjer',d:'salon urody, paznokcie, włosy',tag:'Salon urody',cta:'Zarezerwuj wizytę',name:'Studio Urody Aura',svcT:'Zabiegi',galT:'Nasze prace',galP:'Zdjęcia prosto z salonu, bez filtrów.',svc:['Manicure hybrydowy','Stylizacja brwi i rzęs','Strzyżenie i koloryzacja','Zabiegi na twarz','Makijaż okolicznościowy'],hue:330},
-  gastro:{l:'Restauracja i kawiarnia',d:'menu, rezerwacje, godziny',tag:'Restauracja',cta:'Zarezerwuj stolik',name:'Bistro Pod Lipami',svcT:'Menu',galT:'U nas',galP:'Zajrzyj do środka, zanim przyjdziesz.',svc:['Śniadania do 12:00','Lunch dnia','Kawa speciality','Domowe desery','Przyjęcia okolicznościowe'],hue:28},
-  remonty:{l:'Remonty i budowa',d:'wykończenia, łazienki, wyceny',tag:'Remonty i wykończenia',cta:'Zamów wycenę',name:'Remonty Nowak',svcT:'Zakres prac',galT:'Realizacje',galP:'Mieszkania i łazienki, które oddaliśmy w ostatnich miesiącach.',svc:['Remonty mieszkań','Łazienki pod klucz','Gładzie i malowanie','Układanie płytek','Zabudowy z płyt GK'],hue:205},
-  inna:{l:'Inna branża',d:'uniwersalny układ dla każdej firmy',tag:'Twoja firma',cta:'Skontaktuj się',name:'Twoja Firma',svcT:'Oferta',galT:'Realizacje',galP:'Wybrane projekty z ostatnich miesięcy.',svc:['Pierwsza usługa','Druga usługa','Trzecia usługa'],hue:240}
+  detailing:{lead:'Przywracamy lakierowi głębię i chronimy go na lata. Auto oddajemy z dokumentacją zdjęciową.',l:'Detailing samochodowy',d:'korekta lakieru, powłoki, PPF',tag:'Detailing samochodowy',cta:'Umów termin',name:'Lustro Detailing',svcT:'Usługi',galT:'Realizacje',galP:'Każde auto oddajemy z dokumentacją zdjęciową.',svc:['Korekta lakieru','Powłoka ceramiczna','Folia PPF','Detailing wnętrza','Mycie detailingowe'],img:['hero-poster.jpg','m5.webp','p911-bok.webp','felga.webp','fotel.webp','krople.webp','ba-po.webp','bmw-przod.webp','cay-przod.webp']},
+  beauty:{lead:'Zabiegi, po których wychodzisz zadowolona. Umów wizytę telefonicznie albo przez Instagram.',l:'Beauty i fryzjer',d:'salon urody, paznokcie, włosy',tag:'Salon urody',cta:'Zarezerwuj wizytę',name:'Studio Urody Aura',svcT:'Zabiegi',galT:'Nasze prace',galP:'Zdjęcia prosto z salonu, bez filtrów.',svc:['Manicure hybrydowy','Stylizacja brwi i rzęs','Strzyżenie i koloryzacja','Zabiegi na twarz','Makijaż okolicznościowy'],hue:330},
+  gastro:{lead:'Domowa kuchnia, kawa speciality i miejsce, do którego chce się wracać.',l:'Restauracja i kawiarnia',d:'menu, rezerwacje, godziny',tag:'Restauracja',cta:'Zarezerwuj stolik',name:'Bistro Pod Lipami',svcT:'Menu',galT:'U nas',galP:'Zajrzyj do środka, zanim przyjdziesz.',svc:['Śniadania do 12:00','Lunch dnia','Kawa speciality','Domowe desery','Przyjęcia okolicznościowe'],hue:28},
+  remonty:{lead:'Remonty mieszkań i łazienek pod klucz. Termin i cenę ustalamy na piśmie przed startem.',l:'Remonty i budowa',d:'wykończenia, łazienki, wyceny',tag:'Remonty i wykończenia',cta:'Zamów wycenę',name:'Remonty Nowak',svcT:'Zakres prac',galT:'Realizacje',galP:'Mieszkania i łazienki, które oddaliśmy w ostatnich miesiącach.',svc:['Remonty mieszkań','Łazienki pod klucz','Gładzie i malowanie','Układanie płytek','Zabudowy z płyt GK'],hue:205},
+  inna:{lead:'Krótko o tym, czym się zajmujesz i dlaczego warto wybrać właśnie Ciebie.',l:'Inna branża',d:'uniwersalny układ dla każdej firmy',tag:'Twoja firma',cta:'Skontaktuj się',name:'Twoja Firma',svcT:'Oferta',galT:'Realizacje',galP:'Wybrane projekty z ostatnich miesięcy.',svc:['Pierwsza usługa','Druga usługa','Trzecia usługa'],hue:240}
  },
  sklep:{
   moda:{l:'Odzież i moda',d:'kolekcje, rozmiary, stylizacje',tag:'Sklep z odzieżą',name:'Atelier Nova',prod:'Sukienka midi, 249\nMarynarka oversize, 329\nSpodnie z prostą nogawką, 199\nKoszula lniana, 179\nSweter z wełną, 229\nTorebka skórzana, 289',hue:20},
@@ -215,27 +228,48 @@ function photos(){if(S.photos.length)return S.photos;var n=N();if(n.img)return n
 function products(){var n=N(),lines=(val('fS')||n.prod).split('\n').map(function(x){return x.trim()}).filter(Boolean).slice(0,12);
  return lines.map(function(l,i){var m=l.match(/^(.*?)[,;]\s*([\d\s]+(?:[.,]\d+)?)\s*(zł)?\s*$/),name=m?m[1].trim():l,pr=m?parseFloat(m[2].replace(/\s/g,'').replace(',','.')):0;
   return {n:name,p:pr,img:S.photos[i]||ph(i,'Zdjęcie produktu',n.hue||220)}})}
-function data(){var n=N();return {typ:S.typ,n:val('fN')||n.name,c:val('fC'),t:val('fT')||'600 000 000',e:val('fE'),a:val('fA'),r:val('fR'),o:val('fO'),h:val('fH'),f:val('fF'),
+function data(){var n=N();return {typ:S.typ,n:val('fN')||n.name,c:val('fC'),t:fmtTel(val('fT'))||'600 000 000',e:val('fE'),a:val('fA'),r:val('fR'),o:val('fO'),h:val('fH'),f:val('fF'),
  s:S.typ=='strona'?(val('fS')?val('fS').split('\n'):n.svc).map(function(x){return x.trim()}).filter(Boolean).slice(0,8):[],
  pr:S.typ=='sklep'?products():[],col:S.color,logo:S.logo,ph:photos(),ni:n}}
 
+/* ===================== social media ===================== */
+var SOC={facebook:['Facebook','<path d="M14 8h3V4h-3c-2.8 0-4.5 1.9-4.5 4.7V11H7v4h2.5v9h4v-9H17l.5-4h-4V8.9c0-.6.3-.9.5-.9z"/>'],instagram:['Instagram','<path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm5-8.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 2.5c-2.6 0-2.9 0-3.9.1C5.4 2.7 3.5 4.3 3.4 7.4c-.1 1-.1 1.4-.1 4.6s0 3.6.1 4.6c.1 3 2 4.6 4.7 4.8 1 .1 1.3.1 3.9.1s2.9 0 3.9-.1c2.7-.1 4.6-1.7 4.7-4.8.1-1 .1-1.4.1-4.6s0-3.6-.1-4.6c-.1-3-2-4.6-4.7-4.8-1-.1-1.3-.1-3.9-.1zm0 1.7c2.5 0 2.8 0 3.8.1 2 .1 3 1 3.1 3.2.1 1 .1 1.3.1 3.8s0 2.8-.1 3.8c-.1 2.1-1.1 3.1-3.1 3.2-1 .1-1.3.1-3.8.1s-2.8 0-3.8-.1c-2-.1-3-1.1-3.1-3.2C5 14.8 5 14.5 5 12s0-2.8.1-3.8C5.2 6.1 6.2 5.1 8.2 5c1-.1 1.3-.1 3.8-.1z"/>'],tiktok:['TikTok','<path d="M16.6 3h-3.2v12.2a2.7 2.7 0 1 1-2.7-2.7c.3 0 .5 0 .8.1V9.3a6 6 0 1 0 5.1 5.9V9.1a7.6 7.6 0 0 0 4.4 1.4V7.3a4.4 4.4 0 0 1-4.4-4.3z"/>'],youtube:['YouTube','<path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z"/>'],linkedin:['LinkedIn','<path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/>']};
+function socOf(u){u=String(u||'').toLowerCase();for(var k in SOC){if(u.indexOf(k)>-1||(k=='facebook'&&u.indexOf('fb.')>-1))return SOC[k]}return ['Social media','<path d="M10.6 13.4a1 1 0 0 0 1.4 0l4-4a3 3 0 0 0-4.2-4.2l-1.1 1.1 1.4 1.4 1.1-1.1a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 0 0 1.4zm2.8-2.8a1 1 0 0 0-1.4 0l-4 4a3 3 0 0 0 4.2 4.2l1.1-1.1-1.4-1.4-1.1 1.1a1 1 0 0 1-1.4-1.4l4-4a1 1 0 0 0 0-1.4z"/>']}
+function socA(u,cls){if(!u)return '';var s=socOf(u),h=/^https?:/.test(u)?u:'https://'+u;return '<a class="'+cls+'" href="'+esc(h)+'" target="_blank" rel="noopener" aria-label="'+s[0]+'" title="'+s[0]+'"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">'+s[1]+'</svg></a>'}
+var icoTel='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>';
+
 /* ===================== STRONA: podstawowa ===================== */
-function tSiteBasic(d,dl){var oc=onCol(d.col),rest=d.ph.slice(1,9),n=d.ni;
+function tSiteBasic(d,dl){var oc=onCol(d.col),n=d.ni,gal=d.ph.slice(1,7),c=rgb(d.col),soft='rgba('+c.join(',')+',.09)';
+ var addr=d.a?(d.a+(d.c?', '+d.c:'')):'',map=addr?'<iframe class="map" title="Mapa dojazdu" loading="lazy" src="https://maps.google.com/maps?q='+encodeURIComponent(addr)+'&z=15&output=embed"></iframe>':'';
+ var info=[d.r?'<span><b class="st">★</b> '+esc(d.r)+' w Google'+(d.o?' ('+esc(d.o)+' opinii)':'')+'</span>':'',d.h?'<span>'+esc(d.h)+'</span>':'',d.c?'<span>'+esc(d.c)+'</span>':''].filter(Boolean).join('<i></i>');
  return '<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(d.n)+(d.c?' · '+esc(n.tag.toLowerCase())+' '+esc(d.c):'')+'</title><meta name="description" content="'+esc(d.n)+': '+esc(d.s.slice(0,3).join(', ').toLowerCase())+(d.c?'. '+esc(d.c):'')+'.">'+
- '<style>*{box-sizing:border-box;margin:0;padding:0}body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1a1a1a;background:#fff}a{color:inherit}.w{max-width:1100px;margin:0 auto;padding:0 22px}'+
- 'header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:5}header .w{display:flex;align-items:center;justify-content:space-between;height:64px}.lg{font-weight:700;font-size:19px;text-decoration:none;display:flex;align-items:center;gap:10px}.lg img{height:36px}'+
- '.b{display:inline-block;background:'+d.col+';color:'+oc+';padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,.15)}'+
- '.hero{position:relative;height:78vh;min-height:440px;background:#222 url("'+d.ph[0]+'") center/cover}.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.75),rgba(0,0,0,.25))}'+
- '.hero .w{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff}.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.08}.hero p{margin:14px 0 26px;font-size:18px;opacity:.9}.pill{display:inline-block;background:rgba(255,255,255,.15);padding:6px 14px;border-radius:999px;font-size:14px;margin-bottom:16px}'+
- 'section{padding:72px 0}h2{font-size:32px;margin-bottom:28px;text-align:center}.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}.g img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;display:block;box-shadow:0 8px 24px rgba(0,0,0,.08)}'+
- '.sv{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;list-style:none}.sv li{background:#fff;border-radius:16px;padding:24px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.07);display:flex;align-items:center;gap:12px}.sv li::before{content:"✓";display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:'+d.col+';color:'+oc+';font-size:15px;flex:none}'+
- '.alt{background:#f5f6f8}.k dl{max-width:560px;margin:0 auto;background:#fff;border-radius:16px;padding:28px;box-shadow:0 8px 24px rgba(0,0,0,.07);display:grid;grid-template-columns:auto 1fr;gap:12px 24px}.k dt{color:#777}footer{padding:24px 0;font-size:13px;color:#888;text-align:center}</style></head><body>'+
- '<header><div class="w"><a class="lg" href="#">'+(d.logo?'<img src="'+d.logo+'" alt="">':'')+esc(d.n)+'</a><a class="b" href="'+tel(d.t)+'">'+esc(d.t)+'</a></div></header>'+
- '<div class="hero"><div class="w">'+(d.r?'<span class="pill">★ '+esc(d.r)+' w Google'+(d.o?' · '+esc(d.o)+' opinii':'')+'</span>':'')+'<h1>'+esc(d.n)+'</h1><p>'+esc(n.tag)+(d.c?' · '+esc(d.c):'')+'</p><div><a class="b" href="#kontakt">'+esc(n.cta)+'</a></div></div></div>'+
- (rest.length?'<section><div class="w"><h2>'+esc(n.galT)+'</h2><div class="g">'+rest.map(function(u){return '<img src="'+u+'" alt="" loading="lazy">'}).join('')+'</div></div></section>':'')+
- '<section class="alt"><div class="w"><h2>'+esc(n.svcT)+'</h2><ul class="sv">'+d.s.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div></section>'+
- '<section class="k" id="kontakt"><div class="w"><h2>Kontakt</h2><dl><dt>Telefon</dt><dd><a href="'+tel(d.t)+'">'+esc(d.t)+'</a></dd>'+(d.e?'<dt>E-mail</dt><dd><a href="mailto:'+esc(d.e)+'">'+esc(d.e)+'</a></dd>':'')+(d.a?'<dt>Adres</dt><dd>'+esc(d.a)+(d.c?', '+esc(d.c):'')+'</dd>':'')+(d.h?'<dt>Godziny</dt><dd>'+esc(d.h)+'</dd>':'')+(d.f?'<dt>Social media</dt><dd><a href="'+esc(d.f)+'">'+esc(d.f.replace(/^https?:\/\/(www\.)?/,''))+'</a></dd>':'')+'</dl></div></section>'+
- '<footer>© '+new Date().getFullYear()+' '+esc(d.n)+(dl?' · szablon: emilwiktorski.pl':'')+'</footer></body></html>'}
+ '<style>*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#15171c;background:#fff;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img{display:block}.w{max-width:1160px;margin:0 auto;padding:0 24px}'+
+ 'header{position:sticky;top:0;z-index:9;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #eef0f3}header .w{display:flex;align-items:center;gap:28px;height:70px}.lg{font-weight:700;font-size:19px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}.lg img{height:38px;width:auto}'+
+ 'nav{margin-left:auto;display:flex;gap:26px;font-size:15px;color:#4a4f5a}nav a:hover{color:#15171c}'+
+ '.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 24px;border-radius:12px;background:'+d.col+';color:'+oc+';font-weight:600;font-size:15px;transition:filter .2s,transform .2s;white-space:nowrap}.b:hover{filter:brightness(1.08);transform:translateY(-1px)}.b.o{background:#fff;color:#15171c;border:1px solid #dfe2e7}.b.sm{height:42px;padding:0 18px}'+
+ '.hero{padding:64px 0 72px;background:linear-gradient(180deg,'+soft+',#fff 70%)}.hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}'+
+ '.tg{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:'+d.col+';background:#fff;border:1px solid #e8eaee;padding:6px 12px;border-radius:99px;margin-bottom:20px}.tg::before{content:"";width:7px;height:7px;border-radius:50%;background:'+d.col+'}'+
+ 'h1{font-size:clamp(38px,5.2vw,60px);line-height:1.04;letter-spacing:-.03em;font-weight:800}.ld{font-size:19px;color:#4a4f5a;margin:18px 0 30px;max-width:30em}.bt{display:flex;gap:10px;flex-wrap:wrap}'+
+ '.inf{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:30px;font-size:14.5px;color:#4a4f5a}.inf i{width:4px;height:4px;border-radius:50%;background:#c5c9d1}.st{color:#f5a524}'+
+ '.ph{position:relative}.ph img{width:100%;aspect-ratio:4/4.3;object-fit:cover;border-radius:22px;box-shadow:0 30px 60px -28px rgba(15,20,30,.45)}.ph .fl{position:absolute;left:-22px;bottom:28px;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 16px 36px -14px rgba(15,20,30,.35);font-size:14px;line-height:1.3}.ph .fl b{display:block;font-size:22px}'+
+ 'section{padding:84px 0}.sh{max-width:620px;margin-bottom:38px}.sh h2{font-size:clamp(30px,3.6vw,42px);line-height:1.1;letter-spacing:-.02em;font-weight:800}.sh p{color:#5a5f6a;margin-top:10px;font-size:17px}'+
+ '.sv{display:grid;grid-template-columns:repeat('+(d.s.length<=3?d.s.length:d.s.length==4?2:d.s.length<=6?3:4)+',1fr);gap:16px;list-style:none}.sv li{border:1px solid #e9ebef;border-radius:16px;padding:24px;background:#fff;transition:border-color .2s,box-shadow .2s}.sv li:hover{border-color:'+d.col+';box-shadow:0 14px 30px -18px rgba(15,20,30,.3)}'+
+ '.sv .ic{width:42px;height:42px;border-radius:11px;background:'+soft+';color:'+d.col+';display:grid;place-items:center;margin-bottom:16px}.sv h3{font-size:18px;letter-spacing:-.01em}.sv p{font-size:14.5px;color:#5a5f6a;margin-top:4px}'+
+ '.gl{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:230px;gap:12px}.gl img{width:100%;height:100%;object-fit:cover;border-radius:14px}.gl img:first-child{grid-row:span 2}'+
+ '.cta{background:#15171c;color:#fff;border-radius:24px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}.cta h2{font-size:clamp(26px,3vw,36px);letter-spacing:-.02em;line-height:1.15}.cta p{color:#a9adb6;margin-top:6px}'+
+ '.k{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}.k dl{display:grid;grid-template-columns:auto 1fr;gap:14px 26px;font-size:16px}.k dt{color:#7a7f89}.k dd a{font-weight:600}.map{width:100%;height:340px;border:0;border-radius:18px;background:#f1f2f4}'+
+ '.so{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#f1f2f4;color:#15171c;transition:background .2s,color .2s}.so:hover{background:'+d.col+';color:'+oc+'}'+
+ 'footer{border-top:1px solid #eef0f3;padding:26px 0;font-size:14px;color:#7a7f89}footer .w{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}'+
+ '@media (max-width:860px){nav{display:none}.hero{padding:36px 0 56px}.hero .w{grid-template-columns:1fr;gap:34px}.ph .fl{left:12px}.gl{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.k{grid-template-columns:1fr}.cta{padding:32px 26px}section{padding:64px 0}header .b span{display:none}header .b{padding:0 14px;margin-left:auto}.sv{grid-template-columns:1fr!important}}'+
+ '</style></head><body>'+
+ '<header><div class="w"><a class="lg" href="#">'+(d.logo?'<img src="'+d.logo+'" alt="'+esc(d.n)+'">':esc(d.n))+'</a><nav><a href="#oferta">'+esc(n.svcT)+'</a>'+(gal.length?'<a href="#galeria">'+esc(n.galT)+'</a>':'')+'<a href="#kontakt">Kontakt</a></nav><a class="b sm" href="'+tel(d.t)+'">'+icoTel+'<span>'+esc(d.t)+'</span></a></div></header>'+
+ '<div class="hero"><div class="w"><div><span class="tg">'+esc(n.tag)+(d.c?' · '+esc(d.c):'')+'</span><h1>'+esc(d.n)+'</h1><p class="ld">'+esc(n.lead||'')+'</p><div class="bt"><a class="b" href="#kontakt">'+esc(n.cta)+'</a><a class="b o" href="'+tel(d.t)+'">'+icoTel+esc(d.t)+'</a></div>'+(info?'<div class="inf">'+info+'</div>':'')+'</div>'+
+ '<div class="ph"><img src="'+d.ph[0]+'" alt="'+esc(d.n)+'">'+(d.r?'<div class="fl"><b><span class="st">★</span> '+esc(d.r)+'</b>'+(d.o?esc(d.o)+' opinii w Google':'ocena w Google')+'</div>':'')+'</div></div></div>'+
+ '<section id="oferta"><div class="w"><div class="sh"><h2>'+esc(n.svcT)+'</h2><p>'+esc(n.svcP||'Zadzwoń albo napisz, a dobierzemy zakres do Twoich potrzeb.')+'</p></div><ul class="sv">'+d.s.map(function(x){return '<li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><h3>'+esc(x)+'</h3></li>'}).join('')+'</ul></div></section>'+
+ (gal.length?'<section id="galeria" style="padding-top:0"><div class="w"><div class="sh"><h2>'+esc(n.galT)+'</h2><p>'+esc(n.galP)+'</p></div><div class="gl">'+gal.map(function(u){return '<img src="'+u+'" alt="" loading="lazy">'}).join('')+'</div></div></section>':'')+
+ '<section style="padding-top:0"><div class="w"><div class="cta"><div><h2>'+esc(n.cta)+'</h2><p>Najszybciej telefonicznie'+(d.h?', '+esc(d.h):'')+'.</p></div><a class="b" href="'+tel(d.t)+'">'+icoTel+esc(d.t)+'</a></div></div></section>'+
+ '<section id="kontakt" style="padding-top:0"><div class="w k"><div><div class="sh" style="margin-bottom:26px"><h2>Kontakt</h2></div><dl><dt>Telefon</dt><dd><a href="'+tel(d.t)+'">'+esc(d.t)+'</a></dd>'+(d.e?'<dt>E-mail</dt><dd><a href="mailto:'+esc(d.e)+'">'+esc(d.e)+'</a></dd>':'')+(addr?'<dt>Adres</dt><dd>'+esc(addr)+'</dd>':'')+(d.h?'<dt>Godziny</dt><dd>'+esc(d.h)+'</dd>':'')+'</dl>'+(d.f?'<div style="margin-top:24px">'+socA(d.f,'so')+'</div>':'')+'</div>'+(map||'<div></div>')+'</div></section>'+
+ '<footer><div class="w"><span>© '+new Date().getFullYear()+' '+esc(d.n)+'</span>'+(dl?'<span>Szablon: emilwiktorski.pl</span>':'')+'</div></footer></body></html>'}
 
 /* ===================== wspolne dla premium ===================== */
 function premHead(d,title,extra){var ff='@font-face{font-family:Ar;font-weight:100 900;font-stretch:62% 125%;src:url('+FB+'archivo-latin-wdth-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F}@font-face{font-family:Ar;font-weight:100 900;font-stretch:62% 125%;src:url('+FB+'archivo-latin-ext-wdth-normal.woff2) format("woff2");unicode-range:U+0100-02AF}';
@@ -251,6 +285,7 @@ function premHead(d,title,extra){var ff='@font-face{font-family:Ar;font-weight:1
  '.mq{overflow:hidden;border-block:1px solid #222;padding:22px 0;background:#0e0e10}.mq div{display:flex;gap:46px;width:max-content;animation:mq 28s linear infinite;font:800 clamp(26px,3.6vw,46px) Ar;font-stretch:120%;text-transform:uppercase;color:#2a2a2e}.mq span:nth-child(4n+1){color:#eeebe6}.mq b{color:'+d.col+'}@keyframes mq{to{transform:translateX(-50%)}}'+
  'section{padding:120px 0}.hd{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:46px}.hd h2{font-size:clamp(40px,6vw,88px)}.hd p{color:#9c978f;max-width:380px}'+
  '.ct{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end}.ct h2{font-size:clamp(46px,7vw,110px)}.ct .tl{display:block;font:800 clamp(30px,4vw,52px) Ar;font-stretch:115%;color:'+d.col+';margin:26px 0 10px}.ct dl{display:grid;grid-template-columns:auto 1fr;gap:12px 26px;color:#cfcac2}.ct dt{color:#6d6a65}'+
+ '.soP{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid #333;color:#eeebe6;transition:background .3s,color .3s}.soP:hover{background:'+d.col+';color:'+oc+';border-color:'+d.col+'}'+
  'footer{border-top:1px solid #1f1f22;padding:26px 0;color:#6d6a65;font-size:13px}footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}'+
  '.rv{opacity:0;transform:translateY(34px);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}'+
  '.wm{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:60;background:rgba(255,255,255,.92);color:#111;font:600 13px system-ui;padding:9px 16px;border-radius:99px;box-shadow:0 8px 30px rgba(0,0,0,.4);white-space:nowrap}'+
@@ -259,7 +294,7 @@ function premTail(d){return '<footer><div class="w"><span>© '+new Date().getFul
 var premJs='var n=document.getElementById("nv");addEventListener("scroll",function(){n.classList.toggle("s",scrollY>40)});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll(".rv").forEach(function(el,i){if(el.closest(".hero"))el.style.transitionDelay=(i*.12)+"s";io.observe(el)});var im=document.querySelector(".hero .im");addEventListener("scroll",function(){if(scrollY<innerHeight)im.style.translate="0 "+scrollY*.3+"px"},{passive:true});document.querySelectorAll("a[href=\'#\']").forEach(function(a){if(!a.dataset.im)a.onclick=function(e){e.preventDefault();scrollTo({top:0,behavior:"smooth"})}});';
 function mq(items){var it=items.map(function(x){return '<span>'+esc(x)+'</span><b>✦</b>'}).join('');return '<div class="mq" aria-hidden="true"><div>'+it+it+it+it+'</div></div>'}
 function heroP(d,line,cta,sec){return '<header class="hero"><div class="im"></div><div class="w"><h1 class="rv">'+esc(d.n)+'</h1><div class="ln rv">'+(d.r?'<span class="st"><i>★★★★★</i>'+esc(d.r)+' Google'+(d.o?' · '+esc(d.o)+' opinii':'')+'</span>':'')+'<span>'+esc(line)+(d.c?' · '+esc(d.c):'')+'</span></div><div class="bt rv"><a class="b" href="#kontakt">'+esc(cta)+'</a><a class="b o" href="#'+sec[0]+'">'+esc(sec[1])+'</a></div></div></header>'}
-function contactP(d,h){return '<section id="kontakt" style="padding-top:40px"><div class="w ct"><div><h2 class="rv">'+esc(h)+'</h2><a class="tl rv" href="'+tel(d.t)+'">'+esc(d.t)+'</a></div><dl class="rv">'+(d.e?'<dt>E-mail</dt><dd><a href="mailto:'+esc(d.e)+'">'+esc(d.e)+'</a></dd>':'')+(d.a?'<dt>Adres</dt><dd>'+esc(d.a)+(d.c?', '+esc(d.c):'')+'</dd>':'')+(d.h?'<dt>Godziny</dt><dd>'+esc(d.h)+'</dd>':'')+(d.f?'<dt>Social media</dt><dd><a href="'+esc(d.f)+'" target="_blank">'+esc(d.f.replace(/^https?:\/\/(www\.)?/,''))+'</a></dd>':'')+'</dl></div></section>'}
+function contactP(d,h){return '<section id="kontakt" style="padding-top:40px"><div class="w ct"><div><h2 class="rv">'+esc(h)+'</h2><a class="tl rv" href="'+tel(d.t)+'">'+esc(d.t)+'</a></div><dl class="rv">'+(d.e?'<dt>E-mail</dt><dd><a href="mailto:'+esc(d.e)+'">'+esc(d.e)+'</a></dd>':'')+(d.a?'<dt>Adres</dt><dd>'+esc(d.a)+(d.c?', '+esc(d.c):'')+'</dd>':'')+(d.h?'<dt>Godziny</dt><dd>'+esc(d.h)+'</dd>':'')+'</dl>'+(d.f?'<div class="rv" style="grid-column:2">'+socA(d.f,'soP')+'</div>':'')+'</div></section>'}
 
 /* ===================== STRONA: premium ===================== */
 function tSitePrem(d){var n=d.ni,gal=d.ph.slice(1,9);
@@ -301,11 +336,11 @@ function tShopBasic(d,dl){var oc=onCol(d.col),n=d.ni;
  '.hero h1,.hero p,.hero a{position:relative;z-index:1}.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.1}.hero p{opacity:.9;margin:8px 0 20px}.b{display:inline-block;background:'+d.col+';color:'+oc+';padding:12px 26px;border-radius:999px;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,.15)}'+
  'section{padding:56px 0}h2{font-size:28px;margin-bottom:24px;text-align:center}.gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}.pc{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.06);display:flex;flex-direction:column}.pc img{width:100%;aspect-ratio:1;object-fit:cover}'+
  '.pc div{padding:16px;display:flex;flex-direction:column;gap:4px;flex:1}.pc h3{font-size:16px;font-weight:600}.pc .pr{font-weight:700;font-size:18px;color:'+d.col+'}.pc button{margin-top:auto;height:42px;border-radius:999px;background:#f1f1f1;font-weight:600;transition:background .2s}.pc button:hover{background:'+d.col+';color:'+oc+'}'+
- '.k{background:#fff}.k dl{max-width:560px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:12px 24px}.k dt{color:#777}footer{padding:24px 0;font-size:13px;color:#888;text-align:center}'+cartCss(d.col,oc,false)+'</style></head><body>'+
+ '.so{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#f1f1f1;transition:background .2s}.so:hover{background:'+d.col+';color:'+oc+'}.k{background:#fff}.k dl{max-width:560px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:12px 24px}.k dt{color:#777}footer{padding:24px 0;font-size:13px;color:#888;text-align:center}'+cartCss(d.col,oc,false)+'</style></head><body>'+
  '<header><div class="w"><a class="lg" href="#">'+(d.logo?'<img src="'+d.logo+'" alt="">':'')+esc(d.n)+'</a><a id="cb" href="#" data-cart aria-label="Koszyk">'+bagSvg+'<span class="cq" style="display:none">0</span></a></div></header>'+
  '<div class="hero"><div><div style="position:relative;z-index:1"><h1>'+esc(d.n)+'</h1><p>'+esc(n.tag)+(d.c?' · '+esc(d.c):'')+' · wysyłka w całej Polsce</p><a class="b" href="#produkty">Zobacz produkty</a></div></div></div>'+
  '<section id="produkty"><div class="w"><h2>Nasze produkty</h2><div class="gr">'+d.pr.map(function(p,i){return '<div class="pc"><img src="'+p.img+'" alt="'+esc(p.n)+'" loading="lazy"><div><h3>'+esc(p.n)+'</h3><span class="pr">'+zl(p.p)+'</span><button data-add="'+i+'">Dodaj do koszyka</button></div></div>'}).join('')+'</div></div></section>'+
- '<section class="k"><div class="w"><h2>Kontakt</h2><dl><dt>Telefon</dt><dd><a href="'+tel(d.t)+'">'+esc(d.t)+'</a></dd>'+(d.e?'<dt>E-mail</dt><dd><a href="mailto:'+esc(d.e)+'">'+esc(d.e)+'</a></dd>':'')+(d.a?'<dt>Adres</dt><dd>'+esc(d.a)+(d.c?', '+esc(d.c):'')+'</dd>':'')+(d.f?'<dt>Social media</dt><dd><a href="'+esc(d.f)+'">'+esc(d.f.replace(/^https?:\/\/(www\.)?/,''))+'</a></dd>':'')+'</dl></div></section>'+
+ '<section class="k"><div class="w"><h2>Kontakt</h2><dl><dt>Telefon</dt><dd><a href="'+tel(d.t)+'">'+esc(d.t)+'</a></dd>'+(d.e?'<dt>E-mail</dt><dd><a href="mailto:'+esc(d.e)+'">'+esc(d.e)+'</a></dd>':'')+(d.a?'<dt>Adres</dt><dd>'+esc(d.a)+(d.c?', '+esc(d.c):'')+'</dd>':'')+'</dl>'+(d.f?'<div style="text-align:center;margin-top:22px">'+socA(d.f,'so')+'</div>':'')+'</div></section>'+
  '<footer>© '+new Date().getFullYear()+' '+esc(d.n)+(dl?' · szablon: emilwiktorski.pl':'')+'</footer>'+drawer()+'<scr'+'ipt>'+cartJs(d)+'</scr'+'ipt></body></html>'}
 
 /* ===================== SKLEP: premium ===================== */
@@ -334,7 +369,7 @@ function render(){clearTimeout(tmr);tmr=setTimeout(function(){var y=0;try{y=fr.c
  $('#bSw').textContent=P?'Wolę wersję podstawową za darmo':'Zobacz jeszcze, jak wygląda wersja premium';
  var body='Dzień dobry,\nchcę '+(S.wer=='personalizowana'?'personalizowany ':'')+(sk?'sklep':'stronę')+(S.wer=='premium'?' w wersji premium':'')+'.\nFirma: '+d.n+(d.c?' ('+d.c+')':'')+'\nBranża: '+N().l+'\nTelefon: '+(val('fT')||'');
  var mh='mailto:'+MAIL+'?subject='+encodeURIComponent((sk?'Sklep':'Strona')+' '+(S.wer=='personalizowana'?'personalizowana':'premium')+': '+d.n)+'&body='+encodeURIComponent(body);
- $('#bP').href=mh;$('#bKm').href=mh;
+ $('#bP').href=mh;MH=mh;
 },120)}
 
 /* ===================== kroki ===================== */
@@ -400,6 +435,27 @@ $('#bD').onclick=function(){var b=this,d=data();b.disabled=true;b.textContent='P
   h+='\n<!--\nJAK WSTAWIĆ TĘ STRONĘ DO INTERNETU\nPoradnik krok po kroku: https://emilwiktorski.pl/kreator/poradnik/\nWersja premium i pomoc: '+MAIL+'\n-->\n';
   var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([h],{type:'text/html'}));a.download='index.html';document.body.appendChild(a);a.click();a.remove();
   b.textContent='Pobrano. Teraz otwórz poradnik';setTimeout(function(){b.disabled=false;b.textContent='Pobierz kod za darmo'},4000)}).catch(function(){b.disabled=false;b.textContent='Nie udało się, spróbuj jeszcze raz'})};
+/* numer telefonu: 3 cyfry, spacja */
+function fmtTel(v){v=String(v||'');var plus=/^\s*(\+|00)/.test(v),d=v.replace(/\D/g,''),pre='';if(/^\s*00/.test(v))d=d.slice(2);
+ if(plus){if(d.length<=2)return '+'+d;pre='+'+d.slice(0,2)+' ';d=d.slice(2)}d=d.slice(0,9);return pre+d.replace(/(\d{3})(?=\d)/g,'$1 ')}
+$('#fT').addEventListener('input',function(){var f=fmtTel(this.value);if(f!==this.value){this.value=f}});
+/* pelny ekran */
+function fs(on){$('#mn').classList.toggle('fs',on);$('#fsB').textContent=on?'Zamknij pełny ekran':'Pełny ekran'}
+$('#fsB').onclick=function(){fs(!$('#mn').classList.contains('fs'))};
+addEventListener('keydown',function(e){if(e.key=='Escape'&&$('#mn').classList.contains('fs'))fs(false)});
+/* formularz kontaktowy w okienku */
+var FORM='https://formspree.io/f/xjyyakgq',MH='',dlg=$('#dlg'),fBody=$('#fBody').innerHTML;
+function openForm(){var d=data(),sk=S.typ=='sklep',per=S.wer=='personalizowana',co=(sk?'Sklep':'Strona')+(per?' personalizowana':' premium');
+ $('#fBody').innerHTML=fBody;$('#dH').textContent=per?'Opowiedz o swojej firmie':'Chcę wersję premium';
+ $('#dT').value=co+': '+d.n+(d.c?' ('+d.c+')':'');$('#dPh').value=val('fT');$('#dE').value=val('fE');
+ $('#dO').value='Branża: '+N().l+(per?'\n\nCzego potrzebuję:\n':'\n\nUwagi:\n');$('#dM').href=MH;
+ $('#fX').onclick=function(){dlg.close()};dlg.showModal();setTimeout(function(){$('#dI').focus()},50)}
+dlg.addEventListener('click',function(e){if(e.target==dlg)dlg.close()});
+$('#bP').addEventListener('click',function(e){e.preventDefault();openForm()});
+$('#bK').onclick=openForm;
+$('#fF').onsubmit=function(e){e.preventDefault();var b=$('#dS');b.disabled=true;b.textContent='Wysyłam…';var fd=new FormData(this);fd.append('_subject',$('#dT').value);fd.append('zrodlo','kreator');
+ fetch(FORM,{method:'POST',body:fd,headers:{Accept:'application/json'}}).then(function(r){if(!r.ok)throw 0;$('#fBody').innerHTML='<h3>Dzięki, mam to.</h3><p class="ld">Odpiszę na podany e-mail w ciągu 1 dnia roboczego.</p><button class="btn d" type="button" id="dC">Zamknij</button>';$('#dC').onclick=function(){dlg.close()}})
+ .catch(function(){b.disabled=false;b.textContent='Nie wyszło, spróbuj jeszcze raz'})};
 /* telefon */
 $('#mT').onclick=function(){$('#mn').classList.add('open');$('#mX').style.display='flex';this.style.display='none'};
 $('#mX').onclick=function(){$('#mn').classList.remove('open');$('#mX').style.display='none';$('#mT').style.display=''};
