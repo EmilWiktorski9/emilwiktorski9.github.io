@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Zwykła czy premium · Emil Wiktorski (prototyp)</title>
+<link rel="icon" href="/assets/projekty/favicon.png">
+<style>
+@font-face{font-family:Sg;font-weight:400;font-display:swap;src:url(/assets/fonty/schibsted-grotesk-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Sg;font-weight:400;font-display:swap;src:url(/assets/fonty/schibsted-grotesk-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF}
+@font-face{font-family:Sg;font-weight:600;font-display:swap;src:url(/assets/fonty/schibsted-grotesk-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Sg;font-weight:600;font-display:swap;src:url(/assets/fonty/schibsted-grotesk-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02AF}
+@font-face{font-family:Is;font-weight:400;font-display:swap;src:url(/assets/fonty/instrument-serif-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Is;font-weight:400;font-display:swap;src:url(/assets/fonty/instrument-serif-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02AF}
+@font-face{font-family:Is;font-style:italic;font-weight:400;font-display:swap;src:url(/assets/fonty/instrument-serif-latin-400-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC}
+@font-face{font-family:Is;font-style:italic;font-weight:400;font-display:swap;src:url(/assets/fonty/instrument-serif-latin-ext-400-italic.woff2) format('woff2');unicode-range:U+0100-02AF}
+:root{--bg:#f4f2ed;--tx:#14161b;--tx2:#6b6a66;--a:#2448d8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.55 Sg,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.top{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(16px,4vw,44px)}
+.top .nm{font-weight:600}.top .kt{height:40px;padding:0 18px;border-radius:99px;background:var(--tx);color:#fff;font-weight:600;font-size:14px;display:inline-flex;align-items:center}
+#sc{position:relative;height:460vh}
+.stg{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:76px clamp(12px,3vw,40px) 22px}
+.hd{text-align:center}
+.hd h1{font:400 clamp(30px,4.2vw,56px)/1 Is,serif;letter-spacing:-.01em}.hd h1 em{color:var(--a)}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:14px}
+.chips button{height:34px;padding:0 14px;border-radius:99px;border:1.5px solid #d6d1c5;font-size:14px;font-weight:600;background:#fff}
+.chips button.on{background:var(--tx);border-color:var(--tx);color:#fff}
+.duo{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;gap:clamp(12px,6vw,90px)}
+.dev{display:flex;flex-direction:column;align-items:center;gap:14px}
+.lap{position:relative}
+.scr{position:relative;background:#16171a;border-radius:16px 16px 4px 4px;padding:12px 12px 16px;box-shadow:0 30px 70px -30px rgba(0,0,0,.55)}
+.scr::before{content:"";position:absolute;left:50%;top:5px;width:5px;height:5px;border-radius:50%;background:#333;transform:translateX(-50%)}
+.vp{position:relative;overflow:hidden;background:#fff;border-radius:3px}
+.vp iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;pointer-events:none}
+.base{position:relative;height:14px;margin:0 -5%;background:linear-gradient(#d9d7d2,#b9b6b0);border-radius:0 0 14px 14px}
+.base::before{content:"";position:absolute;left:50%;top:0;width:16%;height:6px;background:#a7a49e;border-radius:0 0 8px 8px;transform:translateX(-50%)}
+.lb{text-align:center}
+.lb b{display:block;font:400 28px/1 Is,serif}
+.lb span{font-size:14px;color:var(--tx2)}
+.dev.pr .lb b{color:var(--a)}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;margin-bottom:8px;background:#e7f2ec;color:#1f7a4d}
+.dev.pr .tag{background:#eef0fb;color:var(--a)}
+.ft{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+.ft a{height:48px;padding:0 24px;border-radius:99px;background:var(--a);color:#fff;font-weight:600;display:inline-flex;align-items:center}
+.ft span{font-size:14px;color:var(--tx2)}
+.hint{font-size:13px;color:var(--tx2);transition:opacity .3s}.hint.off{display:none}
+@media (max-width:800px){.hd h1{font-size:30px}.lb b{font-size:22px}.lb span{display:none}.scr{border-radius:22px;padding:8px}.scr::before{display:none}.base{display:none}.vp{border-radius:15px}.duo{gap:12px}.ft span{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><a class="nm" href="/">Emil Wiktorski</a><a class="kt" href="/#kontakt">Kontakt</a></header>
+<section id="sc">
+ <div class="stg">
+  <div class="hd"><h1>Ta sama firma. <em>Dwie</em> strony.</h1><div class="chips" id="ch"></div></div>
+  <div class="duo">
+   <div class="dev"><div class="lap"><div class="scr"><div class="vp" id="v0"><iframe id="f0" title="Strona zwykła" tabindex="-1" scrolling="no"></iframe></div></div><div class="base"></div></div><div class="lb"><span class="tag">Za darmo</span><b>Zwykła</b><span>Wygląda jak większość stron w okolicy</span></div></div>
+   <div class="dev pr"><div class="lap"><div class="scr"><div class="vp" id="v1"><iframe id="f1" title="Strona premium" tabindex="-1" scrolling="no"></iframe></div></div><div class="base"></div></div><div class="lb"><span class="tag">Wdrażam ja</span><b>Premium</b><span>Tę klient zapamięta</span></div></div>
+  </div>
+  <div class="ft"><span class="hint" id="hint">Przewijaj, obie strony jadą razem ↓</span><a id="go" href="/kreator/">Wstaw swoją firmę w obie</a></div>
+ </div>
+</section>
+<script>
+var N={detailing:'Detailing',beauty:'Beauty',gastro:'Gastronomia',remonty:'Remonty'},cur='detailing';
+var ch=document.getElementById('ch');ch.innerHTML=Object.keys(N).map(function(k){return '<button data-k="'+k+'"'+(k==cur?' class="on"':'')+'>'+N[k]+'</button>'}).join('');
+var F=[document.getElementById('f0'),document.getElementById('f1')],V=[document.getElementById('v0'),document.getElementById('v1')],sc=document.getElementById('sc'),IW,IH;
+function load(k){cur=k;F[0].src='strony/'+k+'-zwykla.html';F[1].src='strony/'+k+'-premium.html';document.getElementById('go').href='/kreator/?branza='+k;F.forEach(function(f){f.onload=tick})}
+function fit(){var mob=innerWidth<=800,duo=document.querySelector('.duo'),aw=(duo.clientWidth-(mob?12:Math.max(70,innerWidth*.06)))/2-(mob?16:60),ah=duo.clientHeight-(mob?60:90);
+ IW=mob?390:1280;IH=mob?780:800;var k=Math.min(aw/IW,ah/IH);
+ V.forEach(function(v,i){v.style.width=IW*k+'px';v.style.height=IH*k+'px';F[i].style.width=IW+'px';F[i].style.height=IH+'px';F[i].style.transform='scale('+k+')'});tick()}
+function tick(){var r=sc.getBoundingClientRect(),P=Math.max(0,Math.min(1,-r.top/(r.height-innerHeight)));
+ F.forEach(function(f){try{var w=f.contentWindow,d=w.document.documentElement,max=d.scrollHeight-w.innerHeight;w.scrollTo({top:max*P,behavior:'instant'})}catch(e){}});
+ document.getElementById('hint').classList.toggle('off',P>.04)}
+ch.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(ch.children,function(x){x.classList.toggle('on',x==b)});load(b.dataset.k)});
+addEventListener('scroll',tick,{passive:true});addEventListener('resize',fit);
+load(cur);fit();
+</script>
+</body>
+</html>
