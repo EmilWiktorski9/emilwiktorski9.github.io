@@ -75,11 +75,14 @@ a{color:inherit;text-decoration:none}button,input,textarea{font:inherit;color:in
 .hit1 img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:10px;display:block}
 .hit1 small{display:block;color:var(--tx2);font-size:13px}.hit1 b{display:block;font:700 20px/1.15 Ar,system-ui,sans-serif;color:var(--tx);margin:2px 0 10px}
 .btn2{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:99px;background:var(--a);color:#fff!important;font-weight:600;font-size:14.5px;text-decoration:none!important;border:0;cursor:pointer}
-.no1{background:#f6f3ec;border-radius:16px;padding:20px}.no1 p{margin:0 0 12px;color:var(--tx)}
+.no1{background:#f6f3ec;border-radius:16px;padding:22px;text-align:center}.end .no1 p{margin:0 auto 14px;max-width:44ch;color:var(--tx)}
 .rlz{margin-top:30px;padding-top:24px;border-top:1px solid #ece7dd;text-align:left}.rlz h3{font:800 22px/1 Ar,system-ui,sans-serif;letter-spacing:-.02em;margin-bottom:14px}
 .rg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.rg a{display:block}.rg img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:10px;display:block;box-shadow:0 10px 24px -14px rgba(0,0,0,.4);transition:transform .3s}.rg a:hover img{transform:translateY(-3px)}
 .rg small{display:block;font-size:12px;color:var(--tx2);margin-top:7px}.rg b{display:block;font:700 15px/1.2 Ar,system-ui,sans-serif}
-.all{display:inline-block;margin-top:16px;font-weight:600;color:var(--a)}
+.all{position:relative;overflow:hidden;display:inline-flex;align-items:center;height:48px;padding:0 24px;margin-top:20px;border-radius:99px;background:var(--tx);color:#fff;font-weight:600;font-size:15px;animation:bob 2.6s ease-in-out infinite;transition:background .25s}.all:hover{background:var(--a)}
+.all::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}@keyframes shine{0%,55%{left:-60%}85%,100%{left:130%}}
+.rlz{text-align:left}.rlz .all{display:flex;width:max-content;margin-left:auto;margin-right:auto}
 @media (max-width:800px){.hit1{grid-template-columns:1fr}.rg{grid-template-columns:1fr 1fr}}
 .res a{color:var(--a);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .res button{color:var(--a);font-weight:600;text-decoration:underline;text-underline-offset:3px}
@@ -150,7 +153,7 @@ dialog::backdrop{background:rgba(22,20,16,.55);backdrop-filter:blur(6px)}
   <p>Jeśli mam coś, co może Cię zainteresować, zobaczysz to od razu. Jeśli nie, <button type="button" class="lnk" id="wF">napisz do mnie</button>.</p>
   <form class="srch" id="sF"><input id="sQ" type="text" placeholder="np. fryzjer, pizzeria, fotograf" aria-label="Twoja branża" autocomplete="off"><button type="submit">Szukaj</button></form>
   <div class="res" id="sR" aria-live="polite"></div>
-  <div class="rlz" id="rlz" hidden><h3>Moje realizacje</h3><div class="rg" id="rg"></div><a class="all" href="/realizacje/">Zobacz wszystkie realizacje →</a></div>
+  <div class="rlz" id="rlz" hidden><h3>Moje realizacje</h3><div class="rg" id="rg"></div><a class="all" href="/realizacje/">Zobacz wszystkie realizacje</a></div>
  </div></div>
 </section>
 
@@ -304,8 +307,8 @@ var RL=[['/demo/detailing/','detailing','Strona www · Detailing','Lustro'],['/d
 document.getElementById('rg').innerHTML=RL.map(function(r){var ext=/^https/.test(r[0]);return '<a href="'+r[0]+'"'+(ext?' target="_blank" rel="noopener"':'')+'><img src="/realizacje/vid/'+(r[1]?r[1]+'.jpg':'korektor-lektorski.webp')+'" alt="'+r[3]+'" loading="lazy"'+(r[1]?'':' style="object-fit:contain;background:#f4f1ea"')+'><small>'+r[2]+'</small><b>'+r[3]+'</b></a>'}).join('');
 sQ.addEventListener('input',function(){var b=find(sQ.value);loks.forEach(function(l){l.classList.toggle('hit',!!b&&l.dataset.k==b.k);l.classList.toggle('dim',!!b&&l.dataset.k!=b.k)})});
 document.getElementById('sF').onsubmit=function(e){e.preventDefault();var q=sQ.value.trim();if(!q){sQ.focus();return}var b=find(q);
- if(b)sR.innerHTML='<div class="hit1"><img src="vid/'+b.k+'.jpg" alt=""><div><small>Mam szablon dla tej branży</small><b>'+b.h+'</b><a class="btn2" href="/kreator/?branza='+b.k+'">Wstaw w niego swoją firmę →</a></div></div>';
- else sR.innerHTML='<div class="no1"><p>Dla branży <b>'+q.replace(/[<>&"]/g,'')+'</b> nie mam jeszcze gotowego szablonu. Zrobię stronę od zera.</p><button type="button" class="btn2" id="oF">Skontaktuj się ze mną →</button></div>';
+ if(b)sR.innerHTML='<div class="hit1"><img src="vid/'+b.k+'.jpg" alt=""><div><small>Mam szablon dla tej branży</small><b>'+b.h+'</b><a class="btn2" href="/kreator/?branza='+b.k+'">Wstaw w niego swoją firmę</a></div></div>';
+ else sR.innerHTML='<div class="no1"><p>Dla branży <b>'+q.replace(/[<>&"]/g,'')+'</b> nie mam jeszcze gotowego szablonu. Zrobię stronę od zera.</p><button type="button" class="btn2" id="oF">Skontaktuj się ze mną</button></div>';
  var o=document.getElementById('oF');if(o)o.onclick=function(){openForm(q)};document.getElementById('rlz').hidden=false};
 document.getElementById('wF').onclick=function(){openForm(sQ.value.trim())};
 /* formularz */
