@@ -52,6 +52,11 @@ a{color:inherit;text-decoration:none}button,input,select{font:inherit;color:inhe
 .nav a.all{background:var(--nv);color:#fff;display:flex;gap:8px;align-items:center}
 .nav .sep{width:1px;height:20px;background:var(--ln);margin:0 6px;flex:none}
 .nav a.promo{color:var(--red)}
+.mode{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--tx2);flex:none}
+.mode .seg{display:flex;background:var(--bg);border:1px solid var(--ln);border-radius:11px;padding:3px}
+.mode button{height:34px;padding:0 13px;border-radius:8px;font-size:13.5px;font-weight:600;color:var(--tx2);transition:background .2s,color .2s}
+.mode button.on{background:#fff;color:var(--nv);box-shadow:0 1px 4px rgba(11,58,91,.18)}
+body.dom .fo,body:not(.dom) .do{display:none!important}
 /* ogolne */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:11px;background:var(--gr);color:#fff;font-weight:600;transition:background .2s}
 .btn:hover{background:var(--grd)}
@@ -209,6 +214,7 @@ body.notes .note{display:block}
 footer{background:#fff;border-top:1px solid var(--ln);padding:26px 0;color:var(--tx3);font-size:13px}
 @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.trust{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.fbt{grid-template-columns:1fr}}
 @media (max-width:760px){
+ .mode>span{display:none}.mode button{padding:0 9px;height:30px;font-size:12.5px}.logo small{display:none}.logo{font-size:18px}.logo i{width:26px;height:26px}.ic{padding:6px 4px}.acts{gap:0}.top .w{gap:8px}
  .w{padding:0 14px}.top .w{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:10px;gap:10px}.sb{order:3;flex-basis:100%;max-width:none}.ic span{display:none}
  .lay{grid-template-columns:1fr}.flt{position:fixed;inset:0;z-index:70;max-height:none;border-radius:0;transform:translateX(-100%);transition:transform .3s}.flt.on{transform:none}
  .mf{display:inline-flex;height:40px}.grid{grid-template-columns:1fr 1fr;gap:10px}.pc{padding:10px}.pc h3{font-size:13.5px}.pc .szl button{min-width:0;flex:1;padding:0 2px;font-size:11.5px}.pc .szl{flex-wrap:nowrap}.pc .cmp{font-size:0;padding:4px}.tags{display:none}.add .qty{display:none}
@@ -226,6 +232,7 @@ footer{background:#fff;border-top:1px solid var(--ln);padding:26px 0;color:var(-
  <div class="sb"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
   <input id="q" type="search" placeholder="Czego szukasz? np. rękawice M, gaziki, podkłady" autocomplete="off"><button class="go" id="qgo">Szukaj</button>
   <div class="sug" id="sug"></div></div>
+ <div class="mode"><span>Kupuję dla:</span><div class="seg"><button data-mode="firma" class="on">Firmy</button><button data-mode="dom">Domu</button></div></div>
  <div class="acts">
   <a class="ic" href="#/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><span>Listy zakupowe</span></a>
   <a class="ic" href="#/"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg><span>Zaloguj się</span></a>
@@ -242,13 +249,20 @@ footer{background:#fff;border-top:1px solid var(--ln);padding:26px 0;color:var(-
 <main class="view on" id="v-home"><div class="w">
  <div class="hero">
   <div class="hb">
-   <h1>Czego dziś potrzebuje Twoja placówka?</h1>
-   <p>25 000 produktów medycznych. Zamówienia złożone do 15:00 wysyłamy tego samego dnia.</p>
-   <div class="chips" id="hchips"><button data-q="rękawice nitrylowe M">Rękawice nitrylowe M</button><button data-q="gaziki">Gaziki do dezynfekcji</button><button data-q="rękawice czarne">Rękawice czarne</button><button data-q="rękawice białe">Rękawice białe</button></div>
+   <h1>Czego dziś szukasz?</h1>
+   <p class="fo">25 000 produktów dla gabinetów i placówek. Ceny netto, faktura VAT, zamówienia do 15:00 wysyłamy tego samego dnia.</p>
+   <p class="do">Rękawice, opatrunki i środki do dezynfekcji do domu. Ceny z VAT, zamówienia do 15:00 wysyłamy tego samego dnia.</p>
+   <div class="chips do"><button data-q="rękawice M">Rękawice jednorazowe M</button><button data-q="gaziki">Gaziki</button><button data-q="rękawice różowe">Rękawice różowe</button></div>
+   <div class="chips fo" id="hchips"><button data-q="rękawice nitrylowe M">Rękawice nitrylowe M</button><button data-q="gaziki">Gaziki do dezynfekcji</button><button data-q="rękawice czarne">Rękawice czarne</button><button data-q="rękawice białe">Rękawice białe</button></div>
+   <div class="note" style="background:#fffbe6"><b>Zmiana:</b> przełącznik „Kupuję dla: Firmy / Domu” u góry. Firma widzi ceny netto, kartony i „Zamów ponownie”, osoba prywatna ceny z VAT i pojedyncze opakowania. Jeden sklep, jeden katalog.</div>
    <div class="note" style="background:#fffbe6"><b>Zmiana:</b> zamiast karuzeli 8 banerów start zaczyna się od pytania i wyszukiwarki. Najczęstsze zakupy są pod ręką jednym kliknięciem.</div>
   </div>
   <div class="side">
-   <div class="card re"><h3>Zamów ponownie</h3><p>Po zalogowaniu tu są Twoje stałe produkty.</p>
+   <div class="card re do"><h3>Najczęściej kupowane do domu</h3><p>Pojedyncze opakowania, cena z VAT.</p>
+    <div class="row">Rękawice nitrylowe Medasept, 100 szt.<span>10,79 zł</span></div>
+    <div class="row">Gaziki z alkoholem, 100 szt.<span>5,19 zł</span></div>
+    <a class="btn nv" href="#/kategoria" style="height:42px">Zobacz rękawice</a></div>
+   <div class="card re fo"><h3>Zamów ponownie</h3><p>Po zalogowaniu tu są Twoje stałe produkty.</p>
     <div class="row">Rękawice nitrylowe Medasept, M<span>× 10 opak.</span></div>
     <div class="row">Cleanisept Wipes, tuba 100 szt.<span>× 4</span></div>
     <a class="btn nv" href="#/kategoria" style="height:42px">Dodaj wszystko do koszyka</a></div>
@@ -258,14 +272,14 @@ footer{background:#fff;border-top:1px solid var(--ln);padding:26px 0;color:var(-
  <div class="trust">
   <div class="card"><i>⏱</i><div><b>Wysyłka w 24 h</b>zamówienia do 15:00</div></div>
   <div class="card"><i>▦</i><div><b>25 000 produktów</b>od ręki i na zamówienie</div></div>
-  <div class="card"><i>%</i><div><b>Ceny indywidualne</b>po zalogowaniu</div></div>
+  <div class="card fo"><i>%</i><div><b>Ceny indywidualne</b>po zalogowaniu</div></div><div class="card do"><i>%</i><div><b>Kupujesz bez konta</b>cena z VAT od razu</div></div>
   <div class="card"><i>☎</i><div><b>Doradca</b>62 332 00 00</div></div>
  </div>
  <div class="sec"><div class="hd"><h2>Kategorie</h2><a href="#/kategoria">Wszystkie kategorie →</a></div>
   <div class="cats" id="cats"></div>
   <div class="note"><b>Zmiana:</b> promocje (Black Friday, Gazetka) zniknęły z drzewa kategorii. Kategorie mają ikonę i liczbę produktów, więc od razu widać, co gdzie jest.</div>
  </div>
- <div class="sec"><div class="hd"><h2>Kupuj według specjalizacji</h2></div>
+ <div class="sec fo"><div class="hd"><h2>Kupuj według specjalizacji</h2></div>
   <div class="spec"><a href="#/kategoria">Gabinet lekarski</a><a href="#/kategoria">Stomatologia</a><a href="#/kategoria">Ginekologia</a><a href="#/kategoria">Fizjoterapia</a><a href="#/kategoria">Medycyna estetyczna</a><a href="#/kategoria">Weterynaria</a><a href="#/kategoria">Laboratorium</a></div>
  </div>
 </div></main>
@@ -318,6 +332,8 @@ var P=[
 P.forEach(function(p){if(typeof p.szs=='string'){var o={};p.szs.split(' ').forEach(function(s){o[s]=1});p.szs=o}p.mat='nitryl';p.sterile=false;p.pf=true});
 var COLS={niebieski:'#3b82c4',granatowy:'#1e3a6b',biały:'#f1f4f7',czarny:'#22262b','różowy':'#e58fb4'};
 var SUBS=[['Nitrylowe',P.length,1],['Lateksowe',96],['Winylowe',41],['Foliowe',18],['Chirurgiczne sterylne',63]];
+function prHtml(net,old,unit,ilo){var g=net*1.08,pp=(MODE=='dom'?g:net)/ilo*100;var a=MODE=='dom'?[g,'z VAT',old?old*1.08:0,zl(net)+' netto']:[net,'netto'+(unit?' / '+unit:''),old,zl(g)+' brutto'];return '<div class="n">'+zl(a[0])+' <small>'+a[1]+'</small>'+(a[2]?'<span class="old">'+zl(a[2])+'</span>':'')+'</div><div class="g">'+a[3]+' · <span class="pp">'+pp.toFixed(1).replace('.',',')+' gr za sztukę</span></div>'}
+var MODE='firma';try{MODE=localStorage.getItem('mer-mode')||'firma'}catch(e){}
 function zl(v){return v.toFixed(2).replace('.',',')+' zł'}
 function glove(c,s){s=s||120;var st=c=='#f1f4f7'?'#c8d0d8':'rgba(0,0,0,.18)';return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 120 120"><path d="M44 104V62L30 44c-4-5 2-11 7-7l9 9V22c0-6 9-6 9 0v22V16c0-6 9-6 9 0v28V20c0-6 9-6 9 0v26V28c0-6 9-6 9 0v40c0 18-6 26-14 30v6z" fill="'+c+'" stroke="'+st+'" stroke-width="1.5" stroke-linejoin="round"/><path d="M42 104h40v8H42z" fill="'+c+'" stroke="'+st+'" stroke-width="1.5" opacity=".85"/><path d="M58 50v18M67 52v16" stroke="rgba(255,255,255,.35)" stroke-width="3" stroke-linecap="round"/></svg>'}
 function ico(k){var m={r:'<path d="M9 21V12L6 9c-1-1 0-3 2-2l1 1V4c0-1 2-1 2 0v5V3c0-1 2-1 2 0v6V4c0-1 2-1 2 0v6V6c0-1 2-1 2 0v8c0 4-1 5-3 6v1z"/>',o:'<rect x="4" y="7" width="16" height="10" rx="2"/><path d="M12 9v6M9 12h6"/>',d:'<path d="M9 3h6v4l2 2v12H7V9l2-2z"/><path d="M10 14h4M12 12v4"/>',p:'<path d="M3 8h18v8H3z"/><path d="M7 8v8M17 8v8"/>',n:'<path d="M5 19 19 5M8 4l3 3M16 17l3 3"/><circle cx="6" cy="18" r="2"/>',u:'<circle cx="12" cy="12" r="8"/><path d="M8 12c2-3 6-3 8 0"/>',w:'<path d="M4 17h16M6 17V9h12v8M9 9V6h6v3"/>',s:'<rect x="5" y="4" width="14" height="16" rx="2"/><path d="M9 9h6M9 13h6"/>'};return '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0f4c75" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">'+m[k]+'</svg>'}
@@ -353,7 +369,7 @@ function card(p){var s=defSz(p);SEL[p.id]=s;
  return '<article class="card pc" data-id="'+p.id+'"><div class="im" data-open>'+(p.bs?'<span class="pill">Bestseller</span>':p.old||p.promo?'<span class="pill r">Promocja</span>':'')+'<label class="cmp" onclick="event.stopPropagation()"><input type="checkbox" data-cmp'+(CMP.indexOf(p.id)>-1?' checked':'')+'>Porównaj</label>'+glove(COLS[p.col],108)+'</div>'+
  '<span class="br">'+p.b+'</span><h3 data-open>Rękawice nitrylowe '+p.n+'</h3><div class="tags"><span>nitryl</span><span>bezpudrowe</span><span>'+p.ilo+' szt.</span></div>'+
  '<div class="szl">'+SZ.map(function(z){return '<button data-sz="'+z+'" class="'+(p.szs[z]?'':'na ')+(z==s?'on':'')+'"'+(p.szs[z]?'':' disabled')+'>'+z+'</button>'}).join('')+'</div>'+
- '<div class="pr"><div class="n">'+zl(p.net)+' <small>netto</small>'+(p.old?'<span class="old">'+zl(p.old)+'</span>':'')+'</div><div class="g">'+zl(p.net*1.08)+' brutto · <span class="pp">'+(p.net/p.ilo*100).toFixed(1).replace('.',',')+' gr za sztukę</span></div></div>'+
+ '<div class="pr">'+prHtml(p.net,p.old,'',p.ilo)+'</div>'+
  '<div class="add"><div class="qty"><button data-m>−</button><input value="1" aria-label="Ilość"><button data-p>+</button></div><button class="btn" data-add>Do koszyka</button></div>'+
  '<div class="st'+(p.w7?' w7':'')+'">'+(p.w7?'Wysyłka do 7 dni':'Wysyłka dziś, rozmiar '+s)+'</div></article>'}
 function bindCards(root){$$('.pc',root||$('#grid')).forEach(function(c){var id=c.dataset.id;
@@ -368,7 +384,7 @@ var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on')
 function cbar(){$('#cbar').classList.toggle('on',CMP.length>0);$('#ctxt').textContent='Do porównania: '+CMP.length+' z 3'}
 $('#cclr').onclick=function(){CMP=[];cbar();$$('[data-cmp]').forEach(function(x){x.checked=false})};
 $('#cgo').onclick=function(){if(CMP.length<2){toast('Zaznacz co najmniej 2 produkty');return}var L=CMP.map(byId),min=Math.min.apply(0,L.map(function(p){return p.net/p.ilo}));
- var rows=[['',function(p){return glove(COLS[p.col],70)+'<br><b>'+p.b+' '+p.n+'</b>'}],['Cena netto',function(p){return zl(p.net)}],['Cena za sztukę',function(p){var u=p.net/p.ilo;return '<span class="'+(u==min?'best':'')+'">'+(u*100).toFixed(1).replace('.',',')+' gr'+(u==min?' · najtaniej':'')+'</span>'}],['W opakowaniu',function(p){return p.ilo+' szt.'}],['Kolor',function(p){return p.col}],['Rozmiary',function(p){return SZ.filter(function(s){return p.szs[s]}).join(', ')}],['Materiał',function(){return 'nitryl, bezpudrowe'}],['Dostępność',function(p){return p.w7?'do 7 dni':'wysyłka dziś'}],['',function(p){return '<a class="btn" style="height:38px" href="#/produkt/'+p.id+'" onclick="dlg.close()">Zobacz</a>'}]];
+ var rows=[['',function(p){return glove(COLS[p.col],70)+'<br><b>'+p.b+' '+p.n+'</b>'}],[MODE=='dom'?'Cena z VAT':'Cena netto',function(p){return zl(MODE=='dom'?p.net*1.08:p.net)}],['Cena za sztukę',function(p){var u=p.net/p.ilo;var k=MODE=='dom'?1.08:1;return '<span class="'+(u==min?'best':'')+'">'+(u*k*100).toFixed(1).replace('.',',')+' gr'+(u==min?' · najtaniej':'')+'</span>'}],['W opakowaniu',function(p){return p.ilo+' szt.'}],['Kolor',function(p){return p.col}],['Rozmiary',function(p){return SZ.filter(function(s){return p.szs[s]}).join(', ')}],['Materiał',function(){return 'nitryl, bezpudrowe'}],['Dostępność',function(p){return p.w7?'do 7 dni':'wysyłka dziś'}],['',function(p){return '<a class="btn" style="height:38px" href="#/produkt/'+p.id+'" onclick="dlg.close()">Zobacz</a>'}]];
  $('#ctab').innerHTML=rows.map(function(r){return '<tr><th>'+r[0]+'</th>'+L.map(function(p){return '<td>'+r[1](p)+'</td>'}).join('')+'</tr>'}).join('');$('#dlg').showModal()};
 var dlg=$('#dlg');$('#dx').onclick=function(){dlg.close()};dlg.onclick=function(e){if(e.target==dlg)dlg.close()};
 $('#sort').onchange=function(){SORT=this.value;renderCat()};
@@ -385,23 +401,23 @@ function renderProd(id){var p=byId(id)||P[0],s=defSz(p),u=0;SEL[p.id]=s;
  '<div class="note"><b>Zmiana:</b> najważniejsze parametry są nad ceną, nie w długim opisie. Wcześniej pole „SKU” pokazywało nazwę produktu, a kod EAN był pusty.</div>'+
  '<div class="card box"><h4>Wybierz rozmiar <a href="#" id="szh">Jak dobrać rozmiar?</a></h4><div class="szb">'+SZ.map(function(z){return '<button data-z="'+z+'" class="'+(z==s?'on':'')+'"'+(p.szs[z]?'':' disabled style="opacity:.35"')+'><b>'+z+'</b><small>'+stock(z)+'</small></button>'}).join('')+'</div>'+
  '<div class="note"><b>Zmiana:</b> zamiast 5 osobnych wierszy z ceną i koszykiem jest jeden wybór rozmiaru ze stanem magazynu przy każdym.</div>'+
- '<h4 style="margin-top:16px">Jak kupujesz?</h4><div class="unit"><button class="on" data-u="1"><b>Opakowanie</b>'+p.ilo+' szt.</button><button data-u="10"><b>Karton</b>10 opak. <small>−5%</small></button></div>'+
+ '<h4 style="margin-top:16px">Jak kupujesz?</h4><div class="unit"><button class="on" data-u="1"><b>Opakowanie</b>'+p.ilo+' szt.</button><button data-u="10" class="fo"><b>Karton</b>10 opak. <small>−5%</small></button></div>'+
  '<div class="pr big" style="margin-top:16px"><div class="n" id="pn"></div><div class="g" id="pg"></div></div>'+
  '<div class="add"><div class="qty"><button data-m>−</button><input value="1" id="pq" aria-label="Ilość"><button data-p>+</button></div><button class="btn" id="padd">Dodaj do koszyka</button><button class="btn o" style="flex:none" title="Dodaj do listy zakupowej">☰ Do listy</button></div>'+
- '<div class="perks"><div><i>✓</i>'+(p.w7?'Wysyłka do 7 dni':'Zamów do 15:00, wyślemy dziś')+'</div><div><i>✓</i>Po zalogowaniu cena indywidualna dla Twojej placówki</div><div><i>✓</i>Faktura VAT, płatność z odroczonym terminem</div></div></div></div></div>'+
+ '<div class="perks"><div><i>✓</i>'+(p.w7?'Wysyłka do 7 dni':'Zamów do 15:00, wyślemy dziś')+'</div><div class="fo"><i>✓</i>Po zalogowaniu cena indywidualna dla Twojej placówki</div><div class="fo"><i>✓</i>Faktura VAT, płatność z odroczonym terminem</div><div class="do"><i>✓</i>Kupujesz bez zakładania konta</div></div></div></div></div>'+
  '<div class="tabs"><button class="on" data-t="0">Parametry</button><button data-t="1">Opis</button><button data-t="2">Dokumenty</button></div>'+
  '<div class="tp on"><table class="sp"><tr><td>Producent</td><td>'+p.b+'</td></tr><tr><td>Materiał</td><td>Nitryl, bez lateksu</td></tr><tr><td>Grubość</td><td>'+(p.th||'0,08 mm')+'<span class="ex">przykład</span></td></tr><tr><td>Długość</td><td>'+(p.len||'240 mm')+'<span class="ex">przykład</span></td></tr><tr><td>AQL</td><td>'+(p.aql||'1,5')+'<span class="ex">przykład</span></td></tr><tr><td>Normy</td><td>EN 455, EN 374<span class="ex">przykład</span></td></tr><tr><td>Rozmiary</td><td>'+SZ.filter(function(z){return p.szs[z]}).join(', ')+'</td></tr><tr><td>Opakowanie</td><td>'+p.ilo+' szt., karton 10 opak.</td></tr></table>'+
  '<div class="note"><b>Zmiana:</b> parametry ważne dla placówki (grubość, AQL, normy) w tabeli. Wartości oznaczone „przykład” uzupełnia dział zakupów.</div></div>'+
- '<div class="tp"><p>Rękawice diagnostyczne z nitrylu do badań i procedur niewymagających sterylności. Bez lateksu i pudru, więc nadają się dla personelu i pacjentów z alergią na lateks.</p><p>Opis jest krótki i konkretny. Obecny opis poleca te rękawice także do gastronomii i domu, co w sklepie dla placówek medycznych odwraca uwagę od tego, co ważne.</p></div>'+
+ '<div class="tp"><p>Rękawice diagnostyczne z nitrylu do badań i procedur niewymagających sterylności. Bez lateksu i pudru, więc nadają się dla personelu i pacjentów z alergią na lateks.</p><p>Sprawdzą się też w domu: przy opatrunkach, opiece nad chorym i sprzątaniu.</p></div>'+
  '<div class="tp"><div class="card doc">📄 Karta techniczna (PDF)</div><div class="card doc">📄 Deklaracja zgodności (PDF)</div></div>'+
- '<div class="sec"><div class="hd"><h2>Często kupowane razem</h2></div><div class="fbt">'+[['d','Cleanisept Wipes, chusteczki do dezynfekcji, tuba 100 szt.',18.52],['o','Gaziki z alkoholem 30×65 mm, 100 szt.',4.81],['p','Podkład higieniczny celulozowy',9.90]].map(function(x){return '<div class="card fb"><span class="ci">'+ico(x[0])+'</span><div><b>'+x[1]+'</b><span>'+zl(x[2])+' netto</span></div><button aria-label="Dodaj" onclick="addCart({b:\'\',n:\''+x[1].split(',')[0]+'\'},\'-\',1)">+</button></div>'}).join('')+'</div></div>'+
+ '<div class="sec"><div class="hd"><h2>Często kupowane razem</h2></div><div class="fbt">'+[['d','Cleanisept Wipes, chusteczki do dezynfekcji, tuba 100 szt.',18.52],['o','Gaziki z alkoholem 30×65 mm, 100 szt.',4.81],['p','Podkład higieniczny celulozowy',9.90]].map(function(x){return '<div class="card fb"><span class="ci">'+ico(x[0])+'</span><div><b>'+x[1]+'</b><span>'+(MODE=='dom'?zl(x[2]*1.08)+' z VAT':zl(x[2])+' netto')+'</span></div><button aria-label="Dodaj" onclick="addCart({b:\'\',n:\''+x[1].split(',')[0]+'\'},\'-\',1)">+</button></div>'}).join('')+'</div></div>'+
  (sim.length?'<div class="sec"><div class="hd"><h2>Podobne rękawice</h2><a href="#/kategoria">Wszystkie nitrylowe →</a></div><div class="grid" id="simg">'+sim.map(card).join('')+'</div></div>':'');
- function price(){var k=u?10:1,q=+$('#pq').value,net=p.net*k*(u?0.95:1);$('#pn').innerHTML=zl(net)+' <small>netto / '+(u?'karton':'opak.')+'</small>'+(p.old&&!u?'<span class="old">'+zl(p.old)+'</span>':'');$('#pg').innerHTML=zl(net*1.08)+' brutto · <span class="pp">'+(net/(p.ilo*k)*100).toFixed(1).replace('.',',')+' gr za sztukę</span>'}
+ function price(){var k=u?10:1,q=+$('#pq').value,net=p.net*k*(u?0.95:1);$('#pwrap .pr.big').innerHTML=prHtml(net,u?0:p.old,u?'karton':'opak.',p.ilo*k)}
  $$('#pwrap [data-z]').forEach(function(b){b.onclick=function(){s=b.dataset.z;SEL[p.id]=s;$$('#pwrap [data-z]').forEach(function(x){x.classList.toggle('on',x==b)})}});
  $$('#pwrap [data-u]').forEach(function(b){b.onclick=function(){u=b.dataset.u=='10';$$('#pwrap [data-u]').forEach(function(x){x.classList.toggle('on',x==b)});price()}});
  $('#pwrap [data-m]').onclick=function(){$('#pq').value=Math.max(1,+$('#pq').value-1)};$('#pwrap [data-p]').onclick=function(){$('#pq').value=+$('#pq').value+1};
  $('#padd').onclick=function(){addCart(p,s,+$('#pq').value*(u?10:1))};
- $('#szh').onclick=function(e){e.preventDefault();toast('Zmierz obwód dłoni: S 17 do 19 cm, M 19 do 21 cm, L 21 do 23 cm (przykład)')};
+ $('#szh').onclick=function(e){e.preventDefault();toast('Zmierz szerokość dłoni bez kciuka. Przykład: M to 7 do 8 cm (tak podaje DOZ Med), u innych producentów bywa inaczej.')};
  $$('#pwrap .tabs button').forEach(function(b){b.onclick=function(){$$('#pwrap .tabs button').forEach(function(x){x.classList.toggle('on',x==b)});$$('#pwrap .tp').forEach(function(t,i){t.classList.toggle('on',i==b.dataset.t)})}});
  price();var g=$('#simg');if(g)bindCards(g)}
 
@@ -414,7 +430,7 @@ function sug(){var q=$('#q').value,box=$('#sug');if(q.trim().length<2){box.class
  if(r.kind=='r'){var L=P.filter(function(p){return (!r.sz||p.szs[r.sz])&&(!r.col||p.col==r.col)});
   h+='<div class="hd">Kategoria</div><a href="#" data-go class="act">'+ico('r').replace('26','20').replace('26','20')+'Rękawice nitrylowe'+(r.sz?', rozmiar '+r.sz:'')+(r.col?', '+r.col:'')+'<small>'+L.length+' produktów</small></a>';
   if(r.sz||r.col)h+='<div class="hint">Rozumiem „'+esc(q)+'” jako: '+[r.sz?'rozmiar '+r.sz:'',r.col?'kolor '+r.col:''].filter(Boolean).join(', ')+'. Filtry włączą się same.</div>';
-  h+='<div class="hd">Produkty</div>'+L.slice(0,4).map(function(p){return '<a href="#/produkt/'+p.id+'">'+glove(COLS[p.col],28)+p.b+' '+p.n+'<small>'+zl(p.net)+'</small></a>'}).join('')}
+  h+='<div class="hd">Produkty</div>'+L.slice(0,4).map(function(p){return '<a href="#/produkt/'+p.id+'">'+glove(COLS[p.col],28)+p.b+' '+p.n+'<small>'+(MODE=='dom'?zl(p.net*1.08):zl(p.net)+' netto')+'</small></a>'}).join('')}
  else if(r.kind=='gaz'){h+='<div class="hd">Kategoria</div><a href="#" data-go>'+ico('o')+'Gaziki do dezynfekcji skóry<small>28 produktów</small></a><div class="hint">„Gaziki” to dla klientów gaziki do dezynfekcji, nie kompresy ani zestawy do szczepień, które dziś wychodzą na górze wyników.</div>'}
  else{h+='<div class="hd">Brak dopasowania w demo</div><a href="#" data-go>Szukaj „'+esc(q)+'” w całym sklepie</a><div class="hint">W demo działają: rękawice (rozmiar, kolor) i gaziki.</div>'}
  box.innerHTML=h;box.classList.add('on');var go=$('[data-go]',box);if(go)go.onclick=function(e){e.preventDefault();run()}}
@@ -422,7 +438,10 @@ function esc(s){return String(s).replace(/[<>&"]/g,'')}
 function run(){var r=parse($('#q').value);$('#sug').classList.remove('on');if(r.kind=='r'){F={col:r.col?[r.col]:[],sz:r.sz?[r.sz]:[],ilo:[],b:[],promo:false,stock:false};location.hash='#/kategoria';renderCat()}else if(r.kind=='gaz'){toast('W demo pokazuję kategorię rękawic. Gaziki działałyby tak samo.')}else toast('W demo działają wyszukiwania rękawic i gazików.')}
 $('#q').addEventListener('input',sug);$('#q').addEventListener('focus',sug);$('#q').addEventListener('keydown',function(e){if(e.key=='Enter'){e.preventDefault();run()}});
 $('#qgo').onclick=run;document.addEventListener('click',function(e){if(!e.target.closest('.sb'))$('#sug').classList.remove('on')});
-$$('#hchips button').forEach(function(b){b.onclick=function(){$('#q').value=b.dataset.q;$('#q').focus();sug()}});
+function setMode(m){MODE=m;try{localStorage.setItem('mer-mode',m)}catch(e){}document.body.classList.toggle('dom',m=='dom');$$('[data-mode]').forEach(function(b){b.classList.toggle('on',b.dataset.mode==m)});var h=location.hash;if(h.indexOf('#/kategoria')==0)renderCat();else if(h.indexOf('#/produkt/')==0)renderProd(h.split('/')[2])}
+$$('[data-mode]').forEach(function(b){b.onclick=function(){setMode(b.dataset.mode);toast(b.dataset.mode=='dom'?'Ceny z VAT, pojedyncze opakowania':'Ceny netto, kartony i faktura VAT')}});
+document.body.classList.toggle('dom',MODE=='dom');$$('[data-mode]').forEach(function(b){b.classList.toggle('on',b.dataset.mode==MODE)});
+$$('.hero .chips button').forEach(function(b){b.onclick=function(){$('#q').value=b.dataset.q;$('#q').focus();sug()}});
 
 /* ---------- routing ---------- */
 function route(){var h=location.hash||'#/',v='home';if(h.indexOf('#/kategoria')==0){v='cat';renderCat()}else if(h.indexOf('#/produkt/')==0){v='prod';renderProd(h.split('/')[2])}
